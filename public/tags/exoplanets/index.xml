@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Exoplanets on 3hangq1ng&#39;s Blog</title>
-    <link>//localhost:42651/tags/exoplanets/</link>
+    <link>//localhost:37707/tags/exoplanets/</link>
     <description>Recent content in Exoplanets on 3hangq1ng&#39;s Blog</description>
     <generator>Hugo -- 0.152.2</generator>
     <language>zh-cn</language>
     <lastBuildDate>Thu, 27 Jul 2023 13:03:07 +0700</lastBuildDate>
-    <atom:link href="//localhost:42651/tags/exoplanets/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="//localhost:37707/tags/exoplanets/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Exoplanets: Hunting for Earth&#39;s Cosmic Cousins</title>
-      <link>//localhost:42651/posts/2022/exoplanets-hunting/</link>
+      <link>//localhost:37707/posts/2022/exoplanets-hunting/</link>
       <pubDate>Thu, 27 Jul 2023 13:03:07 +0700</pubDate>
-      <guid>//localhost:42651/posts/2022/exoplanets-hunting/</guid>
+      <guid>//localhost:37707/posts/2022/exoplanets-hunting/</guid>
       <description>Discover the fascinating quest to find exoplanets, distant worlds that may resemble Earth.</description>
     </item>
   </channel>

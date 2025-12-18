@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Mars on 3hangq1ng&#39;s Blog</title>
-    <link>//localhost:42651/tags/mars/</link>
+    <link>//localhost:37707/tags/mars/</link>
     <description>Recent content in Mars on 3hangq1ng&#39;s Blog</description>
     <generator>Hugo -- 0.152.2</generator>
     <language>zh-cn</language>
     <lastBuildDate>Tue, 15 Aug 2023 13:45:49 +0700</lastBuildDate>
-    <atom:link href="//localhost:42651/tags/mars/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="//localhost:37707/tags/mars/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Space Exploration&#39;s Next Frontier: The Race to Reach Mars</title>
-      <link>//localhost:42651/posts/2023/space-explorations-next-frontier/</link>
+      <link>//localhost:37707/posts/2023/space-explorations-next-frontier/</link>
       <pubDate>Tue, 15 Aug 2023 13:45:49 +0700</pubDate>
-      <guid>//localhost:42651/posts/2023/space-explorations-next-frontier/</guid>
+      <guid>//localhost:37707/posts/2023/space-explorations-next-frontier/</guid>
       <description>Explore the exciting endeavors and challenges of reaching Mars in the new era of space exploration.</description>
     </item>
   </channel>
