@@ -1,23 +1,15 @@
-# mainSections = ["posts"]
-
-# 作者信息，必须使用 params.author.name
 [params.author]
 name = "shangqing"
 bio = "写点个人简介"
 avatar = "/images/avatar.jpg"
 
-# 主题样式设置
 [params.style]
 theme = "auto"         # auto / light / dark
-font = "inter"         # inter / system / other
-
-# 其他可选参数
-[params.social]
-github = "https://github.com/Luventious"
-twitter = "https://twitter.com/Lunventious"
+font = "inter"         
 
 [params.features]
 enableKaTeX = true
 enableMermaid = true
 enableChartJS = true
 enableRSS = true
+

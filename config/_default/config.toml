@@ -1,23 +1,17 @@
 baseURL = "/"
-languageCode = "en-us"
-title = "Shaunkyn"
+languageCode = "zh-CN"
+title = "3hangq1ng's blog"
 theme = "PaperMod"
 
 # 可选：首页布局、分页等
 [pagination]
 pagerSize = 10
 
+[params]
+showSocial = true
+
 disableKinds = ["RSS", "sitemap"]
 
-[params]
-  mainSections = ["posts"]
-  dateFormat = "Jan 2, 2006"
-
-[module]
-  [[module.imports]]
-    path = "github.com/adityatelange/hugo-PaperMod"
-    disable = true
-
-  [[module.imports]]
-    path = "github.com/jpanther/congo/v2"
-    disable = true
+[params.homeInfoParams]
+Title = "Hi there 👋"
+Content = "这里可以写简介、信息、链接或者 About 内容"
