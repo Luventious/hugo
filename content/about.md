@@ -3,7 +3,6 @@ title: "关于我"
 date: 2023-10-06T20:37:29+07:00
 image: images/nadine-shaabana-ZPP-zP8HYG0-unsplash.jpg
 draft: false
-url: /about/
 hideTitle: true      # 隐藏标题
 hideMeta: true       # 隐藏日期/作者/标签
 hideShare: true      # 隐藏社交分享
