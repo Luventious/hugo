@@ -1,7 +1,7 @@
 baseURL = 'http://112.126.85.212:12157/'
 languageCode = 'en-us'
 title = 'Pehtheme'
-theme = 'pehtheme'
+theme = 'PaperMod'
 
 summaryLength = '20' # <- 20 words are approximately 160 characters
 googleAnalytics = 'G-MEASUREMENT_ID' # <- Your GA-4
@@ -41,8 +41,8 @@ disqusShortname = 'your-disqus-shortname' # <- Get form here : https://disqus.co
 
 [module]
   [module.hugoVersion]
-    extended = false
-    min = "0.116.0"
+    extended = true
+    min = "0.152.2"
   [module.mounts] # Directing the static folder to assets.
   	source = 'assets'
   	target = 'static'
