@@ -6,7 +6,7 @@ description: Exploring the mysteries of black holes, the enigmatic cosmic phenom
 image: images/nadine-shaabana-ZPP-zP8HYG0-unsplash.jpg
 caption: Photo by Nadine Shaabana on Unsplash.
 categories:
-  - astronomy
+  - posts
 tags:
   - black hole
   - space
