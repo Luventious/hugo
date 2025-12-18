@@ -33,7 +33,7 @@
 }
 
 /* 调整 H2 字体大小和字重 */
-.entry-header h1 {
+.entry-header, h1 {
   font-family: var(--font-family-one); 
   font-size: 3rem !important;
   font-weight: 700 !important;
