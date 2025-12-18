@@ -1,17 +1,70 @@
+# 站点基础信息
 baseURL = "/"
-languageCode = "zh-CN"
-title = "3hangq1ng's blog"
+languageCode = "zh-cn"
+title = "3hangq1ng's Blog"
 theme = "PaperMod"
+enableInlineShortcodes = true
+enableEmoji = true
+enableRobotsTXT = true
+hasCJKLanguage = true
+# 默认语言
+defaultContentLanguage = "zh-cn"
+defaultContentLanguageInSubdir = false
 
-# 可选：首页布局、分页等
+# 构建选项
+buildDrafts = false
+buildFuture = false
+buildExpired = false
+
+# 分页
 [pagination]
-pagerSize = 10
+pagerSize = 15
+summaryLength = 140
 
-[params]
-showSocial = true
+# 压缩
+[minify]
+disableXML = true
 
-disableKinds = ["RSS", "sitemap"]
+# 自定义文章永久链接
+[permalinks]
+post = "/:title/"
 
 [params.homeInfoParams]
 Title = "Hi there 👋"
 Content = "这里可以写简介、信息、链接或者 About 内容"
+
+# 社交图标
+[[params.socialIcons]]
+name = "github"
+url = "https://github.com/Luventious"
+
+[[params.socialIcons]]
+name = "email"
+url = "mailto:1069263967@qq.com"
+
+[[params.socialIcons]]
+name = "rss"
+url = "index.xml"
+
+[[params.socialIcons]]
+name = "link"
+url = "https://umami.rzlnb.top/share/ymNY5tcAN7soVhBW/blog.rzlnb.top"
+
+# 输出格式
+[outputs]
+home = ["HTML", "RSS", "JSON"]
+
+# 允许原始 HTML
+[markup.goldmark.renderer]
+unsafe = true
+
+# 分类
+[taxonomies]
+tag = "tags"
+series = "series"
+
+# 多语言配置
+[languages.zh-cn]
+languageName = "简中"
+weight = 1
+defaultContentLanguageInSubdir = false

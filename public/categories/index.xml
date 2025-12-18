@@ -1,32 +1,32 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Categories on 3hangq1ng&#39;s blog</title>
-    <link>//localhost:40669/categories/</link>
-    <description>Recent content in Categories on 3hangq1ng&#39;s blog</description>
+    <title>Categories on Hi there 👋</title>
+    <link>https://uxjcqkixi6-1313.cnb.run:40661/categories/</link>
+    <description>Recent content in Categories on Hi there 👋</description>
     <generator>Hugo -- 0.152.2</generator>
     <language>zh-CN</language>
     <lastBuildDate>Wed, 04 Oct 2023 22:11:36 +0700</lastBuildDate>
-    <atom:link href="//localhost:40669/categories/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://uxjcqkixi6-1313.cnb.run:40661/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Posts</title>
-      <link>//localhost:40669/categories/posts/</link>
+      <link>https://uxjcqkixi6-1313.cnb.run:40661/categories/posts/</link>
       <pubDate>Wed, 04 Oct 2023 22:11:36 +0700</pubDate>
-      <guid>//localhost:40669/categories/posts/</guid>
+      <guid>https://uxjcqkixi6-1313.cnb.run:40661/categories/posts/</guid>
       <description></description>
     </item>
     <item>
       <title>Space</title>
-      <link>//localhost:40669/categories/space/</link>
+      <link>https://uxjcqkixi6-1313.cnb.run:40661/categories/space/</link>
       <pubDate>Sun, 24 Sep 2023 11:15:17 +0700</pubDate>
-      <guid>//localhost:40669/categories/space/</guid>
+      <guid>https://uxjcqkixi6-1313.cnb.run:40661/categories/space/</guid>
       <description></description>
     </item>
     <item>
       <title>Astronomy</title>
-      <link>//localhost:40669/categories/astronomy/</link>
+      <link>https://uxjcqkixi6-1313.cnb.run:40661/categories/astronomy/</link>
       <pubDate>Sat, 23 Sep 2023 22:45:37 +0700</pubDate>
-      <guid>//localhost:40669/categories/astronomy/</guid>
+      <guid>https://uxjcqkixi6-1313.cnb.run:40661/categories/astronomy/</guid>
       <description></description>
     </item>
   </channel>

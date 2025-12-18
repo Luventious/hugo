@@ -1,14 +1,18 @@
+# 可以继续添加文章、关于我、标签等菜单
 [[main]]
-  name = "主页"
-  url = "/"
-  weight = 1
+identifier = "home"
+name = "主页"
+url = "/"
+weight = 1
 
 [[main]]
-  name = "文章"
-  url = "/posts/"
-  weight = 2
+identifier = "posts"
+name = "文章"
+url = "/posts/"
+weight = 2
 
 [[main]]
-  name = "关于我"
-  url = "/about/"
-  weight = 3
+identifier = "about"
+name = "关于我"
+url = "/about/"
+weight = 3

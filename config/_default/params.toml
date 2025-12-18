@@ -1,15 +1,49 @@
-[params.author]
-name = "shangqing"
-bio = "写点个人简介"
-avatar = "/images/avatar.jpg"
+# 全局参数
+env = "production"
+description = "个人博客，记录和分享"
+author = "Coolzr"
+defaultTheme = "auto"
 
-[params.style]
-theme = "auto"         # auto / light / dark
-font = "inter"         
+# 字体
+customCSS = ["css/fonts.css"]
 
-[params.features]
-enableKaTeX = true
-enableMermaid = true
-enableChartJS = true
-enableRSS = true
+# 主题功能开关
+ShowCodeCopyButtons = true
+ShowReadingTime = true
+ShowPostNavLinks = true
+ShowBreadCrumbs = true
+ShowWordCounts = true
+ShowLastMod = true
+ShowToc = true
+TocOpen = true
+comments = true
 
+# 网站左上角标签
+[params.label]
+text = "3hangq1ng's Blog"
+icon = "/images/avatar.jpg"
+iconHeight = 35
+
+
+# Favicon 和 Apple Touch Icon
+[params.assets]
+favicon = "/images/avatar.jpg"
+
+# 列表页和文章页封面显示策略
+[params.cover]
+hidden = false
+hiddenInList = false
+hiddenInSingle = true
+
+# 搜索配置
+[params.fuseOpts]
+keys = ["title", "permalink", "summary"]
+
+# 页脚年份
+StartYear = 2024
+EndYear = 2025
+
+# 首页信息（可用于 Profile Mode 或首页介绍）
+[params.homeInfoParams]
+Title = "欢迎来到我的博客！"
+Content = "## 总得写点什么吧"
