@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Telescopes on Pehtheme</title>
-    <link>https://pehtheme-hugo.netlify.app/tags/telescopes/</link>
-    <description>Recent content in Telescopes on Pehtheme</description>
-    <generator>Hugo</generator>
-    <language>en-us</language>
+    <title>Telescopes on </title>
+    <link>https://uxjcqkixi6-1313.cnb.run:1313/tags/telescopes/</link>
+    <description>Recent content in Telescopes on </description>
+    <generator>Hugo -- 0.152.2</generator>
+    <language>en</language>
     <lastBuildDate>Mon, 07 Aug 2023 09:30:32 +0700</lastBuildDate>
-    <atom:link href="https://pehtheme-hugo.netlify.app/tags/telescopes/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://uxjcqkixi6-1313.cnb.run:1313/tags/telescopes/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Cosmic Time Travel: Peering into the Universe&#39;s Past with Telescopes</title>
-      <link>https://pehtheme-hugo.netlify.app/posts/2022/cosmic-time-travel/</link>
+      <link>https://uxjcqkixi6-1313.cnb.run:1313/posts/2022/cosmic-time-travel/</link>
       <pubDate>Mon, 07 Aug 2023 09:30:32 +0700</pubDate>
-      <guid>https://pehtheme-hugo.netlify.app/posts/2022/cosmic-time-travel/</guid>
-      <description>&lt;p&gt;In the realm of astronomy, telescopes are our time machines, allowing us to peer into the distant past of the universe. These remarkable instruments have the power to capture light that has traveled across the cosmos for millions or even billions of years. In this article, we embark on a journey of cosmic time travel, exploring how telescopes enable us to witness the universe&amp;rsquo;s history.&lt;/p&gt;</description>
+      <guid>https://uxjcqkixi6-1313.cnb.run:1313/posts/2022/cosmic-time-travel/</guid>
+      <description>Explore how telescopes enable us to journey back in time by observing distant celestial objects.</description>
     </item>
   </channel>
 </rss>

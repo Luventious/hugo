@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Supernova on Pehtheme</title>
-    <link>https://pehtheme-hugo.netlify.app/tags/supernova/</link>
-    <description>Recent content in Supernova on Pehtheme</description>
-    <generator>Hugo</generator>
-    <language>en-us</language>
+    <title>Supernova on </title>
+    <link>https://uxjcqkixi6-1313.cnb.run:1313/tags/supernova/</link>
+    <description>Recent content in Supernova on </description>
+    <generator>Hugo -- 0.152.2</generator>
+    <language>en</language>
     <lastBuildDate>Sat, 23 Sep 2023 22:45:37 +0700</lastBuildDate>
-    <atom:link href="https://pehtheme-hugo.netlify.app/tags/supernova/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://uxjcqkixi6-1313.cnb.run:1313/tags/supernova/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Stellar Spectacles: The Wonders of Supernova Explosions</title>
-      <link>https://pehtheme-hugo.netlify.app/posts/2023/stellar-spectacles/</link>
+      <link>https://uxjcqkixi6-1313.cnb.run:1313/posts/2023/stellar-spectacles/</link>
       <pubDate>Sat, 23 Sep 2023 22:45:37 +0700</pubDate>
-      <guid>https://pehtheme-hugo.netlify.app/posts/2023/stellar-spectacles/</guid>
-      <description>&lt;p&gt;In the vast expanse of the cosmos, few events match the spectacle and scientific importance of supernova explosions. These awe-inspiring cosmic fireworks mark the dramatic end of a star&amp;rsquo;s life and offer profound insights into the universe&amp;rsquo;s workings. In this article, we embark on a journey to explore the wonders of supernova explosions, shedding light on their significance and the mysteries they unveil.&lt;/p&gt;</description>
+      <guid>https://uxjcqkixi6-1313.cnb.run:1313/posts/2023/stellar-spectacles/</guid>
+      <description>Explore the breathtaking phenomena of supernova explosions, the cosmic fireworks of the universe.</description>
     </item>
   </channel>
 </rss>
