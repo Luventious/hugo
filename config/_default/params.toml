@@ -1,3 +1,5 @@
+# mainSections = ["posts"]
+
 # 作者信息，必须使用 params.author.name
 [params.author]
 name = "shangqing"

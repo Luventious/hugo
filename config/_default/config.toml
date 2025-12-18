@@ -10,7 +10,7 @@ pagerSize = 10
 disableKinds = ["RSS", "sitemap"]
 
 [params]
-  mainSections = ["post"]
+  mainSections = ["posts"]
   dateFormat = "Jan 2, 2006"
 
 [module]

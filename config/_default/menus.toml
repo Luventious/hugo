@@ -1,14 +1,14 @@
 [[main]]
-  name = "Home"
+  name = "主页"
   url = "/"
   weight = 1
 
 [[main]]
-  name = "Posts"
+  name = "文章"
   url = "/posts/"
   weight = 2
 
 [[main]]
-  name = "About"
+  name = "关于我"
   url = "/about/"
   weight = 3
