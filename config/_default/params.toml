@@ -4,9 +4,6 @@ description = "个人博客，记录和分享"
 author = "Coolzr"
 defaultTheme = "auto"
 
-# 字体
-customCSS = ["css/fonts.css"]
-
 # 主题功能开关
 ShowCodeCopyButtons = true
 ShowReadingTime = true
@@ -17,6 +14,10 @@ ShowLastMod = true
 ShowToc = true
 TocOpen = true
 comments = true
+
+# 字体
+[params]
+customCSS = ["css/custom.css"]
 
 # 网站左上角标签
 [params.label]
