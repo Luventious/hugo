@@ -1,0 +1,57 @@
+@font-face {
+  font-family: "FZQingKeBenYueSong";
+  src: url("/fonts/FZQKBYSJW--GB1-0.woff2") format("woff2");
+  font-display: swap;
+}
+
+.header,
+.nav,
+.logo,
+.menu,
+.footer {
+  font-family: "Inter", system-ui, -apple-system,
+    "PingFang SC", sans-serif;
+}
+
+.profile,
+.home-info,
+.main {
+  font-family: "Inter", system-ui, -apple-system,
+    "PingFang SC", sans-serif;
+}
+
+.post-entry {
+  font-family: "Inter", system-ui, -apple-system,
+    "PingFang SC", sans-serif;
+}
+
+.entry-title {
+  font-family: "FZQingKeBenYueSong", serif;
+}
+
+.post-title {
+  font-family: "FZQingKeBenYueSong", serif;
+  letter-spacing: 0.02em;
+}
+
+.post-content {
+  font-family: "FZQingKeBenYueSong", serif;
+  line-height: 1.9;
+}
+
+.post-meta,
+.post-meta * {
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 0.9em;
+}
+
+.toc,
+.toc a {
+  font-family: "Inter", system-ui, sans-serif;
+}
+
+pre,
+code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas,
+    "Liberation Mono", monospace;
+}
