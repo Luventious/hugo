@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Telescopes on Shaunkyn</title>
-    <link>//localhost:33575/tags/telescopes/</link>
+    <link>//localhost:44981/tags/telescopes/</link>
     <description>Recent content in Telescopes on Shaunkyn</description>
     <generator>Hugo -- 0.152.2</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 07 Aug 2023 09:30:32 +0700</lastBuildDate>
-    <atom:link href="//localhost:33575/tags/telescopes/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="//localhost:44981/tags/telescopes/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Cosmic Time Travel: Peering into the Universe&#39;s Past with Telescopes</title>
-      <link>//localhost:33575/posts/2022/cosmic-time-travel/</link>
+      <link>//localhost:44981/posts/2022/cosmic-time-travel/</link>
       <pubDate>Mon, 07 Aug 2023 09:30:32 +0700</pubDate>
-      <guid>//localhost:33575/posts/2022/cosmic-time-travel/</guid>
+      <guid>//localhost:44981/posts/2022/cosmic-time-travel/</guid>
       <description>Explore how telescopes enable us to journey back in time by observing distant celestial objects.</description>
     </item>
   </channel>
