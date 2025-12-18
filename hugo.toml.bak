@@ -1,6 +1,6 @@
-baseURL = 'http://112.126.85.212:12157/'
-languageCode = 'en-us'
-title = 'Pehtheme'
+baseURL = '/'
+languageCode = 'zh-CN'
+title = 'Hi there 👋'
 theme = 'PaperMod'
 
 summaryLength = '20' # <- 20 words are approximately 160 characters

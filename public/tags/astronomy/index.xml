@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Astronomy on 3hangq1ng&#39;s blog</title>
-    <link>//localhost:40669/tags/astronomy/</link>
-    <description>Recent content in Astronomy on 3hangq1ng&#39;s blog</description>
+    <title>Astronomy on 3hangq1ng&#39;s Blog</title>
+    <link>//localhost:42651/tags/astronomy/</link>
+    <description>Recent content in Astronomy on 3hangq1ng&#39;s Blog</description>
     <generator>Hugo -- 0.152.2</generator>
-    <language>zh-CN</language>
+    <language>zh-cn</language>
     <lastBuildDate>Sun, 30 Jul 2023 09:30:32 +0700</lastBuildDate>
-    <atom:link href="//localhost:40669/tags/astronomy/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="//localhost:42651/tags/astronomy/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>The Hubble Space Telescope: 30 Years of Stunning Discoveries</title>
-      <link>//localhost:40669/posts/2022/the-hubble-space-telescope/</link>
+      <link>//localhost:42651/posts/2022/the-hubble-space-telescope/</link>
       <pubDate>Sun, 30 Jul 2023 09:30:32 +0700</pubDate>
-      <guid>//localhost:40669/posts/2022/the-hubble-space-telescope/</guid>
+      <guid>//localhost:42651/posts/2022/the-hubble-space-telescope/</guid>
       <description>Explore the incredible journey of the Hubble Space Telescope and its three decades of groundbreaking contributions to astronomy.</description>
     </item>
     <item>
       <title>Exoplanets: Hunting for Earth&#39;s Cosmic Cousins</title>
-      <link>//localhost:40669/posts/2022/exoplanets-hunting/</link>
+      <link>//localhost:42651/posts/2022/exoplanets-hunting/</link>
       <pubDate>Thu, 27 Jul 2023 13:03:07 +0700</pubDate>
-      <guid>//localhost:40669/posts/2022/exoplanets-hunting/</guid>
+      <guid>//localhost:42651/posts/2022/exoplanets-hunting/</guid>
       <description>Discover the fascinating quest to find exoplanets, distant worlds that may resemble Earth.</description>
     </item>
   </channel>

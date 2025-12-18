@@ -1,0 +1,15 @@
+[params.author]
+name = "shangqing"
+bio = "写点个人简介"
+avatar = "/images/avatar.jpg"
+
+[params.style]
+theme = "auto"         # auto / light / dark
+font = "inter"         
+
+[params.features]
+enableKaTeX = true
+enableMermaid = true
+enableChartJS = true
+enableRSS = true
+
