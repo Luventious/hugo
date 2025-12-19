@@ -57,15 +57,8 @@ body {
   color: var(--text-normal);
 }
 
-/* 调整 header 的高度 */
-.header {     /* 修改 logo 的最大高度 */
-  width: auto;   
-  padding-top: 20px;       /* 调整上方内边距 */
-  padding-bottom: 20px;    /* 调整下方内边距 */
-  height: auto !important;
-}
-
-/* 完全重置 Logo 容器样式 */
+/* 完全重置 Logo 容器
+样式 */
 a[accesskey="h"] {
   all: unset !important; /* 清除所有默认样式 */
   display: flex !important;
