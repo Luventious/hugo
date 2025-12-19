@@ -1,8 +1,8 @@
-/* @font-face {
+@font-face {
   font-family: 'Marcellus';
   src: url('/fonts/Marcellus-Regular.woff2') format('woff2');
   font-weight: normal;
-  font-style: normal; */
+  font-style: normal;
 }
 @font-face {
   font-family: 'Bellefair';
@@ -21,7 +21,7 @@
 
 :root {
   /* 核心视觉字体 */
-  --font-family-one: 'songti', serif;  /* Logo、按钮、标签标题 */
+  --font-family-one: 'Marcellus', 'songti', serif;  /* Logo、按钮、标签标题 */
   --font-family-two: 'Bellefair', serif;  /* 英雄区标题、二级标题 */
 
   /* 通用正文字体栈 */
@@ -30,24 +30,29 @@
 
 
 /* Logo */
-.logo a {
+.logo a ,#menu a {
   font-family: var(--font-family-one); 
 }
 
-.entry-header, .entry-content, a, h2 {
+.entry-content {
   font-family: var(--font-family-one);
 }
 
 /* 调整 H2 字体大小和字重 */
-.entry-header, h1 {
+.entry-header {
   font-family: var(--font-family-one); 
-  font-size: 3rem !important;
+  font-size: 2rem !important;
   font-weight: 700 !important;
   line-height: 1.0;
 }
 
+.post-title {
+  font-family: var(--font-family-one); 
+  font-size: 3rem !important;
+}
+
 /* 按钮 / 标签页标题 */
-.button, .tab-title, .post-title {
+.button, .tab-title, {
   font-family: var(--font-family-body);
 }
 
@@ -57,7 +62,7 @@
 }
 
 body {
-  font-family: var(--font-family-body);
+  font-family: var(--font-family-one);
   font-size: 1rem;
   line-height: 1.6;
   color: var(--text-normal);
