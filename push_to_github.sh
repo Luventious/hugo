@@ -3,7 +3,7 @@
 # 一键推送 Hugo 网站到 GitHub
 
 # 项目根目录
-PROJECT_DIR="/workspace/blog/hugo"
+PROJECT_DIR="/workspace/hugo"
 
 # 进入项目目录
 cd "$PROJECT_DIR" || { echo "目录不存在: $PROJECT_DIR"; exit 1; }
