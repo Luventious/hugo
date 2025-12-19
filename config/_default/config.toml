@@ -1,5 +1,5 @@
 # 站点基础信息
-baseURL = "http://112.126.85.212/"
+baseURL = "http://112.126.85.212:12157/"
 languageCode = "zh-cn"
 title = "余 / 弦 / 退 / 火 /" #不为空logo才显示
 theme = "PaperMod"
