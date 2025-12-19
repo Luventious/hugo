@@ -1,7 +1,7 @@
 # 站点基础信息
 baseURL = "/"
 languageCode = "zh-cn"
-title = "余弦退火" #不为空logo才显示
+title = "随思 / 漫记" #不为空logo才显示
 theme = "PaperMod"
 enableInlineShortcodes = true
 enableEmoji = true
