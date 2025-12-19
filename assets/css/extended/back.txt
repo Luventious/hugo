@@ -1,0 +1,8 @@
+固定
+    logo
+
+不固定
+    中文
+    post-title
+
+.first-entry, .entry-header, .entry-content, a, h2 

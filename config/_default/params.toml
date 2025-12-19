@@ -1,7 +1,7 @@
 # 全局参数
 env = "production"
-description = "个人博客，记录和分享"
-author = "Coolzr"
+description = "有点儿意思~"
+author = "3hangq1ng"
 defaultTheme = "auto"
 
 # 主题功能开关
@@ -33,8 +33,3 @@ keys = ["title", "permalink", "summary"]
 # 页脚年份
 StartYear = 2024
 EndYear = 2025
-
-# 首页信息（可用于 Profile Mode 或首页介绍）
-[params.homeInfoParams]
-Title = "欢迎来到我的博客！"
-Content = "## 总得写点什么吧"

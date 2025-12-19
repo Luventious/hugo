@@ -37,8 +37,8 @@ disableXML = true
 post = "/:title/"
 
 [params.homeInfoParams]
-Title = "天府绿道APP / 设计提案"
-Content = "@2020-2021 工作项目第一阶段汇报提案"
+Title = "新车 | 2026年第一季度亮相，比亚迪海豹08/海狮08预告图发布"
+Content = "[懂车帝原创 产品] 12月15日，比亚迪发布了海洋网旗下海豹08和海狮08(图片)的预告图，两款新车定位于海洋8系双旗舰，将于2026年第一季度亮相。"
 
 # 社交图标
 [[params.socialIcons]]
