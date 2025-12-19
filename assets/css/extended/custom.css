@@ -62,8 +62,7 @@ body {
   width: auto;   
   padding-top: 20px;       /* 调整上方内边距 */
   padding-bottom: 20px;    /* 调整下方内边距 */
-  height: auto;            /* 如果你想设置固定高度，可以替换 auto 为具体值（如: 120px） */
-  max-height: 150px !important;
+  height: auto !important;
 }
 
 /* 完全重置 Logo 容器样式 */
@@ -73,13 +72,14 @@ a[accesskey="h"] {
   justify-content: center !important;
   align-items: center !important;
   cursor: pointer !important; /* 恢复链接点击指针 */
+  width: auto !important;
 }
 
 a[accesskey="h"] svg {
   all: unset !important;
   display: block !important;
-  height: 10 !important;
-  max-width: 150px !important;
+  height: 100px !important;
+  width: auto !important;
 }
 
 .post-entry {
