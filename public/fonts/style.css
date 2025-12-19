@@ -1,7 +1,11 @@
-@font-face {
-    font-family: 'AaGuDianKeBenSong';
-    src:  url('AaGuDianKeBenSong.woff2') format('woff2');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
+server {
+    listen 80;
+    server_name 112.126.85.212;
+
+    root /var/www/html/public;
+    index index.html;
+
+    location / {
+        try_files $uri $uri/ /index.html;
+    }
 }
