@@ -1,8 +1,8 @@
-@font-face {
+/* @font-face {
   font-family: 'Marcellus';
   src: url('/fonts/Marcellus-Regular.woff2') format('woff2');
   font-weight: normal;
-  font-style: normal;
+  font-style: normal; */
 }
 @font-face {
   font-family: 'Bellefair';
@@ -11,9 +11,17 @@
   font-style: normal;
 }
 
+@font-face {
+    font-family: 'songti';
+    src:  url('AaGuDianKeBenSong.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
 :root {
   /* 核心视觉字体 */
-  --font-family-one: 'Marcellus', serif;  /* Logo、按钮、标签标题 */
+  --font-family-one: 'songti', serif;  /* Logo、按钮、标签标题 */
   --font-family-two: 'Bellefair', serif;  /* 英雄区标题、二级标题 */
 
   /* 通用正文字体栈 */
@@ -57,8 +65,7 @@ body {
   color: var(--text-normal);
 }
 
-/* 完全重置 Logo 容器
-样式 */
+/* 完全重置 Logo 容器样式 */
 a[accesskey="h"] {
   all: unset !important; /* 清除所有默认样式 */
   display: flex !important;
