@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Supernova on 余弦退火</title>
+    <title>Supernova on 随思 / 漫记</title>
     <link>//localhost:1313/tags/supernova/</link>
-    <description>Recent content in Supernova on 余弦退火</description>
+    <description>Recent content in Supernova on 随思 / 漫记</description>
     <generator>Hugo -- 0.152.2</generator>
     <language>zh-cn</language>
     <lastBuildDate>Sat, 23 Sep 2023 22:45:37 +0700</lastBuildDate>
