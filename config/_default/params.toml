@@ -15,16 +15,6 @@ ShowToc = true
 TocOpen = true
 comments = true
 
-# 字体
-[params]
-customCSS = ["css/custom.css"]
-
-# 网站左上角标签
-[params.label]
-text = "3hangq1ng's Blog"
-icon = "/images/avatar.jpg"
-iconHeight = 35
-
 
 # Favicon 和 Apple Touch Icon
 [params.assets]
