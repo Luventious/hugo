@@ -1,18 +1,11 @@
 server {
-    # 核心：监听 80 端口（HTTP 默认端口）
     listen 80;
-    # IPv6 支持（可选）
-    listen [::]:80;
-    
-    # 服务器 IP 或域名（直接填 IP 即可）
-    server_name http://112.126.85.212/;
+    server_name 112.126.85.212;
 
-    # Hugo 静态文件的部署目录（和之前一致）
     root /var/www/html/public;
     index index.html;
 
-    # 处理 Hugo 页面路由（避免刷新 404）
     location / {
-        try_files $uri $uri/ =404;
+        try_files $uri $uri/ /index.html;
     }
 }
