@@ -1,7 +1,7 @@
 # 站点基础信息
 baseURL = "/"
 languageCode = "zh-cn"
-title = "余弦退火"
+title = ""
 theme = "PaperMod"
 enableInlineShortcodes = true
 enableEmoji = true
@@ -15,9 +15,13 @@ defaultContentLanguageInSubdir = false
 buildDrafts = false
 buildFuture = false
 buildExpired = false
+# 网站左上角标签
 
-[params]
-customCSS = ["css/custom.css"]
+[params.label]
+text = ""
+icon = "images/logo.png"
+iconSVG = ""
+iconHeight = 35
 
 # 分页
 [pagination]
