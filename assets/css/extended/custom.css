@@ -63,11 +63,25 @@ body {
   padding-top: 20px;       /* 调整上方内边距 */
   padding-bottom: 20px;    /* 调整下方内边距 */
   height: auto;            /* 如果你想设置固定高度，可以替换 auto 为具体值（如: 120px） */
+  max-height: 150px !important;
 }
 
+/* 完全重置 Logo 容器样式 */
+a[accesskey="h"] {
+  all: unset !important; /* 清除所有默认样式 */
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  cursor: pointer !important; /* 恢复链接点击指针 */
+}
 
-/* logo 样式 */
-.img {
-    max-height: 10px;     /* 设置 logo 图片的最大高度 */
-    margin-right: 15px;   /* 给 logo 和标题之间加点间距 */
+a[accesskey="h"] svg {
+  all: unset !important;
+  display: block !important;
+  height: 10 !important;
+  max-width: 150px !important;
+}
+
+.post-entry {
+  margin-top: 50px;
 }
