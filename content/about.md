@@ -3,16 +3,11 @@ title: "关于我"
 date: 2023-10-06T20:37:29+07:00
 image: images/nadine-shaabana-ZPP-zP8HYG0-unsplash.jpg
 draft: false
-hideTitle: true      # 隐藏标题
+hideTitle: true     # 隐藏标题
 hideMeta: true       # 隐藏日期/作者/标签
 hideShare: true      # 隐藏社交分享
 hideComments: true   # 隐藏评论
 hideReadingTime: true # 隐藏阅读时间
-socialIcons:
-  - name: "kofi"
-    url: "https://kofi.com"
-  - name: "x"
-    url: "https://x.com"
 ---
 
 **Pehtheme Hugo** is your gateway to the mysteries and wonders of the universe. We are a passionate community of space enthusiasts, scientists, and stargazers dedicated to sharing the awe-inspiring beauty and profound knowledge of the cosmos.
