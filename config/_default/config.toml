@@ -1,7 +1,7 @@
 # 站点基础信息
 baseURL = "/"
 languageCode = "zh-cn"
-title = "随思 / 漫记" #不为空logo才显示
+title = "余 / 弦 / 退 / 火" #不为空logo才显示
 theme = "PaperMod"
 enableInlineShortcodes = true
 enableEmoji = true
@@ -36,8 +36,8 @@ disableXML = true
 post = "/:title/"
 
 [params.homeInfoParams]
-Title = "新车 | 2026年第一季度亮相，比亚迪海豹08/海狮08预告图发布"
-Content = "[懂车帝原创 产品] 12月15日，比亚迪发布了海洋网旗下海豹08和海狮08(图片)的预告图，两款新车定位于海洋8系双旗舰，将于2026年第一季度亮相。"
+Title = "没有标准答案，只有随手写下的体验与心情。"
+Content = "不聊硬核参数，只记踩下电门时的风，屏幕亮起时的光，还有那些突然冒出来的、关于「体验」的细碎念头。"
 
 # 社交图标
 [[params.socialIcons]]
