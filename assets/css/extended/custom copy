@@ -28,7 +28,7 @@
   font-weight: 700 !important;
 }
 
-.first-entry, .entry-header, .entry-content, a, h2 {
+.entry-header, .entry-content, a, h2 {
   font-family: var(--font-family-one);
 }
 
@@ -42,12 +42,12 @@
 
 /* 按钮 / 标签页标题 */
 .button, .tab-title, .post-title {
-  font-family: var(--font-family-one);
+  font-family: var(--font-family-body);
 }
 
 /* 英雄区标题 / 二级标题 */
 .hero-title, .post-meta, .breadcrumbs {
-  font-family: var(--font-family-two);
+  font-family: var(--font-family-body);
 }
 
 body {
