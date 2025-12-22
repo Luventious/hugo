@@ -24,7 +24,7 @@
 :root {
   /* 核心视觉字体 */
   --font-family-one: 'Marcellus', serif;  /* Logo、按钮、标签标题 */
-  --font-family-two: 'Bellefair', serif;  /* 英雄区标题、二级标题 */
+  --font-family-two: 'Hanalei Fill', 'Bellefair', 'Marcellus', serif;  /* 英雄区标题、二级标题 */
   --font-family-three: 'songti', serif;
 
   /* 通用正文字体栈 */
@@ -34,7 +34,7 @@
 
 /* Logo */
 .logo a {
-  font-family: 'Hanalei Fill', cursive;
+  font-family: var(--font-family-two); 
 }
 
 #menu a {
