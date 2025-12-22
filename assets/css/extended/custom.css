@@ -52,7 +52,7 @@
 }
 
 /* 按钮 / 标签页标题 */
-.button, .tab-title, {
+.button, .tab-title {
   font-family: var(--font-family-body);
 }
 
