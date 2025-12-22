@@ -21,8 +21,9 @@
 
 :root {
   /* 核心视觉字体 */
-  --font-family-one: 'Marcellus', 'songti', serif;  /* Logo、按钮、标签标题 */
+  --font-family-one: 'Marcellus', serif;  /* Logo、按钮、标签标题 */
   --font-family-two: 'Bellefair', serif;  /* 英雄区标题、二级标题 */
+  --font-family-three: 'songti', serif;
 
   /* 通用正文字体栈 */
   --font-family-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -30,8 +31,12 @@
 
 
 /* Logo */
-.logo a ,#menu a {
+.logo a {
   font-family: var(--font-family-one); 
+}
+
+#menu a {
+  font-family: var(--font-family-three); 
 }
 
 .entry-content {
