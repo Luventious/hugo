@@ -1,3 +1,5 @@
+@import url('https://fonts.font.im/css?family=Kirang+Haerang');
+
 @font-face {
   font-family: 'Marcellus';
   src: url('/fonts/Marcellus-Regular.woff2') format('woff2');
@@ -32,7 +34,7 @@
 
 /* Logo */
 .logo a {
-  font-family: var(--font-family-one); 
+  font-family: 'Kirang Haerang', cursive;
 }
 
 #menu a {
