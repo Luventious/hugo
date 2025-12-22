@@ -33,7 +33,7 @@
 
 
 /* Logo */
-.logo a {
+.entry-header, .logo a {
   font-family: var(--font-family-two); 
 }
 
@@ -46,12 +46,12 @@
 }
 
 /* 调整 H2 字体大小和字重 */
-.entry-header {
+/* .entry-header {
   font-family: var(--font-family-one); 
   font-size: 2rem !important;
   font-weight: 700 !important;
   line-height: 1.0;
-}
+} */
 
 .post-title {
   font-family: var(--font-family-one); 
