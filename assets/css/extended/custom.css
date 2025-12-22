@@ -1,11 +1,10 @@
-@import url('https://fonts.font.im/css?family=Hanalei+Fill');
-
 @font-face {
   font-family: 'Marcellus';
-  src: url('/fonts/Marcellus-Regular.woff2') format('woff2');
+  src: url('/fonts/Marcellus.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
 }
+
 @font-face {
   font-family: 'Bellefair';
   src: url('/fonts/Bellefair-Regular.woff2') format('woff2');
@@ -24,7 +23,7 @@
 :root {
   /* 核心视觉字体 */
   --font-family-one: 'Marcellus', serif;  /* Logo、按钮、标签标题 */
-  --font-family-two: 'Hanalei Fill', 'Bellefair', 'Marcellus', serif;  /* 英雄区标题、二级标题 */
+  --font-family-two: 'Bellefair', serif;  /* 英雄区标题、二级标题 */
   --font-family-three: 'songti', serif;
 
   /* 通用正文字体栈 */
@@ -33,17 +32,14 @@
 
 
 /* Logo */
-.entry-header, .logo a {
-  font-family: var(--font-family-two); 
+.entry-header h2, #menu a, .entry-content {
+  font-family: var(--font-family-one); 
 }
 
-#menu a {
+.entry-header h1 , .logo a {
   font-family: var(--font-family-three); 
 }
 
-.entry-content {
-  font-family: var(--font-family-one);
-}
 
 /* 调整 H2 字体大小和字重 */
 /* .entry-header {
