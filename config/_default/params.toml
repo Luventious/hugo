@@ -14,6 +14,10 @@ ShowLastMod = true
 ShowToc = true
 TocOpen = true
 comments = true
+customHeadHTML = """
+<link rel="preconnect" href="https://fonts.font.im">
+<link rel="stylesheet" href="https://fonts.font.im/css?family=Hanalei+Fill">
+"""
 
 
 # Favicon 和 Apple Touch Icon
