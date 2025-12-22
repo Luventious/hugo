@@ -1,7 +1,7 @@
 # 站点基础信息
 baseURL = "/"
 languageCode = "zh-cn"
-title = "余 / 弦 / 退 / 火 /" #不为空logo才显示
+title = "3hangq1ngの博客" #不为空logo才显示
 theme = "PaperMod"
 enableInlineShortcodes = true
 enableEmoji = true
