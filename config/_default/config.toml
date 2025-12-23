@@ -38,34 +38,34 @@ disableXML = true
 [permalinks]
 post = "/:title/"
 
-[params.profileMode]
-enabled = true
-title = "blog" # optional default will be site title
-subtitle = "This is subtitle"
-imageUrl = "images/brent-cox-ydGRmobx5jA-unsplash.jpg" # optional
-imageTitle = "pic" # optional
-imageWidth = 120 # custom size
-imageHeight = 120 # custom size
+[params.homeInfoParams]
+Title = "🫡我是我是👋🏼"
+Content = "不聊硬核参数，只记踩下电门时的风，屏幕亮起时的光，还有那些突然冒出来的、关于「体验」的细碎念头。"
+
+# [params.profileMode]
+# enabled = true
+# title = "SQ" # optional default will be site title
+# subtitle = "UX Designer"
+# imageUrl = "images/brent-cox-ydGRmobx5jA-unsplash.jpg" # optional
+# imageTitle = "Photo" # optional
+# imageWidth = 120 # custom size
+# imageHeight = 120 # custom size
 
 # 按钮列表（TOML 数组 of tables 写法）
-[[params.profileMode.buttons]]
-name = "About"
-url = "/about"
+# [[params.profileMode.buttons]]
+# name = "About"
+# url = "/about"
 
-[[params.profileMode.buttons]]
-name = "Github"
-url = "https://github.com/"
-
-# [params.homeInfoParams]
-# Title = "没有标准答案，只有随手写下的体验与心情。"
-# Content = "不聊硬核参数，只记踩下电门时的风，屏幕亮起时的光，还有那些突然冒出来的、关于「体验」的细碎念头。"
+# [[params.profileMode.buttons]]
+# name = "Github"
+# url = "https://github.com/"
 
 # 文章页面封面图片
 # 列表页和文章页封面显示策略
 [params.cover]
 responsiveImages = false
 hidden = true
-hiddenInList = true
+hiddenInList = false
 hiddenInSingle = true
 
 # 社交图标
