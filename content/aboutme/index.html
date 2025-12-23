@@ -14,23 +14,29 @@ menu:
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>个人简历</title>
+    <meta div="viewport" content="width=device-width, initial-scale=1.0">
+    <title>标题一</title>
     <style>
         * {
+            font-family: var(--font-family-one);
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
         
         body {
+            font-size: 12px;
             font-family: 'Helvetica Neue', Arial, sans-serif;
             line-height: 1.6;
             color: #333;
             background-color: #f9f9f9;
             padding: 20px;
         }
-        
+        .post-single {
+            width: 110%;
+            margin-left: auto!important;
+            margin-right: auto!important;
+        }
         .resume-container {
             max-width: 1000px;
             margin: 0 auto;
@@ -47,8 +53,9 @@ menu:
             border-bottom: 2px solid #333;
         }
         
-        .name {
-            font-size: 2.8em;
+        .div {
+            font-family: var(--font-family-three);
+            font-size: 2.5em;
             font-weight: 700;
             margin-bottom: 5px;
             color: #000;
@@ -107,7 +114,7 @@ menu:
         
         .item-title {
             font-weight: 600;
-            font-size: 1.15em;
+            font-size: 1.05em;
             color: #000;
         }
         
@@ -182,7 +189,7 @@ menu:
                 padding: 25px;
             }
             
-            .name {
+            .div {
                 font-size: 2.2em;
             }
             
@@ -208,7 +215,7 @@ menu:
                 padding: 20px;
             }
             
-            .name {
+            .div {
                 font-size: 1.8em;
             }
             
@@ -226,7 +233,7 @@ menu:
 <body>
     <div class="resume-container">
         <div class="header">
-            <h1 class="name">张三</h1>
+            <h2 class="div">张三</h2>
             <div class="title">高级前端开发工程师</div>
             <div class="contact-info">
                 <div class="contact-item">📧 zhangsan@email.com</div>
@@ -236,7 +243,7 @@ menu:
         </div>
         
         <div class="section">
-            <h2 class="section-title">个人简介</h2>
+            <div class="section-title">标题一</div>
             <div class="about-content">
                  passionate front-end developer with 5 years of experience in creating responsive and user-friendly web applications. 
                 Specialized in React, Vue.js, and modern JavaScript frameworks. 
@@ -245,7 +252,7 @@ menu:
         </div>
         
         <div class="section">
-            <h2 class="section-title">工作经历</h2>
+            <div class="section-title">标题二</div>
             <div class="experience-item">
                 <div class="item-header">
                     <div class="item-title">科技有限公司</div>
@@ -274,7 +281,7 @@ menu:
         </div>
         
         <div class="section">
-            <h2 class="section-title">项目经验</h2>
+            <div class="section-title">标题三</div>
             <div class="project-item">
                 <div class="item-header">
                     <div class="item-title">电商平台重构项目</div>
@@ -301,7 +308,7 @@ menu:
         </div>
         
         <div class="section">
-            <h2 class="section-title">教育经历</h2>
+            <div class="section-title">标题四</div>
             <div class="education-item">
                 <div class="item-header">
                     <div class="item-title">北京大学</div>
@@ -316,7 +323,7 @@ menu:
         </div>
         
         <div class="section">
-            <h2 class="section-title">技能专长</h2>
+            <div class="section-title">标题五</div>
             <div class="skills-grid">
                 <span class="skill-tag">HTML5</span>
                 <span class="skill-tag">CSS3</span>

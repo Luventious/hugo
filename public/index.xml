@@ -21,6 +21,7 @@
     &lt;title&gt;个人简历&lt;/title&gt;
     &lt;style&gt;
         * {
+            font-family: var(--font-family-one);
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -45,6 +46,7 @@
         
         .header {
             text-align: center;
+            
             margin-bottom: 30px;
             padding-bottom: 20px;
             border-bottom: 2px solid #333;
