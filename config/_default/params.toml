@@ -24,12 +24,6 @@ customHeadHTML = """
 [params.assets]
 favicon = "/images/avatar.jpg"
 
-# 列表页和文章页封面显示策略
-[params.cover]
-hidden = false
-hiddenInList = false
-hiddenInSingle = true
-
 # 搜索配置
 [params.fuseOpts]
 keys = ["title", "permalink", "summary"]

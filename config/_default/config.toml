@@ -7,6 +7,7 @@ enableInlineShortcodes = true
 enableEmoji = true
 enableRobotsTXT = true
 hasCJKLanguage = true
+ShowBreadCrumbs = false
 # 默认语言
 defaultContentLanguage = "zh-cn"
 defaultContentLanguageInSubdir = false
@@ -24,7 +25,7 @@ buildExpired = false
 
 # 分页
 [pagination]
-pagerSize = 15
+pagerSize = 2
 summaryLength = 140
 
 # 压缩
@@ -35,9 +36,35 @@ disableXML = true
 [permalinks]
 post = "/:title/"
 
-[params.homeInfoParams]
-Title = "没有标准答案，只有随手写下的体验与心情。"
-Content = "不聊硬核参数，只记踩下电门时的风，屏幕亮起时的光，还有那些突然冒出来的、关于「体验」的细碎念头。"
+[params.profileMode]
+enabled = true
+title = "blog" # optional default will be site title
+subtitle = "This is subtitle"
+imageUrl = "images/brent-cox-ydGRmobx5jA-unsplash.jpg" # optional
+imageTitle = "pic" # optional
+imageWidth = 120 # custom size
+imageHeight = 120 # custom size
+
+# 按钮列表（TOML 数组 of tables 写法）
+[[params.profileMode.buttons]]
+name = "About"
+url = "/about"
+
+[[params.profileMode.buttons]]
+name = "Github"
+url = "https://github.com/"
+
+# [params.homeInfoParams]
+# Title = "没有标准答案，只有随手写下的体验与心情。"
+# Content = "不聊硬核参数，只记踩下电门时的风，屏幕亮起时的光，还有那些突然冒出来的、关于「体验」的细碎念头。"
+
+# 文章页面封面图片
+# 列表页和文章页封面显示策略
+[params.cover]
+responsiveImages = true
+hidden = false
+hiddenInList = false
+hiddenInSingle = true
 
 # 社交图标
 [[params.socialIcons]]
