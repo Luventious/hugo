@@ -25,14 +25,14 @@
 
 
 /* Logo */
-.entry-header h2, #menu a, .entry-content, .post-title {
+.entry-header, #menu a, .entry-content, .post-title {
   font-family: var(--font-family-one); 
 }
 .logo a {
   font-family: var(--font-family-two); 
 }
 
-.entry-header h1 {
+.entry-header {
   font-family: var(--font-family-three); 
 }
 
