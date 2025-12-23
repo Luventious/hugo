@@ -65,7 +65,7 @@ Content = "不聊硬核参数，只记踩下电门时的风，屏幕亮起时的
 [params.cover]
 responsiveImages = false
 hidden = true
-hiddenInList = false
+hiddenInList = true
 hiddenInSingle = true
 
 # 社交图标
