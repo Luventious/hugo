@@ -17,8 +17,8 @@
 &lt;html lang=&#34;zh-CN&#34;&gt;
 &lt;head&gt;
     &lt;meta charset=&#34;UTF-8&#34;&gt;
-    &lt;meta name=&#34;viewport&#34; content=&#34;width=device-width, initial-scale=1.0&#34;&gt;
-    &lt;title&gt;个人简历&lt;/title&gt;
+    &lt;meta div=&#34;viewport&#34; content=&#34;width=device-width, initial-scale=1.0&#34;&gt;
+    &lt;title&gt;标题一&lt;/title&gt;
     &lt;style&gt;
         * {
             font-family: var(--font-family-one);
@@ -28,13 +28,17 @@
         }
         
         body {
+            font-size: 12px;
             font-family: &#39;Helvetica Neue&#39;, Arial, sans-serif;
             line-height: 1.6;
             color: #333;
             background-color: #f9f9f9;
             padding: 20px;
         }
-        
+        .post-single {
+            width: 110%;
+            margin: 0 auto!important;
+        }
         .resume-container {
             max-width: 1000px;
             margin: 0 auto;
@@ -46,14 +50,14 @@
         
         .header {
             text-align: center;
-            
             margin-bottom: 30px;
             padding-bottom: 20px;
             border-bottom: 2px solid #333;
         }
         
-        .name {
-            font-size: 2.8em;
+        .div {
+            font-family: var(--font-family-three);
+            font-size: 2.5em;
             font-weight: 700;
             margin-bottom: 5px;
             color: #000;
@@ -112,7 +116,7 @@
         
         .item-title {
             font-weight: 600;
-            font-size: 1.15em;
+            font-size: 1.05em;
             color: #000;
         }
         
@@ -187,7 +191,7 @@
                 padding: 25px;
             }
             
-            .name {
+            .div {
                 font-size: 2.2em;
             }
             
@@ -213,7 +217,7 @@
                 padding: 20px;
             }
             
-            .name {
+            .div {
                 font-size: 1.8em;
             }
             
@@ -231,7 +235,7 @@
 &lt;body&gt;
     &lt;div class=&#34;resume-container&#34;&gt;
         &lt;div class=&#34;header&#34;&gt;
-            &lt;h1 class=&#34;name&#34;&gt;张三&lt;/h1&gt;
+            &lt;h2 class=&#34;div&#34;&gt;张三&lt;/h2&gt;
             &lt;div class=&#34;title&#34;&gt;高级前端开发工程师&lt;/div&gt;
             &lt;div class=&#34;contact-info&#34;&gt;
                 &lt;div class=&#34;contact-item&#34;&gt;📧 zhangsan@email.com&lt;/div&gt;
@@ -241,7 +245,7 @@
         &lt;/div&gt;
         
         &lt;div class=&#34;section&#34;&gt;
-            &lt;h2 class=&#34;section-title&#34;&gt;个人简介&lt;/h2&gt;
+            &lt;div class=&#34;section-title&#34;&gt;标题一&lt;/div&gt;
             &lt;div class=&#34;about-content&#34;&gt;
                  passionate front-end developer with 5 years of experience in creating responsive and user-friendly web applications. 
                 Specialized in React, Vue.js, and modern JavaScript frameworks. 
@@ -250,7 +254,7 @@
         &lt;/div&gt;
         
         &lt;div class=&#34;section&#34;&gt;
-            &lt;h2 class=&#34;section-title&#34;&gt;工作经历&lt;/h2&gt;
+            &lt;div class=&#34;section-title&#34;&gt;标题二&lt;/div&gt;
             &lt;div class=&#34;experience-item&#34;&gt;
                 &lt;div class=&#34;item-header&#34;&gt;
                     &lt;div class=&#34;item-title&#34;&gt;科技有限公司&lt;/div&gt;
@@ -279,7 +283,7 @@
         &lt;/div&gt;
         
         &lt;div class=&#34;section&#34;&gt;
-            &lt;h2 class=&#34;section-title&#34;&gt;项目经验&lt;/h2&gt;
+            &lt;div class=&#34;section-title&#34;&gt;标题三&lt;/div&gt;
             &lt;div class=&#34;project-item&#34;&gt;
                 &lt;div class=&#34;item-header&#34;&gt;
                     &lt;div class=&#34;item-title&#34;&gt;电商平台重构项目&lt;/div&gt;
@@ -306,7 +310,7 @@
         &lt;/div&gt;
         
         &lt;div class=&#34;section&#34;&gt;
-            &lt;h2 class=&#34;section-title&#34;&gt;教育经历&lt;/h2&gt;
+            &lt;div class=&#34;section-title&#34;&gt;标题四&lt;/div&gt;
             &lt;div class=&#34;education-item&#34;&gt;
                 &lt;div class=&#34;item-header&#34;&gt;
                     &lt;div class=&#34;item-title&#34;&gt;北京大学&lt;/div&gt;
@@ -321,7 +325,7 @@
         &lt;/div&gt;
         
         &lt;div class=&#34;section&#34;&gt;
-            &lt;h2 class=&#34;section-title&#34;&gt;技能专长&lt;/h2&gt;
+            &lt;div class=&#34;section-title&#34;&gt;标题五&lt;/div&gt;
             &lt;div class=&#34;skills-grid&#34;&gt;
                 &lt;span class=&#34;skill-tag&#34;&gt;HTML5&lt;/span&gt;
                 &lt;span class=&#34;skill-tag&#34;&gt;CSS3&lt;/span&gt;
