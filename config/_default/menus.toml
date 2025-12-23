@@ -1,7 +1,7 @@
 # 可以继续添加文章、关于我、标签等菜单
 [[main]]
 identifier = "home"
-name = "Main"
+name = "Home"
 url = "/"
 weight = 1
 
@@ -13,6 +13,6 @@ weight = 2
 
 [[main]]
 identifier = "about"
-name = "about"
+name = "About"
 url = "/about/"
 weight = 3
