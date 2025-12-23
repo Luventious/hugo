@@ -69,27 +69,5 @@ body {
 /*列表样式*/
 /* 每个文章列表项设置为 flex 布局 */
 .post-entry {
-  margin-top: 50px;
-  display: flex;
-  align-items: flex-start;  /* 顶部对齐 */
-  gap: 16px;                /* 图片和文字间距 */
-}
-
-/* cover 图像容器固定宽度 */
-.post-entry .post-cover {
-  flex: 0 0 150px; /* 宽度 150px */
-  max-width: 150px;
-}
-
-/* 内容部分自适应 */
-.post-entry .entry-header,
-.post-entry .entry-content {
-  flex: 1;
-}
-
-/* 图片自适应容器 */
-.post-entry .post-cover img {
-  width: 100%;
-  height: auto;
-  display: block;
+  margin-top: 50px;            /* 图片和文字间距 */
 }

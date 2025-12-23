@@ -1,0 +1,346 @@
+---
+title: "关于我"
+date: 2025-12-23
+draft: false
+hideTitle: true
+hideMeta: true
+ShowBreadCrumbs: false
+ShowToc: false
+menu:
+  main:
+    identifier: aboutme
+---
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人简历</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+            padding: 20px;
+        }
+        
+        .resume-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            padding: 40px;
+            position: relative;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #333;
+        }
+        
+        .name {
+            font-size: 2.8em;
+            font-weight: 700;
+            margin-bottom: 5px;
+            color: #000;
+            letter-spacing: 1px;
+        }
+        
+        .title {
+            font-size: 1.3em;
+            color: #555;
+            margin-bottom: 15px;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            font-size: 0.95em;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .section {
+            margin-bottom: 35px;
+        }
+        
+        .section-title {
+            font-size: 1.5em;
+            font-weight: 600;
+            color: #000;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .about-content {
+            font-size: 1.05em;
+            line-height: 1.8;
+            color: #444;
+        }
+        
+        .experience-item, .project-item, .education-item {
+            margin-bottom: 25px;
+        }
+        
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+        
+        .item-title {
+            font-weight: 600;
+            font-size: 1.15em;
+            color: #000;
+        }
+        
+        .item-subtitle {
+            color: #444;
+            font-weight: 500;
+            margin-bottom: 8px;
+            font-size: 1.05em;
+        }
+        
+        .item-date {
+            color: #666;
+            font-size: 0.95em;
+        }
+        
+        .item-list {
+            padding-left: 20px;
+            color: #555;
+        }
+        
+        .item-list li {
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+        
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .skill-tag {
+            background: #f0f0f0;
+            color: #333;
+            padding: 6px 15px;
+            border-radius: 3px;
+            font-size: 0.9em;
+            border: 1px solid #ddd;
+        }
+        
+        .qrcode {
+            position: absolute;
+            bottom: 40px;
+            right: 40px;
+            text-align: center;
+            width: 120px;
+        }
+        
+        .qrcode img {
+            width: 100px;
+            height: 100px;
+            border: 1px solid #ddd;
+            margin-bottom: 8px;
+        }
+        
+        .qrcode p {
+            font-size: 0.85em;
+            color: #666;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #777;
+            font-size: 0.9em;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+        }
+        
+        @media (max-width: 768px) {
+            .resume-container {
+                padding: 25px;
+            }
+            
+            .name {
+                font-size: 2.2em;
+            }
+            
+            .item-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 5px;
+            }
+            
+            .contact-info {
+                gap: 15px;
+            }
+            
+            .qrcode {
+                position: static;
+                margin: 20px auto;
+                text-align: center;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .resume-container {
+                padding: 20px;
+            }
+            
+            .name {
+                font-size: 1.8em;
+            }
+            
+            .section-title {
+                font-size: 1.3em;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="resume-container">
+        <div class="header">
+            <h1 class="name">张三</h1>
+            <div class="title">高级前端开发工程师</div>
+            <div class="contact-info">
+                <div class="contact-item">📧 zhangsan@email.com</div>
+                <div class="contact-item">📱 138-8888-8888</div>
+                <div class="contact-item">📍 北京市朝阳区</div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2 class="section-title">个人简介</h2>
+            <div class="about-content">
+                 passionate front-end developer with 5 years of experience in creating responsive and user-friendly web applications. 
+                Specialized in React, Vue.js, and modern JavaScript frameworks. 
+                Committed to writing clean, maintainable code and delivering exceptional user experiences.
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2 class="section-title">工作经历</h2>
+            <div class="experience-item">
+                <div class="item-header">
+                    <div class="item-title">科技有限公司</div>
+                    <div class="item-date">2022年1月 - 至今</div>
+                </div>
+                <div class="item-subtitle">高级前端开发工程师</div>
+                <ul class="item-list">
+                    <li>负责公司主要产品的前端架构设计和开发</li>
+                    <li>优化网站性能，提升页面加载速度40%</li>
+                    <li>带领3人前端团队完成多个重要项目</li>
+                </ul>
+            </div>
+            
+            <div class="experience-item">
+                <div class="item-header">
+                    <div class="item-title">创新软件公司</div>
+                    <div class="item-date">2020年6月 - 2021年12月</div>
+                </div>
+                <div class="item-subtitle">前端开发工程师</div>
+                <ul class="item-list">
+                    <li>参与企业级管理系统的前端开发</li>
+                    <li>使用Vue.js框架开发响应式Web应用</li>
+                    <li>与后端团队协作实现RESTful API集成</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2 class="section-title">项目经验</h2>
+            <div class="project-item">
+                <div class="item-header">
+                    <div class="item-title">电商平台重构项目</div>
+                    <div class="item-date">2023年3月 - 2023年8月</div>
+                </div>
+                <ul class="item-list">
+                    <li>使用React + TypeScript重构传统jQuery项目</li>
+                    <li>实现组件化开发，代码复用率提升60%</li>
+                    <li>优化首屏加载时间，从3s减少到1.2s</li>
+                </ul>
+            </div>
+            
+            <div class="project-item">
+                <div class="item-header">
+                    <div class="item-title">移动端管理系统</div>
+                    <div class="item-date">2022年9月 - 2022年12月</div>
+                </div>
+                <ul class="item-list">
+                    <li>开发基于Vue3的移动端管理系统</li>
+                    <li>实现PWA功能，支持离线使用</li>
+                    <li>集成实时数据可视化图表</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2 class="section-title">教育经历</h2>
+            <div class="education-item">
+                <div class="item-header">
+                    <div class="item-title">北京大学</div>
+                    <div class="item-date">2016年9月 - 2020年6月</div>
+                </div>
+                <div class="item-subtitle">计算机科学与技术 学士学位</div>
+                <ul class="item-list">
+                    <li>GPA: 3.8/4.0</li>
+                    <li>获得校级优秀毕业生称号</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2 class="section-title">技能专长</h2>
+            <div class="skills-grid">
+                <span class="skill-tag">HTML5</span>
+                <span class="skill-tag">CSS3</span>
+                <span class="skill-tag">JavaScript</span>
+                <span class="skill-tag">React</span>
+                <span class="skill-tag">Vue.js</span>
+                <span class="skill-tag">Node.js</span>
+                <span class="skill-tag">TypeScript</span>
+                <span class="skill-tag">Webpack</span>
+                <span class="skill-tag">Git</span>
+                <span class="skill-tag">ES6+</span>
+                <span class="skill-tag">SASS</span>
+                <span class="skill-tag">响应式设计</span>
+            </div>
+        </div>
+        
+        <div class="qrcode">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Crect width='100' height='100' fill='%23f5f5f5'/%3E%3Cpath d='M25,25h50v50h-50z' fill='%23333'/%3E%3Ctext x='50' y='65' font-family='Arial' font-size='10' text-anchor='middle' fill='%23333'%3E微信二维码%3C/text%3E%3C/svg%3E" alt="微信二维码">
+            <p>扫码添加微信</p>
+        </div>
+        
+        <div class="footer">
+            <p>最后更新: 2024年12月</p>
+        </div>
+    </div>
+</body>
+</html>
