@@ -3,8 +3,9 @@ title: "Space Exploration's Next Frontier: The Race to Reach Mars"
 date: 2023-08-15T13:45:49+07:00
 slug: /space-explorations-next-frontier/
 description: Explore the exciting endeavors and challenges of reaching Mars in the new era of space exploration.
-image: images/daniele-colucci-OtXJhYjbKeg-unsplash.jpg
-caption: Photo by Daniele Colucci on Unsplash
+cover:
+  image: images/daniele-colucci-OtXJhYjbKeg-unsplash.jpg
+  caption: Photo by Daniele Colucci on Unsplash
 categories:
   - space
 tags:

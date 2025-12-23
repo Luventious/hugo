@@ -7,7 +7,10 @@ enableInlineShortcodes = true
 enableEmoji = true
 enableRobotsTXT = true
 hasCJKLanguage = true
+
+# 文章页面，标题上方返回首页的按钮
 ShowBreadCrumbs = false
+
 # 默认语言
 defaultContentLanguage = "zh-cn"
 defaultContentLanguageInSubdir = false
@@ -16,7 +19,6 @@ defaultContentLanguageInSubdir = false
 buildDrafts = false
 buildFuture = false
 buildExpired = false
-# 网站左上角标签
 
 [params.label]
 # icon = ""
@@ -25,7 +27,7 @@ buildExpired = false
 
 # 分页
 [pagination]
-pagerSize = 2
+pagerSize = 12
 summaryLength = 140
 
 # 压缩
@@ -61,9 +63,9 @@ url = "https://github.com/"
 # 文章页面封面图片
 # 列表页和文章页封面显示策略
 [params.cover]
-responsiveImages = true
-hidden = false
-hiddenInList = false
+responsiveImages = false
+hidden = true
+hiddenInList = true
 hiddenInSingle = true
 
 # 社交图标
