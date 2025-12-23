@@ -16,3 +16,9 @@ identifier = "about"
 name = "About"
 url = "/about/"
 weight = 3
+
+[[main]]
+identifier = "aboutme"
+name = "aboutme"
+url = "/aboutme/"
+weight = 4
