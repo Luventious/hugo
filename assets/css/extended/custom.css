@@ -93,3 +93,39 @@ body {
   height: auto;
   display: block;
 }
+
+/* 改式 */
+.post-entry-wrapper {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.post-cover {
+  flex: 0 0 150px;
+  max-width: 150px;
+}
+
+.post-cover img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 4px;
+}
+
+.post-entry-text {
+  flex: 1;
+  min-width: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .post-entry-wrapper {
+    flex-direction: column;
+    gap: 8px;
+  }
+  .post-cover {
+    width: 100%;
+    max-width: 100%;
+  }
+}
