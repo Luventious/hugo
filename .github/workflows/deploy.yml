@@ -22,7 +22,7 @@ jobs:
           extended: true
 
       - name: Build site
-        run: hugo --minify --baseURL http://112.126.85.212:12157/
+        run: hugo --minify
 
       - name: Deploy to server
         uses: appleboy/scp-action@master
