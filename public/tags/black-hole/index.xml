@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Black Hole on 3hangq1ngの博客</title>
-    <link>//localhost:1313/tags/black-hole/</link>
+    <link>/tags/black-hole/</link>
     <description>Recent content in Black Hole on 3hangq1ngの博客</description>
     <generator>Hugo -- 0.152.2</generator>
     <language>zh-cn</language>
     <lastBuildDate>Wed, 04 Oct 2023 22:11:36 +0700</lastBuildDate>
-    <atom:link href="//localhost:1313/tags/black-hole/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/tags/black-hole/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Unveiling the Secrets of Black Holes: A Journey into the Heart of Darkness</title>
-      <link>//localhost:1313/posts/2023/unveiling-the-secrets-of-black-holes/</link>
+      <link>/posts/2023/unveiling-the-secrets-of-black-holes/</link>
       <pubDate>Wed, 04 Oct 2023 22:11:36 +0700</pubDate>
-      <guid>//localhost:1313/posts/2023/unveiling-the-secrets-of-black-holes/</guid>
+      <guid>/posts/2023/unveiling-the-secrets-of-black-holes/</guid>
       <description>Exploring the mysteries of black holes, the enigmatic cosmic phenomena.</description>
     </item>
   </channel>
