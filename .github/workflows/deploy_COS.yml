@@ -26,13 +26,13 @@ jobs:
 
       # 3. 编译静态文件
       - name: Build
-        run: hugo --minify --baseURL https://hugo-1259112724.cos.ap-hongkong.myqcloud.com
+        run: hugo --minify --baseURL https://hugo-1259112724.cos-website.ap-hongkong.myqcloud.com.
 
       # 4. 部署到腾讯云 COS
       - name: Deploy to COS
         uses: zkqiang/tencent-cos-action@v0.1.0
         with:
-          args: delete -r -f / && upload -r ./public/ /
+          args: upload -r ./public/ /
           secret_id: ${{ secrets.TENCENT_SECRET_ID }}
           secret_key: ${{ secrets.TENCENT_SECRET_KEY }}
           bucket: ${{ secrets.COS_BUCKET }}
