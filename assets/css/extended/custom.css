@@ -67,7 +67,6 @@ body {
 }
 
 /*列表样式*/
-/* 每个文章列表项设置为 flex 布局 */
 .post-entry {
   margin-top: 50px;            /* 图片和文字间距 */
 }
