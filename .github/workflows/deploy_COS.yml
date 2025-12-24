@@ -26,7 +26,11 @@ jobs:
 
       # 3. 编译静态文件
       - name: Build
+<<<<<<< HEAD
         run: hugo --minify --baseURL https://hugo-1259112724.cos-website.ap-hongkong.myqcloud.com.
+=======
+        run: hugo --minify --baseURL https://shangqing.site/
+>>>>>>> main
 
       # 4. 部署到腾讯云 COS
       - name: Deploy to COS
@@ -36,4 +40,8 @@ jobs:
           secret_id: ${{ secrets.TENCENT_SECRET_ID }}
           secret_key: ${{ secrets.TENCENT_SECRET_KEY }}
           bucket: ${{ secrets.COS_BUCKET }}
+<<<<<<< HEAD
           region: ${{ secrets.COS_REGION }}
+=======
+          region: ${{ secrets.COS_REGION }}
+>>>>>>> main
