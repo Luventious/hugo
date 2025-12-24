@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Nebula on 3hangq1ngの博客</title>
-    <link>//localhost:1313/tags/nebula/</link>
+    <link>/tags/nebula/</link>
     <description>Recent content in Nebula on 3hangq1ngの博客</description>
     <generator>Hugo -- 0.152.2</generator>
     <language>zh-cn</language>
     <lastBuildDate>Sun, 24 Sep 2023 11:15:17 +0700</lastBuildDate>
-    <atom:link href="//localhost:1313/tags/nebula/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/tags/nebula/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Galactic Marvels: The Most Spectacular Nebulas in the Cosmos</title>
-      <link>//localhost:1313/posts/2023/galactic-marvels/</link>
+      <link>/posts/2023/galactic-marvels/</link>
       <pubDate>Sun, 24 Sep 2023 11:15:17 +0700</pubDate>
-      <guid>//localhost:1313/posts/2023/galactic-marvels/</guid>
+      <guid>/posts/2023/galactic-marvels/</guid>
       <description>galactic marvels the most spectacular nebulas in the cosmos</description>
     </item>
   </channel>

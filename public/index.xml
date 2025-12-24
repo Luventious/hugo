@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>3hangq1ngの博客</title>
-    <link>//localhost:1313/</link>
+    <link>/</link>
     <description>Recent content on 3hangq1ngの博客</description>
     <generator>Hugo -- 0.152.2</generator>
     <language>zh-cn</language>
     <lastBuildDate>Tue, 23 Dec 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="//localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>关于我</title>
-      <link>//localhost:1313/aboutme/</link>
+      <link>/aboutme/</link>
       <pubDate>Tue, 23 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>//localhost:1313/aboutme/</guid>
+      <guid>/aboutme/</guid>
       <description>&lt;!DOCTYPE html&gt;
 &lt;html lang=&#34;zh-CN&#34;&gt;
 &lt;head&gt;
@@ -345,75 +345,75 @@
     </item>
     <item>
       <title>天府绿道APP / 设计提案</title>
-      <link>//localhost:1313/posts/2023/excemple_article/</link>
+      <link>/posts/2023/excemple_article/</link>
       <pubDate>Tue, 16 Dec 2025 22:28:05 +0800</pubDate>
-      <guid>//localhost:1313/posts/2023/excemple_article/</guid>
+      <guid>/posts/2023/excemple_article/</guid>
       <description>&lt;p&gt;2023年的设计作品集聚焦于TOB项目，从项目接手到优化迭代，贯穿输出规范与模块化代码的全流程。&lt;/p&gt;
 &lt;p&gt;不同于往年更注重视觉冲击，今年更强调需求转化与用户体验，确保设计逻辑清晰、操作流畅，同时实现交互与规范的高度统一。
 此外，还利用闲暇时间完成了一些海报设计与照片拍摄，为作品集增添了更多创意与灵感。&lt;/p&gt;</description>
     </item>
     <item>
       <title>关于我</title>
-      <link>//localhost:1313/about/</link>
+      <link>/about/</link>
       <pubDate>Fri, 06 Oct 2023 20:37:29 +0700</pubDate>
-      <guid>//localhost:1313/about/</guid>
+      <guid>/about/</guid>
       <description>&lt;p&gt;&lt;strong&gt;Pehtheme Hugo&lt;/strong&gt; is your gateway to the mysteries and wonders of the universe. We are a passionate community of space enthusiasts, scientists, and stargazers dedicated to sharing the awe-inspiring beauty and profound knowledge of the cosmos.&lt;/p&gt;
 &lt;p&gt;At &lt;strong&gt;Pehtheme Hugo&lt;/strong&gt;, we believe that space exploration is not just a scientific endeavor; it&amp;rsquo;s a human adventure. It&amp;rsquo;s about the curiosity that drives us to look up at the night sky and wonder about the galaxies, stars, and planets that fill our universe.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Unveiling the Secrets of Black Holes: A Journey into the Heart of Darkness</title>
-      <link>//localhost:1313/posts/2023/unveiling-the-secrets-of-black-holes/</link>
+      <link>/posts/2023/unveiling-the-secrets-of-black-holes/</link>
       <pubDate>Wed, 04 Oct 2023 22:11:36 +0700</pubDate>
-      <guid>//localhost:1313/posts/2023/unveiling-the-secrets-of-black-holes/</guid>
+      <guid>/posts/2023/unveiling-the-secrets-of-black-holes/</guid>
       <description>Exploring the mysteries of black holes, the enigmatic cosmic phenomena.</description>
     </item>
     <item>
       <title>Galactic Marvels: The Most Spectacular Nebulas in the Cosmos</title>
-      <link>//localhost:1313/posts/2023/galactic-marvels/</link>
+      <link>/posts/2023/galactic-marvels/</link>
       <pubDate>Sun, 24 Sep 2023 11:15:17 +0700</pubDate>
-      <guid>//localhost:1313/posts/2023/galactic-marvels/</guid>
+      <guid>/posts/2023/galactic-marvels/</guid>
       <description>galactic marvels the most spectacular nebulas in the cosmos</description>
     </item>
     <item>
       <title>Stellar Spectacles: The Wonders of Supernova Explosions</title>
-      <link>//localhost:1313/posts/2023/stellar-spectacles/</link>
+      <link>/posts/2023/stellar-spectacles/</link>
       <pubDate>Sat, 23 Sep 2023 22:45:37 +0700</pubDate>
-      <guid>//localhost:1313/posts/2023/stellar-spectacles/</guid>
+      <guid>/posts/2023/stellar-spectacles/</guid>
       <description>Explore the breathtaking phenomena of supernova explosions, the cosmic fireworks of the universe.</description>
     </item>
     <item>
       <title>Space Exploration&#39;s Next Frontier: The Race to Reach Mars</title>
-      <link>//localhost:1313/posts/2023/space-explorations-next-frontier/</link>
+      <link>/posts/2023/space-explorations-next-frontier/</link>
       <pubDate>Tue, 15 Aug 2023 13:45:49 +0700</pubDate>
-      <guid>//localhost:1313/posts/2023/space-explorations-next-frontier/</guid>
+      <guid>/posts/2023/space-explorations-next-frontier/</guid>
       <description>Explore the exciting endeavors and challenges of reaching Mars in the new era of space exploration.</description>
     </item>
     <item>
       <title>The Great Beyond: Exploring the Expanding Universe</title>
-      <link>//localhost:1313/posts/2023/the-great-beyond/</link>
+      <link>/posts/2023/the-great-beyond/</link>
       <pubDate>Sat, 12 Aug 2023 14:15:05 +0700</pubDate>
-      <guid>//localhost:1313/posts/2023/the-great-beyond/</guid>
+      <guid>/posts/2023/the-great-beyond/</guid>
       <description>Delve into the awe-inspiring journey of exploring the universe&amp;#39;s expansion and the mysteries it unveils.</description>
     </item>
     <item>
       <title>Cosmic Time Travel: Peering into the Universe&#39;s Past with Telescopes</title>
-      <link>//localhost:1313/posts/2022/cosmic-time-travel/</link>
+      <link>/posts/2022/cosmic-time-travel/</link>
       <pubDate>Mon, 07 Aug 2023 09:30:32 +0700</pubDate>
-      <guid>//localhost:1313/posts/2022/cosmic-time-travel/</guid>
+      <guid>/posts/2022/cosmic-time-travel/</guid>
       <description>Explore how telescopes enable us to journey back in time by observing distant celestial objects.</description>
     </item>
     <item>
       <title>The Hubble Space Telescope: 30 Years of Stunning Discoveries</title>
-      <link>//localhost:1313/posts/2022/the-hubble-space-telescope/</link>
+      <link>/posts/2022/the-hubble-space-telescope/</link>
       <pubDate>Sun, 30 Jul 2023 09:30:32 +0700</pubDate>
-      <guid>//localhost:1313/posts/2022/the-hubble-space-telescope/</guid>
+      <guid>/posts/2022/the-hubble-space-telescope/</guid>
       <description>Explore the incredible journey of the Hubble Space Telescope and its three decades of groundbreaking contributions to astronomy.</description>
     </item>
     <item>
       <title>Exoplanets: Hunting for Earth&#39;s Cosmic Cousins</title>
-      <link>//localhost:1313/posts/2022/exoplanets-hunting/</link>
+      <link>/posts/2022/exoplanets-hunting/</link>
       <pubDate>Thu, 27 Jul 2023 13:03:07 +0700</pubDate>
-      <guid>//localhost:1313/posts/2022/exoplanets-hunting/</guid>
+      <guid>/posts/2022/exoplanets-hunting/</guid>
       <description>Discover the fascinating quest to find exoplanets, distant worlds that may resemble Earth.</description>
     </item>
   </channel>
