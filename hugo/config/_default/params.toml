@@ -1,0 +1,29 @@
+# 全局参数
+env = "production"
+description = "有点儿意思~"
+author = "3hangq1ng"
+defaultTheme = "auto"
+displayMode = true
+
+# 主题功能开关
+ShowCodeCopyButtons = true
+ShowReadingTime = true
+ShowPostNavLinks = true
+ShowWordCounts = true
+ShowLastMod = true
+ShowToc = true
+TocOpen = true
+comments = true
+
+
+# Favicon 和 Apple Touch Icon
+[params.assets]
+favicon = "/images/avatar.jpg"
+
+# 搜索配置
+[params.fuseOpts]
+keys = ["title", "permalink", "summary"]
+
+# 页脚年份
+StartYear = 2024
+EndYear = 2025

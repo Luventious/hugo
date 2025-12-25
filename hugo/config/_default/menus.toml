@@ -1,0 +1,24 @@
+# 可以继续添加文章、关于我、标签等菜单
+[[main]]
+identifier = "home"
+name = "Home"
+url = "/"
+weight = 1
+
+[[main]]
+identifier = "posts"
+name = "Post"
+url = "/posts/"
+weight = 2
+
+[[main]]
+identifier = "about"
+name = "About"
+url = "/about/"
+weight = 3
+
+[[main]]
+identifier = "aboutme"
+name = "aboutme"
+url = "/aboutme/"
+weight = 4

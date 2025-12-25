@@ -1,0 +1,420 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>3hangq1ngの博客</title>
+    <link>/</link>
+    <description>Recent content on 3hangq1ngの博客</description>
+    <generator>Hugo -- 0.152.2</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Tue, 23 Dec 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>关于我</title>
+      <link>/aboutme/</link>
+      <pubDate>Tue, 23 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>/aboutme/</guid>
+      <description>&lt;!DOCTYPE html&gt;
+&lt;html lang=&#34;zh-CN&#34;&gt;
+&lt;head&gt;
+    &lt;meta charset=&#34;UTF-8&#34;&gt;
+    &lt;meta div=&#34;viewport&#34; content=&#34;width=device-width, initial-scale=1.0&#34;&gt;
+    &lt;title&gt;标题一&lt;/title&gt;
+    &lt;style&gt;
+        * {
+            font-family: var(--font-family-one);
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-size: 12px;
+            font-family: &#39;Helvetica Neue&#39;, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+            padding: 20px;
+        }
+        
+        .resume-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            padding: 40px;
+            position: relative;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #333;
+        }
+        
+        .div {
+            font-family: var(--font-family-three);
+            font-size: 2.5em;
+            font-weight: 700;
+            margin-bottom: 5px;
+            color: #000;
+            letter-spacing: 1px;
+        }
+        
+        .title {
+            font-size: 1.3em;
+            color: #555;
+            margin-bottom: 15px;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            font-size: 0.95em;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .section {
+            margin-bottom: 35px;
+        }
+        
+        .section-title {
+            font-size: 1.5em;
+            font-weight: 600;
+            color: #000;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .about-content {
+            font-size: 1.05em;
+            line-height: 1.8;
+            color: #444;
+        }
+        
+        .experience-item, .project-item, .education-item {
+            margin-bottom: 25px;
+        }
+        
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+        
+        .item-title {
+            font-weight: 600;
+            font-size: 1.05em;
+            color: #000;
+        }
+        
+        .item-subtitle {
+            color: #444;
+            font-weight: 500;
+            margin-bottom: 8px;
+            font-size: 1.05em;
+        }
+        
+        .item-date {
+            color: #666;
+            font-size: 0.95em;
+        }
+        
+        .item-list {
+            padding-left: 20px;
+            color: #555;
+        }
+        
+        .item-list li {
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+        
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .skill-tag {
+            background: #f0f0f0;
+            color: #333;
+            padding: 6px 15px;
+            border-radius: 3px;
+            font-size: 0.9em;
+            border: 1px solid #ddd;
+        }
+        
+        .qrcode {
+            position: absolute;
+            bottom: 40px;
+            right: 40px;
+            text-align: center;
+            width: 120px;
+        }
+        
+        .qrcode img {
+            width: 100px;
+            height: 100px;
+            border: 1px solid #ddd;
+            margin-bottom: 8px;
+        }
+        
+        .qrcode p {
+            font-size: 0.85em;
+            color: #666;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #777;
+            font-size: 0.9em;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+        }
+        
+        @media (max-width: 768px) {
+            .resume-container {
+                padding: 25px;
+            }
+            
+            .div {
+                font-size: 2.2em;
+            }
+            
+            .item-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 5px;
+            }
+            
+            .contact-info {
+                gap: 15px;
+            }
+            
+            .qrcode {
+                position: static;
+                margin: 20px auto;
+                text-align: center;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .resume-container {
+                padding: 20px;
+            }
+            
+            .div {
+                font-size: 1.8em;
+            }
+            
+            .section-title {
+                font-size: 1.3em;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class=&#34;resume-container&#34;&gt;
+        &lt;div class=&#34;header&#34;&gt;
+            &lt;h2 class=&#34;div&#34;&gt;张三&lt;/h2&gt;
+            &lt;div class=&#34;title&#34;&gt;高级前端开发工程师&lt;/div&gt;
+            &lt;div class=&#34;contact-info&#34;&gt;
+                &lt;div class=&#34;contact-item&#34;&gt;📧 zhangsan@email.com&lt;/div&gt;
+                &lt;div class=&#34;contact-item&#34;&gt;📱 138-8888-8888&lt;/div&gt;
+                &lt;div class=&#34;contact-item&#34;&gt;📍 北京市朝阳区&lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        
+        &lt;div class=&#34;section&#34;&gt;
+            &lt;div class=&#34;section-title&#34;&gt;标题一&lt;/div&gt;
+            &lt;div class=&#34;about-content&#34;&gt;
+                 passionate front-end developer with 5 years of experience in creating responsive and user-friendly web applications. 
+                Specialized in React, Vue.js, and modern JavaScript frameworks. 
+                Committed to writing clean, maintainable code and delivering exceptional user experiences.
+            &lt;/div&gt;
+        &lt;/div&gt;
+        
+        &lt;div class=&#34;section&#34;&gt;
+            &lt;div class=&#34;section-title&#34;&gt;标题二&lt;/div&gt;
+            &lt;div class=&#34;experience-item&#34;&gt;
+                &lt;div class=&#34;item-header&#34;&gt;
+                    &lt;div class=&#34;item-title&#34;&gt;科技有限公司&lt;/div&gt;
+                    &lt;div class=&#34;item-date&#34;&gt;2022年1月 - 至今&lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class=&#34;item-subtitle&#34;&gt;高级前端开发工程师&lt;/div&gt;
+                &lt;ul class=&#34;item-list&#34;&gt;
+                    &lt;li&gt;负责公司主要产品的前端架构设计和开发&lt;/li&gt;
+                    &lt;li&gt;优化网站性能，提升页面加载速度40%&lt;/li&gt;
+                    &lt;li&gt;带领3人前端团队完成多个重要项目&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/div&gt;
+            
+            &lt;div class=&#34;experience-item&#34;&gt;
+                &lt;div class=&#34;item-header&#34;&gt;
+                    &lt;div class=&#34;item-title&#34;&gt;创新软件公司&lt;/div&gt;
+                    &lt;div class=&#34;item-date&#34;&gt;2020年6月 - 2021年12月&lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class=&#34;item-subtitle&#34;&gt;前端开发工程师&lt;/div&gt;
+                &lt;ul class=&#34;item-list&#34;&gt;
+                    &lt;li&gt;参与企业级管理系统的前端开发&lt;/li&gt;
+                    &lt;li&gt;使用Vue.js框架开发响应式Web应用&lt;/li&gt;
+                    &lt;li&gt;与后端团队协作实现RESTful API集成&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        
+        &lt;div class=&#34;section&#34;&gt;
+            &lt;div class=&#34;section-title&#34;&gt;标题三&lt;/div&gt;
+            &lt;div class=&#34;project-item&#34;&gt;
+                &lt;div class=&#34;item-header&#34;&gt;
+                    &lt;div class=&#34;item-title&#34;&gt;电商平台重构项目&lt;/div&gt;
+                    &lt;div class=&#34;item-date&#34;&gt;2023年3月 - 2023年8月&lt;/div&gt;
+                &lt;/div&gt;
+                &lt;ul class=&#34;item-list&#34;&gt;
+                    &lt;li&gt;使用React + TypeScript重构传统jQuery项目&lt;/li&gt;
+                    &lt;li&gt;实现组件化开发，代码复用率提升60%&lt;/li&gt;
+                    &lt;li&gt;优化首屏加载时间，从3s减少到1.2s&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/div&gt;
+            
+            &lt;div class=&#34;project-item&#34;&gt;
+                &lt;div class=&#34;item-header&#34;&gt;
+                    &lt;div class=&#34;item-title&#34;&gt;移动端管理系统&lt;/div&gt;
+                    &lt;div class=&#34;item-date&#34;&gt;2022年9月 - 2022年12月&lt;/div&gt;
+                &lt;/div&gt;
+                &lt;ul class=&#34;item-list&#34;&gt;
+                    &lt;li&gt;开发基于Vue3的移动端管理系统&lt;/li&gt;
+                    &lt;li&gt;实现PWA功能，支持离线使用&lt;/li&gt;
+                    &lt;li&gt;集成实时数据可视化图表&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        
+        &lt;div class=&#34;section&#34;&gt;
+            &lt;div class=&#34;section-title&#34;&gt;标题四&lt;/div&gt;
+            &lt;div class=&#34;education-item&#34;&gt;
+                &lt;div class=&#34;item-header&#34;&gt;
+                    &lt;div class=&#34;item-title&#34;&gt;北京大学&lt;/div&gt;
+                    &lt;div class=&#34;item-date&#34;&gt;2016年9月 - 2020年6月&lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class=&#34;item-subtitle&#34;&gt;计算机科学与技术 学士学位&lt;/div&gt;
+                &lt;ul class=&#34;item-list&#34;&gt;
+                    &lt;li&gt;GPA: 3.8/4.0&lt;/li&gt;
+                    &lt;li&gt;获得校级优秀毕业生称号&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        
+        &lt;div class=&#34;section&#34;&gt;
+            &lt;div class=&#34;section-title&#34;&gt;标题五&lt;/div&gt;
+            &lt;div class=&#34;skills-grid&#34;&gt;
+                &lt;span class=&#34;skill-tag&#34;&gt;HTML5&lt;/span&gt;
+                &lt;span class=&#34;skill-tag&#34;&gt;CSS3&lt;/span&gt;
+                &lt;span class=&#34;skill-tag&#34;&gt;JavaScript&lt;/span&gt;
+                &lt;span class=&#34;skill-tag&#34;&gt;React&lt;/span&gt;
+                &lt;span class=&#34;skill-tag&#34;&gt;Vue.js&lt;/span&gt;
+                &lt;span class=&#34;skill-tag&#34;&gt;Node.js&lt;/span&gt;
+                &lt;span class=&#34;skill-tag&#34;&gt;TypeScript&lt;/span&gt;
+                &lt;span class=&#34;skill-tag&#34;&gt;Webpack&lt;/span&gt;
+                &lt;span class=&#34;skill-tag&#34;&gt;Git&lt;/span&gt;
+                &lt;span class=&#34;skill-tag&#34;&gt;ES6+&lt;/span&gt;
+                &lt;span class=&#34;skill-tag&#34;&gt;SASS&lt;/span&gt;
+                &lt;span class=&#34;skill-tag&#34;&gt;响应式设计&lt;/span&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        
+        &lt;div class=&#34;qrcode&#34;&gt;
+            &lt;img src=&#34;data:image/svg+xml,%3Csvg xmlns=&#39;http://www.w3.org/2000/svg&#39; width=&#39;100&#39; height=&#39;100&#39;%3E%3Crect width=&#39;100&#39; height=&#39;100&#39; fill=&#39;%23f5f5f5&#39;/%3E%3Cpath d=&#39;M25,25h50v50h-50z&#39; fill=&#39;%23333&#39;/%3E%3Ctext x=&#39;50&#39; y=&#39;65&#39; font-family=&#39;Arial&#39; font-size=&#39;10&#39; text-anchor=&#39;middle&#39; fill=&#39;%23333&#39;%3E微信二维码%3C/text%3E%3C/svg%3E&#34; alt=&#34;微信二维码&#34;&gt;
+            &lt;p&gt;扫码添加微信&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>天府绿道APP / 设计提案</title>
+      <link>/posts/2023/excemple_article/</link>
+      <pubDate>Tue, 16 Dec 2025 22:28:05 +0800</pubDate>
+      <guid>/posts/2023/excemple_article/</guid>
+      <description>&lt;p&gt;2023年的设计作品集聚焦于TOB项目，从项目接手到优化迭代，贯穿输出规范与模块化代码的全流程。&lt;/p&gt;
+&lt;p&gt;不同于往年更注重视觉冲击，今年更强调需求转化与用户体验，确保设计逻辑清晰、操作流畅，同时实现交互与规范的高度统一。
+此外，还利用闲暇时间完成了一些海报设计与照片拍摄，为作品集增添了更多创意与灵感。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>关于我</title>
+      <link>/about/</link>
+      <pubDate>Fri, 06 Oct 2023 20:37:29 +0700</pubDate>
+      <guid>/about/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Pehtheme Hugo&lt;/strong&gt; is your gateway to the mysteries and wonders of the universe. We are a passionate community of space enthusiasts, scientists, and stargazers dedicated to sharing the awe-inspiring beauty and profound knowledge of the cosmos.&lt;/p&gt;
+&lt;p&gt;At &lt;strong&gt;Pehtheme Hugo&lt;/strong&gt;, we believe that space exploration is not just a scientific endeavor; it&amp;rsquo;s a human adventure. It&amp;rsquo;s about the curiosity that drives us to look up at the night sky and wonder about the galaxies, stars, and planets that fill our universe.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Unveiling the Secrets of Black Holes: A Journey into the Heart of Darkness</title>
+      <link>/posts/2023/unveiling-the-secrets-of-black-holes/</link>
+      <pubDate>Wed, 04 Oct 2023 22:11:36 +0700</pubDate>
+      <guid>/posts/2023/unveiling-the-secrets-of-black-holes/</guid>
+      <description>Exploring the mysteries of black holes, the enigmatic cosmic phenomena.</description>
+    </item>
+    <item>
+      <title>Galactic Marvels: The Most Spectacular Nebulas in the Cosmos</title>
+      <link>/posts/2023/galactic-marvels/</link>
+      <pubDate>Sun, 24 Sep 2023 11:15:17 +0700</pubDate>
+      <guid>/posts/2023/galactic-marvels/</guid>
+      <description>galactic marvels the most spectacular nebulas in the cosmos</description>
+    </item>
+    <item>
+      <title>Stellar Spectacles: The Wonders of Supernova Explosions</title>
+      <link>/posts/2023/stellar-spectacles/</link>
+      <pubDate>Sat, 23 Sep 2023 22:45:37 +0700</pubDate>
+      <guid>/posts/2023/stellar-spectacles/</guid>
+      <description>Explore the breathtaking phenomena of supernova explosions, the cosmic fireworks of the universe.</description>
+    </item>
+    <item>
+      <title>Space Exploration&#39;s Next Frontier: The Race to Reach Mars</title>
+      <link>/posts/2023/space-explorations-next-frontier/</link>
+      <pubDate>Tue, 15 Aug 2023 13:45:49 +0700</pubDate>
+      <guid>/posts/2023/space-explorations-next-frontier/</guid>
+      <description>Explore the exciting endeavors and challenges of reaching Mars in the new era of space exploration.</description>
+    </item>
+    <item>
+      <title>The Great Beyond: Exploring the Expanding Universe</title>
+      <link>/posts/2023/the-great-beyond/</link>
+      <pubDate>Sat, 12 Aug 2023 14:15:05 +0700</pubDate>
+      <guid>/posts/2023/the-great-beyond/</guid>
+      <description>Delve into the awe-inspiring journey of exploring the universe&amp;#39;s expansion and the mysteries it unveils.</description>
+    </item>
+    <item>
+      <title>Cosmic Time Travel: Peering into the Universe&#39;s Past with Telescopes</title>
+      <link>/posts/2022/cosmic-time-travel/</link>
+      <pubDate>Mon, 07 Aug 2023 09:30:32 +0700</pubDate>
+      <guid>/posts/2022/cosmic-time-travel/</guid>
+      <description>Explore how telescopes enable us to journey back in time by observing distant celestial objects.</description>
+    </item>
+    <item>
+      <title>The Hubble Space Telescope: 30 Years of Stunning Discoveries</title>
+      <link>/posts/2022/the-hubble-space-telescope/</link>
+      <pubDate>Sun, 30 Jul 2023 09:30:32 +0700</pubDate>
+      <guid>/posts/2022/the-hubble-space-telescope/</guid>
+      <description>Explore the incredible journey of the Hubble Space Telescope and its three decades of groundbreaking contributions to astronomy.</description>
+    </item>
+    <item>
+      <title>Exoplanets: Hunting for Earth&#39;s Cosmic Cousins</title>
+      <link>/posts/2022/exoplanets-hunting/</link>
+      <pubDate>Thu, 27 Jul 2023 13:03:07 +0700</pubDate>
+      <guid>/posts/2022/exoplanets-hunting/</guid>
+      <description>Discover the fascinating quest to find exoplanets, distant worlds that may resemble Earth.</description>
+    </item>
+  </channel>
+</rss>
