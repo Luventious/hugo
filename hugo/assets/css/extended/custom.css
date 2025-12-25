@@ -1,0 +1,65 @@
+@font-face {
+  font-family: 'Marcellus';
+  src: url('/fonts/Marcellus.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+:root {
+  /* 核心视觉字体 */
+  --font-family-one: 'Marcellus', serif;  /* Logo、按钮、标签标题 */
+
+  /* 通用正文字体栈 */
+  --font-family-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+
+/* Logo */
+.entry-header h2, #menu a, .entry-content, .post-title {
+  font-family: var(--font-family-one); 
+}
+.logo a {
+  font-family: var(--font-family-two); 
+}
+
+.entry-header h1 {
+  font-family: var(--font-family-two); 
+}
+
+
+/* 调整 H2 字体大小和字重 */
+/* .entry-header {
+  font-family: var(--font-family-one); 
+  font-size: 2rem !important;
+  font-weight: 700 !important;
+  line-height: 1.0;
+} */
+
+.post-title {
+  font-size: 3rem !important;
+}
+
+/* 按钮 / 标签页标题 */
+.button, .tab-title {
+  font-family: var(--font-family-body);
+}
+
+/* 英雄区标题 / 二级标题 */
+.hero-title, .post-meta, .breadcrumbs {
+  font-family: var(--font-family-body);
+}
+
+body {
+  font-family: var(--font-family-one);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text-normal);
+}
+
+/*列表样式*/
+/* 每个文章列表项设置为 flex 布局 */
+.post-entry {
+  margin-top: 50px;            /* 图片和文字间距 */
+}
+
+

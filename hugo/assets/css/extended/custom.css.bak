@@ -1,0 +1,87 @@
+/* @font-face {
+  font-family: 'Marcellus';
+  src: url('/fonts/Marcellus-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal; */
+}
+@font-face {
+  font-family: 'Bellefair';
+  src: url('/fonts/Bellefair-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+    font-family: 'songti';
+    src:  url('AaGuDianKeBenSong.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+:root {
+  /* 核心视觉字体 */
+  --font-family-one: 'songti', serif;  /* Logo、按钮、标签标题 */
+  --font-family-two: 'Bellefair', serif;  /* 英雄区标题、二级标题 */
+
+  /* 通用正文字体栈 */
+  --font-family-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+
+/* Logo */
+.logo {
+  font-family: var(--font-family-one); 
+  font-size: 5rem !important;
+  font-weight: 700 !important;
+}
+
+.entry-header, .entry-content, a, h2 {
+  font-family: var(--font-family-one);
+}
+
+/* 调整 H2 字体大小和字重 */
+.entry-header, h1 {
+  font-family: var(--font-family-one); 
+  font-size: 3rem !important;
+  font-weight: 700 !important;
+  line-height: 1.0;
+}
+
+/* 按钮 / 标签页标题 */
+.button, .tab-title, .post-title {
+  font-family: var(--font-family-body);
+}
+
+/* 英雄区标题 / 二级标题 */
+.hero-title, .post-meta, .breadcrumbs {
+  font-family: var(--font-family-body);
+}
+
+body {
+  font-family: var(--font-family-body);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text-normal);
+}
+
+/* 完全重置 Logo 容器样式 */
+a[accesskey="h"] {
+  all: unset !important; /* 清除所有默认样式 */
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  cursor: pointer !important; /* 恢复链接点击指针 */
+  width: auto !important;
+}
+
+a[accesskey="h"] svg {
+  all: unset !important;
+  display: block !important;
+  height: 100px !important;
+  width: auto !important;
+}
+
+.post-entry {
+  margin-top: 50px;
+}

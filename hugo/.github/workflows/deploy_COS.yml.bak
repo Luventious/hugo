@@ -1,0 +1,39 @@
+name: Deploy Hugo to Tencent COS
+
+on:
+  push:
+    branches:
+      - main  # 只在此分支推送时触发
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+      # 1. 拉取代码
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: false  # 如果主题是 submodule 引入，必须开启
+          fetch-depth: 0
+
+      # 2. 安装 Hugo
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: 'latest'
+          extended: true  # 大多数新主题需要 extended 版本
+
+      # 3. 编译静态文件
+      - name: Build
+        run: hugo --minify --baseURL https://shangqing.site/
+
+      # 4. 部署到腾讯云 COS
+      - name: Deploy to COS
+        uses: zkqiang/tencent-cos-action@v0.1.0
+        with:
+          args: upload -r ./public/ /
+          secret_id: ${{ secrets.TENCENT_SECRET_ID }}
+          secret_key: ${{ secrets.TENCENT_SECRET_KEY }}
+          bucket: ${{ secrets.COS_BUCKET }}
+          region: ${{ secrets.COS_REGION }}
