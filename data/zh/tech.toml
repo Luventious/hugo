@@ -1,6 +1,6 @@
 # The 'row1' array populates the top carousel
 row1 = [
-  { icon = "devicon-python-plain", name = "Python" },
+  { icon = "devicon-python-plain", name = "用户访谈" },
   { icon = "devicon-go-plain", name = "Go" },
   { icon = "devicon-javascript-plain", name = "JavaScript" },
   # ... other tech stack items...

@@ -1,6 +1,6 @@
 baseURL = "/"
 languageCode = 'zh-CN'
-title = 'hugotoml-titile'
+title = 'Deng Shangqing'
 theme = 'hugo-noir'
 
 defaultContentLanguage = "zh"
@@ -8,7 +8,7 @@ defaultContentLanguageInSubdir = true
 [languages]
   [languages.zh]
     languageName = "Chinese"
-    title = "lang.titile"
+    title = "Deng Shangqing"
     weight = 1
     contentDir = "content/zh"
 
@@ -24,8 +24,8 @@ canonifyURLs = false
 
 [params]
   showLocalTime = true
-  name = "hugotoml-name"
-  location = "Guangzhou-hugotoml-location"
+  name = "Deng Shangqing"
+  location = "广东省, 中华人民共和国, 广州市"
   description = "hugotoml-description."
   profile_image = "/images/profile.jpg"
   discord = "johndoe123"

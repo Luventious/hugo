@@ -1,12 +1,12 @@
 [author]
-name = '3hangq1ng'
-location = "Beijing"
-description = "description_author"
-profile_image = "/images/your-profile.jpg"
+name = '邓尚青'
+location = "广东省, 中华人民共和国, 广州市"
+description = "用户体验设计师"
+profile_image = "/images/your-profile.png"
 
 # Social links
-github = "https://github.com/Luventious"
-twitter = "https://twitter.com/Luventious"
+# github = "https://github.com/Luventious"
+# twitter = "https://twitter.com/Luventious"
 linkedin = "https://linkedin.com/in/dengshangqing"
 email = "1069263967@qq.com"
 

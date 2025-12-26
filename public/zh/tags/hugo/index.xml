@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Deng Shangqing</title>
-    <link>/zh/</link>
-    <description>Recent content on Deng Shangqing</description>
+    <title>Hugo on lang.titile</title>
+    <link>/zh/tags/hugo/</link>
+    <description>Recent content in Hugo on lang.titile</description>
     <generator>Hugo</generator>
     <language>zh</language>
     <lastBuildDate>Wed, 15 Mar 2023 10:30:00 +0530</lastBuildDate>
-    <atom:link href="/zh/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/zh/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>excemple</title>
+      <title>Excemple Article</title>
       <link>/zh/blogs/excemple/</link>
       <pubDate>Wed, 15 Mar 2023 10:30:00 +0530</pubDate>
       <guid>/zh/blogs/excemple/</guid>
-      <description>&lt;p&gt;Page content here&amp;hellip;&lt;/p&gt;</description>
+      <description>&lt;p&gt;Your post content here&amp;hellip;&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
