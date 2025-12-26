@@ -1,0 +1,70 @@
+[[experience]]
+  role = "Senior Developer"
+  company = "Tech Solutions Inc."
+  company_link = "https://www.techsolutions.com" # Add company URL here
+  period = "Jan 2020 - Present"
+  country = "USA" # New field for region/country
+  # description = "Longer description of the role..." # Optional detailed description
+  responsibilities = [
+        "Developed and maintained web applications.",
+        "Collaborated with cross-functional teams.",
+        "Led junior developers."
+  ]
+  technologies = ["Go", "Docker", "Kubernetes", "React"]
+
+[[experience]]
+    role = "Software Engineer"
+    company = "Innovate LLC"
+    # company_link = "" # Omit or leave blank if no link
+    period = "Jun 2018 - Dec 2019"
+    country = "Canada"
+    responsibilities = [
+        "Contributed to full-stack development projects.",
+        "Participated in code reviews and agile sprints."
+    ]
+    technologies = ["Python", "Django", "PostgreSQL"]
+
+[[experience]]
+    company = "Lorem Technologies"
+    role = "AI Research Engineer"
+    period = "Jan 2023 - Dec 2023"
+    logo = "/images/company/lorem.png"
+    description = "Ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore."
+    responsibilities = [
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+        "Ut enim ad minim veniam, quis nostrud exercitation",
+        "Duis aute irure dolor in reprehenderit in voluptate",
+        "Excepteur sint occaecat cupidatat non proident"
+    ]
+
+[[experience]]
+    company = "Ipsum Solutions"
+    role = "Machine Learning Engineer"
+    period = "Jun 2022 - Dec 2022"
+    logo = "/images/company/ipsum.png"
+    description = "Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    responsibilities = [
+        "Sed ut perspiciatis unde omnis iste natus error",
+        "Nemo enim ipsam voluptatem quia voluptas sit",
+        "At vero eos et accusamus et iusto odio dignissimos",
+        "Et harum quidem rerum facilis est et expedita"
+    ]
+
+[[experience]]
+    company = "Dolor Analytics"
+    role = "Data Scientist"
+    period = "Jan 2022 - May 2022"
+    logo = "/images/company/dolor.png"
+    description = "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit."
+    responsibilities = [
+        "Nam libero tempore, cum soluta nobis est eligendi",
+        "Temporibus autem quibusdam et aut officiis debitis",
+        "Itaque earum rerum hic tenetur a sapiente delectus"
+    ]
+
+[[experience]]
+    company = "Sit Amet Corp"
+    role = "Open Source Contributor"
+    period = "2021 - Present"
+    description = "Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse."
+    github_username = "loremipsum"
