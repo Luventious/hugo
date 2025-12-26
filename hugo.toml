@@ -10,7 +10,7 @@ defaultContentLanguageInSubdir = true
     languageName = "Chinese"
     title = "lang.titile"
     weight = 1
-    contentDir = "content/CN"
+    contentDir = "content/zh"
 
 # URL handling
 relativeURLs = true
@@ -23,7 +23,7 @@ canonifyURLs = false
 
 
 [params]
-    name = "hugotoml"
+    name = "hugotoml-name"
     location = "Guangzhou-hugotoml-location"
     description = "hugotoml-description."
     profile_image = "/images/profile.jpg"
@@ -47,21 +47,21 @@ canonifyURLs = false
 [menu]
   [[menu.main]]
     name = "About"
-    url = "/about/"
+    url = "/zh/about/"
     weight = 1
   [[menu.main]]
     name = "Experience"
-    url = "/experience/"
+    url = "/zh/experience/"
     weight = 2
   [[menu.main]]
     name = "Projects"
-    url = "/projects/"
+    url = "/zh/projects/"
     weight = 3
   [[menu.main]]
     name = "Blogs"
-    url = "/blogs/"
+    url = "/zh/blogs/"
     weight = 4
   [[menu.main]]
     name = "Contact Me"
-    url = "/contact/"
+    url = "/zh/contact/"
     weight = 5

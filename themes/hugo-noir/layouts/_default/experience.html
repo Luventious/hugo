@@ -31,7 +31,7 @@
         {{ $experienceData := index site.Data .Language.Lang "experience" }}
         {{ with $experienceData.experience }}
             {{ range . }}
-            <div class="group relative pl-8 before:content-[''] before:absolute before:left-0 before:top-0 before:w-[2px] before:h-full before:bg-border-secondary-light dark:before:bg-border-secondary-dark before:rounded-full">
+            <div class="group relative before:content-[''] before:absolute before:left-0 before:top-0 before:w-[2px] before:h-full before:bg-border-secondary-light dark:before:bg-border-secondary-dark before:rounded-full">
                 <div class="absolute -left-1.5 top-0 w-2 h-2 bg-border-secondary-light dark:bg-border-secondary-dark rounded-full"></div>
                 <div class="p-6 rounded-lg bg-bg-primary-light dark:bg-bg-secondary-dark transition-all duration-300 border border-border-primary-light dark:border-border-primary-dark">
                     <div class="flex-grow">

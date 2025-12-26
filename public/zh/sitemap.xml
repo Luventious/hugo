@@ -2,6 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>/zh/about/</loc>
+  </url><url>
+    <loc>/zh/blogs/</loc>
+  </url><url>
+    <loc>/zh/contact/</loc>
+  </url><url>
+    <loc>/zh/experience/</loc>
+  </url><url>
+    <loc>/zh/projects/</loc>
+  </url><url>
     <loc>/zh/categories/</loc>
   </url><url>
     <loc>/zh/</loc>
