@@ -1,10 +1,11 @@
 [author]
-    name = "3hangq1ng"
-    location = "Beijing"
-    description = "description_author"
-    profile_image = "/images/your-profile.jpg" 
-    # Social links
-    github = "https://github.com/Luventious"
-    twitter = "https://twitter.com/Luventious"
-    linkedin = "https://linkedin.com/in/dengshangqing"
-    email = "1069263967@qq.com"
+name = '3hangq1ng'
+location = "Beijing"
+description = "description_author"
+profile_image = "/images/your-profile.jpg"
+
+# Social links
+github = "https://github.com/Luventious"
+twitter = "https://twitter.com/Luventious"
+linkedin = "https://linkedin.com/in/dengshangqing"
+email = "1069263967@qq.com"

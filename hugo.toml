@@ -23,27 +23,54 @@ canonifyURLs = false
 
 
 [params]
-    name = "hugotoml-name"
-    location = "Guangzhou-hugotoml-location"
-    description = "hugotoml-description."
-    profile_image = "/images/profile.jpg"
-    discord = "johndoe123"
-    github = "https://github.com/johndoe123"
-    github_username = "Luventious"
-    email = "1069263967@qq.com"
-    twitter = "https://www.twitter.com/Luventious"
-    twitter_username = "johndoe123"
-    medium = "https://www.medium.com/@johndoe123"
-    linkedin = "https://www.linkedin.com/in/dengshangqing"
-    linkedin_username = "邓尚青"
-    instagram = "https://instagram.com/johndoe123"
-    leetcode = "https://leetcode.com/johndoe123"
-    leetcode_username = "johndoe123"
-    monkeytype = "https://monkeytype.com/profile/johndoe123"
-    monkeytype_username = "johndoe123"
-    kaggle = "https://www.kaggle.com/johndoe123"
-    kaggle_username = "johndoe123"
-    
+  showLocalTime = true
+  name = "hugotoml-name"
+  location = "Guangzhou-hugotoml-location"
+  description = "hugotoml-description."
+  profile_image = "/images/profile.jpg"
+  discord = "johndoe123"
+  github = "https://github.com/johndoe123"
+  github_username = "Luventious"
+  email = "1069263967@qq.com"
+  twitter = "https://www.twitter.com/Luventious"
+  twitter_username = "johndoe123"
+  medium = "https://www.medium.com/@johndoe123"
+  linkedin = "https://www.linkedin.com/in/dengshangqing"
+  linkedin_username = "邓尚青"
+  instagram = "https://instagram.com/johndoe123"
+  leetcode = "https://leetcode.com/johndoe123"
+  leetcode_username = "johndoe123"
+  monkeytype = "https://monkeytype.com/profile/johndoe123"
+  monkeytype_username = "johndoe123"
+  kaggle = "https://www.kaggle.com/johndoe123"
+  kaggle_username = "johndoe123"
+
+  [[params.certifications]]
+    title = "Azure AI Engineering Specialist"
+    date = "Dec 2024"
+    url = "https://example.com/cert-azure"
+
+  [[params.certifications]]
+    title = "Google Cloud ML Professional"
+    date = "March 2024" 
+    url = "https://example.com/cert-gcp"
+
+  [[params.honors]]
+    institution = "Generic College"
+    title = "Academic Topper"
+    date = "March 2023"
+
+  [[params.honors]]
+    institution = "Valley High Academy"
+    title = "Outstanding Achievement in STEM"
+    date = "May 2018"
+
+  [[params.voluntary]]
+    role = "Community Lead"
+    organization = "Lorem Foundation"
+    period = "2020 - Present"
+    description = "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis."
+        
 [menu]
   [[menu.main]]
     name = "About"

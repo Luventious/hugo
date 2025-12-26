@@ -14,7 +14,7 @@ other = "Blogs"
 other = "View All"
 
 [localTimeLabel]
-other = "Local Time:"
+other = "当前时间  :"
 
 [menuTitle]
 other = "Menu"
