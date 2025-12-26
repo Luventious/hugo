@@ -9,3 +9,30 @@ github = "https://github.com/Luventious"
 twitter = "https://twitter.com/Luventious"
 linkedin = "https://linkedin.com/in/dengshangqing"
 email = "1069263967@qq.com"
+
+[[author.honors]]
+institution = "Generic College"
+title = "Academic Topper"
+date = "March 2023"
+
+[[author.honors]]
+institution = "Valley High Academy"
+title = "Outstanding Achievement in STEM"
+date = "May 2018"
+
+[[author.certifications]]
+title = "Azure AI Engineering Specialist"
+date = "Dec 2024"
+url = "https://example.com/cert-azure"
+
+[[author.certifications]]
+title = "Google Cloud ML Professional"
+date = "March 2024" 
+url = "https://example.com/cert-gcp"
+
+[[author.voluntary]]
+role = "Community Lead"
+organization = "Lorem Foundation"
+period = "2020 - Present"
+description = "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis."
+    

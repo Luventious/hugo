@@ -44,33 +44,7 @@ canonifyURLs = false
   monkeytype_username = "johndoe123"
   kaggle = "https://www.kaggle.com/johndoe123"
   kaggle_username = "johndoe123"
-
-  [[params.certifications]]
-    title = "Azure AI Engineering Specialist"
-    date = "Dec 2024"
-    url = "https://example.com/cert-azure"
-
-  [[params.certifications]]
-    title = "Google Cloud ML Professional"
-    date = "March 2024" 
-    url = "https://example.com/cert-gcp"
-
-  [[params.honors]]
-    institution = "Generic College"
-    title = "Academic Topper"
-    date = "March 2023"
-
-  [[params.honors]]
-    institution = "Valley High Academy"
-    title = "Outstanding Achievement in STEM"
-    date = "May 2018"
-
-  [[params.voluntary]]
-    role = "Community Lead"
-    organization = "Lorem Foundation"
-    period = "2020 - Present"
-    description = "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis."
-        
+  
 [menu]
   [[menu.main]]
     name = "About"
