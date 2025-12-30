@@ -1,70 +1,27 @@
 [[experience]]
-  role = "Senior Developer"
-  company = "Tech Solutions Inc."
-  company_link = "https://www.techsolutions.com" # Add company URL here
-  period = "Jan 2020 - Present"
-  country = "USA" # New field for region/country
-  # description = "Longer description of the role..." # Optional detailed description
-  responsibilities = [
+    role = "用户体验设计师"
+    company = "领克品牌院 - 吉利汽车股份有限公司"
+    company_link = "https://www.lynkco.com.cn/" # Add company URL here
+    period = "Jun 2022 - May 2025"
+    # logo = "/images/company/lynkco.png"
+    country = "CHINA" # New field for region/country
+    description = "3年交互设计经验，负责原生应用以及家电屏端产品从需求讨论、全局交互规范的制定到交互设计和后期迭代的工作；能独立完成交互原型输出，注重用户体验，具备用户同理心；自学能力强，能快速适应新的方法和工具。" # Optional detailed description
+    responsibilities = [
         "Developed and maintained web applications.",
         "Collaborated with cross-functional teams.",
         "Led junior developers."
-  ]
-  technologies = ["Go", "Docker", "Kubernetes", "React"]
+    ]
+    technologies = ["Go", "Docker", "Kubernetes", "React"]
 
 [[experience]]
-    role = "Software Engineer"
-    company = "Innovate LLC"
-    # company_link = "" # Omit or leave blank if no link
-    period = "Jun 2018 - Dec 2019"
-    country = "Canada"
+    role = "交互设计师"
+    company = "格力电器股份有限公司"
+    company_link = "https://gree.com/" # Omit or leave blank if no link
+    period = "Jun 2019 - May 2022"
+    country = "CHINA"
+    description = "3年交互设计经验，负责原生应用以及家电屏端产品从需求讨论、全局交互规范的制定到交互设计和后期迭代的工作；能独立完成交互原型输出，注重用户体验，具备用户同理心；自学能力强，能快速适应新的方法和工具。"
     responsibilities = [
         "Contributed to full-stack development projects.",
         "Participated in code reviews and agile sprints."
     ]
     technologies = ["Python", "Django", "PostgreSQL"]
-
-[[experience]]
-    company = "Lorem Technologies"
-    role = "AI Research Engineer"
-    period = "Jan 2023 - Dec 2023"
-    logo = "/images/company/lorem.png"
-    description = "Ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore."
-    responsibilities = [
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-        "Ut enim ad minim veniam, quis nostrud exercitation",
-        "Duis aute irure dolor in reprehenderit in voluptate",
-        "Excepteur sint occaecat cupidatat non proident"
-    ]
-
-[[experience]]
-    company = "Ipsum Solutions"
-    role = "Machine Learning Engineer"
-    period = "Jun 2022 - Dec 2022"
-    logo = "/images/company/ipsum.png"
-    description = "Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-    responsibilities = [
-        "Sed ut perspiciatis unde omnis iste natus error",
-        "Nemo enim ipsam voluptatem quia voluptas sit",
-        "At vero eos et accusamus et iusto odio dignissimos",
-        "Et harum quidem rerum facilis est et expedita"
-    ]
-
-[[experience]]
-    company = "Dolor Analytics"
-    role = "Data Scientist"
-    period = "Jan 2022 - May 2022"
-    logo = "/images/company/dolor.png"
-    description = "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit."
-    responsibilities = [
-        "Nam libero tempore, cum soluta nobis est eligendi",
-        "Temporibus autem quibusdam et aut officiis debitis",
-        "Itaque earum rerum hic tenetur a sapiente delectus"
-    ]
-
-[[experience]]
-    company = "Sit Amet Corp"
-    role = "Open Source Contributor"
-    period = "2021 - Present"
-    description = "Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse."
-    github_username = "loremipsum"

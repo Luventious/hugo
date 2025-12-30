@@ -23,9 +23,9 @@ canonifyURLs = false
 
 
 [params]
-  showLocalTime = true
+  showLocalTime = false
   name = "Deng Shangqing"
-  location = "广东省, 中华人民共和国, 广州市"
+  location = ""
   description = "hugotoml-description."
   profile_image = "/images/profile.jpg"
   discord = "johndoe123"

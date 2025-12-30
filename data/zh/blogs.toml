@@ -1,12 +1,12 @@
 [[blogs]]
-title = "Lorem Ipsum Systems"
+title = "如何让用户在看到界面的第一眼，就觉得你比竞品强？"
 date = "2025-03-15"
-summary = "Sed ut perspiciatis unde omnis iste natus error sit voluptatem."
-tags = ["Lorem", "Ipsum", "Dolor"]
+summary = "本文将从 A/B 测试 这一常用实验方式出发，梳理实验基础知识，并探讨如何理性看待实验数据并从中提取设计经验，为后续设计决策提供支撑。"
+tags = ["用户体验", "UX/UI", "A/B TEST"]
 content = """
 Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit...
 """
-link = "https://medium.com/@loremipsum/lorem-systems"
+link = "https://www.uisdc.com/data-driven-design-3"
 
 [[blogs]]
 title = "The Future of Dolor"

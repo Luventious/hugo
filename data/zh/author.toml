@@ -1,5 +1,5 @@
 [author]
-name = "deng Shangqing"
+name = "邓 尚青"
 location = "广东省, 中华人民共和国, 广州市"
 description = "用户体验设计师"
 profile_image = "/images/your-profile.png"
@@ -8,6 +8,7 @@ profile_image = "/images/your-profile.png"
 # github = "https://github.com/Luventious"
 # twitter = "https://twitter.com/Luventious"
 linkedin = "https://linkedin.com/in/dengshangqing"
+maimai = "https://maimai.cn/contact/share/card?u=ffkc2wiqznao&_share_channel=copy_link"
 email = "1069263967@qq.com"
 
 [[author.honors]]
