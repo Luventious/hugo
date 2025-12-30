@@ -1,17 +1,17 @@
 # The 'row1' array populates the top carousel
 row1 = [
-  { icon = "devicon-python-plain", name = "用户访谈" },
-  { icon = "devicon-go-plain", name = "Go" },
-  { icon = "devicon-javascript-plain", name = "JavaScript" },
+  { icon = "devicon-python-plain", name = "趋势分析" },
+  { icon = "devicon-go-plain", name = "用户画像" },
+  { icon = "devicon-javascript-plain", name = "用户旅程" },
   # ... other tech stack items...
-  { icon = "devicon-ruby-plain", name = "Ruby" }
+  { icon = "devicon-ruby-plain", name = "竞品分析" }
 ]
 
 # The 'row2' array populates the bottom carousel
 row2 = [
-  { icon = "devicon-docker-plain", name = "Docker" },
-  { icon = "devicon-postgresql-plain", name = "PostgreSQL" },
-  { icon = "devicon-nginx-original", name = "Nginx" },
+  { icon = "devicon-docker-plain", name = "头脑风暴" },
+  { icon = "devicon-postgresql-plain", name = "同理心地图" },
+  { icon = "devicon-nginx-original", name = "设计冲刺" },
   # ... other tech stack items... 
-  { icon = "devicon-nodejs-plain", name = "Node.js" }
+  { icon = "devicon-nodejs-plain", name = "优先级排序" }
 ]
