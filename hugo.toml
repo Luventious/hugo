@@ -29,6 +29,9 @@ canonifyURLs = false
   description = "hugotoml-description."
   profile_image = "/images/profile.jpg"
   discord = "johndoe123"
+  Wechat = "shaunkyn"
+  Tel = "156 2622 6991"
+  maimai = "https://maimai.cn/contact/share/card?u=ffkc2wiqznao&_share_channel=copy_link"
   github = "https://github.com/johndoe123"
   github_username = "Luventious"
   email = "1069263967@qq.com"
@@ -47,8 +50,8 @@ canonifyURLs = false
   
 [menu]
   [[menu.main]]
-    name = "About"
-    url = "/zh/about/"
+    name = "Home"
+    url = "/"
     weight = 1
   [[menu.main]]
     name = "Experience"
