@@ -3,7 +3,8 @@ title = "领克大旗舰SUV体验设计"
 description = "破晓进阶旭日，开启都市对立美学新启点；灵感破格体验升维，引领旗舰美学新定义。百变空间创享多元场景，舒享座舱重塑栖居美学，沉浸声场智启明日新境。"
 tech = "Persona, User Journey"
 image = "/images/projects/13p30319.jpg"
-link = "https://www.lynkco.com.cn/cars/900"
+# link = "https://www.lynkco.com.cn/cars/900"
+link = "zh/projects/900用户体验设计"
 
 [[projects]]
 title = "数字化展车模式体验设计"
