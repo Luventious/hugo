@@ -1,20 +1,55 @@
 {{ define "main" }}
-<div class="container mx-auto px-4 py-12">
-    <h1 class="text-4xl font-bold mb-8 text-text-primary-light dark:text-text-primary-dark">{{ .Title }}</h1>
-    <div class="space-y-6">
+<div class="w-full md:w-3/4 lg:w-1/2 mx-auto px-4 py-12">
+    <!-- 页面标题 -->
+    <h1 class="text-5xl font-bold mb-12 text-text-primary-light dark:text-text-primary-dark">{{ .Title }}</h1>
+    
+    <div class="space-y-12 max-w-3xl mx-auto">
+        <!-- 遍历所有页面 -->
         {{ range .Pages }}
-        <article class="border border-border-primary-light dark:border-border-primary-dark rounded-lg p-6 bg-white dark:bg-neutral-800">
-            <h2 class="text-2xl font-semibold mb-2">
-                <a href="{{ .RelPermalink }}" class="text-accent-light dark:text-accent-dark hover:text-text-primary-light dark:hover:text-text-primary-dark">{{ .Title }}</a>
-            </h2>
-            {{ if .Description }}
-            <p class="text-text-secondary-light dark:text-text-secondary-dark">{{ .Description }}</p>
-            {{ end }}
-            {{ if .Date }}
-            <time class="text-sm text-text-secondary-light dark:text-text-secondary-dark">{{ .Date.Format "January 2, 2006" }}</time>
-            {{ end }}
-        </article>
+        <div class="group border border-transparent rounded-lg p-6 bg-white dark:bg-neutral-800 transition duration-200 hover:border-gray-200 dark:hover:border-gray-500 hover:shadow-lg">
+            
+            <div class="flex gap-6 items-start">
+                <!-- 左侧封面图片，移动端隐藏 -->
+                {{ if .Params.cover }}
+                <div class="hidden md:flex-shrink-0 md:w-32 md:h-32 bg-gray-200 dark:bg-gray-700 rounded-md overflow-hidden mt-1 md:block">
+                    <img src="{{ .Params.cover }}" alt="{{ .Title }} cover" class="w-full h-full object-cover">
+                </div>
+                {{ end }}
+                
+                <!-- 右侧内容 -->
+                <div class="flex-1">
+                    <!-- 日期 -->
+                    {{ if .Date }}
+                    <p class="text-sm text-text-secondary-light dark:text-text-secondary-dark mb-2">{{ .Date.Format "January 2, 2006" }}</p>
+                    {{ end }}
+                    
+                    <!-- 标题带箭头 -->
+                    <a href="{{ .RelPermalink }}" class="block">
+                        <h3 class="inline-flex items-center text-xl font-medium text-accent-light dark:text-accent-dark hover:text-text-primary-light dark:hover:text-text-primary-dark mb-3 transition-colors duration-200">
+                            {{ .Title }}
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-2 opacity-70 group-hover:opacity-100 transition-opacity duration-200">
+                                <path d="M7 17l9.2-9.2M17 17V7H7"/>
+                            </svg>
+                        </h3>
+                    </a>
+                    
+                    <!-- 描述 -->
+                    {{ if .Description }}
+                    <p class="text-text-secondary-light dark:text-text-secondary-dark mb-4">{{ .Description }}</p>
+                    {{ end }}
+                    
+                    <!-- 标签 -->
+                    {{ if .Params.tags }}
+                    <div class="flex flex-wrap gap-2">
+                        {{ range .Params.tags }}
+                        <span class="px-2 py-1 text-xs bg-bg-primary-light dark:bg-bg-tertiary-dark text-text-secondary-light dark:text-text-secondary-dark border border-border-primary-light dark:border-border-primary-dark rounded-md transition-all duration-300">{{ . }}</span>
+                        {{ end }}
+                    </div>
+                    {{ end }}
+                </div>
+            </div>
+        </div>
         {{ end }}
     </div>
 </div>
-{{ end }} 
+{{ end }}
