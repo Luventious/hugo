@@ -69,3 +69,7 @@ canonifyURLs = false
     name = "Contact Me"
     url = "/zh/contact/"
     weight = 5
+  [[menu.main]]
+    name = "Photography"
+    url = "/zh/photography/"
+    weight = 6
