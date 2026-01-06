@@ -1,21 +1,36 @@
 {{ define "main" }}
-<div class="w-1/2 mx-auto py-12">
-    <div class="max-w-3xl mx-auto p-8 border border-border-primary-light dark:border-border-primary-dark rounded-2xl bg-neutral-50 dark:bg-neutral-800">
-        <h1 class="text-4xl font-bold mb-4 text-text-primary-light dark:text-text-primary-dark">{{ .Title }}</h1>
-        {{ if eq .Section "blogs" }}
-            <div class="flex items-center gap-4 mb-8 text-text-secondary-light dark:text-text-secondary-dark">
-                <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
-                <div class="flex gap-2">
-                    {{ range .Params.tags }}
-                    <span class="px-2 py-1 bg-bg-primary-light dark:bg-bg-tertiary-dark rounded-md text-xs font-medium text-text-secondary-light dark:text-text-secondary-dark">{{ . }}</span>
-                    {{ end }}
-                </div>
-            </div>
+<div class="min-h-screen w-full px-6 sm:px-6 md:px-4 py-12 md:w-3/4 lg:w-2/3 mx-auto">
+    
+    <!-- 标题 -->
+    <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-6
+               text-text-primary-light dark:text-text-primary-dark break-words">
+        {{ .Title }}
+    </h1>
+    
+    <!-- 元信息 -->
+    {{ if eq .Section "blogs" }}
+    <div class="flex flex-wrap items-center gap-2 md:gap-4 mb-6 md:mb-8
+                text-text-secondary-light dark:text-text-secondary-dark">
+        {{ if .Date }}
+        <time datetime="{{ .Date.Format "2006-01-02" }}" class="text-sm">
+            {{ .Date.Format "January 2, 2006" }}
+        </time>
         {{ end }}
         
-        <div class="prose prose-invert max-w-none">
-            {{ .Content }}
+        <div class="flex flex-wrap gap-2">
+            {{ range .Params.tags }}
+            <span class="text-xs font-medium break-words">
+                {{ . }}
+            </span>
+            {{ end }}
         </div>
     </div>
+    {{ end }}
+    
+    <!-- 正文 -->
+    <div class="prose prose-lg max-w-full leading-relaxed break-words">
+        {{ .Content }}
+    </div>
+    
 </div>
-{{ end }} 
+{{ end }}

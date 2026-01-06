@@ -1,104 +1,114 @@
 {{ define "main" }}
 <div class="max-w-4xl mx-auto px-4 py-12">
     <h1 class="text-5xl font-bold mb-6 text-text-primary-light dark:text-text-primary-dark">{{ .Title }}</h1>
-    <div class="bg-bg-primary-light dark:bg-bg-secondary-dark p-8 rounded-lg border border-border-primary-light dark:border-border-primary-dark">
-        <div class="prose prose-invert prose-lg max-w-none">
-            <div class="text-text-secondary-light dark:text-text-secondary-dark text-lg mb-8">
-                {{ .Content }}
-            </div>
-            <!-- Hero Section -->
-                {{ $authorData := index site.Data .Language.Lang "author" }}
-                {{ $author := cond (and $authorData $authorData.author) $authorData.author site.Params }}
-                
-                {{ with $author }}
-                <section class="mb-16">
-                    <div class="max-w-3xl ml-0 p-4 pb-2 border border-border-primary-light dark:border-border-primary-dark rounded-lg bg-bg-secondary-light dark:bg-bg-secondary-dark shadow-lg relative">
-                        <div class="text-left">
-                            <h1 class="text-3xl font-bold mb-2 text-text-primary-light dark:text-text-primary-dark">{{ .name }}</h1>
-                            <p class="text-gray-400 mb-3 flex items-center text-xl">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="text-gray-400" width="24" height="24" viewBox="-7 -2 24 24"><path fill="currentColor" d="M4 9.9A5.002 5.002 0 0 1 5 0a5 5 0 0 1 1 9.9V19a1 1 0 0 1-2 0V9.9zM5 8a3 3 0 1 0 0-6a3 3 0 0 0 0 6z"/></svg>
-                                {{ .location }}
-                            </p>
-                            <p class="text-xl mb-6 text-text-primary-light dark:text-text-primary-dark">{{ .description }}</p>
-                        </div>
-                    </div>
-                </section>
-                {{ else }}
-                {{ warnf "Author data not found. Please check your site configuration." }}
-                {{ end }}
-
-            <div class="border border-border-primary-light dark:border-border-primary-dark rounded-lg p-6">
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                    <!-- Email -->
-                    <a href="mailto:{{ .Site.Params.email }}" class="contact-link flex items-center gap-4 p-4 rounded-lg bg-bg-primary-light dark:bg-bg-secondary-dark transition-all duration-300">
-                        <svg class="w-7 h-7 text-text-secondary-light dark:text-text-secondary-dark shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.75">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                        </svg>
-                        <div class="min-w-0">
-                            <div class="text-text-secondary-light dark:text-text-secondary-dark hover:text-text-primary-light dark:hover:text-text-primary-dark transition-colors duration-300 truncate">Email</div>
-                            <div class="text-sm text-text-tertiary-light dark:text-text-tertiary-dark truncate">{{ .Site.Params.email }}</div>
-                        </div>
-                    </a>
-
-                    <!-- Wechat -->
-                    <div class="contact-link flex items-center gap-4 p-4 rounded-lg bg-bg-primary-light dark:bg-bg-secondary-dark transition-all duration-300">
-                    <!-- 微信图标 -->
-                    <i class="icon iconfont" style="font-size: 32px;">&#xe602;</i>
-
-                    <!-- 微信链接 -->
-                    <div class="min-w-0">
-                        <div class="text-text-secondary-light dark:text-text-secondary-dark hover:text-text-primary-light dark:hover:text-text-primary-dark transition-colors duration-300 truncate">Wechat</div>
-                        <div class="text-sm text-text-tertiary-light dark:text-text-tertiary-dark truncate">@{{ .Site.Params.Wechat }}</div>
-                    </div>
-                </div>
-                
-                    <!-- 脉脉 -->
-                    <a href="{{ .Site.Params.maimai }}" target="_blank" class="contact-link flex items-center gap-4 p-4 rounded-lg bg-bg-primary-light dark:bg-bg-secondary-dark transition-all duration-300">
-                        <i class="icon iconfont" style="font-size: 24px;">&#xe601;</i>
-                        <div class="min-w-0">
-                            <div class="text-text-secondary-light dark:text-text-secondary-dark hover:text-text-primary-light dark:hover:text-text-primary-dark transition-colors duration-300 truncate">脉脉</div>
-                            <div class="text-sm text-text-tertiary-light dark:text-text-tertiary-dark truncate">@邓 尚青</div>
-                        </div>
-                    </a>
-
-                    <!-- Tel -->
-                    <div class="contact-link flex items-center gap-4 p-4 rounded-lg bg-bg-primary-light dark:bg-bg-secondary-dark transition-all duration-300">
-                    
-                    <i class="icon iconfont" style="font-size: 30px;">&#xe603;</i>
-
-                    <div class="min-w-0">
-                        <div class="text-text-secondary-light dark:text-text-secondary-dark hover:text-text-primary-light dark:hover:text-text-primary-dark transition-colors duration-300 truncate">Tel</div>
-                        <div class="text-sm text-text-tertiary-light dark:text-text-tertiary-dark truncate">***</div>
-                    </div>
-                </div>
-
-                    <!-- Twitter 
-                    <a href="{{ .Site.Params.twitter }}" target="_blank" class="contact-link flex items-center gap-4 p-4 rounded-lg bg-bg-primary-light dark:bg-bg-secondary-dark transition-all duration-300">
-                        <svg class="w-7 h-7 text-text-secondary-light dark:text-text-secondary-dark shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.75">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 7.5a4.5 4.5 0 0 1 8-3Q22 4 23 3q0 2-2 4A13 13 0 0 1 1 19q5 0 7-2q-8-4-5-13q4 5 9 5Z"/>
-                        </svg>
-                        <div class="min-w-0">
-                            <div class="text-text-secondary-light dark:text-text-secondary-dark hover:text-text-primary-light dark:hover:text-text-primary-dark transition-colors duration-300 truncate">Twitter</div>
-                            <div class="text-sm text-text-tertiary-light dark:text-text-tertiary-dark truncate">@prxshetty</div>
-                        </div>
-                    </a>
-                    -->
-
-                    <!-- LinkedIn 
-                    <a href="{{ .Site.Params.linkedin }}" target="_blank" class="contact-link flex items-center gap-4 p-4 rounded-lg bg-bg-primary-light dark:bg-bg-secondary-dark transition-all duration-300">
-                        <svg class="w-7 h-7 text-text-secondary-light dark:text-text-secondary-dark shrink-0" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M20.47 2H3.53a1.45 1.45 0 0 0-1.47 1.43v17.14A1.45 1.45 0 0 0 3.53 22h16.94a1.45 1.45 0 0 0 1.47-1.43V3.43A1.45 1.45 0 0 0 20.47 2ZM8.09 18.74h-3v-9h3ZM6.59 8.48a1.56 1.56 0 1 1 0-3.12a1.57 1.57 0 1 1 0 3.12Zm12.32 10.26h-3v-4.83c0-1.21-.43-2-1.52-2A1.65 1.65 0 0 0 12.85 13a2 2 0 0 0-.1.73v5h-3v-9h3V11a3 3 0 0 1 2.71-1.5c2 0 3.45 1.29 3.45 4.06Z"/>
-                        </svg>
-                        <div class="min-w-0">
-                            <div class="text-text-secondary-light dark:text-text-secondary-dark hover:text-text-primary-light dark:hover:text-text-primary-dark transition-colors duration-300 truncate">LinkedIn</div>
-                            <div class="text-sm text-text-tertiary-light dark:text-text-tertiary-dark truncate">in/prxshetty</div>
-                        </div>
-                    </a>
-                    -->
-                </div>
-            </div>
+    <!-- <div class="bg-bg-primary-light dark:bg-bg-secondary-dark p-8 rounded-lg border border-border-primary-light dark:border-border-primary-dark"> -->
+    <div class="prose prose-invert prose-lg max-w-none">
+        <div class="text-text-secondary-light dark:text-text-secondary-dark text-lg mb-8">
+            {{ .Content }}
         </div>
+        <!-- Hero Section -->
+        {{ $authorData := index site.Data .Language.Lang "author" }}
+        {{ $author := cond (and $authorData $authorData.author) $authorData.author site.Params }}
+
+        {{ with $author }}
+        <section class="mb-16">
+            <div class="max-w-3xl ml-0 p-4 pb-2 relative">
+                <div class="text-left">
+                    <h1 class="text-3xl font-bold mb-2 text-text-primary-light dark:text-text-primary-dark">
+                        {{ .name }}
+                    </h1>
+
+                    <p class="text-gray-400 mb-3 flex items-center text-xl">
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                            class="text-gray-400"
+                            width="24" height="24"
+                            viewBox="-7 -2 24 24">
+                            <path fill="currentColor"
+                                d="M4 9.9A5.002 5.002 0 0 1 5 0a5 5 0 0 1 1 9.9V19a1 1 0 0 1-2 0V9.9zM5 8a3 3 0 1 0 0-6a3 3 0 0 0 0 6z"/>
+                        </svg>
+                        {{ .location }}
+                    </p>
+
+                    <p class="text-xl mb-6 text-text-primary-light dark:text-text-primary-dark">
+                        {{ .description }}
+                    </p>
+                </div>
+            </div>
+        </section>
+        {{ else }}
+        {{ warnf "Author data not found. Please check your site configuration." }}
+        {{ end }}
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                <!-- Email -->
+                <a href="mailto:{{ .Site.Params.email }}" class="contact-link flex items-center gap-4 p-4 rounded-lg bg-bg-primary-light dark:bg-bg-secondary-dark transition-all duration-300">
+                    <svg class="w-7 h-7 text-text-secondary-light dark:text-text-secondary-dark shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.75">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                    </svg>
+                    <div class="min-w-0">
+                        <div class="text-text-secondary-light dark:text-text-secondary-dark hover:text-text-primary-light dark:hover:text-text-primary-dark transition-colors duration-300 truncate">Email</div>
+                        <div class="text-sm text-text-tertiary-light dark:text-text-tertiary-dark truncate">{{ .Site.Params.email }}</div>
+                    </div>
+                </a>
+
+                <!-- Wechat -->
+                <div class="contact-link flex items-center gap-4 p-4 rounded-lg bg-bg-primary-light dark:bg-bg-secondary-dark transition-all duration-300">
+                <!-- 微信图标 -->
+                <i class="icon iconfont" style="font-size: 32px;">&#xe602;</i>
+
+                <!-- 微信链接 -->
+                <div class="min-w-0">
+                    <div class="text-text-secondary-light dark:text-text-secondary-dark hover:text-text-primary-light dark:hover:text-text-primary-dark transition-colors duration-300 truncate">Wechat</div>
+                    <div class="text-sm text-text-tertiary-light dark:text-text-tertiary-dark truncate">@{{ .Site.Params.Wechat }}</div>
+                </div>
+            </div>
+
+                <!-- 脉脉 -->
+                <a href="{{ .Site.Params.maimai }}" target="_blank" class="contact-link flex items-center gap-4 p-4 rounded-lg bg-bg-primary-light dark:bg-bg-secondary-dark transition-all duration-300">
+                    <i class="icon iconfont" style="font-size: 24px;">&#xe601;</i>
+                    <div class="min-w-0">
+                        <div class="text-text-secondary-light dark:text-text-secondary-dark hover:text-text-primary-light dark:hover:text-text-primary-dark transition-colors duration-300 truncate">脉脉</div>
+                        <div class="text-sm text-text-tertiary-light dark:text-text-tertiary-dark truncate">@邓 尚青</div>
+                    </div>
+                </a>
+
+                <!-- Tel -->
+                <div class="contact-link flex items-center gap-4 p-4 rounded-lg bg-bg-primary-light dark:bg-bg-secondary-dark transition-all duration-300">
+                
+                <i class="icon iconfont" style="font-size: 30px;">&#xe603;</i>
+
+                <div class="min-w-0">
+                    <div class="text-text-secondary-light dark:text-text-secondary-dark hover:text-text-primary-light dark:hover:text-text-primary-dark transition-colors duration-300 truncate">Tel</div>
+                    <div class="text-sm text-text-tertiary-light dark:text-text-tertiary-dark truncate">***</div>
+                </div>
+            </div>
+
+                <!-- Twitter 
+                <a href="{{ .Site.Params.twitter }}" target="_blank" class="contact-link flex items-center gap-4 p-4 rounded-lg bg-bg-primary-light dark:bg-bg-secondary-dark transition-all duration-300">
+                    <svg class="w-7 h-7 text-text-secondary-light dark:text-text-secondary-dark shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.75">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 7.5a4.5 4.5 0 0 1 8-3Q22 4 23 3q0 2-2 4A13 13 0 0 1 1 19q5 0 7-2q-8-4-5-13q4 5 9 5Z"/>
+                    </svg>
+                    <div class="min-w-0">
+                        <div class="text-text-secondary-light dark:text-text-secondary-dark hover:text-text-primary-light dark:hover:text-text-primary-dark transition-colors duration-300 truncate">Twitter</div>
+                        <div class="text-sm text-text-tertiary-light dark:text-text-tertiary-dark truncate">@prxshetty</div>
+                    </div>
+                </a>
+                -->
+
+                <!-- LinkedIn 
+                <a href="{{ .Site.Params.linkedin }}" target="_blank" class="contact-link flex items-center gap-4 p-4 rounded-lg bg-bg-primary-light dark:bg-bg-secondary-dark transition-all duration-300">
+                    <svg class="w-7 h-7 text-text-secondary-light dark:text-text-secondary-dark shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M20.47 2H3.53a1.45 1.45 0 0 0-1.47 1.43v17.14A1.45 1.45 0 0 0 3.53 22h16.94a1.45 1.45 0 0 0 1.47-1.43V3.43A1.45 1.45 0 0 0 20.47 2ZM8.09 18.74h-3v-9h3ZM6.59 8.48a1.56 1.56 0 1 1 0-3.12a1.57 1.57 0 1 1 0 3.12Zm12.32 10.26h-3v-4.83c0-1.21-.43-2-1.52-2A1.65 1.65 0 0 0 12.85 13a2 2 0 0 0-.1.73v5h-3v-9h3V11a3 3 0 0 1 2.71-1.5c2 0 3.45 1.29 3.45 4.06Z"/>
+                    </svg>
+                    <div class="min-w-0">
+                        <div class="text-text-secondary-light dark:text-text-secondary-dark hover:text-text-primary-light dark:hover:text-text-primary-dark transition-colors duration-300 truncate">LinkedIn</div>
+                        <div class="text-sm text-text-tertiary-light dark:text-text-tertiary-dark truncate">in/prxshetty</div>
+                    </div>
+                </a>
+                -->
+            </div>
     </div>
+    <!-- </div> -->
 </div>
 
 <style>
