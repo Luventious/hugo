@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Deng Shangqing</title>
+    <link>/zh/tags/</link>
+    <description>Recent content in Tags on Deng Shangqing</description>
+    <generator>Hugo</generator>
+    <language>zh</language>
+    <lastBuildDate>Wed, 15 Oct 2025 10:30:00 +0530</lastBuildDate>
+    <atom:link href="/zh/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>A/B TEST</title>
+      <link>/zh/tags/a/b-test/</link>
+      <pubDate>Wed, 15 Oct 2025 10:30:00 +0530</pubDate>
+      <guid>/zh/tags/a/b-test/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>UX/UI</title>
+      <link>/zh/tags/ux/ui/</link>
+      <pubDate>Wed, 15 Oct 2025 10:30:00 +0530</pubDate>
+      <guid>/zh/tags/ux/ui/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>用户体验</title>
+      <link>/zh/tags/%E7%94%A8%E6%88%B7%E4%BD%93%E9%AA%8C/</link>
+      <pubDate>Wed, 15 Oct 2025 10:30:00 +0530</pubDate>
+      <guid>/zh/tags/%E7%94%A8%E6%88%B7%E4%BD%93%E9%AA%8C/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>
