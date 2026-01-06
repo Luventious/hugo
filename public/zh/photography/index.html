@@ -429,20 +429,25 @@
 </script> 
         <main>
             
-<div class="w-full md:w-4/5 lg:w-3/4 mx-auto px-4 sm:px-6 md:px-8 lg:px-14 py-12">
+<div class="w-full mx-auto px-2 sm:px-4 md:px-6 lg:px-8 py-12">
 
     <h1 class="text-4xl font-bold mb-8 text-text-primary-light dark:text-text-primary-dark"></h1>
 
     
     
 
-    <div class="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4">
+    
+    <div class="photo-grid">
         
             
                 
                 
-                <div class="break-inside-avoid mb-4 group overflow-hidden rounded-lg relative transition-transform duration-300 hover:scale-105 hover:shadow-lg">
-                    <img src="../../images/photography/contact_dark.png" alt="contact_dark.png" class="w-full h-auto object-cover rounded-lg transition-all duration-300">
+                <div class="photo-grid-item group overflow-hidden relative cursor-pointer transition-all duration-200 hover:scale-105 hover:z-10">
+                    <img src="../../images/photography/4700.jpg_wh860.jpg" 
+                         alt="4700.jpg_wh860.jpg" 
+                         class="w-full h-auto block transition-transform duration-200"
+                         loading="lazy"
+                         onclick="openLightbox(this)">
                 </div>
                 
             
@@ -450,8 +455,12 @@
             
                 
                 
-                <div class="break-inside-avoid mb-4 group overflow-hidden rounded-lg relative transition-transform duration-300 hover:scale-105 hover:shadow-lg">
-                    <img src="../../images/photography/contact_light.png" alt="contact_light.png" class="w-full h-auto object-cover rounded-lg transition-all duration-300">
+                <div class="photo-grid-item group overflow-hidden relative cursor-pointer transition-all duration-200 hover:scale-105 hover:z-10">
+                    <img src="../../images/photography/hour-profile.png" 
+                         alt="hour-profile.png" 
+                         class="w-full h-auto block transition-transform duration-200"
+                         loading="lazy"
+                         onclick="openLightbox(this)">
                 </div>
                 
             
@@ -459,80 +468,110 @@
             
                 
                 
-                <div class="break-inside-avoid mb-4 group overflow-hidden rounded-lg relative transition-transform duration-300 hover:scale-105 hover:shadow-lg">
-                    <img src="../../images/photography/experience_dark.png" alt="experience_dark.png" class="w-full h-auto object-cover rounded-lg transition-all duration-300">
-                </div>
-                
             
         
             
                 
                 
-                <div class="break-inside-avoid mb-4 group overflow-hidden rounded-lg relative transition-transform duration-300 hover:scale-105 hover:shadow-lg">
-                    <img src="../../images/photography/experience_light.png" alt="experience_light.png" class="w-full h-auto object-cover rounded-lg transition-all duration-300">
-                </div>
-                
-            
-        
-            
-                
-                
-                <div class="break-inside-avoid mb-4 group overflow-hidden rounded-lg relative transition-transform duration-300 hover:scale-105 hover:shadow-lg">
-                    <img src="../../images/photography/home_light.png" alt="home_light.png" class="w-full h-auto object-cover rounded-lg transition-all duration-300">
-                </div>
-                
-            
-        
-            
-                
-                
-                <div class="break-inside-avoid mb-4 group overflow-hidden rounded-lg relative transition-transform duration-300 hover:scale-105 hover:shadow-lg">
-                    <img src="../../images/photography/project_dark.png" alt="project_dark.png" class="w-full h-auto object-cover rounded-lg transition-all duration-300">
-                </div>
-                
-            
-        
-            
-                
-                
-                <div class="break-inside-avoid mb-4 group overflow-hidden rounded-lg relative transition-transform duration-300 hover:scale-105 hover:shadow-lg">
-                    <img src="../../images/photography/project_light.png" alt="project_light.png" class="w-full h-auto object-cover rounded-lg transition-all duration-300">
-                </div>
-                
-            
-        
-            
-                
-                
-                <div class="break-inside-avoid mb-4 group overflow-hidden rounded-lg relative transition-transform duration-300 hover:scale-105 hover:shadow-lg">
-                    <img src="../../images/photography/screenshot.png" alt="screenshot.png" class="w-full h-auto object-cover rounded-lg transition-all duration-300">
-                </div>
-                
-            
-        
-            
-                
-                
-                <div class="break-inside-avoid mb-4 group overflow-hidden rounded-lg relative transition-transform duration-300 hover:scale-105 hover:shadow-lg">
-                    <img src="../../images/photography/your-profile.png" alt="your-profile.png" class="w-full h-auto object-cover rounded-lg transition-all duration-300">
+                <div class="photo-grid-item group overflow-hidden relative cursor-pointer transition-all duration-200 hover:scale-105 hover:z-10">
+                    <img src="../../images/photography/u=4061721412,2857814056&amp;fm=253&amp;gp=0.jpg" 
+                         alt="u=4061721412,2857814056&amp;fm=253&amp;gp=0.jpg" 
+                         class="w-full h-auto block transition-transform duration-200"
+                         loading="lazy"
+                         onclick="openLightbox(this)">
                 </div>
                 
             
         
     </div>
 
+    
+    <div id="lightbox" class="fixed inset-0 bg-black/80 hidden items-center justify-center z-50 cursor-zoom-out flex"
+         onclick="closeLightbox()">
+        <img id="lightbox-img" src="" class="max-w-[90%] max-h-[90%] object-contain pointer-events-none">
+    </div>
+
 </div>
 
 <style>
-.columns-1 { column-gap: 1rem; }
-.columns-2 { column-gap: 1rem; }
-.columns-3 { column-gap: 1rem; }
-.columns-4 { column-gap: 1rem; }
+ 
+.photo-grid {
+     
+    column-count: auto;
+    column-width: 280px;
+     
+    column-gap: 8px;
+     
+    -webkit-column-count: auto;
+    -webkit-column-width: 280px;
+    -webkit-column-gap: 8px;
+}
 
-@media (max-width: 640px) {
-    .columns-1 { column-gap: 0.5rem; }
+ 
+.photo-grid-item {
+     
+    break-inside: avoid;
+    -webkit-break-inside: avoid;
+     
+    width: 100%;
+    position: relative;
+     
+    margin-bottom: 8px;
+     
+    transform-origin: center center;
+     
+    display: inline-block;
+}
+
+ 
+.photo-grid-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+     
+     
+}
+
+ 
+#lightbox img {
+    pointer-events: none;  
+}
+
+ 
+.photo-grid-item:hover {
+    transform: scale(1.05);
+    z-index: 10;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+     
+    position: relative;
 }
 </style>
+
+<script>
+
+function openLightbox(img) {
+    const lightbox = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lightbox-img');
+    lbImg.src = img.src;
+    lightbox.classList.remove('hidden');
+}
+
+
+function closeLightbox() {
+    document.getElementById('lightbox').classList.add('hidden');
+}
+
+
+
+window.addEventListener('resize', function() {
+    const grid = document.querySelector('.photo-grid');
+    
+    grid.style.display = 'none';
+    setTimeout(() => {
+        grid.style.display = '';
+    }, 0);
+});
+</script>
 
         </main>
         

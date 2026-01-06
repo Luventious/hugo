@@ -1,34 +1,114 @@
 {{ define "main" }}
-<div class="w-full md:w-4/5 lg:w-3/4 mx-auto px-4 sm:px-6 md:px-8 lg:px-14 py-12">
+<div class="w-full mx-auto px-2 sm:px-4 md:px-6 lg:px-8 py-12">
 
     <h1 class="text-4xl font-bold mb-8 text-text-primary-light dark:text-text-primary-dark">{{ .Title }}</h1>
 
     {{ $photosPath := "static/images/photography" }}
     {{ $photos := readDir $photosPath }}
 
-    <div class="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4">
+    <!-- Masonry 瀑布流 - 改用 Flex 实现，避免 Grid 行高偏差 -->
+    <div class="photo-grid">
         {{ range $photos }}
             {{ if not .IsDir }}
                 {{ $name := lower .Name }}
                 {{ if or (strings.HasSuffix $name ".jpg") (or (strings.HasSuffix $name ".png") (strings.HasSuffix $name ".webp")) }}
-                <div class="break-inside-avoid mb-4 group overflow-hidden rounded-lg relative transition-transform duration-300 hover:scale-105 hover:shadow-lg">
-                    <img src="{{ printf "/images/photography/%s" .Name }}" alt="{{ .Name }}" class="w-full h-auto object-cover rounded-lg transition-all duration-300">
+                <div class="photo-grid-item group overflow-hidden relative cursor-pointer transition-all duration-200 hover:scale-105 hover:z-10">
+                    <img src="{{ printf "/images/photography/%s" .Name }}" 
+                         alt="{{ .Name }}" 
+                         class="w-full h-auto block transition-transform duration-200"
+                         loading="lazy"
+                         onclick="openLightbox(this)">
                 </div>
                 {{ end }}
             {{ end }}
         {{ end }}
     </div>
 
+    <!-- Lightbox -->
+    <div id="lightbox" class="fixed inset-0 bg-black/80 hidden items-center justify-center z-50 cursor-zoom-out flex"
+         onclick="closeLightbox()">
+        <img id="lightbox-img" src="" class="max-w-[90%] max-h-[90%] object-contain pointer-events-none">
+    </div>
+
 </div>
 
 <style>
-.columns-1 { column-gap: 1rem; }
-.columns-2 { column-gap: 1rem; }
-.columns-3 { column-gap: 1rem; }
-.columns-4 { column-gap: 1rem; }
+/* 核心修改：改用 Flex + column-count 实现瀑布流，彻底解决高度偏差 */
+.photo-grid {
+    /* 多列布局实现瀑布流，列宽放大到 280px（可调整） */
+    column-count: auto;
+    column-width: 280px;
+    /* 列间距，替代原来的 gap */
+    column-gap: 8px;
+    /* 兼容旧浏览器 */
+    -webkit-column-count: auto;
+    -webkit-column-width: 280px;
+    -webkit-column-gap: 8px;
+}
 
-@media (max-width: 640px) {
-    .columns-1 { column-gap: 0.5rem; }
+/* 关键修复：让容器完全贴合图片高度 */
+.photo-grid-item {
+    /* 禁止列内元素被拆分 */
+    break-inside: avoid;
+    -webkit-break-inside: avoid;
+    /* 移除 Grid 相关样式，确保高度由图片决定 */
+    width: 100%;
+    position: relative;
+    /* 避免列间距叠加 */
+    margin-bottom: 8px;
+    /* 修复放大原点 */
+    transform-origin: center center;
+    /* 关键：让容器高度自适应图片，无多余空白 */
+    display: inline-block;
+}
+
+/* 确保图片填满容器，无多余空白 */
+.photo-grid-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    /* 可选：如果图片有白边，可加 object-fit: cover，但会裁剪 */
+    /* object-fit: cover; */
+}
+
+/* Lightbox 样式不变 */
+#lightbox img {
+    pointer-events: none; /* 防止点击事件阻塞 */
+}
+
+/* 优化悬浮效果 */
+.photo-grid-item:hover {
+    transform: scale(1.05);
+    z-index: 10;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    /* 悬浮时轻微提升，避免被相邻列遮挡 */
+    position: relative;
 }
 </style>
+
+<script>
+// 打开 Lightbox
+function openLightbox(img) {
+    const lightbox = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lightbox-img');
+    lbImg.src = img.src;
+    lightbox.classList.remove('hidden');
+}
+
+// 关闭 Lightbox
+function closeLightbox() {
+    document.getElementById('lightbox').classList.add('hidden');
+}
+
+// 移除原来的 Grid 行高计算 JS（改用 Flex 瀑布流后无需此逻辑）
+// 仅保留窗口变化时的重绘触发（可选，解决部分浏览器列数适配问题）
+window.addEventListener('resize', function() {
+    const grid = document.querySelector('.photo-grid');
+    // 强制重绘，确保列数适配窗口
+    grid.style.display = 'none';
+    setTimeout(() => {
+        grid.style.display = '';
+    }, 0);
+});
+</script>
 {{ end }}

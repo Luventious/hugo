@@ -1,0 +1,102 @@
+{{ define "main" }}
+<div class="w-full mx-auto px-2 sm:px-4 md:px-6 lg:px-8 py-12">
+    <h1 class="text-4xl font-bold mb-8 text-text-primary-light dark:text-text-primary-dark">{{ .Title }}</h1>
+
+    <!-- 读取 TOML 数据源：/data/zh/photo.toml -->
+    {{ $photoData := index site.Data .Language.Lang "photo" }}
+    {{ if not $photoData }}
+        <div class="text-center text-gray-500 dark:text-gray-400 py-10">
+            暂无图片数据，请检查 /data/zh/photo.toml 文件
+        </div>
+    {{ else }}
+        <!-- Masonry 瀑布流（复用修复后的多列布局） -->
+        <div class="photo-grid">
+            {{ range $photoData.photos }}
+                {{ if and .url (ne .url "") }}
+                <div class="photo-grid-item group overflow-hidden relative cursor-pointer transition-all duration-200 hover:scale-105 hover:z-10">
+                    <!-- 精简 img 标签属性，去掉换行和内联注释，避免解析错误 -->
+                    <img src="{{ .url }}" alt="{{ default .url .name }}" class="w-full h-auto block transition-transform duration-200" loading="lazy" onclick="openLightbox(this)" onload="adjustMasonryLayout()">
+                </div>
+                {{ end }}
+            {{ end }}
+        </div>
+    {{ end }}
+
+    <!-- Lightbox 灯箱组件 -->
+    <div id="lightbox" class="fixed inset-0 bg-black/80 hidden items-center justify-center z-50 cursor-zoom-out flex" onclick="closeLightbox()">
+        <img id="lightbox-img" src="" class="max-w-[90%] max-h-[90%] object-contain pointer-events-none">
+    </div>
+</div>
+
+<style>
+/* 复用修复后的多列瀑布流样式 */
+.photo-grid {
+    column-count: auto;
+    column-width: 280px; /* 列宽放大一级 */
+    column-gap: 8px;
+    -webkit-column-count: auto;
+    -webkit-column-width: 280px;
+    -webkit-column-gap: 8px;
+}
+
+.photo-grid-item {
+    break-inside: avoid;
+    -webkit-break-inside: avoid;
+    width: 100%;
+    position: relative;
+    margin-bottom: 8px;
+    transform-origin: center center;
+    display: inline-block;
+    /* 远程图片加载前的占位背景 */
+    background-color: #f1f1f1;
+    dark:bg-color #222222;
+}
+
+.photo-grid-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Lightbox 样式 */
+#lightbox img {
+    pointer-events: none;
+}
+
+.photo-grid-item:hover {
+    transform: scale(1.05);
+    z-index: 10;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    position: relative;
+}
+</style>
+
+<script>
+// 打开 Lightbox
+function openLightbox(img) {
+    const lightbox = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lightbox-img');
+    lbImg.src = img.src;
+    lightbox.classList.remove('hidden');
+}
+
+// 关闭 Lightbox
+function closeLightbox() {
+    document.getElementById('lightbox').classList.add('hidden');
+}
+
+// 适配远程图片的布局调整函数
+function adjustMasonryLayout() {
+    const grid = document.querySelector('.photo-grid');
+    grid.style.display = 'none';
+    setTimeout(() => {
+        grid.style.display = '';
+    }, 0);
+}
+
+// 窗口变化时重绘
+window.addEventListener('resize', adjustMasonryLayout);
+// 页面加载完成后初始化布局
+window.addEventListener('load', adjustMasonryLayout);
+</script>
+{{ end }}

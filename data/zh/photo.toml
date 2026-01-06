@@ -1,0 +1,12 @@
+# /data/zh/photo.toml
+[[photos]]
+name = "风景1"
+url = "https://plus.unsplash.com/premium_photo-1736816227895-e0653ceb1f0e"
+
+[[photos]]
+name = "建筑2"
+url = "https://images.unsplash.com/photo-1767436620092-7cab0404e444"
+
+[[photos]]
+name = "人像3"
+url = "https://images.unsplash.com/photo-1767523881986-f8b55d3c5880"
