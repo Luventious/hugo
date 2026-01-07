@@ -35,11 +35,12 @@ jobs:
           target: "/var/www/html/"
           strip_components: 1
 
-      - name: Reload Nginx
+      - name: Restart Nginx  # 把步骤名称从Reload改为Restart，更贴合实际操作
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.SERVER_HOST }}
           username: ${{ secrets.SERVER_USER }}
           port: ${{ secrets.PORT }}
           key: ${{ secrets.SERVER_SSH_KEY }}
-          script: sudo systemctl reload nginx
+          # 核心修改：将reload改为restart，无论Nginx是否启动都能执行
+          script: sudo systemctl restart nginx
