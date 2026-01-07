@@ -1,17 +1,18 @@
 {{ define "main" }}
-<!-- 外层容器：优化宽度和基础间距，保证居中+舒适的左右边距 -->
+<!-- 外层容器：控制页面整体间距和居中 -->
 <div class="min-h-screen w-full px-4 sm:px-6 md:px-8 lg:px-10 py-16 md:w-[85%] lg:w-[70%] xl:w-[65%] mx-auto">
+    <!-- 标题容器：加和正文相同的 max-w 和居中，确保左右对齐 -->
+    <div class="max-w-[70ch] mx-auto mb-8">
+        <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-[clamp(2.5rem,5vw,3.5rem)] 
+                   font-bold font-sans leading-tight
+                   text-text-primary-light dark:text-text-primary-dark break-words">
+            {{ .Title }}
+        </h1>
+    </div>
     
-    <!-- 标题：优化字重、间距、行高 -->
-    <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-[clamp(2.5rem,5vw,3.5rem)] 
-               font-bold font-sans mb-8 leading-tight
-               text-text-primary-light dark:text-text-primary-dark break-words">
-        {{ .Title }}
-    </h1>
-    
-    <!-- 元信息：优化样式、间距、字体 -->
+    <!-- 元信息容器：同样加 max-w 和居中，和标题/正文对齐 -->
     {{ if eq .Section "blogs" }}
-    <div class="flex flex-wrap items-center gap-3 md:gap-5 mb-10
+    <div class="max-w-[70ch] mx-auto flex flex-wrap items-center gap-3 md:gap-5 mb-10
                 text-text-secondary-light/80 dark:text-text-secondary-dark/80 
                 text-sm md:text-base font-light">
         {{ if .Date }}
@@ -22,10 +23,10 @@
         </time>
         {{ end }}
         
-        <!-- 标签：优化样式，增加背景/圆角，更美观 -->
         <div class="flex flex-wrap gap-2">
             {{ range .Params.tags }}
             <span class="text-xs md:text-sm font-normal px-2.5 py-1 rounded-full 
+                         bg-gray-100 dark:bg-gray-800
                          bg-bg-tertiary-light dark:bg-bg-tertiary-dark 
                          text-text-secondary-light dark:text-text-secondary-dark">
                 {{ . }}
@@ -35,14 +36,62 @@
     </div>
     {{ end }}
     
-    <!-- 正文：核心排版优化，参考 Medium 规范 -->
-    <div class="prose prose-slate prose-lg md:prose-xl max-w-none 
-                leading-relaxed [&>p]:my-6 [&>h2]:my-8 [&>h3]:my-6 
-                [&>p]:leading-[1.8] [&>li]:leading-[1.8]
+    <!-- 正文容器：保持原有的宽度限制 -->
+    <div id="article-content" class="prose prose-slate prose-lg md:prose-xl 
+                max-w-[70ch] mx-auto
+                leading-relaxed [&>p]:my-6 [&>li]:leading-[1.8]
                 [&>blockquote]:my-8 [&>blockquote]:pl-4 [&>blockquote]:border-l-4
                 text-text-primary-light/90 dark:text-text-primary-dark/90">
         {{ .Content }}
     </div>
-    
 </div>
+
+<!-- 样式部分不变 -->
+<style>
+#article-content h1 {
+    font-size: 2.5rem !important;
+    font-weight: 700 !important;
+    margin: 2rem 0 1rem !important;
+    color: inherit !important;
+    line-height: 1.3 !important;
+}
+
+#article-content h2 {
+    font-size: 2rem !important;
+    font-weight: 600 !important;
+    margin: 1.8rem 0 0.8rem !important;
+    color: inherit !important;
+    border-bottom: 1px solid #e5e7eb !important;
+    padding-bottom: 0.5rem !important;
+    line-height: 1.4 !important;
+}
+
+#article-content h3 {
+    font-size: 1.5rem !important;
+    font-weight: 600 !important;
+    margin: 1.5rem 0 0.6rem !important;
+    line-height: 1.4 !important;
+}
+
+@media (prefers-color-scheme: dark) {
+    #article-content h2 {
+        border-bottom-color: #374151 !important;
+    }
+    #article-content blockquote {
+        border-left-color: #4b5563 !important;
+    }
+}
+
+@media (max-width: 768px) {
+    #article-content, .max-w-\[70ch\] {
+        max-width: 90% !important; /* 移动端标题和正文统一宽度 */
+    }
+    #article-content {
+        [&>p]:my-5 !important;
+    }
+    #article-content h2 {
+        font-size: 1.8rem !important;
+    }
+}
+</style>
 {{ end }}
