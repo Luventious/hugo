@@ -38,7 +38,6 @@
         {{ else }}
         {{ warnf "Author data not found. Please check your site configuration." }}
         {{ end }}
-
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                 <!-- Email -->
                 <a href="mailto:{{ .Site.Params.email }}" class="contact-link flex items-center gap-4 p-4 rounded-lg bg-bg-primary-light dark:bg-bg-secondary-dark transition-all duration-300">

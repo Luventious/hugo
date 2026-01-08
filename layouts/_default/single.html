@@ -25,10 +25,12 @@
         
         <div class="flex flex-wrap gap-2">
             {{ range .Params.tags }}
-            <span class="text-xs md:text-sm font-normal px-2.5 py-1 rounded-full 
+            <span class="text-xs md:text-sm font-normal px-2.5 py-1 rounded-full
                          bg-gray-100 dark:bg-gray-800
-                         bg-bg-tertiary-light dark:bg-bg-tertiary-dark 
-                         text-text-secondary-light dark:text-text-secondary-dark">
+                         text-gray-800 dark:text-gray-100
+                         border border-gray-300 dark:border-gray-600
+                         transition-colors duration-300
+                         hover:bg-gray-200 dark:hover:bg-gray-700 cursor-default">
                 {{ . }}
             </span>
             {{ end }}
