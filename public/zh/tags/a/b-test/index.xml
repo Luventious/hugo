@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>A/B TEST on Deng Shangqing</title>
-    <link>/zh/tags/a/b-test/</link>
+    <link>//localhost:1313/zh/tags/a/b-test/</link>
     <description>Recent content in A/B TEST on Deng Shangqing</description>
     <generator>Hugo</generator>
-    <language>zh</language>
+    <language>zh-CN</language>
     <lastBuildDate>Wed, 15 Oct 2025 10:30:00 +0530</lastBuildDate>
-    <atom:link href="/zh/tags/a/b-test/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="//localhost:1313/zh/tags/a/b-test/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>AI巨头们开抢实习生，月薪12.8万</title>
-      <link>/zh/blogs/ai%E5%B7%A8%E5%A4%B4%E4%BB%AC%E5%BC%80%E6%8A%A2%E5%AE%9E%E4%B9%A0%E7%94%9F%E6%9C%88%E8%96%AA12.8%E4%B8%87/</link>
+      <link>//localhost:1313/zh/blogs/ai%E5%B7%A8%E5%A4%B4%E4%BB%AC%E5%BC%80%E6%8A%A2%E5%AE%9E%E4%B9%A0%E7%94%9F%E6%9C%88%E8%96%AA12.8%E4%B8%87/</link>
       <pubDate>Wed, 15 Oct 2025 10:30:00 +0530</pubDate>
-      <guid>/zh/blogs/ai%E5%B7%A8%E5%A4%B4%E4%BB%AC%E5%BC%80%E6%8A%A2%E5%AE%9E%E4%B9%A0%E7%94%9F%E6%9C%88%E8%96%AA12.8%E4%B8%87/</guid>
+      <guid>//localhost:1313/zh/blogs/ai%E5%B7%A8%E5%A4%B4%E4%BB%AC%E5%BC%80%E6%8A%A2%E5%AE%9E%E4%B9%A0%E7%94%9F%E6%9C%88%E8%96%AA12.8%E4%B8%87/</guid>
       <description>&lt;p&gt;AI巨头们开抢实习生，月薪12.8万&#xA;新智元&#xA;·2026年01月05日 11:02&#xA;AI巨头实习生月薪高达12.8万，人才战白热化。&#xA;AI人才竞争白热化，大厂纷纷高薪招募实习生。Anthropic、OpenAI、Google、Meta使用钞能力，给实习生最高开出12.8万月薪！&lt;/p&gt;&#xA;&lt;p&gt;AI人才大战的火，终于烧到实习生身上了！&lt;/p&gt;&#xA;&lt;p&gt;OpenAI、Anthropic、Meta、Google DeepMind等AI顶流公司，过去只为顶级研究员和工程师开出30–40万美元的年薪，甚至通过上百亿美元级的投资、并购来「打包」挖团队。&lt;/p&gt;&#xA;&lt;p&gt;现如今，类似的竞争开始下沉到实习和驻留项目：短期、入门角色的薪酬，直接对标很多行业的正式工作，传统意义上的「廉价实习生」正在消失。&lt;/p&gt;&#xA;&lt;p&gt;巨头们给实习生开出的工资最高已经达到了1.83万美元（折合12.8万人民币），月薪！&lt;/p&gt;&#xA;&lt;p&gt;不光要「挖」走AI人才，也要「培养」AI人才。&lt;/p&gt;&#xA;&lt;p&gt;招募超级实习生&#xA;Anthropic安全研究员&#xA;Anthropic提供一个为期4个月的全职研究Fellowship，给出的定位是「加速AI安全研究、培养相关研究人才」，核心目标是让Fellows产出可公开发表的AI Safety研究成果，Anthropic透露过往届 80% 以上的学员最终写出了论文。&lt;/p&gt;&#xA;&lt;p&gt;申请链接：https://job-boards.greenhouse.io/anthropic/jobs/5023394008&lt;/p&gt;&#xA;&lt;p&gt;项目聚焦AI Safety，特别是可解释性（interpretability）、模型对齐（alignment）、鲁棒性等方向，本身也是Anthropic的招牌领域。&lt;/p&gt;&#xA;&lt;p&gt;项目鼓励参与者做能对业界和学界都有影响的研究，而不是「只能内部看的工程实验」&lt;/p&gt;&#xA;&lt;p&gt;官方列出的导师阵容包括 Jan Leike、Sam Bowman、Sara Price、Alex Tamkin、Nina Panickssery 等多位一线AI研究者，Fellows能直接在小组内和这些人做项目、讨论方案、打磨论文，有利于后续学术合作与求职。&lt;/p&gt;&#xA;&lt;p&gt;每周津贴3850美元（按4周算月度约15,400美元），额外每个月有15,000美元的算力经费，用于训练和实验，这对做大模型、可解释性研究非常关键。&lt;/p&gt;&#xA;&lt;p&gt;申请截止时间是2026年1月12日，可选择在伯克利（美国）或伦敦（英国）办公。&lt;/p&gt;&#xA;&lt;p&gt;OpenAI Residency&#xA;参与者以全职员工身份加入，直接嵌入OpenAI的某个研究团队，做前沿AI项目，为期6个月，其官方表述是「推动AI边界的雄心勃勃项目」，侧重科研与工程结合。&lt;/p&gt;</description>
     </item>
   </channel>
