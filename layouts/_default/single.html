@@ -12,27 +12,29 @@
     </div>
 
     <!-- Meta -->
-    {{ if eq .Section "blogs" }}
-    <div class="max-w-[980px] mx-auto flex flex-wrap items-center gap-3 md:gap-5 mb-14
-                text-text-secondary-light/80 dark:text-text-secondary-dark/80 
-                text-sm md:text-base font-light">
+    <div class="max-w-[980px] mx-auto mb-16
+                flex flex-col sm:flex-row sm:items-center sm:justify-between
+                text-text-secondary-light/80 dark:text-text-secondary-dark/80">
+
+        <!-- Date -->
         {{ if .Date }}
-        <time datetime="{{ .Date.Format "2006-01-02" }}">
-            {{ .Date.Format "January 2, 2006" }}
+        <time datetime="{{ .Date.Format "2006-01-02" }}"
+            class="text-sm tracking-widest uppercase font-medium">
+            {{ .Date.Format "2006.01.02" }}
         </time>
         {{ end }}
-        <div class="flex flex-wrap gap-2">
+
+        <!-- Tags -->
+        <div class="flex flex-wrap gap-x-4 gap-y-2 mt-4 sm:mt-0
+                    text-sm font-light">
             {{ range .Params.tags }}
-            <span class="text-xs md:text-sm px-2.5 py-1 rounded-full
-                         bg-gray-100 dark:bg-gray-800
-                         text-gray-800 dark:text-gray-100
-                         border border-gray-300 dark:border-gray-600">
+            <span class="opacity-70 hover:opacity-100 transition-opacity">
                 {{ . }}
             </span>
             {{ end }}
         </div>
     </div>
-    {{ end }}
+
 
     <!-- 正文 -->
     <div id="article-content" class="prose prose-slate prose-lg md:prose-xl 
