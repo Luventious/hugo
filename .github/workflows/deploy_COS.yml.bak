@@ -17,18 +17,55 @@ jobs:
           submodules: false  # 如果主题是 submodule 引入，必须开启
           fetch-depth: 0
 
-      # 2. 安装 Hugo
+      # 2. 安装 Python（用于日期处理）
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      # 3. 修正 Notion Flow 日期格式
+      - name: Fix Notion Flow Dates
+        run: |
+          python3 <<'EOF'
+          import os
+          import re
+
+          folder = "content"  # Hugo 内容目录
+          for root, dirs, files in os.walk(folder):
+              for file in files:
+                  if not file.endswith(".md"):
+                      continue
+                  path = os.path.join(root, file)
+                  with open(path, "r", encoding="utf-8") as f:
+                      content = f.read()
+
+                  # 匹配 Notion Flow 日期格式：2026-1-6 8:0:00 +0800
+                  def fix_date(match):
+                      y, m, d, H, M, S, tz = match.groups()
+                      return f"{int(y):04d}-{int(m):02d}-{int(d):02d}T{int(H):02d}:{int(M):02d}:{int(S):02d}{tz}"
+
+                  content_new = re.sub(
+                      r"date:\s*(\d{4})-(\d{1,2})-(\d{1,2}) (\d{1,2}):(\d{1,2}):(\d{1,2}) (\+\d{4})",
+                      fix_date,
+                      content
+                  )
+
+                  with open(path, "w", encoding="utf-8") as f:
+                      f.write(content_new)
+          EOF
+
+      # 4. 安装 Hugo
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3
         with:
           hugo-version: 'latest'
           extended: true  # 大多数新主题需要 extended 版本
 
-      # 3. 编译静态文件
+      # 5. 编译静态文件
       - name: Build
         run: hugo --minify --baseURL https://shangqing.site/
 
-      # 4. 部署到腾讯云 COS
+      # 6. 部署到腾讯云 COS
       - name: Deploy to COS
         uses: zkqiang/tencent-cos-action@v0.1.0
         with:
