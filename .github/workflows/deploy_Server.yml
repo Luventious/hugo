@@ -21,7 +21,6 @@ jobs:
         with:
           python-version: '3.11'
 
-      # 3. 修正 Notion Flow 日期格式
       - name: Fix Notion Flow Dates
         run: |
           python3 <<'EOF'
@@ -37,10 +36,10 @@ jobs:
                   with open(path, "r", encoding="utf-8") as f:
                       content = f.read()
 
-                  # 匹配 Notion Flow 日期格式：2026-1-6 8:0:00 +0800
                   def fix_date(match):
                       y, m, d, H, M, S, tz = match.groups()
-                      return f"{int(y):04d}-{int(m):02d}-{int(d):02d}T{int(H):02d}:{int(M):02d}:{int(S):02d}{tz}"
+                      # 保留 date: key，Hugo 支持 ISO8601 时区格式 +08:00
+                      return f"date: {int(y):04d}-{int(m):02d}-{int(d):02d}T{int(H):02d}:{int(M):02d}:{int(S):02d}{tz[:3]}:{tz[3:]}"
 
                   content_new = re.sub(
                       r"date:\s*(\d{4})-(\d{1,2})-(\d{1,2}) (\d{1,2}):(\d{1,2}):(\d{1,2}) (\+\d{4})",
@@ -51,6 +50,7 @@ jobs:
                   with open(path, "w", encoding="utf-8") as f:
                       f.write(content_new)
           EOF
+
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3
