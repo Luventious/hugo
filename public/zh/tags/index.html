@@ -1,112 +1,85 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=&amp;path=livereload" data-no-instant defer></script>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Tags - Deng Shangqing</title>
+<html lang="en" class="scroll-smooth">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>
         
+            Tags - Deng Shangqing
         
-        <link rel="apple-touch-icon" sizes="180x180" href="../../favicon_io/apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="../../favicon_io/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="../../favicon_io/favicon-16x16.png">
-        <link rel="manifest" href="../../favicon_io/site.webmanifest">        
-        <link rel="preload" href="https://cdn.tailwindcss.com" as="script">
-        <link rel="preload" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" as="style">            
-        <style>
-            html, body {
-                background-color: #FFFFFF; 
-                color: #1f2937; 
-            }
-            html.dark, html.dark body {
-                background-color: #121212; 
-                color: #f3f4f6; 
-            }
-            .border { 
-                border-color: #d4d4d8; 
-            }
-            html.dark .border {
-                border-color: #374151; 
-            }
-            .carousel-item {
-                display: inline-block;
-                margin: 0 1rem;
-            }            
-            .flex {
-                display: flex;
-            }
-            .flex-col {
-                flex-direction: column;
-            }
-            
-            @media (min-width: 768px) {
-                .md\:flex-row {
-                    flex-direction: row;
-                }
-            }
-            
-            .tech-carousel {
-                overflow: hidden;
-                width: 100%;
-                padding: 1rem 0;
-            }
-            
-            .carousel-track {
-                white-space: nowrap;
-            }
-        </style>
-        
-        <script src="https://cdn.tailwindcss.com"></script>
-        <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
-        <script>
-            if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-                document.documentElement.classList.add('dark');
-            } else {
-                document.documentElement.classList.remove('dark');
-            }
-        </script>
-        <style>
-            :root {
-                color-scheme: light dark;
-            }
-            
-            .tech-icon {
-                filter: grayscale(100%) brightness(200%);
-                transition: all 0.3s ease;
-            }
-            .tech-icon:hover {
-                filter: none;
-            }
-            
-            @keyframes scroll {
-                0% {
-                    transform: translateX(0);
-                }
-                100% {
-                    transform: translateX(-100%);
-                }
-            }
-            
-            .tech-carousel {
-                width: 100%;
-                padding: 1rem 0;
-            }
-            
-            .tech-track {
-                width: fit-content;
-                animation: scroll 20s linear infinite;
-            }
-            
-            .tech-track:hover {
-                animation-play-state: paused;
-            }
-            
-            .tech-slide {
-                float: left;
-            }
-        </style>
-    </head>
-    <body class="min-h-screen bg-bg-primary-light dark:bg-bg-primary-dark text-text-primary-light dark:text-text-primary-dark">
-        
+    </title>
+
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="../../favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="../../favicon_io/site.webmanifest">
+
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class'
+        }
+    </script>
+
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
+        type="text/css"
+    />
+
+    
+    <script>
+        if (
+            localStorage.getItem('color-theme') === 'dark' ||
+            (
+                !('color-theme' in localStorage) &&
+                window.matchMedia('(prefers-color-scheme: dark)').matches
+            )
+        ) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
+
+    
+    <style>
+        :root {
+            color-scheme: light dark;
+        }
+
+        .tech-icon {
+            filter: grayscale(100%) brightness(200%);
+            transition: all 0.3s ease;
+        }
+        .tech-icon:hover {
+            filter: none;
+        }
+
+        @keyframes scroll {
+            from { transform: translateX(0); }
+            to { transform: translateX(-100%); }
+        }
+
+        .tech-track {
+            width: fit-content;
+            animation: scroll 20s linear infinite;
+        }
+
+        .tech-track:hover {
+            animation-play-state: paused;
+        }
+    </style>
+</head>
+
+<body class="min-h-screen bg-white dark:bg-neutral-900 text-gray-800 dark:text-gray-100">
+    
 <head>
     
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-C0RTF18BT4"></script>
@@ -427,8 +400,9 @@
         }
     });
 </script> 
-        <main>
-            
+
+    <main class="relative">
+        
 <div class="container mx-auto px-4 py-12">
     <h1 class="text-4xl font-bold mb-8">Tags</h1>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -492,8 +466,9 @@
     </div>
 </div>
 
-        </main>
-        
+    </main>
+
+    
 <footer class="mt-32 text-center">
     <div class="max-w-3xl mx-auto">
         <div class="border-t border-border-primary-light dark:border-border-primary-dark pt-5">
@@ -531,5 +506,5 @@
         background-color: #0ea5e9;  
     }
 </style> 
-    </body>
-</html> 
+</body>
+</html>

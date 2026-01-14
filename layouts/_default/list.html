@@ -4,11 +4,12 @@
     <h1 class="text-5xl font-bold mb-12 text-text-primary-light dark:text-text-primary-dark">
         {{ .Title }}
     </h1>
-    
+
     <div class="space-y-12 max-w-3xl mx-auto">
         {{ range .Pages }}
-            <div class="group border border-transparent dark:border-transparent rounded-lg p-6 bg-white dark:bg-neutral-800
-                transition duration-200 hover:border-gray-200 dark:hover:border-gray-200 hover:shadow-lg">           
+            <div class="group border border-transparent dark:border-transparent rounded-lg p-6
+                bg-bg-secondary-light dark:bg-bg-secondary-dark
+                transition duration-200 hover:border-gray-200 dark:hover:border-gray-200 hover:shadow-lg">
             <div class="flex gap-6 items-start">
                 <!-- 左侧封面图（移动端隐藏） -->
                 {{ if .Params.cover }}
@@ -51,7 +52,7 @@
                     {{ if .Params.tags }}
                     <div class="flex flex-wrap gap-2">
                         {{ range .Params.tags }}
-                        <span class="px-2 py-1 text-xs rounded-md
+                        <span class="px-2 py-1 text-xs border border-border-primary-light dark:border-border-primary-dark rounded-md
                                      text-text-secondary-light dark:text-text-secondary-dark">
                             {{ . }}
                         </span>
