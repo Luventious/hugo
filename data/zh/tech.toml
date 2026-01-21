@@ -3,15 +3,22 @@ row1 = [
   { icon = "ri-bubble-chart-fill", name = "趋势分析" },
   { icon = "ri-group-2-fill", name = "用户画像" },
   { icon = "ri-line-chart-fill", name = "用户旅程" },
+  { icon = "ri-survey-fill", name = "竞品分析" },
   # ... other tech stack items...
-  { icon = "ri-survey-fill", name = "竞品分析" }
+  { icon = "ri-speak-ai-fill", name = "头脑风暴" },
+  { icon = "ri-team-fill", name = "同理心地图" },
+  { icon = "ri-presentation-fill", name = "设计冲刺" },
+  { icon = "ri-file-list-3-fill", name = "优先级排序" }
 ]
 
 # The 'row2' array populates the bottom carousel
 row2 = [
-  { icon = "ri-speak-ai-fill", name = "头脑风暴" },
-  { icon = "ri-team-fill", name = "同理心地图" },
-  { icon = "ri-presentation-fill", name = "设计冲刺" },
-  # ... other tech stack items... 
-  { icon = "ri-file-list-3-fill", name = "优先级排序" }
+  { icon = "iconfont icon-Midjourney", name = "Midjourney" },
+  { icon = "ri-figma-fill", name = "Figma" },
+  { icon = "iconfont icon-grok", name = "Grok" },
+  { icon = "ri-openai-fill", name = "chatgpt" },
+  { icon = "ri-gemini-fill", name = "gemini" },
+  { icon = "iconfont icon-Photoshop", name = "Adobe Photoshop" },
+  { icon = "iconfont icon-adobe_illustrator", name = "Adobe illustrator" },
+  { icon = "ri-file-ppt-2-fill", name = "PowerPoint" }
 ]

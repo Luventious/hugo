@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Deng Shangqing</title>
+    <link>//localhost:1313/zh/tags/</link>
+    <description>Recent content in Tags on Deng Shangqing</description>
+    <generator>Hugo</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Mon, 19 Jan 2026 08:00:00 +0800</lastBuildDate>
+    <atom:link href="//localhost:1313/zh/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>产品定义</title>
+      <link>//localhost:1313/zh/tags/%E4%BA%A7%E5%93%81%E5%AE%9A%E4%B9%89/</link>
+      <pubDate>Mon, 19 Jan 2026 08:00:00 +0800</pubDate>
+      <guid>//localhost:1313/zh/tags/%E4%BA%A7%E5%93%81%E5%AE%9A%E4%B9%89/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>场景设计</title>
+      <link>//localhost:1313/zh/tags/%E5%9C%BA%E6%99%AF%E8%AE%BE%E8%AE%A1/</link>
+      <pubDate>Mon, 19 Jan 2026 08:00:00 +0800</pubDate>
+      <guid>//localhost:1313/zh/tags/%E5%9C%BA%E6%99%AF%E8%AE%BE%E8%AE%A1/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>用户体验</title>
+      <link>//localhost:1313/zh/tags/%E7%94%A8%E6%88%B7%E4%BD%93%E9%AA%8C/</link>
+      <pubDate>Mon, 19 Jan 2026 08:00:00 +0800</pubDate>
+      <guid>//localhost:1313/zh/tags/%E7%94%A8%E6%88%B7%E4%BD%93%E9%AA%8C/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>测试tags</title>
+      <link>//localhost:1313/zh/tags/%E6%B5%8B%E8%AF%95tags/</link>
+      <pubDate>Mon, 05 Jan 2026 08:00:00 +0800</pubDate>
+      <guid>//localhost:1313/zh/tags/%E6%B5%8B%E8%AF%95tags/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>建站TIPS</title>
+      <link>//localhost:1313/zh/tags/%E5%BB%BA%E7%AB%99tips/</link>
+      <pubDate>Mon, 05 Jan 2026 08:00:00 +0800</pubDate>
+      <guid>//localhost:1313/zh/tags/%E5%BB%BA%E7%AB%99tips/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>A/B TEST</title>
+      <link>//localhost:1313/zh/tags/a/b-test/</link>
+      <pubDate>Wed, 15 Oct 2025 10:30:00 +0530</pubDate>
+      <guid>//localhost:1313/zh/tags/a/b-test/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>UX</title>
+      <link>//localhost:1313/zh/tags/ux/</link>
+      <pubDate>Wed, 15 Oct 2025 10:30:00 +0530</pubDate>
+      <guid>//localhost:1313/zh/tags/ux/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>UX/UI</title>
+      <link>//localhost:1313/zh/tags/ux/ui/</link>
+      <pubDate>Wed, 15 Oct 2025 10:30:00 +0530</pubDate>
+      <guid>//localhost:1313/zh/tags/ux/ui/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>UI</title>
+      <link>//localhost:1313/zh/tags/ui/</link>
+      <pubDate>Sat, 15 Mar 2025 10:30:00 +0530</pubDate>
+      <guid>//localhost:1313/zh/tags/ui/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>数字化</title>
+      <link>//localhost:1313/zh/tags/%E6%95%B0%E5%AD%97%E5%8C%96/</link>
+      <pubDate>Sat, 15 Mar 2025 10:30:00 +0530</pubDate>
+      <guid>//localhost:1313/zh/tags/%E6%95%B0%E5%AD%97%E5%8C%96/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>体验</title>
+      <link>//localhost:1313/zh/tags/%E4%BD%93%E9%AA%8C/</link>
+      <pubDate>Sat, 15 Mar 2025 10:30:00 +0530</pubDate>
+      <guid>//localhost:1313/zh/tags/%E4%BD%93%E9%AA%8C/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>展车</title>
+      <link>//localhost:1313/zh/tags/%E5%B1%95%E8%BD%A6/</link>
+      <pubDate>Sat, 15 Mar 2025 10:30:00 +0530</pubDate>
+      <guid>//localhost:1313/zh/tags/%E5%B1%95%E8%BD%A6/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

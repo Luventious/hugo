@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>建站TIPS on Deng Shangqing</title>
+    <link>//localhost:1313/zh/tags/%E5%BB%BA%E7%AB%99tips/</link>
+    <description>Recent content in 建站TIPS on Deng Shangqing</description>
+    <generator>Hugo</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Mon, 05 Jan 2026 08:00:00 +0800</lastBuildDate>
+    <atom:link href="//localhost:1313/zh/tags/%E5%BB%BA%E7%AB%99tips/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>腾讯云域名&#43;香港地区对象存储COS部署静态博客</title>
+      <link>//localhost:1313/zh/blogs/6/</link>
+      <pubDate>Mon, 05 Jan 2026 08:00:00 +0800</pubDate>
+      <guid>//localhost:1313/zh/blogs/6/</guid>
+      <description>&lt;p&gt;在尝试部署我的 Hugo 静态博客时，我经历了几乎所有国内开发者都会遇到的困境：域名备案的繁琐、服务器配置的复杂，以及高昂的维护成本。&lt;/p&gt;&#xA;&lt;p&gt;经过反复试错，我最终找到了一条既经济又高效的路径：&lt;strong&gt;腾讯云域名 + 香港地区对象存储（COS）+ CDN 加速&lt;/strong&gt;。&lt;/p&gt;&#xA;&lt;p&gt;这个方案不仅完全绕过了备案难题，还能享受免费的 SSL 证书，成本仅为传统服务器的几分之一。&lt;/p&gt;&#xA;&lt;h1 id=&#34;为何放弃传统服务器方案&#34;&gt;&lt;strong&gt;为何放弃传统服务器方案？&lt;/strong&gt;&lt;/h1&gt;&#xA;&lt;p&gt;最初，我购买了一台腾讯云的国内服务器实例和自己的域名，但很快遇到了瓶颈：&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;strong&gt;备案壁垒&lt;/strong&gt;：国内服务器必须完成域名备案，流程繁琐耗时&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;strong&gt;资源浪费&lt;/strong&gt;：对于 Hugo 生成的静态文件，使用完整服务器如同“大炮打蚊子”&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;strong&gt;维护负担&lt;/strong&gt;：需要持续关注服务器安全、系统更新等问题&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;而对象存储方案则完美解决了这些问题：按实际使用量付费、无需维护基础设施、全球访问速度快。&lt;/p&gt;&#xA;&lt;h1 id=&#34;核心难题域名如何对接未备案的对象存储&#34;&gt;&lt;strong&gt;核心难题：域名如何对接未备案的对象存储？&lt;/strong&gt;&lt;/h1&gt;&#xA;&lt;p&gt;腾讯云的对象存储服务有一个限制：&lt;strong&gt;未备案的域名无法直接解析到国内地区的存储桶&lt;/strong&gt;。&lt;/p&gt;&#xA;&lt;p&gt;我的解决方案是巧妙利用 &lt;strong&gt;CDN 加速&lt;/strong&gt; 作为中间层：&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;购买香港地区的对象存储（无需备案）&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;通过腾讯云 CDN 加速存储桶内容&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;将域名解析到 CDN 地址而非直接指向存储桶&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;这个“曲线救国”的方案不仅解决了备案问题，还带来了额外好处：CDN 缓存大幅提升访问速度，全球访问体验更佳。&lt;/p&gt;&#xA;&lt;h1 id=&#34;完整部署步骤&#34;&gt;&lt;strong&gt;完整部署步骤&lt;/strong&gt;&lt;/h1&gt;&#xA;&lt;h2 id=&#34;第一步基础资源准备&#34;&gt;&lt;strong&gt;第一步：基础资源准备&lt;/strong&gt;&lt;/h2&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;strong&gt;注册腾讯云账号&lt;/strong&gt;（新用户有大量优惠）&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;strong&gt;购买域名&lt;/strong&gt;：在腾讯云域名服务中选择心仪的域名&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;strong&gt;创建存储桶&lt;/strong&gt;：&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;地区选择 &lt;strong&gt;香港&lt;/strong&gt;&lt;/li&gt;&#xA;&lt;li&gt;访问权限设置为“公有读私有写”&lt;/li&gt;&#xA;&lt;li&gt;记住存储桶名称和所属地域&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;第二步配置-cdn-加速&#34;&gt;&lt;strong&gt;第二步：配置 CDN 加速&lt;/strong&gt;&lt;/h2&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;进入 CDN 控制台，添加域名&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;源站类型选择“COS 源”，选择刚创建的香港存储桶&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;加速区域根据读者分布选择（全球加速或中国境外）&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;等待 CDN 域名配置完成（约 10-15 分钟）&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;第三步域名解析设置&#34;&gt;&lt;strong&gt;第三步：域名解析设置&lt;/strong&gt;&lt;/h2&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;进入域名解析控制台&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;添加 CNAME 记录：&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;主机记录：根据需求填写（如 www 或 @）&lt;/li&gt;&#xA;&lt;li&gt;记录类型：CNAME&lt;/li&gt;&#xA;&lt;li&gt;记录值：CDN 提供的加速域名&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;等待解析生效（通常几分钟到几小时）&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,6 +1,114 @@
-{{ $currentPage := . }}
+<!DOCTYPE html>
+<html lang="en">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>体验 - Deng Shangqing</title>
+        
+        
+        <link rel="apple-touch-icon" sizes="180x180" href="//localhost:1313/favicon_io/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="//localhost:1313/favicon_io/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="//localhost:1313/favicon_io/favicon-16x16.png">
+        <link rel="manifest" href="//localhost:1313/favicon_io/site.webmanifest">        
+        <link rel="preload" href="https://cdn.tailwindcss.com" as="script">
+        <link rel="preload" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" as="style">            
+        <style>
+            html, body {
+                background-color: #FFFFFF; 
+                color: #1f2937; 
+            }
+            html.dark, html.dark body {
+                background-color: #121212; 
+                color: #f3f4f6; 
+            }
+            .border { 
+                border-color: #d4d4d8; 
+            }
+            html.dark .border {
+                border-color: #374151; 
+            }
+            .carousel-item {
+                display: inline-block;
+                margin: 0 1rem;
+            }            
+            .flex {
+                display: flex;
+            }
+            .flex-col {
+                flex-direction: column;
+            }
+            
+            @media (min-width: 768px) {
+                .md\:flex-row {
+                    flex-direction: row;
+                }
+            }
+            
+            .tech-carousel {
+                overflow: hidden;
+                width: 100%;
+                padding: 1rem 0;
+            }
+            
+            .carousel-track {
+                white-space: nowrap;
+            }
+        </style>
+        
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+        <script>
+            if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        </script>
+        <style>
+            :root {
+                color-scheme: light dark;
+            }
+            
+            .tech-icon {
+                filter: grayscale(100%) brightness(200%);
+                transition: all 0.3s ease;
+            }
+            .tech-icon:hover {
+                filter: none;
+            }
+            
+            @keyframes scroll {
+                0% {
+                    transform: translateX(0);
+                }
+                100% {
+                    transform: translateX(-100%);
+                }
+            }
+            
+            .tech-carousel {
+                width: 100%;
+                padding: 1rem 0;
+            }
+            
+            .tech-track {
+                width: fit-content;
+                animation: scroll 20s linear infinite;
+            }
+            
+            .tech-track:hover {
+                animation-play-state: paused;
+            }
+            
+            .tech-slide {
+                float: left;
+            }
+        </style>
+    </head>
+    <body class="min-h-screen bg-bg-primary-light dark:bg-bg-primary-dark text-text-primary-light dark:text-text-primary-dark">
+        
 <head>
-    <!-- Google tag (gtag.js) -->
+    
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-C0RTF18BT4"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -10,11 +118,11 @@
         gtag('config', 'G-C0RTF18BT4');
     </script>
     
-    <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" /><!--devicon-->
+    <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!--fontawsome-->
-    <link rel="stylesheet" href="https://at.alicdn.com/t/c/font_5100679_haewyos83fu.css"> <!--iconfont-->
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.8.0/fonts/remixicon.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="//at.alicdn.com/t/c/font_5100679_xe7s5jjjxcf.css">
+
     <style>
         body {
             font-family: 'Space Grotesk', sans-serif;
@@ -63,51 +171,54 @@
     <div class="max-w-6xl mx-auto px-4">
         <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
             <div class="flex justify-between items-center">
-                <a href="{{ .Site.BaseURL }}" class="text-xl font-bold text-text-primary-light dark:text-text-primary-dark hover:text-accent-light dark:hover:text-accent-dark transition-colors duration-300">
-                    {{ site.Params.name }}
+                <a href="//localhost:1313/" class="text-xl font-bold text-text-primary-light dark:text-text-primary-dark hover:text-accent-light dark:hover:text-accent-dark transition-colors duration-300">
+                    Deng Shangqing
                 </a>
-                <!-- Hamburger menu button for mobile -->
+                
                 <button id="mobile-menu-button" class="md:hidden text-text-secondary-light dark:text-text-secondary-dark hover:text-text-primary-light dark:hover:text-text-primary-dark focus:outline-none">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                     </svg>
                 </button>
             </div>            
-            <!-- Desktop Navigation -->
+            
             <nav class="hidden md:flex flex-wrap justify-center items-center gap-4 md:gap-6">
-                {{ range .Site.Menus.main }}
-                <a href="{{ .URL | absURL }}" class="inline-block text-lg text-text-secondary-light dark:text-text-secondary-dark hover:text-text-primary-light dark:hover:text-text-primary-dark transition-colors duration-300 {{ if eq .URL $.RelPermalink }}text-accent-light dark:text-accent-dark font-semibold{{ end }}">{{ .Name }}</a>
-                {{ end }}
+                
+                <a href="//localhost:1313/" class="inline-block text-lg text-text-secondary-light dark:text-text-secondary-dark hover:text-text-primary-light dark:hover:text-text-primary-dark transition-colors duration-300 ">Home</a>
+                
+                <a href="//localhost:1313/zh/experience/" class="inline-block text-lg text-text-secondary-light dark:text-text-secondary-dark hover:text-text-primary-light dark:hover:text-text-primary-dark transition-colors duration-300 ">Experience</a>
+                
+                <a href="//localhost:1313/zh/projects/" class="inline-block text-lg text-text-secondary-light dark:text-text-secondary-dark hover:text-text-primary-light dark:hover:text-text-primary-dark transition-colors duration-300 ">Projects</a>
+                
+                <a href="//localhost:1313/zh/blogs/" class="inline-block text-lg text-text-secondary-light dark:text-text-secondary-dark hover:text-text-primary-light dark:hover:text-text-primary-dark transition-colors duration-300 ">Blogs</a>
+                
+                <a href="//localhost:1313/zh/contact/" class="inline-block text-lg text-text-secondary-light dark:text-text-secondary-dark hover:text-text-primary-light dark:hover:text-text-primary-dark transition-colors duration-300 ">Contact Me</a>
+                
+                <a href="//localhost:1313/zh/photography/" class="inline-block text-lg text-text-secondary-light dark:text-text-secondary-dark hover:text-text-primary-light dark:hover:text-text-primary-dark transition-colors duration-300 ">Photography</a>
+                
             </nav>
             <div class="hidden md:flex justify-end items-center">
-                {{ if .Site.Params.showLocalTime }}
-                <div class="flex items-center">
-                    <span class="text-lg text-text-secondary-light dark:text-text-secondary-dark mr-2">{{ T "localTimeLabel" }}</span>
-                    <div id="local-time" class="text-lg text-text-secondary-light dark:text-text-secondary-dark"></div>
-                </div>
-                {{ end }}
                 
-                <!-- Language Switcher - Desktop -->
+                
+                
                 <div class="language-switcher ml-4">
                     <div class="language-switcher-btn text-lg text-text-secondary-light dark:text-text-secondary-dark hover:text-text-primary-light dark:hover:text-text-primary-dark transition-colors duration-300 p-2 rounded-md">
-                        {{ if eq .Language.Lang "en" }}EN{{ else if eq .Language.Lang "es" }}ES{{ else if eq .Language.Lang "fr" }}FR{{ end }}
+                        
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="m6 9 6 6 6-6"/>
                         </svg>
                     </div>
                     <div class="language-dropdown">
-                        {{ range .Site.Languages }}
-                            {{ $translation := "" }}
-                            {{ $foundTranslations := where $.Page.Translations "Lang" .Lang }}
-                            {{ if $foundTranslations }}
-                                {{ $translation = index $foundTranslations 0 }}
-                            {{ end }}
-                            {{ $isCurrentLang := eq .Lang $.Language.Lang }}
-                            <a href="{{ if $translation }}{{ $translation.Permalink }}{{ else }}{{ .Lang | absLangURL }}{{ end }}" 
-                               class="{{ if $isCurrentLang }}language-active{{ end }} text-text-secondary-light dark:text-text-secondary-dark hover:text-text-primary-light dark:hover:text-text-primary-dark transition-colors duration-300">
-                                {{ .LanguageName }}
+                        
+                            
+                            
+                            
+                            
+                            <a href="//localhost:1313/zh" 
+                               class="language-active text-text-secondary-light dark:text-text-secondary-dark hover:text-text-primary-light dark:hover:text-text-primary-dark transition-colors duration-300">
+                                Chinese
                             </a>
-                        {{ end }}
+                        
                     </div>
                 </div>
                 <button id="theme-toggle-button-desktop" class="ml-4 inline-block text-lg text-text-secondary-light dark:text-text-secondary-dark hover:text-text-primary-light dark:hover:text-text-primary-dark transition-colors duration-300 p-2 rounded-md">
@@ -122,33 +233,31 @@
         </div>
     </div>
 
-    <!-- Mobile Navigation Overlay -->
+    
     <div id="mobile-menu" class="fixed inset-0 bg-bg-secondary-light dark:bg-bg-secondary-dark z-50 hidden transition-all duration-300 backdrop-blur-2xl">
         <div class="flex flex-col h-full">
             <div class="flex justify-between items-center p-6">
-                <span class="text-xl font-bold text-text-primary-light dark:text-text-primary-dark">{{ T "menuTitle" }}</span>
+                <span class="text-xl font-bold text-text-primary-light dark:text-text-primary-dark">Menu</span>
                 <div class="flex items-center gap-4">
-                    <!-- Language Switcher - Mobile -->
+                    
                     <div class="language-switcher">
                         <div class="language-switcher-btn text-text-secondary-light dark:text-text-secondary-dark hover:text-text-primary-light dark:hover:text-text-primary-dark transition-colors duration-300 flex items-center p-2 rounded-md">
-                            {{ if eq .Language.Lang "en" }}EN{{ else if eq .Language.Lang "es" }}ES{{ else if eq .Language.Lang "fr" }}FR{{ end }}
+                            
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="m6 9 6 6 6-6"/>
                             </svg>
                         </div>
                         <div class="language-dropdown">
-                            {{ range .Site.Languages }}
-                                {{ $translation := "" }}
-                                {{ $foundTranslationsMobile := where $.Page.Translations "Lang" .Lang }}
-                                {{ if $foundTranslationsMobile }}
-                                    {{ $translation = index $foundTranslationsMobile 0 }}
-                                {{ end }}
-                                {{ $isCurrentLang := eq .Lang $.Language.Lang }}
-                                <a href="{{ if $translation }}{{ $translation.Permalink }}{{ else }}{{ .Lang | absLangURL }}{{ end }}" 
-                                   class="{{ if $isCurrentLang }}language-active{{ end }} text-text-secondary-light dark:text-text-secondary-dark hover:text-text-primary-light dark:hover:text-text-primary-dark transition-colors duration-300">
-                                    {{ .LanguageName }}
+                            
+                                
+                                
+                                
+                                
+                                <a href="//localhost:1313/zh" 
+                                   class="language-active text-text-secondary-light dark:text-text-secondary-dark hover:text-text-primary-light dark:hover:text-text-primary-dark transition-colors duration-300">
+                                    Chinese
                                 </a>
-                            {{ end }}
+                            
                         </div>
                     </div>
                     <button id="theme-toggle-button-mobile" class="text-text-secondary-light dark:text-text-secondary-dark hover:text-text-primary-light dark:hover:text-text-primary-dark transition-colors duration-300 flex items-center p-2 rounded-md">
@@ -167,13 +276,23 @@
                 </div>
             </div>
             <nav class="flex flex-col p-6 space-y-4">
-                {{ range .Site.Menus.main }}
-                <a href="{{ .URL | absURL }}" class="text-xl text-text-secondary-light dark:text-text-secondary-dark hover:text-text-primary-light dark:hover:text-text-primary-dark transition-colors duration-300 {{ if eq .URL $.RelPermalink }}text-accent-light dark:text-accent-dark font-semibold{{ end }}" data-menu-link>{{ .Name }}</a>
-                {{ end }}
+                
+                <a href="//localhost:1313/" class="text-xl text-text-secondary-light dark:text-text-secondary-dark hover:text-text-primary-light dark:hover:text-text-primary-dark transition-colors duration-300 " data-menu-link>Home</a>
+                
+                <a href="//localhost:1313/zh/experience/" class="text-xl text-text-secondary-light dark:text-text-secondary-dark hover:text-text-primary-light dark:hover:text-text-primary-dark transition-colors duration-300 " data-menu-link>Experience</a>
+                
+                <a href="//localhost:1313/zh/projects/" class="text-xl text-text-secondary-light dark:text-text-secondary-dark hover:text-text-primary-light dark:hover:text-text-primary-dark transition-colors duration-300 " data-menu-link>Projects</a>
+                
+                <a href="//localhost:1313/zh/blogs/" class="text-xl text-text-secondary-light dark:text-text-secondary-dark hover:text-text-primary-light dark:hover:text-text-primary-dark transition-colors duration-300 " data-menu-link>Blogs</a>
+                
+                <a href="//localhost:1313/zh/contact/" class="text-xl text-text-secondary-light dark:text-text-secondary-dark hover:text-text-primary-light dark:hover:text-text-primary-dark transition-colors duration-300 " data-menu-link>Contact Me</a>
+                
+                <a href="//localhost:1313/zh/photography/" class="text-xl text-text-secondary-light dark:text-text-secondary-dark hover:text-text-primary-light dark:hover:text-text-primary-dark transition-colors duration-300 " data-menu-link>Photography</a>
+                
             </nav>
             <div class="mt-auto p-6">
                 <div class="flex items-center justify-center">
-                    <span class="text-lg text-text-secondary-light dark:text-text-secondary-dark mr-2">{{ T "localTimeLabel" }}</span>
+                    <span class="text-lg text-text-secondary-light dark:text-text-secondary-dark mr-2">当前时间  :</span>
                     <div id="mobile-local-time" class="text-lg text-text-secondary-light dark:text-text-secondary-dark"></div>
                 </div>
             </div>
@@ -182,7 +301,7 @@
 </header>
 
 <script>
-    // Time display function
+    
     function updateLocalTime() {
         const timeElements = document.querySelectorAll('#local-time, #mobile-local-time');
         timeElements.forEach(element => {
@@ -196,7 +315,7 @@
     updateLocalTime();
     setInterval(updateLocalTime, 1000);
 
-    // Mobile menu functionality
+    
     const mobileMenuButton = document.getElementById('mobile-menu-button');
     const mobileMenuClose = document.getElementById('mobile-menu-close');
     const mobileMenu = document.getElementById('mobile-menu');
@@ -204,23 +323,23 @@
 
     function openMobileMenu() {
         mobileMenu.classList.remove('hidden');
-        document.body.style.overflow = 'hidden'; // Prevent scrolling when menu is open
+        document.body.style.overflow = 'hidden'; 
     }
 
     function closeMobileMenu() {
         mobileMenu.classList.add('hidden');
-        document.body.style.overflow = ''; // Restore scrolling
+        document.body.style.overflow = ''; 
     }
 
     mobileMenuButton.addEventListener('click', openMobileMenu);
     mobileMenuClose.addEventListener('click', closeMobileMenu);
 
-    // Close menu when clicking on a link
+    
     menuLinks.forEach(link => {
         link.addEventListener('click', closeMobileMenu);
     });
 
-    // Theme toggle functionality
+    
     const themeToggleBtnDesktop = document.getElementById('theme-toggle-button-desktop');
     const themeToggleDarkIconDesktop = document.getElementById('theme-toggle-dark-icon-desktop');
     const themeToggleLightIconDesktop = document.getElementById('theme-toggle-light-icon-desktop');
@@ -229,7 +348,7 @@
     const themeToggleDarkIconMobile = document.getElementById('theme-toggle-dark-icon-mobile');
     const themeToggleLightIconMobile = document.getElementById('theme-toggle-light-icon-mobile');
 
-    // Function to update icons based on theme
+    
     function updateIcons(isDarkMode) {
         if (themeToggleDarkIconDesktop && themeToggleLightIconDesktop) {
             if (isDarkMode) {
@@ -251,7 +370,7 @@
         }
     }
 
-    // Function to set the theme (dark or light)
+    
     function applyTheme(isDarkMode) {
         if (isDarkMode) {
             document.documentElement.classList.add('dark');
@@ -263,24 +382,24 @@
         updateIcons(isDarkMode);
     }
 
-    // Initialize theme based on localStorage or prefers-color-scheme
+    
     let initialIsDarkMode = false;
     if (localStorage.getItem('color-theme') === 'dark' || 
         (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
         initialIsDarkMode = true;
     }
-    // Apply the initial theme. If it's dark, add the class to <html> immediately to prevent FOUC.
+    
     if (initialIsDarkMode && !document.documentElement.classList.contains('dark')) {
          document.documentElement.classList.add('dark');
     }
-    applyTheme(initialIsDarkMode); // This will set localStorage, icons, and ensure class is correct.
+    applyTheme(initialIsDarkMode); 
 
-    // Event listener for theme toggle buttons
+    
     function themeToggleClickHandler() {
         const isCurrentlyDark = document.documentElement.classList.contains('dark');
-        applyTheme(!isCurrentlyDark); // Toggle to the opposite theme
+        applyTheme(!isCurrentlyDark); 
         
-        // If toggling from mobile menu, close the menu
+        
         if (window.innerWidth < 768) {
             closeMobileMenu();
         }
@@ -293,18 +412,77 @@
         themeToggleBtnMobile.addEventListener('click', themeToggleClickHandler);
     }
     
-    // Add click event listener to the mobile menu background
+    
     mobileMenu.addEventListener('click', function(event) {
-        // Only close if clicking directly on the background (not on menu content)
+        
         if (event.target === mobileMenu) {
             closeMobileMenu();
         }
     });
     
-    // Handle escape key to close the menu
+    
     document.addEventListener('keydown', function(event) {
         if (event.key === 'Escape' && !mobileMenu.classList.contains('hidden')) {
             closeMobileMenu();
         }
     });
 </script> 
+        <main>
+            
+<div class="container mx-auto px-4 py-12">
+    <h1 class="text-4xl font-bold mb-8">体验</h1>
+    <div class="space-y-6">
+        
+        <article class="border border-gray-700 rounded-lg p-6 bg-[#1a1a1a]">
+            <h2 class="text-2xl font-semibold mb-2">
+                <a href="../../../zh/projects/%E6%95%B0%E5%AD%97%E5%8C%96%E5%B1%95%E8%BD%A6%E6%A8%A1%E5%BC%8F/" class="hover:text-gray-300">数字化展车模式体验设计</a>
+            </h2>
+            
+            <p class="text-gray-400">省略描述……</p>
+            
+        </article>
+        
+    </div>
+</div>
+
+        </main>
+        
+<footer class="mt-32 text-center">
+    <div class="max-w-3xl mx-auto">
+        <div class="border-t border-border-primary-light dark:border-border-primary-dark pt-5">
+            <div class="flex flex-col items-center justify-center gap-2">
+                                
+                <p class="text-text-secondary-light dark:text-text-secondary-dark text-xm ">© 2026 </p>
+                <p class="text-text-secondary-light dark:text-text-secondary-dark text-xm pb-12">部分图片来源于网络，版权归原作者所有。</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<style>
+    .animated-link {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+    }
+    
+    .animated-link::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 1px;
+        bottom: -1px;
+        left: 0;
+        background-color: #0284c7;  
+        transition: width 0.3s ease-in-out;
+    }
+    
+    .animated-link:hover::after {
+        width: 100%;
+    }
+    html.dark .animated-link::after {
+        background-color: #0ea5e9;  
+    }
+</style> 
+    </body>
+</html> 

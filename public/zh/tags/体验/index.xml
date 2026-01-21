@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>体验 on Deng Shangqing</title>
+    <link>//localhost:1313/zh/tags/%E4%BD%93%E9%AA%8C/</link>
+    <description>Recent content in 体验 on Deng Shangqing</description>
+    <generator>Hugo</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sat, 15 Mar 2025 10:30:00 +0530</lastBuildDate>
+    <atom:link href="//localhost:1313/zh/tags/%E4%BD%93%E9%AA%8C/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>数字化展车模式体验设计</title>
+      <link>//localhost:1313/zh/projects/%E6%95%B0%E5%AD%97%E5%8C%96%E5%B1%95%E8%BD%A6%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Sat, 15 Mar 2025 10:30:00 +0530</pubDate>
+      <guid>//localhost:1313/zh/projects/%E6%95%B0%E5%AD%97%E5%8C%96%E5%B1%95%E8%BD%A6%E6%A8%A1%E5%BC%8F/</guid>
+      <description>&lt;p&gt;当前领克线下展车模式存在关键短板，核心问题聚焦于&lt;strong&gt;数字化、智能化及科技化配置的体验传达不足&lt;/strong&gt;：展车未能通过直观、可交互的方式呈现产品核心科技亮点，导致客户无法快速感知其智能优势，不仅直接影响线下看车的体验感与满意度，更使得领克与新势力品牌、主流新能源车型在客户体验层面的差距持续拉大 —— 竞品普遍以场景化、沉浸式的科技体验设计打动消费者，而领克现有展示方式难以凸显自身产品的科技属性，间接削弱了品牌在新能源与智能汽车赛道的竞争力。&lt;/p&gt;&#xA;&lt;h2 id=&#34;挑战&#34;&gt;挑战&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;多维度需求融合与趋势适配&lt;/strong&gt;：&lt;/p&gt;&#xA;&lt;p&gt;需同步收集销售系统端、经销商端对 “展车模式” 的实际诉求（如展示效率、操作便捷性、落地可行性），同时精准对标行业领先趋势（，平衡 “需求实用性” 与 “体验领先性”，避免策略脱节实际或落后于竞品。&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;体验价值与品牌认同深化&lt;/strong&gt;：&lt;/p&gt;&#xA;&lt;p&gt;需通过展车体验优化，同步达成三大核心目标 —— 提升客户对静态展示的满意度、强化产品科技化属性的感知深度、加深品牌 “科技、智能” 的标签印象，最终缩小与新势力品牌、新能源车型的体验差距，增强客户对品牌的情感认同与选择倾向。&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;静态展示体验升级&lt;/strong&gt;：&lt;/p&gt;&#xA;&lt;p&gt;现有展车以传统静态陈列为主，缺乏针对数字化、智能化配置的互动设计，客户无法通过静态场景直观感知产品科技亮点，需突破 “仅看外观、摸内饰” 的传统模式，实现 “静态展示 + 动态交互” 的融合升级，让科技配置在静态场景中可触、可感、可体验。&lt;/p&gt;&#xA;&lt;h2 id=&#34;行业趋势&#34;&gt;行业趋势&lt;/h2&gt;&#xA;&lt;p&gt;相较于传统以静态空间与造型展示为主的展车模式，当前品牌展车正逐步强化对产品核心价值与使用场景的主动化呈现能力。该转变使得展车体验从“感知外观属性”延伸至“理解产品能力与使用方式”。在此背景下，各品牌之间的展车体验差距不再主要源于硬件造型差异，而是集中体现于数字化功能的丰富程度及其可感知性，以及座舱系统所营造的沉浸式交互体验水平。&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://images.unsplash.com/photo-1610647752706-3bb12232b3ab?ixlib=rb-4.1.0&amp;amp;q=85&amp;amp;fm=jpg&amp;amp;crop=entropy&amp;amp;cs=srgb&#34; alt=&#34;&#34;&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;走访4s店&#34;&gt;走访4S店&lt;/h2&gt;&#xA;&lt;p&gt;本次调研聚焦于对 4S 店潜在用户看车过程的实地走访，旨在达成以下关键目标&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;精准捕捉用户行为、收集专业见解、洞察体验核心、提炼典型旅程与痛点。&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;image.png&#34; alt=&#34;image.png&#34;&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;核心洞察&#34;&gt;核心洞察&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;客户与销售的信任关系建立难&lt;/strong&gt;：价格不透明、优惠复杂、品牌传达模糊 + 浅试驾，导致信任难建立。&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;经销商试驾浅尝辄止&lt;/strong&gt;：试驾路况不可控、时间短，用户专注驾驶，难深度体验功能价值。&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;配置与价格信息传达低效&lt;/strong&gt;：客户依赖第三方平台 / 销售获取信息，但更新不及时，常感到困惑。&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;静态体验保守沉闷&lt;/strong&gt;：客户仅体验空间 / 舒适 / 外观，受客流 / 交通限制，难体验数字化功能。&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;数字化座舱感知弱&lt;/strong&gt;：智能网联功能仅停留在配置表，静态展示时因账号/车机/电源限制，客户无法实际体验。&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;智驾功能认知 / 接受度低&lt;/strong&gt;：用户多为首次购车，试驾时紧张，对智驾功能无认知，体验接受度不高。&lt;/p&gt;&#xA;&lt;p&gt;HMW QUETIONS：现有的经销商模式下，我们如何通过为用户提供&lt;strong&gt;沉浸式与场景化的静态展示，&lt;strong&gt;从而&lt;/strong&gt;增强客户与经销商的信任关系，&lt;strong&gt;以传达领克品牌&lt;/strong&gt;智能互联/操控性能的体验价值？&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;image%201.png&#34; alt=&#34;image.png&#34;&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

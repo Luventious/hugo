@@ -12,58 +12,9 @@ tech = "利益相关者, 用户旅程, 用户画像, 同理心地图"
 image = "/images/projects/zcp0423.jpg"
 link = "/zh/projects/数字化展车模式"
 
-[[projects]]
-title = "Tempor Analytics"
-description = "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium."
-tech = "Python, FastAPI, PostgreSQL, Docker"
-image = "/images/projects/tempor.png"
-link = "https://github.com/loremipsum/tempor"
-
-[[projects]]
-title = "Eiusmod Framework"
-description = "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam."
-tech = "Python, PyTorch, MLflow, Kubernetes"
-image = "/images/projects/eiusmod.png"
-link = "https://github.com/loremipsum/eiusmod"
-
-[[projects]]
-title = "Incididunt Engine"
-description = "Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus."
-tech = "Python, Scikit-learn, Flask, Redis"
-image = "/images/projects/incididunt.png"
-link = "https://github.com/loremipsum/incididunt"
-
-[[projects]]
-title = "Labore System"
-description = "Et harum quidem rerum facilis est et expedita distinctio nam libero tempore."
-tech = "JavaScript, Express, MongoDB, Docker"
-image = "/images/projects/labore.jpg"
-link = "https://github.com/loremipsum/labore"
-
-[[projects]]
-title = "Dolore Platform"
-description = "Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe."
-tech = "Python, Django, PostgreSQL, Celery"
-image = "/images/projects/dolore.png"
-link = "https://github.com/loremipsum/dolore"
-
-[[projects]]
-title = "Magna Analytics"
-description = "Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus."
-tech = "Python, Pandas, Streamlit, AWS"
-image = "/images/projects/magna.png"
-link = "https://github.com/loremipsum/magna"
-
-[[projects]]
-title = "Aliqua Framework"
-description = "Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae."
-tech = "TypeScript, React, GraphQL, Docker"
-image = "/images/projects/aliqua.jpg"
-link = "https://github.com/loremipsum/aliqua"
-
-[[projects]]
-title = "Excepteur System"
-description = "Nisi ut aliquid ex ea commodi consequatur quis autem vel eum iure reprehenderit."
-tech = "Python, FastAPI, Redis, Kubernetes"
-image = "/images/projects/excepteur.jpg"
-link = "https://github.com/loremipsum/excepteur"
+# [[projects]]
+# title = "Tempor Analytics"
+# description = "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium."
+# tech = "Python, FastAPI, PostgreSQL, Docker"
+# image = "/images/projects/tempor.png"
+# link = "https://github.com/loremipsum/tempor"
