@@ -11,17 +11,12 @@
         {{ $author := cond (and $authorData $authorData.author) $authorData.author site.Params }}
 
         {{ with $author }}
-        <div class="mt-12 pt-6 border-t border-gray-200 dark:border-gray-700 text-sm text-gray-500 dark:text-gray-400">
-        <div class="max-w-3xl mx-0 px-4 sm:px-6 lg:px-8">
-            <p class="leading-relaxed">
+        <div class="mt-10 mb-12 border-t border-gray-200 dark:border-gray-700 pt-5 text-sm text-gray-600 dark:text-gray-400 text-left ml-0">
             {{ .name }}
             {{ with .location }} · {{ . }}{{ end }}
-            {{ with .description }}  
-                <br class="sm:hidden">
-                <span class="opacity-90">{{ . }}</span>
+            {{ with .description }}
+                <span class="block mt-1"> {{ . }}</span>
             {{ end }}
-            </p>
-        </div>
         </div>
         {{ else }}
         {{ warnf "Author data not found. Please check your site configuration." }}
