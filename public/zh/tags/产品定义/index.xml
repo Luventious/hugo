@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>产品定义 on Deng Shangqing</title>
-    <link>//localhost:1313/zh/tags/%E4%BA%A7%E5%93%81%E5%AE%9A%E4%B9%89/</link>
+    <link>/zh/tags/%E4%BA%A7%E5%93%81%E5%AE%9A%E4%B9%89/</link>
     <description>Recent content in 产品定义 on Deng Shangqing</description>
     <generator>Hugo</generator>
-    <language>zh-CN</language>
+    <language>zh</language>
     <lastBuildDate>Mon, 19 Jan 2026 08:00:00 +0800</lastBuildDate>
-    <atom:link href="//localhost:1313/zh/tags/%E4%BA%A7%E5%93%81%E5%AE%9A%E4%B9%89/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/zh/tags/%E4%BA%A7%E5%93%81%E5%AE%9A%E4%B9%89/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>场景驱动：从产品定义到功能清单的拆解</title>
-      <link>//localhost:1313/zh/blogs/7/</link>
+      <link>/zh/blogs/7/</link>
       <pubDate>Mon, 19 Jan 2026 08:00:00 +0800</pubDate>
-      <guid>//localhost:1313/zh/blogs/7/</guid>
+      <guid>/zh/blogs/7/</guid>
       <description>&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://mp.weixin.qq.com/s?src=11&amp;amp;timestamp=1767941317&amp;amp;ver=6469&amp;amp;signature=rbPQQLMrq2Ou2d90tQrTV8s-Wsmhazn-ZZw3iAy*NKVOn-M22k5hHZyjVEih1NbuYlh4uddOdGspOHZReVQrsUvYIMsoWI*0lF2g-G-OrS0*Uz3WK6240vIpORdqBK8V&amp;amp;new=1&#34;&gt;张晓亮：用原子功能库承接复杂场景和需求&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;以场景驱动智能汽车开发的方法论，正逐步替代传统模式，深度融入众多车企的研发体系。这一转型绝非简单的流程调整，而是一场涉及思维认知、组织架构与工作模式的深刻变革，其过程充满挑战与阵痛。核心在于打破长期以来形成的“以配置为导向”的惯性思维，推动全公司从“硬件堆砌”“功能叠加”的旧框架中剥离，持续灌输“以用户为中心”的核心观念，最终凝聚成上下一心、以用户真实需求为出发点的协同合力。我也是从国内新势力跳槽到传统合资才发现，这一变革非常艰难。&lt;/p&gt;&#xA;&lt;p&gt;汽车早已超越“交通工具”的单一属性，演变为集出行、办公、娱乐、社交等多元功能于一体的移动智能空间，车辆的使用场景被无限拓宽。场景的丰富性直接催生了功能的爆炸式增长。更复杂的是，这些新增功能与硬件配置之间的映射关系，早已打破传统的“一对一”模式，形成了如蜘蛛网般交织的多对多关联：一项核心功能可能需要多个硬件模块协同支撑，而单个硬件又可能承载着多项不同场景下的功能需求。&lt;/p&gt;&#xA;&lt;p&gt;传统以配置为导向的研发模式，在这种复杂关联面前已然失效。过去，车企只需按照既定标准对硬件配置进行分级，再对应匹配基础功能，即可完成产品定义。但在智能时代，海量分散的新功能无法通过传统标准进行有效整合，各部门往往局限于自身领域推进工作——研发部门专注硬件参数，软件部门聚焦功能实现，市场部门侧重营销卖点，导致各环节脱节，最终产品难以真正匹配用户需求。而场景驱动的创新模式，恰恰破解了这一痛点：它以用户真实使用场景为锚点，一方面牢牢守住“以用户为中心”的核心，确保所有研发工作都围绕用户实际需求展开；另一方面则搭建了跨领域协同的统一维度，让研发、生产、市场、设计等不同部门的人员，都能站在“用户场景”这一共同视角讨论问题，有效统筹不同领域的功能需求，避免各自为战的碎片化困境。&lt;/p&gt;&#xA;&lt;p&gt;当场景驱动思维与体验设计深度融合，便构建起一套面向智能汽车整车研发的全流程体系，实现了从需求洞察到产品落地的闭环管理。这一流程的起点并非硬件配置或功能清单，而是深入市场侧与用户侧的需求洞察：通过用户访谈、行为分析、市场调研等多种方式，精准捕捉不同用户群体在不同生活场景、出行场景下的核心诉求与潜在痛点。基于这些洞察，进一步制定具体的产品策略，明确产品为用户提供的核心价值，并细化构建覆盖全生命周期的用户使用场景库——小到日常通勤中的语音控制空调，大到长途旅行中的自动驾驶辅助与座舱娱乐联动，每一个场景都被清晰定义。&lt;/p&gt;&#xA;&lt;p&gt;在明确的场景框架下，研发工作得以有序推进。通过对场景进行拆解，将抽象的用户需求转化为具体可落地的功能点：例如从“家庭亲子出行场景”中，可拆解出儿童安全座椅智能固定、后排娱乐内容定制、车内空气净化自动调节等功能。随后，针对这些细化的功能点，进行跨领域的技术协同与硬件匹配，确定所需的传感器、芯片、执行器等硬件模块，形成“场景—功能—硬件”的精准映射。这种从用户场景出发，反向推导功能需求、匹配硬件支撑的研发流程，不仅确保了产品功能与用户需求的高度契合，更实现了硬件资源的高效利用，避免了不必要的配置浪费，最终打造出真正贴合用户生活的智能汽车产品。&lt;/p&gt;&#xA;&lt;p&gt;归根结底，场景驱动的研发变革，本质上是汽车产业从“产品思维”向“用户思维”的回归。在智能化浪潮下，用户购买的不再是冰冷的硬件设备，而是符合自身生活方式的出行解决方案。&lt;/p&gt;</description>
     </item>
   </channel>

@@ -11,30 +11,18 @@
         {{ $author := cond (and $authorData $authorData.author) $authorData.author site.Params }}
 
         {{ with $author }}
-        <section class="mb-16">
-            <div class="max-w-3xl ml-0 p-4 pb-2 relative">
-                <div class="text-left">
-                    <h1 class="text-xl font-bold mb-2 text-text-primary-light dark:text-text-primary-dark">
-                        {{ .name }}
-                    </h1>
-
-                    <p class="text-gray-400 mb-2 flex items-center text-l">
-                        <svg xmlns="http://www.w3.org/2000/svg"
-                            class="text-gray-400"
-                            width="24" height="24"
-                            viewBox="-7 -2 24 24">
-                            <path fill="currentColor"
-                                d="M4 9.9A5.002 5.002 0 0 1 5 0a5 5 0 0 1 1 9.9V19a1 1 0 0 1-2 0V9.9zM5 8a3 3 0 1 0 0-6a3 3 0 0 0 0 6z"/>
-                        </svg>
-                        {{ .location }}
-                    </p>
-
-                    <p class="text-l mb-6 text-text-primary-light dark:text-text-primary-dark">
-                        {{ .description }}
-                    </p>
-                </div>
-            </div>
-        </section>
+        <div class="mt-12 pt-6 border-t border-gray-200 dark:border-gray-700 text-sm text-gray-500 dark:text-gray-400">
+        <div class="max-w-3xl mx-0 px-4 sm:px-6 lg:px-8">
+            <p class="leading-relaxed">
+            {{ .name }}
+            {{ with .location }} · {{ . }}{{ end }}
+            {{ with .description }}  
+                <br class="sm:hidden">
+                <span class="opacity-90">{{ . }}</span>
+            {{ end }}
+            </p>
+        </div>
+        </div>
         {{ else }}
         {{ warnf "Author data not found. Please check your site configuration." }}
         {{ end }}

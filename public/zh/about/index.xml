@@ -2,10 +2,10 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Deng Shangqing</title>
-    <link>//localhost:1313/zh/about/</link>
+    <link>/zh/about/</link>
     <description>Recent content on Deng Shangqing</description>
     <generator>Hugo</generator>
-    <language>zh-CN</language>
-    <atom:link href="//localhost:1313/zh/about/index.xml" rel="self" type="application/rss+xml" />
+    <language>zh</language>
+    <atom:link href="/zh/about/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

@@ -2,86 +2,83 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>//localhost:1313/zh/blogs/</loc>
+    <loc>/zh/blogs/</loc>
     <lastmod>2026-01-19T08:00:00+08:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/zh/</loc>
+    <loc>/zh/</loc>
     <lastmod>2026-01-19T08:00:00+08:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/zh/tags/</loc>
+    <loc>/zh/tags/</loc>
     <lastmod>2026-01-19T08:00:00+08:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/zh/tags/%E4%BA%A7%E5%93%81%E5%AE%9A%E4%B9%89/</loc>
+    <loc>/zh/tags/%E4%BA%A7%E5%93%81%E5%AE%9A%E4%B9%89/</loc>
     <lastmod>2026-01-19T08:00:00+08:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/zh/blogs/7/</loc>
+    <loc>/zh/blogs/7/</loc>
     <lastmod>2026-01-19T08:00:00+08:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/zh/tags/%E5%9C%BA%E6%99%AF%E8%AE%BE%E8%AE%A1/</loc>
+    <loc>/zh/tags/%E5%9C%BA%E6%99%AF%E8%AE%BE%E8%AE%A1/</loc>
     <lastmod>2026-01-19T08:00:00+08:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/zh/tags/%E7%94%A8%E6%88%B7%E4%BD%93%E9%AA%8C/</loc>
+    <loc>/zh/tags/%E7%94%A8%E6%88%B7%E4%BD%93%E9%AA%8C/</loc>
     <lastmod>2026-01-19T08:00:00+08:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/zh/blogs/5/</loc>
+    <loc>/zh/blogs/5/</loc>
     <lastmod>2026-01-06T08:00:00+08:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/zh/tags/%E6%B5%8B%E8%AF%95tags/</loc>
+    <loc>/zh/tags/%E6%B5%8B%E8%AF%95tags/</loc>
     <lastmod>2026-01-05T08:00:00+08:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/zh/tags/%E5%BB%BA%E7%AB%99tips/</loc>
+    <loc>/zh/tags/%E5%BB%BA%E7%AB%99tips/</loc>
     <lastmod>2026-01-05T08:00:00+08:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/zh/blogs/6/</loc>
+    <loc>/zh/blogs/6/</loc>
     <lastmod>2026-01-05T08:00:00+08:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/zh/tags/a/b-test/</loc>
+    <loc>/zh/tags/a/b-test/</loc>
     <lastmod>2025-10-15T10:30:00+05:30</lastmod>
   </url><url>
-    <loc>//localhost:1313/zh/blogs/ai%E5%B7%A8%E5%A4%B4%E4%BB%AC%E5%BC%80%E6%8A%A2%E5%AE%9E%E4%B9%A0%E7%94%9F%E6%9C%88%E8%96%AA12.8%E4%B8%87/</loc>
+    <loc>/zh/blogs/ai%E5%B7%A8%E5%A4%B4%E4%BB%AC%E5%BC%80%E6%8A%A2%E5%AE%9E%E4%B9%A0%E7%94%9F%E6%9C%88%E8%96%AA12.8%E4%B8%87/</loc>
     <lastmod>2025-10-15T10:30:00+05:30</lastmod>
   </url><url>
-    <loc>//localhost:1313/zh/tags/ux/</loc>
+    <loc>/zh/tags/ux/</loc>
     <lastmod>2025-10-15T10:30:00+05:30</lastmod>
   </url><url>
-    <loc>//localhost:1313/zh/tags/ux/ui/</loc>
+    <loc>/zh/tags/ux/ui/</loc>
     <lastmod>2025-10-15T10:30:00+05:30</lastmod>
   </url><url>
-    <loc>//localhost:1313/zh/projects/</loc>
+    <loc>/zh/projects/</loc>
     <lastmod>2025-03-15T10:30:00+05:30</lastmod>
   </url><url>
-    <loc>//localhost:1313/zh/projects/%E9%A2%86%E5%85%8B900%E7%94%A8%E6%88%B7%E4%BD%93%E9%AA%8C%E8%AE%BE%E8%AE%A1/</loc>
+    <loc>/zh/projects/%E9%A2%86%E5%85%8B900%E7%94%A8%E6%88%B7%E4%BD%93%E9%AA%8C%E8%AE%BE%E8%AE%A1/</loc>
     <lastmod>2025-03-15T10:30:00+05:30</lastmod>
   </url><url>
-    <loc>//localhost:1313/zh/blogs/excemple/</loc>
+    <loc>/zh/tags/ui/</loc>
     <lastmod>2025-03-15T10:30:00+05:30</lastmod>
   </url><url>
-    <loc>//localhost:1313/zh/tags/ui/</loc>
+    <loc>/zh/tags/%E6%95%B0%E5%AD%97%E5%8C%96/</loc>
     <lastmod>2025-03-15T10:30:00+05:30</lastmod>
   </url><url>
-    <loc>//localhost:1313/zh/tags/%E6%95%B0%E5%AD%97%E5%8C%96/</loc>
+    <loc>/zh/projects/%E6%95%B0%E5%AD%97%E5%8C%96%E5%B1%95%E8%BD%A6%E6%A8%A1%E5%BC%8F/</loc>
     <lastmod>2025-03-15T10:30:00+05:30</lastmod>
   </url><url>
-    <loc>//localhost:1313/zh/projects/%E6%95%B0%E5%AD%97%E5%8C%96%E5%B1%95%E8%BD%A6%E6%A8%A1%E5%BC%8F/</loc>
+    <loc>/zh/tags/%E4%BD%93%E9%AA%8C/</loc>
     <lastmod>2025-03-15T10:30:00+05:30</lastmod>
   </url><url>
-    <loc>//localhost:1313/zh/tags/%E4%BD%93%E9%AA%8C/</loc>
+    <loc>/zh/tags/%E5%B1%95%E8%BD%A6/</loc>
     <lastmod>2025-03-15T10:30:00+05:30</lastmod>
   </url><url>
-    <loc>//localhost:1313/zh/tags/%E5%B1%95%E8%BD%A6/</loc>
-    <lastmod>2025-03-15T10:30:00+05:30</lastmod>
-  </url><url>
-    <loc>//localhost:1313/zh/projects/1/</loc>
+    <loc>/zh/projects/1/</loc>
     <lastmod>2022-04-17T08:00:00+08:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/zh/about/</loc>
+    <loc>/zh/about/</loc>
   </url><url>
-    <loc>//localhost:1313/zh/contact/</loc>
+    <loc>/zh/contact/</loc>
   </url><url>
-    <loc>//localhost:1313/zh/experience/</loc>
+    <loc>/zh/experience/</loc>
   </url><url>
-    <loc>//localhost:1313/zh/photography/</loc>
+    <loc>/zh/photography/</loc>
   </url><url>
-    <loc>//localhost:1313/zh/categories/</loc>
+    <loc>/zh/categories/</loc>
   </url>
 </urlset>
