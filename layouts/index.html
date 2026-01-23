@@ -70,9 +70,24 @@
                             hover:border-border-primary-light dark:hover:border-border-primary-dark
                             transition-all"
                     target="_blank" rel="noopener noreferrer">
-                    <i class="icon iconfont" style="font-size: 22px;">&#xe601;</i>
+                    <i class="icon iconfont" style="font-size: 24px;">&#xe601;</i>
                 </a>
-
+                {{ end }}
+                {{ with .linkedin }}
+                <a href="{{ . }}"
+                    class="flex items-center justify-center
+                            text-text-secondary-light dark:text-text-secondary-dark
+                            hover:text-text-primary-light dark:hover:text-text-primary-dark
+                            bg-bg-tertiary-light dark:bg-bg-tertiary-dark
+                            p-2 box-border
+                            w-10 h-10
+                            rounded-md
+                            border border-border-secondary-light dark:border-border-secondary-dark
+                            hover:border-border-primary-light dark:hover:border-border-primary-dark
+                            transition-all"
+                    target="_blank" rel="noopener noreferrer">
+                    <i class="ri-linkedin-box-fill" style="font-size: 32px;"></i>
+                </a>
                 {{ end }}
                 {{ with .discord }}
                 <button onclick="copyToClipboard('{{ . }}')" class="text-text-secondary-light dark:text-text-secondary-dark hover:text-text-primary-light dark:hover:text-text-primary-dark bg-bg-tertiary-light dark:bg-bg-tertiary-dark p-2 rounded-md border border-border-secondary-light dark:border-border-secondary-dark hover:border-border-primary-light dark:hover:border-border-primary-dark transition-all" title="Copy Discord Username">
@@ -161,7 +176,7 @@
                 <p class="text-2xl font-semibold">{{ .role }}</p>
                 <p class="text-gray-400 font-semibold">{{ .period }}</p>
                 <p class="text-gray-400 text-sm">{{ if .country }} {{ .country }}{{ end }}</p>
-                <p class="mt-2">{{ .description }}</p>
+                <p class="mt-2">{{ .description | replaceRE "(?:\r?\n)" "<br>" | safeHTML }}</p>
             </div>
             {{ end }}
         </div>

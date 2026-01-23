@@ -1,27 +1,36 @@
 [[experience]]
+    role = "用户体验工程师"
+    company = "本田技研科技（中国）有限公司"
+    company_link = "https://www.honda.com.cn/" # Omit or leave blank if no link
+    period = "2025年5月 - Now"
+    country = "广东省广州市"
+    description = "努力创造中……"
+    technologies = ["体验测评","功能企划","用户洞察"]
+
+[[experience]]
     role = "用户体验设计师"
     company = "领克品牌院 - 吉利汽车股份有限公司"
     company_link = "https://www.lynkco.com.cn/" # Add company URL here
-    period = "Jun 2022 - May 2025"
+    period = "2022年7月 - 2025年5月"
     # logo = "/images/company/lynkco.png"
-    country = "CHINA" # New field for region/country
-    description = "3年交互设计经验，负责原生应用以及家电屏端产品从需求讨论、全局交互规范的制定到交互设计和后期迭代的工作；能独立完成交互原型输出，注重用户体验，具备用户同理心；自学能力强，能快速适应新的方法和工具。" # Optional detailed description
+    country = "浙江省宁波市" # New field for region/country
+    description = "" # Optional detailed description
     responsibilities = [
-        "Developed and maintained web applications.",
-        "Collaborated with cross-functional teams.",
-        "Led junior developers."
+        "1. 场景设计：基于领克车型定位，构建全场景用车体验模型。通过用户趋势分析、需求调研与竞品分析，挖掘关键痛点及机会点，为车型项目提供系统性的用户体验解决方案。",
+        "2. 功能集成：担任功能需求管理的核心推动者，负责座舱OS部分模块的功能规划和产品方案，收集、评审和跟进各车型项目的功能变更需求，确保需求价值与体验完整度。通过跨团队协作，跟进推动方案落地。",
+        "3. 体验测评：组织和执行车型关键节点的静态体验测评。通过实测数据与用户反馈分析，识别产品短板，提出体验优化方案。持续迭代测评方法与模型，将主观体验量化为数据，为体验改进提供决策依据。"
     ]
-    technologies = ["Go", "Docker", "Kubernetes", "React"]
+    technologies = ["场景设计", "需求分析", "用户洞察", "原型设计"]
 
 [[experience]]
     role = "交互设计师"
     company = "格力电器股份有限公司"
     company_link = "https://gree.com/" # Omit or leave blank if no link
-    period = "Jun 2019 - May 2022"
-    country = "CHINA"
-    description = "3年交互设计经验，负责原生应用以及家电屏端产品从需求讨论、全局交互规范的制定到交互设计和后期迭代的工作；能独立完成交互原型输出，注重用户体验，具备用户同理心；自学能力强，能快速适应新的方法和工具。"
+    period = "2019年6月 - 2022年6月"
+    country = "广东省珠海市"
+    description = ""
     responsibilities = [
-        "Contributed to full-stack development projects.",
-        "Participated in code reviews and agile sprints."
+        "1. 创新探索：负责智能家电产品的创新方向探索，聚焦用户需求痛点和技术趋势，提出新功能、新项目的创意设计方案。基于用户场景分析和市场洞察，识别产品机会点，推动概念方案的技术验证和落地跟踪，确保创新设计具备可执行性和市场价值。",
+        "2. 交互设计：根据产品定位及技术实现需求，独立负责移动端和屏端的UI交互设计工作。从信息架构、交互流程到界面细节优化，确保用户操作的逻辑清晰、体验流畅。规划并推动智能家电产品线的交互框架和设计规范体系建设。涵盖信息架构和交互模式等内容，确保不同产品线的设计风格和体验一致性。通过建立标准化的设计流程，提高设计交付效率，减少重复工作，为后续产品创新提供支撑。"
     ]
-    technologies = ["Python", "Django", "PostgreSQL"]
+    technologies = ["信息架构", "原型设计", "动态原型"]
