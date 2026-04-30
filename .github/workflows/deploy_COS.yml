@@ -16,19 +16,21 @@ jobs:
         with:
           submodules: false  # 如果主题是 submodule 引入，必须开启
           fetch-depth: 0
-
-      # 2. 安装 Python（用于日期处理）
+          
+      # 2. 安装 Python（用于日期格式标准化）
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
           python-version: '3.11'
-      - name: Fix Notion Flow Dates
+      
+      # 3. 批量修复 Hugo front matter 中的 date 字段格式
+      - name: Fix Hugo Date Formats to RFC3339
         run: |
           python3 <<'EOF'
           import os
           import re
 
-          folder = "content"  # Hugo 内容目录
+          folder = "content"
           for root, dirs, files in os.walk(folder):
               for file in files:
                   if not file.endswith(".md"):
@@ -38,15 +40,40 @@ jobs:
                       content = f.read()
 
                   def fix_date(match):
-                      y, m, d, H, M, S, tz = match.groups()
-                      # 保留 date: key，Hugo 支持 ISO8601 时区格式 +08:00
-                      return f"date: {int(y):04d}-{int(m):02d}-{int(d):02d}T{int(H):02d}:{int(M):02d}:{int(S):02d}{tz[:3]}:{tz[3:]}"
+                      prefix = match.group(1)  # "date: "
+                      y = int(match.group(2))
+                      m = int(match.group(3))
+                      d = int(match.group(4))
+                      H = int(match.group(5))
+                      M = int(match.group(6))
+                      S = int(match.group(7))
+                      
+                      # 时区原始字符串，如 "+08:00", "+8:00", "08:00", "+0800"
+                      tz_raw = match.group(8).strip()
+                      
+                      # 提取时区符号
+                      if tz_raw.startswith('+') or tz_raw.startswith('-'):
+                          tz_sign = tz_raw[0]
+                          tz_body = tz_raw[1:]
+                      else:
+                          # 无符号默认设为 +（适用于中国时区）
+                          tz_sign = '+'
+                          tz_body = tz_raw
+                      
+                      # 标准化时区：移除冒号 → 补零为4位 → 格式化为 +HH:MM
+                      tz_digits = tz_body.replace(':', '').zfill(4)
+                      tz_h = int(tz_digits[:2])
+                      tz_m = int(tz_digits[2:])
+                      
+                      # 返回标准 RFC3339 格式（25 字符固定长度）
+                      return f"{prefix}{y:04d}-{m:02d}-{d:02d}T{H:02d}:{M:02d}:{S:02d}{tz_sign}{tz_h:02d}:{tz_m:02d}"
 
-                  content_new = re.sub(
-                      r"date:\s*(\d{4})-(\d{1,2})-(\d{1,2}) (\d{1,2}):(\d{1,2}):(\d{1,2}) (\+\d{4})",
-                      fix_date,
-                      content
-                  )
+                  # 正则匹配多种错误格式变体：
+                  # ① 2025-1-3T8:0:0+8:00   ② 2025-01-03 08:00:00 08:00  
+                  # ③ 2025-01-03T08:00:00+8:00  ④ 2025-01-03T8:00:00+08:00
+                  pattern = r"(date:\s*)(\d{4})-(\d{1,2})-(\d{1,2})[ T](\d{1,2}):(\d{1,2}):(\d{1,2})\s*([+-]?\d{1,2}:?\d{2})"
+                  
+                  content_new = re.sub(pattern, fix_date, content)
 
                   with open(path, "w", encoding="utf-8") as f:
                       f.write(content_new)
