@@ -1,135 +1,273 @@
 {{ define "main" }}
+{{ $authorData := index site.Data .Language.Lang "author" }}
+{{ $author := cond (and $authorData $authorData.author) $authorData.author site.Params }}
+{{ $tel := replace .Site.Params.Tel " " "" }}
 <div class="max-w-4xl mx-auto px-4 py-12">
     <h1 class="text-5xl font-bold mb-6 text-text-primary-light dark:text-text-primary-dark">{{ .Title }}</h1>
-    <!-- <div class="bg-bg-primary-light dark:bg-bg-secondary-dark p-8 rounded-lg border border-border-primary-light dark:border-border-primary-dark"> -->
-    <div class="prose prose-invert prose-lg max-w-none">
-        <div class="text-text-secondary-light dark:text-text-secondary-dark text-lg mb-8">
+
+    <div class="prose max-w-none">
+        <div class="contact-intro text-text-secondary-light dark:text-text-secondary-dark">
             {{ .Content }}
         </div>
-        <!-- Hero Section -->
-        {{ $authorData := index site.Data .Language.Lang "author" }}
-        {{ $author := cond (and $authorData $authorData.author) $authorData.author site.Params }}
 
         {{ with $author }}
-        <div class="mt-10 mb-12 border-t border-gray-200 dark:border-gray-700 pt-5 text-sm text-gray-600 dark:text-gray-400 text-left ml-0">
-            {{ .name }}
-            {{ with .location }} · {{ . }}{{ end }}
-            {{ with .description }}
-                <span class="block mt-1"> {{ . }}</span>
-            {{ end }}
+        <div class="contact-signature">
+            <span class="font-medium text-text-primary-light dark:text-text-primary-dark">{{ .name }}</span>
+            {{ with .location }}<span>· {{ . }}</span>{{ end }}
+            {{ with .description }}<span class="block mt-1">{{ . }}</span>{{ end }}
         </div>
         {{ else }}
         {{ warnf "Author data not found. Please check your site configuration." }}
         {{ end }}
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                <!-- Email -->
-                <a href="mailto:{{ .Site.Params.email }}" class="contact-link flex items-center gap-4 p-4 rounded-lg bg-bg-primary-light dark:bg-bg-secondary-dark transition-all duration-300">
-                    <svg class="w-7 h-7 text-text-secondary-light dark:text-text-secondary-dark shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.75">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <!-- 邮箱 -->
+            <a href="mailto:{{ .Site.Params.email }}"
+               class="contact-card group flex items-center gap-4 p-4 md:p-5 rounded-xl bg-bg-primary-light dark:bg-bg-secondary-dark border border-border-primary-light dark:border-border-primary-dark">
+                <span class="icon-box">
+                    <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <rect x="2.5" y="4.5" width="19" height="15" rx="2.5"/>
+                        <path d="m3.5 7.5 7.6 4.9a2 2 0 0 0 2.1 0l7.6-4.9"/>
                     </svg>
-                    <div class="min-w-0">
-                        <div class="text-text-secondary-light dark:text-text-secondary-dark hover:text-text-primary-light dark:hover:text-text-primary-dark transition-colors duration-300 truncate">Email</div>
-                        <div class="text-sm text-text-tertiary-light dark:text-text-tertiary-dark truncate">{{ .Site.Params.email }}</div>
-                    </div>
-                </a>
+                </span>
+                <span class="min-w-0 flex-1">
+                    <span class="card-label">邮箱</span>
+                    <span class="card-value break-all">{{ .Site.Params.email }}</span>
+                </span>
+                <svg class="card-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M7 17 17 7"/><path d="M9 7h8v8"/>
+                </svg>
+            </a>
 
-                <!-- Wechat -->
-                <div class="contact-link flex items-center gap-4 p-4 rounded-lg bg-bg-primary-light dark:bg-bg-secondary-dark transition-all duration-300">
-                <!-- 微信图标 -->
-                <i class="icon iconfont" style="font-size: 32px;">&#xe602;</i>
-
-                <!-- 微信链接 -->
-                <div class="min-w-0">
-                    <div class="text-text-secondary-light dark:text-text-secondary-dark hover:text-text-primary-light dark:hover:text-text-primary-dark transition-colors duration-300 truncate">Wechat</div>
-                    <div class="text-sm text-text-tertiary-light dark:text-text-tertiary-dark truncate">@{{ .Site.Params.Wechat }}</div>
-                </div>
-            </div>
-
-                <!-- 脉脉 -->
-                <a href="{{ .Site.Params.maimai }}" target="_blank" class="contact-link flex items-center gap-4 p-4 rounded-lg bg-bg-primary-light dark:bg-bg-secondary-dark transition-all duration-300">
-                    <i class="icon iconfont" style="font-size: 24px;">&#xe601;</i>
-                    <div class="min-w-0">
-                        <div class="text-text-secondary-light dark:text-text-secondary-dark hover:text-text-primary-light dark:hover:text-text-primary-dark transition-colors duration-300 truncate">脉脉</div>
-                        <div class="text-sm text-text-tertiary-light dark:text-text-tertiary-dark truncate">@邓 尚青</div>
-                    </div>
-                </a>
-
-                <!-- Tel -->
-                <div class="contact-link flex items-center gap-4 p-4 rounded-lg bg-bg-primary-light dark:bg-bg-secondary-dark transition-all duration-300">
-                
-                <i class="icon iconfont" style="font-size: 30px;">&#xe603;</i>
-
-                <div class="min-w-0">
-                    <div class="text-text-secondary-light dark:text-text-secondary-dark hover:text-text-primary-light dark:hover:text-text-primary-dark transition-colors duration-300 truncate">Tel</div>
-                    <div class="text-sm text-text-tertiary-light dark:text-text-tertiary-dark truncate">156****6991</div>
-                </div>
-            </div>
-
-                <!-- Twitter 
-                <a href="{{ .Site.Params.twitter }}" target="_blank" class="contact-link flex items-center gap-4 p-4 rounded-lg bg-bg-primary-light dark:bg-bg-secondary-dark transition-all duration-300">
-                    <svg class="w-7 h-7 text-text-secondary-light dark:text-text-secondary-dark shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.75">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 7.5a4.5 4.5 0 0 1 8-3Q22 4 23 3q0 2-2 4A13 13 0 0 1 1 19q5 0 7-2q-8-4-5-13q4 5 9 5Z"/>
+            <!-- 微信：点击复制微信号 -->
+            <button type="button" id="copy-wechat" data-wechat="{{ .Site.Params.Wechat }}"
+                    class="contact-card group flex w-full items-center gap-4 p-4 md:p-5 rounded-xl bg-bg-primary-light dark:bg-bg-secondary-dark border border-border-primary-light dark:border-border-primary-dark text-left"
+                    aria-label="复制微信号 {{ .Site.Params.Wechat }}">
+                <span class="icon-box">
+                    <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M14 9a2 2 0 0 1-2 2H6l-4 4V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2Z"/>
+                        <path d="M18 9h2a2 2 0 0 1 2 2v11l-4-4h-6a2 2 0 0 1-2-2v-1"/>
                     </svg>
-                    <div class="min-w-0">
-                        <div class="text-text-secondary-light dark:text-text-secondary-dark hover:text-text-primary-light dark:hover:text-text-primary-dark transition-colors duration-300 truncate">Twitter</div>
-                        <div class="text-sm text-text-tertiary-light dark:text-text-tertiary-dark truncate">@prxshetty</div>
-                    </div>
-                </a>
-                -->
+                </span>
+                <span class="min-w-0 flex-1">
+                    <span class="card-label">微信</span>
+                    <span class="card-value">@{{ .Site.Params.Wechat }}</span>
+                </span>
+                <span class="card-hint" data-copy-hint aria-live="polite">复制</span>
+            </button>
 
-                <!-- LinkedIn 
-                <a href="{{ .Site.Params.linkedin }}" target="_blank" class="contact-link flex items-center gap-4 p-4 rounded-lg bg-bg-primary-light dark:bg-bg-secondary-dark transition-all duration-300">
-                    <svg class="w-7 h-7 text-text-secondary-light dark:text-text-secondary-dark shrink-0" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M20.47 2H3.53a1.45 1.45 0 0 0-1.47 1.43v17.14A1.45 1.45 0 0 0 3.53 22h16.94a1.45 1.45 0 0 0 1.47-1.43V3.43A1.45 1.45 0 0 0 20.47 2ZM8.09 18.74h-3v-9h3ZM6.59 8.48a1.56 1.56 0 1 1 0-3.12a1.57 1.57 0 1 1 0 3.12Zm12.32 10.26h-3v-4.83c0-1.21-.43-2-1.52-2A1.65 1.65 0 0 0 12.85 13a2 2 0 0 0-.1.73v5h-3v-9h3V11a3 3 0 0 1 2.71-1.5c2 0 3.45 1.29 3.45 4.06Z"/>
+            <!-- 脉脉 -->
+            <a href="{{ .Site.Params.maimai }}" target="_blank" rel="noopener"
+               class="contact-card group flex items-center gap-4 p-4 md:p-5 rounded-xl bg-bg-primary-light dark:bg-bg-secondary-dark border border-border-primary-light dark:border-border-primary-dark">
+                <span class="icon-box">
+                    <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+                        <circle cx="9" cy="7" r="4"/>
+                        <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
                     </svg>
-                    <div class="min-w-0">
-                        <div class="text-text-secondary-light dark:text-text-secondary-dark hover:text-text-primary-light dark:hover:text-text-primary-dark transition-colors duration-300 truncate">LinkedIn</div>
-                        <div class="text-sm text-text-tertiary-light dark:text-text-tertiary-dark truncate">in/dengshangqing</div>
-                    </div>
-                </a>
-                -->
-            </div>
+                </span>
+                <span class="min-w-0 flex-1">
+                    <span class="card-label">脉脉</span>
+                    <span class="card-value">@{{ .Site.Params.linkedin_username }}</span>
+                </span>
+                <svg class="card-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M7 17 17 7"/><path d="M9 7h8v8"/>
+                </svg>
+            </a>
+
+            <!-- 电话 -->
+            <a href="tel:{{ $tel }}"
+               class="contact-card group flex items-center gap-4 p-4 md:p-5 rounded-xl bg-bg-primary-light dark:bg-bg-secondary-dark border border-border-primary-light dark:border-border-primary-dark">
+                <span class="icon-box">
+                    <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M21 16.9v2.1a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 1.1 3.2 2 2 0 0 1 3.1 1h2.1a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L6.3 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.5 2.1Z"/>
+                    </svg>
+                </span>
+                <span class="min-w-0 flex-1">
+                    <span class="card-label">电话</span>
+                    <span class="card-value">{{ substr $tel 0 3 }}****{{ substr $tel 7 4 }}</span>
+                </span>
+                <svg class="card-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M7 17 17 7"/><path d="M9 7h8v8"/>
+                </svg>
+            </a>
+        </div>
     </div>
-    <!-- </div> -->
 </div>
 
+<script>
+    (function () {
+        var button = document.getElementById('copy-wechat');
+        if (!button) return;
+        var hint = button.querySelector('[data-copy-hint]');
+        var restLabel = hint ? hint.textContent : '';
+        var timer = null;
+
+        function flash(message) {
+            if (!hint) return;
+            hint.textContent = message;
+            hint.classList.add('is-done');
+            window.clearTimeout(timer);
+            timer = window.setTimeout(function () {
+                hint.textContent = restLabel;
+                hint.classList.remove('is-done');
+            }, 1600);
+        }
+
+        function legacyCopy(value) {
+            var field = document.createElement('textarea');
+            field.value = value;
+            field.setAttribute('readonly', '');
+            field.style.position = 'fixed';
+            field.style.top = '-1000px';
+            document.body.appendChild(field);
+            field.select();
+            var ok = false;
+            try { ok = document.execCommand('copy'); } catch (e) { ok = false; }
+            document.body.removeChild(field);
+            flash(ok ? '已复制' : '复制失败');
+        }
+
+        button.addEventListener('click', function () {
+            var value = button.getAttribute('data-wechat') || '';
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(value).then(function () {
+                    flash('已复制');
+                }, function () {
+                    legacyCopy(value);
+                });
+            } else {
+                legacyCopy(value);
+            }
+        });
+    })();
+</script>
+
 <style>
-    .prose {
-        color: #4b5563; /* text-secondary-light */
+    .contact-intro p {
+        color: #4b5563;
+        font-size: 17px;
+        line-height: 1.95;
+        letter-spacing: 0.03em;
+        margin-bottom: 1.75rem;
     }
-    html.dark .prose {
-        color: #9ca3af; /* text-secondary-dark */
+    html.dark .contact-intro p {
+        color: #9ca3af;
     }
-    .prose p {
-        color: #4b5563; /* text-secondary-light */
-        margin-bottom: 1.5rem; /* mb-6 */
-        line-height: 1.9;
+    .contact-intro strong {
+        font-weight: 600;
+        color: #1f2937;
     }
-    html.dark .prose p {
-        color: #9ca3af; /* text-secondary-dark */
+    html.dark .contact-intro strong {
+        color: #f5f5f5;
     }
-    
-    .contact-link {
-        position: relative;
-        overflow: hidden;
-        border: 1px solid #d1d5db; /* border-primary-light */
+    .contact-intro hr {
+        margin: 2.5rem 0;
+        border: 0;
+        border-top: 1px solid #d4d4d4;
     }
-    html.dark .contact-link {
-        border: 1px solid #4b5563; /* border-primary-dark */
+    html.dark .contact-intro hr {
+        border-top-color: #404040;
     }
-    
-    .contact-link:hover {
-        border-color: #9ca3af; /* border-secondary-light */
+
+    .contact-signature {
+        border-top: 1px solid #d4d4d4;
+        margin-top: 2.5rem;
+        margin-bottom: 2rem;
+        padding-top: 1.25rem;
+        font-size: 0.875rem;
+        color: #6b7280;
+    }
+    html.dark .contact-signature {
+        border-top-color: #404040;
+        color: #9ca3af;
+    }
+
+    .contact-card {
+        transition: border-color 0.25s ease, transform 0.25s ease;
+    }
+    .contact-card:hover {
+        border-color: #a3a3a3;
         transform: translateY(-2px);
     }
-    html.dark .contact-link:hover {
-        border-color: #6b7280; /* border-secondary-dark */
+    html.dark .contact-card:hover {
+        border-color: #525252;
     }
-    
-    @media (max-width: 768px) {
-        .contact-link {
-            width: 100%;
-        }
+    .contact-card:focus-visible {
+        outline: 2px solid #0284c7;
+        outline-offset: 3px;
+    }
+    html.dark .contact-card:focus-visible {
+        outline-color: #0ea5e9;
+    }
+
+    .icon-box {
+        display: grid;
+        place-items: center;
+        flex: none;
+        width: 2.5rem;
+        height: 2.5rem;
+        border-radius: 0.5rem;
+        color: #6b7280;
+        border: 1px solid #e5e5e5;
+    }
+    html.dark .icon-box {
+        color: #a3a3a3;
+        border-color: #333333;
+    }
+
+    .card-label {
+        display: block;
+        font-size: 0.75rem;
+        line-height: 1.25rem;
+        letter-spacing: 0.08em;
+        color: #6b7280;
+    }
+    html.dark .card-label {
+        color: #9ca3af;
+    }
+
+    .card-value {
+        display: block;
+        font-size: 0.9375rem;
+        line-height: 1.5rem;
+        font-weight: 500;
+        color: #1f2937;
+    }
+    html.dark .card-value {
+        color: #f5f5f5;
+    }
+
+    .card-arrow {
+        flex: none;
+        width: 1rem;
+        height: 1rem;
+        opacity: 0;
+        transition: opacity 0.25s ease;
+    }
+    .contact-card:hover .card-arrow,
+    .contact-card:focus-visible .card-arrow {
+        opacity: 0.6;
+    }
+
+    .card-hint {
+        flex: none;
+        font-size: 0.75rem;
+        letter-spacing: 0.05em;
+        color: #6b7280;
+        border: 1px solid #e5e5e5;
+        border-radius: 999px;
+        padding: 0.125rem 0.5rem;
+        transition: color 0.25s ease, border-color 0.25s ease;
+    }
+    html.dark .card-hint {
+        color: #9ca3af;
+        border-color: #333333;
+    }
+    .card-hint.is-done {
+        color: #0284c7;
+        border-color: #0284c7;
     }
 </style>
-{{ end }} 
+{{ end }}

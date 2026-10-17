@@ -285,6 +285,30 @@
     font-size: 2.25rem;
 }
 
+/* 本地品牌图标：用 mask 让 SVG 轮廓跟随主题文字颜色 */
+.carousel-item i.brand-icon {
+    display: inline-block;
+    width: 2.25rem;
+    height: 2.25rem;
+    background-color: currentColor;
+    -webkit-mask-image: var(--brand-icon);
+    mask-image: var(--brand-icon);
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+}
+
+.brand-codex {
+    --brand-icon: url("/icons/codex.svg");
+}
+
+.brand-deepseek {
+    --brand-icon: url("/icons/deepseek.svg");
+}
+
 .carousel-item span {
     font-size: 1.25rem;
     font-weight: 500;

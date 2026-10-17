@@ -1,0 +1,12 @@
+# Hugo
+public/
+resources/
+.hugo_build.lock
+
+# 本地临时文件与脚本
+.tmp/
+.freebuff/
+
+# 系统文件
+.DS_Store
+Thumbs.db

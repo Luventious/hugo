@@ -16,8 +16,10 @@ row2 = [
   { icon = "iconfont icon-Midjourney", name = "Midjourney" },
   { icon = "ri-figma-fill", name = "Figma" },
   { icon = "iconfont icon-grok", name = "Grok" },
+  { icon = "brand-icon brand-codex", name = "Codex" },
   { icon = "ri-openai-fill", name = "chatgpt" },
   { icon = "ri-gemini-fill", name = "gemini" },
+  { icon = "brand-icon brand-deepseek", name = "DeepSeek" },
   { icon = "iconfont icon-Photoshop", name = "Photoshop" },
   { icon = "iconfont icon-adobe_illustrator", name = "illustrator" },
   { icon = "ri-file-ppt-2-fill", name = "PowerPoint" }
