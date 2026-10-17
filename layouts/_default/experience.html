@@ -1,217 +1,276 @@
 {{ define "main" }}
-<div class="max-w-4xl mx-auto px-4 py-12">
-    <h1 class="text-5xl font-bold mb-3 text-text-primary-light dark:text-text-primary-dark">{{ .Title }}</h1>
-    <div class="mb-12 bg-bg-primary-light dark:bg-bg-secondary-dark p-8 rounded-lg border border-border-primary-light dark:border-border-primary-dark">
-        <div class="intro-section">
-            <div class="list-disc list-inside text-text-secondary-light dark:text-text-secondary-dark text-3xl prose prose-invert prose-l max-w-none">
-                {{ .Content }}
-            </div>
-            <!--
-            <div class="mt-8 text-sl flex flex-wrap gap-4">
-                <div class="stat-box">
-                    <div class="stat-number">40+</div>
-                    <div class="stat-label">Technologies Used</div>
-                </div>
-                <div class="stat-box">
-                    <div class="stat-number">35+</div>
-                    <div class="stat-label">Projects Completed</div>
-                </div>
-                <div class="stat-box">
-                    <div class="stat-number">3+</div>
-                    <div class="stat-label">Recommendations Received</div>
-                </div>
-                <div class="stat-box">
-                    <div class="stat-number">20+</div>
-                    <div class="stat-label">Courses Completed</div>
-                </div>
-                
-            </div>-->
-        </div>
-    </div>
-    <div class="space-y-8">
-        {{ $experienceData := index site.Data .Language.Lang "experience" }}
-        {{ with $experienceData.experience }}
+<link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.8.0/fonts/remixicon.css"
+    rel="stylesheet"
+/>
+<div class="w-full md:w-4/5 lg:w-3/5 mx-auto px-8 sm:px-6 md:px-8 lg:px-14 py-12">
+
+    <!-- 1. 页面标题 -->
+    <h1 class="text-5xl font-bold mb-10 text-text-primary-light dark:text-text-primary-dark">{{ .Title }}</h1>
+
+    <!-- 2. 工作经历 -->
+    {{ $experienceData := index site.Data .Language.Lang "experience" }}
+    {{ with $experienceData.experience }}
+    <section class="mb-16">
+        <h2 class="text-4xl font-bold mb-6 text-text-primary-light dark:text-text-primary-dark">工作经历</h2>
+        <div class="space-y-6">
             {{ range . }}
-            <div class="group relative before:content-[''] before:absolute before:left-0 before:top-0 before:w-[2px] before:h-full before:bg-border-secondary-light dark:before:bg-border-secondary-dark before:rounded-full">
+            <div class="relative pl-8 before:content-[''] before:absolute before:left-0 before:top-0 before:w-[2px] before:h-full before:bg-border-secondary-light dark:before:bg-border-secondary-dark before:rounded-full">
                 <div class="absolute -left-1.5 top-0 w-2 h-2 bg-border-secondary-light dark:bg-border-secondary-dark rounded-full"></div>
-                <div class="p-6 rounded-lg bg-bg-primary-light dark:bg-bg-secondary-dark transition-all duration-300 border border-border-primary-light dark:border-border-primary-dark">
+                <div class="p-6 rounded-lg bg-bg-primary-light dark:bg-bg-secondary-dark border border-border-primary-light dark:border-border-primary-dark">
                     <div class="flex-grow">
                         {{ if .company }}
-                            <div class="text-text-secondary-light dark:text-text-secondary-dark text-xl">{{ .company }}</div>
-                        {{ end }}
-                        <div class="flex flex-col md:flex-row md:items-center gap-1 mb-1">
-                            <h3 class="text-3xl font-semibold text-text-primary-light dark:text-text-primary-dark">{{ .role }}</h3>
+                        <div class="text-text-secondary-light dark:text-text-secondary-dark text-lg">
+                            {{ if .company_link }}
+                            <a href="{{ .company_link }}" target="_blank" rel="noopener noreferrer" class="hover:text-accent-light dark:hover:text-accent-dark transition-colors">
+                                {{ .company }}
+                            </a>
+                            {{ else }}
+                                {{ .company }}
+                            {{ end }}
                         </div>
-                        <div class="text-text-secondary-light dark:text-text-secondary-dark mb-4 text-sm">
+                        {{ end }}
+                        <h3 class="text-2xl font-semibold text-text-primary-light dark:text-text-primary-dark mt-1">{{ .role }}</h3>
+                        <div class="text-text-secondary-light dark:text-text-secondary-dark text-sm mt-1">
                             {{ .period }}{{ if .country }} • {{ .country }}{{ end }}
                         </div>
-                        <!-- {{ if .description }}
-                        <p class="text-gray-300 mb-4 leading-relaxed text-lg">{{ .description }}</p>
-                        {{ end }} -->
-
                         {{ if .responsibilities }}
-                        <div class="mt-4">
-                            <h4 class="text-lg font-medium text-text-primary-light dark:text-text-primary-dark mb-3">Key Responsibilities:</h4>
-                            <ul class="list-none space-y-2">
-                                {{ range .responsibilities }}
-                                <li class="text-text-secondary-light dark:text-text-secondary-dark text-lg">
-                                    {{ . }}
-                                </li>
-                                {{ end }}
-                            </ul>
-                        </div>
+                        <ul class="mt-4 space-y-2">
+                            {{ range .responsibilities }}
+                            <li class="text-text-secondary-light dark:text-text-secondary-dark text-base leading-relaxed">{{ . }}</li>
+                            {{ end }}
+                        </ul>
                         {{ end }}
-                        
                         {{ if .technologies }}
                         <div class="mt-4 flex flex-wrap gap-2">
                             {{ range .technologies }}
-                            <span class="px-3 py-1 text-sm bg-bg-primary-light dark:bg-bg-tertiary-dark text-text-secondary-light dark:text-text-secondary-dark rounded-full">{{ . }}</span>
+                            <span class="px-3 py-1 text-sm bg-bg-tertiary-light dark:bg-bg-tertiary-dark text-text-secondary-light dark:text-text-secondary-dark rounded-full">{{ . }}</span>
                             {{ end }}
-                        </div>
-                        {{ end }}                        
-                        {{ if eq .company "GitHub" }}
-                        <div class="mt-4">
-                            <a href="https://github.com/prxshetty" 
-                               class="github-link inline-flex items-center gap-2 text-accent-light dark:text-accent-dark hover:text-text-primary-light dark:hover:text-text-primary-dark transition-colors duration-300 relative">
-                                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                                </svg>
-                                <span class="text-sm">@prxshetty</span>
-                            </a>
                         </div>
                         {{ end }}
                     </div>
                 </div>
             </div>
             {{ end }}
-        {{ else }}
-            <div class="text-text-secondary-light dark:text-text-secondary-dark p-6 bg-bg-primary-light dark:bg-bg-secondary-dark rounded-lg border border-border-primary-light dark:border-border-primary-dark">
-                <p class="text-center">No experience data found. Please add some experience entries to your site configuration.</p>
+        </div>
+    </section>
+    {{ else }}
+    <p class="text-text-secondary-light dark:text-text-secondary-dark">暂无工作经历信息。</p>
+    {{ end }}
+
+    <!-- 3. 项目经历（取前3个 + view all） -->
+    {{ $projectsData := index site.Data .Language.Lang "projects" }}
+    {{ with $projectsData.projects }}
+    <section class="mb-16">
+        <div class="flex justify-between items-center mb-6">
+            <h2 class="text-4xl font-bold text-text-primary-light dark:text-text-primary-dark">项目经历</h2>
+        </div>
+        <div class="grid grid-cols-1 gap-6">
+            {{ range first 3 . }}
+            <div class="project-card relative overflow-hidden rounded-lg bg-bg-primary-light dark:bg-bg-secondary-dark border border-border-primary-light dark:border-border-primary-dark transition-all duration-300 group">
+                <div class="aspect-w-16 aspect-h-9 overflow-hidden relative">
+                    <div class="absolute inset-0 bg-gradient-to-br from-accent-light/20 to-accent-light/20 dark:from-accent-dark/20 dark:to-accent-dark/20 z-10"></div>
+                    <img src="{{ .image }}" alt="{{ .title }}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent opacity-60 z-20"></div>
+                    <div class="absolute inset-0 z-30 p-4 pb-3 md:p-6 md:pb-4 flex flex-col justify-end transform transition-transform duration-500 translate-y-0 group-hover:translate-y-[-20px]">
+                        <h3 class="text-xl md:text-2xl font-bold mb-1.5 md:mb-2 text-white line-clamp-2">{{ .title }}</h3>
+                        <div class="flex flex-wrap gap-1 md:gap-2 mb-1.5 md:mb-3">
+                            {{ $techs := split .tech "," }}
+                            {{ range $tech := $techs }}
+                            <span class="px-1.5 md:px-2 py-0.5 bg-neutral-700/30 backdrop-blur-sm rounded-md text-[10px] md:text-xs font-medium text-white">{{ $tech }}</span>
+                            {{ end }}
+                        </div>
+                        <p class="hidden md:block text-sm text-white mb-3 line-clamp-3 md:line-clamp-4">{{ .description }}</p>
+                        <a href="{{ .link }}" class="bg-white/90 dark:bg-white/90 backdrop-blur-sm hover:bg-white dark:hover:bg-white text-black dark:text-black text-xs md:text-sm font-medium py-1 md:py-1.5 px-2 md:px-3 rounded-md inline-block transition-all duration-300 transform opacity-100 md:opacity-0 group-hover:opacity-100 w-fit flex items-center shadow-lg hover:shadow-xl">
+                            {{ T "learnMore" | default "了解更多" }}
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 ml-1 transform group-hover:translate-x-1 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
             </div>
-        {{ end }}
-    </div>
+            {{ end }}
+        </div>
+        <div class="flex justify-center mt-6">
+            <a href="{{ "/zh/projects/" | absURL }}" class="text-accent-light dark:text-accent-dark hover:text-text-primary-light dark:hover:text-text-primary-dark transition-colors duration-200 text-lg">View all →</a>
+        </div>
+    </section>
+    {{ else }}
+    <p class="text-text-secondary-light dark:text-text-secondary-dark">暂无项目信息。</p>
+    {{ end }}
+
+    <!-- 4. What I design with -->
+    {{ with (index site.Data .Language.Lang "tech") }}
+    <section class="mb-16">
+        <h2 class="text-4xl font-bold mb-6 text-text-primary-light dark:text-text-primary-dark">What I design with</h2>
+        <div class="tech-carousel">
+            <div class="carousel-container">
+                <div class="carousel-track carousel-track-left-to-right">
+                    {{- range .row1 -}}
+                    <div class="carousel-item">
+                        <i class="{{ .icon }}"></i>
+                        <span class="text-xl">{{ .name }}</span>
+                    </div>
+                    {{- end -}}
+                    {{- range .row1 -}}
+                    <div class="carousel-item">
+                        <i class="{{ .icon }}"></i>
+                        <span class="text-xl">{{ .name }}</span>
+                    </div>
+                    {{- end -}}
+                </div>
+            </div>
+            <div class="carousel-container -mt-1">
+                <div class="carousel-track-reverse">
+                    {{- range .row2 -}}
+                    <div class="carousel-item">
+                        <i class="{{ .icon }}"></i>
+                        <span class="text-xl">{{ .name }}</span>
+                    </div>
+                    {{- end -}}
+                    {{- range .row2 -}}
+                    <div class="carousel-item">
+                        <i class="{{ .icon }}"></i>
+                        <span class="text-xl">{{ .name }}</span>
+                    </div>
+                    {{- end -}}
+                </div>
+            </div>
+        </div>
+    </section>
+    {{ end }}
 
 </div>
 
 <style>
-    .prose {
-        color: #4b5563; /* text-secondary-light */
-        font-size: 1.25rem;
-    }
-    html.dark .prose {
-        color: #9ca3af; /* text-secondary-dark */
-    }
-    .prose h1 {
-        @apply text-4xl font-bold mb-8;
-        color: #1f2937; /* text-primary-light */
-    }
-    html.dark .prose h1 {
-        color: #f3f4f6; /* text-primary-dark */
-    }
-    .prose h2 {
-        @apply text-2xl font-semibold mt-8 mb-4;
-        color: #1f2937; /* text-primary-light */
-    }
-    html.dark .prose h2 {
-        color: #f3f4f6; /* text-primary-dark */
-    }
-    .prose p {
-        color: #4b5563; /* text-secondary-light */
-        margin-bottom: 1.5rem; /* mb-6 */
-        line-height: 1.9;
-        font-size: 1.125rem;
-    }
-    html.dark .prose p {
-        color: #9ca3af; /* text-secondary-dark */
-    }
-    .prose p + p {
-        margin-top: 2rem;
-    }
-    .prose ul {
-        @apply list-disc list-inside space-y-2;
-        color: #4b5563; /* text-secondary-light */
-    }
-    html.dark .prose ul {
-        color: #9ca3af; /* text-secondary-dark */
-    }
-    .prose li {
-        color: #4b5563; /* text-secondary-light */
-    }
-    html.dark .prose li {
-        color: #9ca3af; /* text-secondary-dark */
-    }
-    .prose a {
-        @apply transition-colors duration-300;
-        color: #0284c7; /* accent-light */
-    }
-    .prose a:hover {
-        color: #0369a1; /* accent-light-hover */
-    }
-    html.dark .prose a {
-        color: #0ea5e9; /* accent-dark */
-    }
-    html.dark .prose a:hover {
-        color: #38bdf8; /* accent-dark-hover */
-    }
-    
-    .intro-section {
-        position: relative;
-    }
-    
-    .intro-section::after {
-        content: '';
-        position: absolute;
-        bottom: -20px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 100%;
-        height: 1px;
-        background: linear-gradient(90deg, transparent, rgba(156, 163, 175, 0.5), transparent); /* border-secondary-light with alpha */
-    }
-    
-    .intro-section::after {
-        background: linear-gradient(90deg, transparent, rgba(107, 114, 128, 0.5), transparent); /* border-secondary-dark with alpha */
-    }
+.tech-carousel {
+    width: 100%;
+    overflow: hidden;
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
 
-    .stat-box {
-        @apply bg-bg-primary-light dark:bg-bg-tertiary-dark p-4 rounded-lg border border-border-primary-light dark:border-border-primary-dark flex-1 min-w-[120px] text-center transition-all duration-300;
-    }
-    
-    .stat-box:hover {
-        @apply border-accent-light dark:border-accent-dark bg-bg-primary-light dark:bg-bg-tertiary-dark;
-        transform: translateY(-2px);
-    }
-    
-    .stat-number {
-        @apply text-3xl font-bold text-accent-light dark:text-accent-dark mb-1;
-    }
-    
-    .stat-label {
-        @apply text-sm text-text-secondary-light dark:text-text-secondary-dark;
-    }
-    
-    .github-link {
-        position: relative;
-        display: inline-flex;
-        align-items: center;
-    }
-    
-    .github-link::after {
-        content: '';
-        position: absolute;
-        width: 0;
-        height: 1px;
-        bottom: -2px;
-        left: 0;
-        background-color: #0284c7; /* accent-light */
-        transition: width 0.3s ease-in-out;
-    }
-    
-    .github-link:hover::after {
-        width: 100%;
-    }
-    html.dark .github-link::after {
-        background-color: #0ea5e9; /* accent-dark */
-    }
+.carousel-container {
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 0.5rem;
+}
+
+.carousel-track, .carousel-track-reverse {
+    display: flex;
+    width: fit-content;
+}
+
+.carousel-track-left-to-right {
+    animation: scroll-left-to-right 60s linear infinite;
+}
+
+.carousel-track-reverse {
+    animation: scroll-reverse 45s linear infinite;
+}
+
+.carousel-item {
+    display: flex;
+    align-items: center;
+    width: auto;
+    padding: 0.75rem 0.5rem;
+    margin: 0 0.1rem;
+    border-radius: 0.5rem;
+    white-space: nowrap;
+    gap: 0.5rem;
+}
+
+.carousel-item i {
+    font-size: 2.25rem;
+}
+
+.carousel-item i.brand-icon {
+    display: inline-block;
+    width: 2.25rem;
+    height: 2.25rem;
+    background-color: currentColor;
+    -webkit-mask-image: var(--brand-icon);
+    mask-image: var(--brand-icon);
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+}
+
+.brand-codex {
+    --brand-icon: url("/icons/codex.svg");
+}
+
+.brand-deepseek {
+    --brand-icon: url("/icons/deepseek.svg");
+}
+
+.carousel-item span {
+    font-size: 1.25rem;
+    font-weight: 500;
+}
+
+.carousel-container:hover .carousel-track,
+.carousel-container:hover .carousel-track-reverse,
+.carousel-container:hover .carousel-track-left-to-right {
+    animation-play-state: paused;
+}
+
+@keyframes scroll-left-to-right {
+    0% { transform: translateX(calc(-100% / 2)); }
+    100% { transform: translateX(0); }
+}
+
+@keyframes scroll-reverse {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-100% / 2)); }
+}
+
+.project-card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(10px);
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
+    border-color: rgba(2, 132, 199, 0.5);
+}
+
+html.dark .project-card:hover {
+    border-color: rgba(14, 165, 233, 0.5);
+}
+
+.aspect-w-16 {
+    position: relative;
+    padding-bottom: 56.25%;
+}
+
+.aspect-w-16 > img {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    object-fit: cover;
+    filter: saturate(1.1) contrast(1.1);
+}
+
+.line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
 </style>
-{{ end }} 
+{{ end }}

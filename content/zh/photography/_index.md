@@ -1,3 +1,4 @@
 ---
-layout: "photography" # Or specific layout if defined
+title: "Lens"
+layout: "photography"
 ---
