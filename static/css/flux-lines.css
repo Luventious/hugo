@@ -1,0 +1,79 @@
+/*
+ * FluxLines 背景层（首页专用，仅桌面端）
+ *
+ * 层级设计：
+ *   .flux-bg 固定铺满视口，z-index:0；header/main/footer 提升到 z-index:1，
+ *   这样流动线条位于内容之下，卡片不透明处自然遮住线条，形成"背景"观感。
+ *   pointer-events:none 保证不拦截任何点击；鼠标交互由组件在 window 上监听，
+ *   因此即使不接收指针事件，光标磁吸与点击漩涡依然生效。
+ */
+
+.flux-lines-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.flux-lines-canvas {
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+/* 手机端也启用背景；移动端 GPU 较弱，由 JS 侧降低 dpr 控制开销 */
+.flux-bg {
+    position: fixed;
+    inset: 0;
+    width: auto;
+    height: auto;
+    z-index: 0;
+    pointer-events: none;
+    display: block;
+}
+
+/* 移动端把线宽调细一点，避免小屏上线条糊成一片 */
+@media (max-width: 767px) {
+    .flux-bg {
+        opacity: 0.9;
+    }
+}
+
+/* 内容层压在背景之上 */
+body > header,
+body > main,
+body > footer {
+    position: relative;
+    z-index: 1;
+}
+
+/*
+ * 遮罩层：把线条往页面底色压平，从而「调浅」而不是简单地变暗。
+ * 用页面底色做半透明叠加，深浅色模式下对比度都按同一比例衰减。
+ */
+.flux-scrim {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    display: block;
+    background: color-mix(in srgb, #ffffff calc(var(--scrim) * 100%), transparent);
+}
+
+html.dark .flux-scrim {
+    background: color-mix(in srgb, #121212 calc(var(--scrim) * 100%), transparent);
+}
+
+/* 无 WebGL2 或窄屏时，页面背景退回纯色，不影响可读性 */
+.flux-bg[data-webgl='unsupported'],
+.flux-bg[data-flux-disabled] {
+    display: none;
+}
+
+/* 背景不可用时，遮罩也没有意义 */
+.flux-bg[data-webgl='unsupported'] + .flux-scrim,
+.flux-bg[data-flux-disabled] + .flux-scrim {
+    display: none;
+}

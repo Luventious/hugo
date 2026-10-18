@@ -78,6 +78,7 @@
         <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
     </head>
     <body class="min-h-screen bg-bg-primary-light dark:bg-bg-primary-dark text-text-primary-light dark:text-text-primary-dark">
+        {{ partial "flux-background.html" . }}
         {{ partial "header" . }}
         <main>
             {{ block "main" . }}{{ end }}

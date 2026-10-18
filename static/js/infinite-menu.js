@@ -206,6 +206,34 @@
             '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">' +
             '<path d="M7 17L17 7M17 7H9M17 7V15" stroke="currentColor" stroke-width="2" ' +
             'stroke-linecap="round" stroke-linejoin="round"/></svg>';
+        /*
+         * 下方按钮是打开图片的唯一入口。
+         * 用内置查看器打开并阻止默认跳转：既不离开球体页面，
+         * 也避免与「拖动旋转」的手势产生歧义。
+         */
+        actionEl.setAttribute('role', 'button');
+        actionEl.setAttribute('tabindex', '0');
+        actionEl.addEventListener('click', function (event) {
+            event.preventDefault();
+            var idx = state.shown >= 0 ? state.shown : (state.assign[state.front] || 0);
+            var item = items[idx % Math.max(1, items.length)];
+            if (!item) return;
+            if (onItemClick) {
+                onItemClick(item, idx);
+                return;
+            }
+            if (item.link && /\.(jpe?g|png|webp|avif|gif)$/i.test(item.link)) {
+                openViewer(item.link);
+            } else if (item.link) {
+                window.open(item.link, item.link.indexOf('http') === 0 ? '_blank' : '_self', 'noopener');
+            }
+        });
+        actionEl.addEventListener('keydown', function (event) {
+            if (event.key === 'Enter' || event.key === ' ') {
+                event.preventDefault();
+                actionEl.click();
+            }
+        });
         infoEl.appendChild(titleEl);
         infoEl.appendChild(descEl);
         infoEl.appendChild(actionEl);
@@ -556,8 +584,74 @@
                 return;
             }
             if (item && item.link) {
+                // 图片链接：用内置查看器打开，避免跳走丢失球体状态
+                if (/\.(jpe?g|png|webp|avif|gif)$/i.test(item.link)) {
+                    openViewer(item.link);
+                    return;
+                }
                 window.open(item.link, item.link.indexOf('http') === 0 ? '_blank' : '_self', 'noopener');
             }
+        }
+
+        // ---- 图片查看器 ----
+        var viewer = null;
+
+        function buildViewer() {
+            var wrap = document.createElement('div');
+            wrap.className = 'infinite-menu__viewer';
+            wrap.setAttribute('role', 'dialog');
+            wrap.setAttribute('aria-modal', 'true');
+            wrap.setAttribute('aria-label', '图片预览');
+
+            var img = document.createElement('img');
+            img.className = 'infinite-menu__viewer-img';
+            img.alt = '';
+
+            var close = document.createElement('button');
+            close.type = 'button';
+            close.className = 'infinite-menu__viewer-close';
+            close.setAttribute('aria-label', '关闭预览');
+            close.innerHTML = '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true">' +
+                '<path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" ' +
+                'stroke-linecap="round"/></svg>';
+
+            wrap.appendChild(img);
+            wrap.appendChild(close);
+            root.appendChild(wrap);
+
+            // 点击背景也能关闭（点图片本身不关）
+            wrap.addEventListener('click', function (e) {
+                if (e.target === wrap) closeViewer();
+            });
+            close.addEventListener('click', function (e) {
+                e.stopPropagation();
+                closeViewer();
+            });
+            return wrap;
+        }
+
+        function openViewer(src) {
+            if (!viewer) viewer = buildViewer();
+            var img = viewer.querySelector('.infinite-menu__viewer-img');
+            img.src = src;
+            viewer.classList.add('is-open');
+            root.setAttribute('data-viewer', '');
+            root.focus && root.focus({ preventScroll: true });
+            wake();
+        }
+
+        function closeViewer() {
+            if (!viewer) return;
+            viewer.classList.remove('is-open');
+            root.removeAttribute('data-viewer');
+            // 清空 src 释放解码内存，稍后重置避免看到上一张
+            var img = viewer.querySelector('.infinite-menu__viewer-img');
+            if (img) {
+                window.setTimeout(function () {
+                    if (!viewer.classList.contains('is-open')) img.removeAttribute('src');
+                }, 300);
+            }
+            wake();
         }
 
         function renderInfo(item) {
@@ -748,6 +842,7 @@
         }
 
         function onPointerDown(event) {
+            if (root.hasAttribute('data-viewer')) return;
             if (event.pointerType === 'mouse' && event.button !== 0) return;
             if (canvas.setPointerCapture) canvas.setPointerCapture(event.pointerId);
             drag.active = true;
@@ -778,10 +873,15 @@
             if (!drag.active || event.pointerId !== drag.id) return;
             drag.active = false;
             if (canvas.releasePointerCapture) canvas.releasePointerCapture(event.pointerId);
+            /*
+             * 点击画布不再打开图片：只有下方操作按钮能打开。
+             * 因为「点击瓦片」与「拖动旋转」在机制上无法可靠区分——
+             * 用户想转球体时手一抖就会被判定为点击并弹出大图。
+             * 这里只保留「点未居中的瓦片让它转到正面」这一导航行为。
+             */
             if (drag.moved < 6 && performance.now() - drag.start < 450) {
                 var index = pick(event.clientX, event.clientY);
-                if (index >= 0 && index === state.front) activate(index);
-                else if (index >= 0) goTo(index);
+                if (index >= 0 && index !== state.front) goTo(index);
             }
             wake();
         }
@@ -790,6 +890,14 @@
             var directions = {
                 ArrowRight: [1, 0], ArrowLeft: [-1, 0], ArrowUp: [0, 1], ArrowDown: [0, -1]
             };
+            // 查看器打开时：Esc 关闭，不再响应方向键
+            if (root.hasAttribute('data-viewer')) {
+                if (event.key === 'Escape') {
+                    event.preventDefault();
+                    closeViewer();
+                }
+                return;
+            }
             if (directions[event.key]) {
                 event.preventDefault();
                 goTo(neighbor(state.target >= 0 ? state.target : state.front, directions[event.key]));
@@ -886,6 +994,10 @@
     }
 
     InfiniteMenu.autoInit = function () {
+        // Lens 页需要把窗口锁一屏（不滚动），只在该页生效
+        if (document.querySelector('.lens-page')) {
+            document.body.classList.add('lens-viewport');
+        }
         var nodes = document.querySelectorAll('[data-infinite-menu]');
         Array.prototype.forEach.call(nodes, function (node) {
             if (node.__infiniteMenu) return;

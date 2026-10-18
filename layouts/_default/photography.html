@@ -1,20 +1,17 @@
 {{ define "main" }}
 <link rel="stylesheet" href="{{ "css/infinite-menu.css" | relURL }}">
-<div class="w-full mx-auto px-2 sm:px-4 md:px-6 lg:px-8 py-12">
-
-    <div class="w-full md:w-3/4 lg:w-1/2 mx-auto px-2 sm:px-0">
-        <h1 class="text-3xl sm:text-4xl font-bold mb-2 text-text-primary-light dark:text-text-primary-dark">{{ .Title }}</h1>
-        <p class="text-text-secondary-light dark:text-text-secondary-dark text-sm mb-6">
-            拖动或滑动旋转，点击照片查看原图。
-        </p>
-    </div>
+{{/*
+    Lens：整页就是画布，不设页面标题。
+    高度锁一屏（扣掉页头页脚），让图片动效占满全部有效面积。
+*/}}
+<div class="lens-page">
 
     {{ $photosPath := "static/images/photography" }}
     {{ $photos := readDir $photosPath }}
     {{ $photoBase := "/images/photography/" }}
 
     {{/* 组装 items：[{image, title, link}]，供 InfiniteMenu 使用。
-         标题留空：文件名当作标题显示既难看也没意义，只在无标题时保留图片本身。 */}}
+         标题留空：文件名当作标题显示既难看也没意义。 */}}
     {{ $items := slice }}
     {{ $exts := slice ".jpg" ".jpeg" ".png" ".webp" ".avif" }}
     {{ range $photos }}
@@ -30,24 +27,22 @@
         {{ end }}
     {{ end }}
 
-    <div class="w-full mx-auto">
-        <div class="lens-stage"
-             data-infinite-menu
-             data-count="160"
-             data-tile-size="0.63"
-             data-roundness="0.2"
-             data-zoom="1.65"
-             data-autoplay="3"
-             data-grayscale="true"
-             data-dim="0.5"
-             data-theme="auto"
-             data-items='{{ $items | jsonify }}'
-             aria-label="Lens 照片墙"></div>
-    </div>
+    <div class="lens-stage"
+         data-infinite-menu
+         data-count="160"
+         data-tile-size="0.63"
+         data-roundness="0.2"
+         data-zoom="1.65"
+         data-autoplay="3"
+         data-grayscale="true"
+         data-dim="0.5"
+         data-theme="auto"
+         data-items='{{ $items | jsonify }}'
+         aria-label="Lens 照片墙"></div>
 
     <!-- 无障碍兜底：无 WebGL / JS 时仍可浏览全部照片 -->
     <noscript>
-        <div class="photo-grid mt-12">
+        <div class="photo-grid lens-fallback">
             {{ range $photos }}
                 {{ if not .IsDir }}
                     {{ $name := lower .Name }}

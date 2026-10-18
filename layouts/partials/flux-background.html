@@ -1,0 +1,57 @@
+{{- /*
+ * 全站 FluxLines 背景（桌面端）
+ *
+ * 为什么放在 baseof 而不是各页面模板：
+ *   · 每个页面都能复用同一份背景；
+ *   · 提升到 <body> 直下，避免被 main 的层叠上下文压住 header；
+ *   · 用 data-scrim 控制各处浓淡 —— 首页最浓，内容页更淡，保证文字可读。
+ *
+ * 调浅方案评估（选了两者结合）：
+ *   A. 单独降低 opacity —— 线条变暗的同时颗粒感更强的部位会先消失，
+ *      深浅色模式下观感不一致，且无法压住线条本身的对比度。
+ *   B. 叠加半透明底色遮罩 —— 把线条整体往页面底色「压平」，
+ *      对比度按比例衰减，深浅色都稳定，还能保持线条结构完整。
+ *   结论：以 B 为主（scrim），配合适度降低 shader 输出（data-opacity），
+ *   两者叠加后内容页线条弱而不断，首页保持存在感。
+ *
+ * 跨页衔接：
+ *   站内跳转是整页刷新，画布必然重建。flux-lines.js 把已流逝时间存进
+ *   sessionStorage，下一页从同一相位继续流动，视觉上背景是连续的。
+ */ -}}
+<link rel="stylesheet" href="{{ "css/flux-lines.css" | relURL }}">
+{{ $scrim := "0" }}
+{{ $opacity := "0.85" }}
+{{ if .IsHome }}
+  {{ $scrim = "0" }}
+  {{ $opacity = "0.85" }}
+{{ else }}
+  {{ $scrim = "0.82" }}
+  {{ $opacity = "0.55" }}
+{{ end }}
+<div class="flux-bg"
+     data-flux-lines
+     data-theme="auto"
+     data-colors="#ffffff,#ffffff,#ffffff"
+     data-speed="0.5"
+     data-scale="1.6"
+     data-turbulence="1"
+     data-fluidity="0.1"
+     data-rim-width="0.2"
+     data-sharpness="2.5"
+     data-shimmer="1.5"
+     data-glow="2"
+     data-line-width="1"
+     data-flow-direction="down"
+     data-opacity="{{ $opacity }}"
+     data-mouse-interaction="true"
+     data-click-swirl="true"
+     data-intro="true"
+     data-dpr="1.5"
+     data-min-width="0"
+     data-continuity="true"
+     aria-hidden="true"></div>
+{{/* 遮罩：内容页把线条压到接近底色，首页不启用 */}}
+{{ if not .IsHome }}
+<div class="flux-scrim" style="--scrim: {{ $scrim }}" aria-hidden="true"></div>
+{{ end }}
+<script src="{{ "js/flux-lines.js" | relURL }}" defer></script>

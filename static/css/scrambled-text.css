@@ -1,0 +1,45 @@
+/*
+ * ScrambledText 组件样式
+ *
+ * 核心：每个字符由「隐形占位 sizer」+「绝对定位 glyph」组成。
+ *   sizer 保住原字符宽度 → 打散时字宽不塌陷 → 整段文字不重排、不抖动。
+ *   glyph 绝对定位覆盖在 sizer 之上，只负责显示当前字符。
+ */
+.scrambled-text {
+    margin: 0;
+    /* 与原版一致的等宽感；本站正文用无衬线，这里跟随继承字体 */
+    white-space: normal;
+}
+
+.scrambled-text__char {
+    position: relative;
+    display: inline-block;
+    /* 保留空格与全角字符的占位 */
+    white-space: pre;
+    vertical-align: baseline;
+}
+
+.scrambled-text__sizer {
+    /* 隐形占位：撑住原始字宽，但不参与视觉 */
+    visibility: hidden;
+    white-space: pre;
+}
+
+.scrambled-text__glyph {
+    /* 覆盖层：位置锁死在 sizer 上方，字宽变化不影响排版 */
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: pre;
+    /* 打散时字形更窄，居中覆盖更接近原字的视觉中心 */
+    text-align: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .scrambled-text__glyph {
+        /* 关闭动效时直接用原字，无需覆盖层 */
+        position: static;
+        transform: none;
+    }
+}
