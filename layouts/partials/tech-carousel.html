@@ -1,0 +1,137 @@
+{{/*
+    技术栈走马灯（首页与 Experience 页共用，避免两处重复维护）
+    调用：{{ partial "tech-carousel.html" (dict "ctx" . "margin" "mb-20") }}
+*/}}
+{{ $ctx := .ctx }}
+{{ $margin := .margin | default "mb-16" }}
+
+{{ with (index site.Data $ctx.Language.Lang "tech") }}
+<section class="{{ $margin }}">
+    <h2 class="text-4xl font-bold mb-2 text-text-primary-light dark:text-text-primary-dark">{{ T "whatIWorkWith" }}</h2>
+    <div class="tech-carousel">
+        <div class="carousel-container">
+            <div class="carousel-track carousel-track-left-to-right">
+                {{- range .row1 -}}
+                <div class="carousel-item">
+                    <i class="{{ .icon }}"></i>
+                    <span class="text-xl">{{ .name }}</span>
+                </div>
+                {{- end -}}
+                {{/* 重复一份，保证无缝滚动 */}}
+                {{- range .row1 -}}
+                <div class="carousel-item">
+                    <i class="{{ .icon }}"></i>
+                    <span class="text-xl">{{ .name }}</span>
+                </div>
+                {{- end -}}
+            </div>
+        </div>
+
+        <div class="carousel-container -mt-1">
+            <div class="carousel-track-reverse">
+                {{- range .row2 -}}
+                <div class="carousel-item">
+                    <i class="{{ .icon }}"></i>
+                    <span class="text-xl">{{ .name }}</span>
+                </div>
+                {{- end -}}
+                {{- range .row2 -}}
+                <div class="carousel-item">
+                    <i class="{{ .icon }}"></i>
+                    <span class="text-xl">{{ .name }}</span>
+                </div>
+                {{- end -}}
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+.tech-carousel {
+    width: 100%;
+    overflow: hidden;
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.carousel-container {
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 0.5rem;
+}
+
+.carousel-track, .carousel-track-reverse {
+    display: flex;
+    width: fit-content;
+}
+
+.carousel-track-left-to-right {
+    animation: carousel-scroll-left-to-right 60s linear infinite;
+}
+
+.carousel-track-reverse {
+    animation: carousel-scroll-reverse 45s linear infinite;
+}
+
+.carousel-item {
+    display: flex;
+    align-items: center;
+    width: auto;
+    padding: 0.75rem 0.5rem;
+    margin: 0 0.1rem;
+    border-radius: 0.5rem;
+    white-space: nowrap;
+    gap: 0.5rem;
+    color: currentColor;
+}
+
+.carousel-item i {
+    font-size: 2.25rem;
+}
+
+/* 本地品牌图标：用 mask 让 SVG 轮廓跟随主题文字颜色 */
+.carousel-item i.brand-icon {
+    display: inline-block;
+    width: 2.25rem;
+    height: 2.25rem;
+    background-color: currentColor;
+    -webkit-mask-image: var(--brand-icon);
+    mask-image: var(--brand-icon);
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+}
+
+.brand-codex {
+    --brand-icon: url("/icons/codex.svg");
+}
+
+.brand-deepseek {
+    --brand-icon: url("/icons/deepseek.svg");
+}
+
+.carousel-item span {
+    font-size: 1.25rem;
+    font-weight: 500;
+}
+
+.carousel-container:hover .carousel-track,
+.carousel-container:hover .carousel-track-reverse,
+.carousel-container:hover .carousel-track-left-to-right {
+    animation-play-state: paused;
+}
+
+@keyframes carousel-scroll-left-to-right {
+    0% { transform: translateX(calc(-100% / 2)); }
+    100% { transform: translateX(0); }
+}
+
+@keyframes carousel-scroll-reverse {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-100% / 2)); }
+}
+</style>
+{{ end }}

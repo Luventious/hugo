@@ -11,17 +11,3 @@ description = "与魅族联合开发，打造流畅、智能、互联、生态�
 tech = "利益相关者, 用户旅程, 用户画像, 同理心地图"
 image = "/images/projects/zcp0423.jpg"
 link = "/zh/projects/数字化展车模式"
-
-[[projects]]
-title = "格力智慧家庭交互设计"
-description = "负责智能家电产品的创新方向探索与交互设计，规划并推动智能家电产品线的交互框架和设计规范体系建设，涵盖信息架构和交互模式，确保不同产品线的设计风格和体验一致性。"
-tech = "信息架构, 原型设计, 用户研究"
-image = "/images/projects/13p30319.jpg"
-link = "/zh/projects/1"
-
-[[projects]]
-title = "某AI辅助设计工具"
-description = "探索AI在设计流程中的赋能可能性，通过Stable Diffusion等工具优化故事板与用户旅程图绘制，大幅提升创意产出效率。"
-tech = "AI, Stable Diffusion, 设计工具"
-image = "/images/projects/zcp0423.jpg"
-link = "/zh/projects/1"

@@ -54,16 +54,16 @@ canonifyURLs = false
     url = "/"
     weight = 1
   [[menu.main]]
+    name = "Blogs"
+    url = "/zh/blogs/"
+    weight = 2
+  [[menu.main]]
     name = "Experience"
     url = "/zh/experience/"
-    weight = 2
+    weight = 3
   [[menu.main]]
     name = "Projects"
     url = "/zh/projects/"
-    weight = 3
-  [[menu.main]]
-    name = "Blogs"
-    url = "/zh/blogs/"
     weight = 4
   [[menu.main]]
     name = "Contact"

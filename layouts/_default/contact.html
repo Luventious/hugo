@@ -2,7 +2,7 @@
 {{ $authorData := index site.Data .Language.Lang "author" }}
 {{ $author := cond (and $authorData $authorData.author) $authorData.author site.Params }}
 {{ $tel := replace .Site.Params.Tel " " "" }}
-<div class="max-w-4xl mx-auto px-4 py-12">
+<div class="w-full md:w-3/4 lg:w-1/2 mx-auto px-4 py-12">
     <h1 class="text-5xl font-bold mb-6 text-text-primary-light dark:text-text-primary-dark">{{ .Title }}</h1>
 
     <div class="prose max-w-none">
