@@ -1,0 +1,117 @@
+.spotlight-card {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    padding: 2rem;
+    border-radius: 1.5rem;
+    background-color: var(--spotlight-card-surface);
+    box-shadow: var(--spotlight-card-shadow);
+}
+
+.spotlight-card__light,
+.spotlight-card__grain,
+.spotlight-card__border,
+.spotlight-card__edge {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+}
+
+.spotlight-card__light,
+.spotlight-card__grain {
+    z-index: -1;
+    opacity: 0;
+}
+
+.spotlight-card__grain {
+    background-size: 160px 160px;
+    mix-blend-mode: overlay;
+}
+
+.spotlight-card__border,
+.spotlight-card__edge {
+    z-index: 1;
+    padding: 1px;
+    -webkit-mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask:
+        linear-gradient(#000 0 0) content-box exclude,
+        linear-gradient(#000 0 0);
+}
+
+.spotlight-card__border {
+    background: var(--spotlight-card-border);
+}
+
+.spotlight-card__edge {
+    opacity: 0;
+}
+
+/* 跟随站点主题的卡片配色（浅色模式下用更深的光，深色模式下用白光） */
+.spotlight-card[data-theme='light'] {
+    --spotlight-card-surface: #ffffff;
+    --spotlight-card-border: rgba(24, 24, 27, 0.1);
+    --spotlight-card-shadow:
+        0 1px 2px rgba(24, 24, 27, 0.04),
+        0 18px 40px -20px rgba(24, 24, 27, 0.16);
+}
+
+.spotlight-card[data-theme='dark'] {
+    --spotlight-card-surface: #1a1a1a;
+    --spotlight-card-border: rgba(255, 255, 255, 0.08);
+    --spotlight-card-shadow: 0 24px 48px -24px rgba(0, 0, 0, 0.6);
+}
+
+/* Contact Me 按钮 */
+.contact-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.625rem 1.125rem;
+    border-radius: 999px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1;
+    text-decoration: none;
+    border: 1px solid var(--spotlight-card-border);
+    background: transparent;
+    color: inherit;
+    transition: background-color 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+    position: relative;
+    z-index: 2;
+}
+
+.contact-cta:hover {
+    transform: translateY(-1px);
+    border-color: rgba(2, 132, 199, 0.55);
+}
+
+.contact-cta:focus-visible {
+    outline: 2px solid #0284c7;
+    outline-offset: 3px;
+}
+
+html.dark .contact-cta:hover {
+    border-color: rgba(14, 165, 233, 0.55);
+}
+
+html.dark .contact-cta:focus-visible {
+    outline-color: #0ea5e9;
+}
+
+.contact-cta__arrow {
+    transition: transform 0.25s ease;
+}
+
+.contact-cta:hover .contact-cta__arrow {
+    transform: translateX(3px);
+}
+
+/* 卡片内容区需要压在光效之上 */
+.spotlight-card > .spotlight-content {
+    position: relative;
+    z-index: 2;
+}
