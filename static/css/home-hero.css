@@ -93,8 +93,8 @@ html:not(.dark) .home-hero__text {
 .home-folder {
     position: absolute;
     left: 50%;
-    /* 从贴底上提一档，避免压在页脚上、也不显得被挤到页边 */
-    bottom: 4.5rem;
+    /* 再上提一档，让文件夹位于页面下方的视觉重心，而不是贴着页脚 */
+    bottom: 7.5rem;
     transform: translateX(-50%);
     display: flex;
     justify-content: center;
@@ -127,7 +127,7 @@ html:not(.dark) .home-hero__text {
         text-shadow: none;
     }
     .home-folder {
-        bottom: 3rem;
+        bottom: 5.5rem;
     }
 }
 

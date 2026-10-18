@@ -56,6 +56,17 @@
         .language-active {
             font-weight: 600;
         }
+        /*
+         * 移动端菜单底色：用近乎不透明的色值兜底。
+         * backdrop-blur 在部分 WebView / 低端安卓机上不生效，
+         * 仅靠模糊会让菜单与页面内容叠在一起看不清。
+         */
+        #mobile-menu {
+            --mobile-menu-solid: rgba(255, 255, 255, 0.97);
+        }
+        html.dark #mobile-menu {
+            --mobile-menu-solid: rgba(18, 18, 18, 0.97);
+        }
     </style>
 </head>
 <header class="py-6 relative">
@@ -133,7 +144,7 @@
     </div>
 
     <!-- Mobile Navigation Overlay -->
-    <div id="mobile-menu" class="fixed inset-0 bg-bg-secondary-light dark:bg-bg-secondary-dark z-50 hidden transition-all duration-300 backdrop-blur-2xl">
+    <div id="mobile-menu" class="fixed inset-0 bg-bg-secondary-light dark:bg-bg-secondary-dark z-50 hidden transition-all duration-300 backdrop-blur-2xl" style="background-color: var(--mobile-menu-solid, rgba(255,255,255,0.96)); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);">
         <div class="flex flex-col h-full">
             <div class="flex justify-between items-center p-6">
                 <span class="text-xl font-bold text-text-primary-light dark:text-text-primary-dark">{{ T "menuTitle" }}</span>

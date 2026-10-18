@@ -41,8 +41,18 @@
     }
 }
 
-/* 内容层压在背景之上 */
-body > header,
+/*
+ * 内容层压在背景之上。
+ *
+ * header 的 z-index 必须高于 main：移动端菜单是 header 内部的 fixed 全屏层，
+ * 它的 z-index 只在 header 的层叠上下文内生效。若 header 与 main 同为 1，
+ * main 会因 DOM 顺序靠后而盖住整个菜单。
+ */
+body > header {
+    position: relative;
+    z-index: 100;
+}
+
 body > main,
 body > footer {
     position: relative;

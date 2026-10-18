@@ -14,18 +14,31 @@
 }
 
 /*
- * 工卡宿主：给定高度让 three.js 有画布尺寸。
- * 在 Contact 页右侧占一列，与左侧联系方式卡片并排。
+ * 工卡宿主。
+ *
+ * Size=0.26 时卡片很小，挂绳会占掉大部分画布高度（Band Length=1）。
+ * 让宿主顶部越过页头下沿，挂绳锚点因此落在导航下方，
+ * 视觉上就是「工卡从顶部 tab 栏挂下来」。
+ *
+ * 高度必须显式给值：grid 子项里的 100% 会按行高解析，
+ * 曾导致宿主被撑到 4000px 以上的极端情况。
  */
 .lanyard-host {
     position: relative;
     width: 100%;
-    height: clamp(420px, 62vh, 560px);
+    /*
+     * 高度贴合卡片：canvas 太高会让卡片显得又小又飘在上半部。
+     * 用视口高度算，避免 grid 子项百分比按行高解析导致失控。
+     */
+    height: clamp(440px, 62vh, 620px);
+    /* 向上越过页头下沿，让挂绳从导航下方开始 */
+    margin-top: -4rem;
 }
 
-/* 窄屏时工卡缩小并居中在卡片下方 */
-@media (max-width: 767px) {
+/* 窄屏时工卡居中，不再向上越过页头 */
+@media (max-width: 900px) {
     .lanyard-host {
-        height: clamp(340px, 46vh, 420px);
+        height: clamp(360px, 50vh, 460px);
+        margin-top: 0;
     }
 }
