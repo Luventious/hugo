@@ -65,8 +65,8 @@
                 <a href="{{ .Site.BaseURL }}" class="site-title-font text-2xl font-bold text-text-primary-light dark:text-text-primary-dark hover:text-accent-light dark:hover:text-accent-dark transition-colors duration-300">
                     {{ site.Params.name }}
                 </a>
-                <!-- Hamburger menu button for mobile -->
-                <button id="mobile-menu-button" class="md:hidden text-text-secondary-light dark:text-text-secondary-dark hover:text-text-primary-light dark:hover:text-text-primary-dark focus:outline-none">
+                <!-- Hamburger menu button for mobile：加大点击热区 -->
+                <button id="mobile-menu-button" aria-label="打开菜单" class="-mr-2 flex h-11 w-11 items-center justify-center rounded-md md:hidden text-text-secondary-light dark:text-text-secondary-dark hover:text-text-primary-light dark:hover:text-text-primary-dark focus:outline-none">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                     </svg>

@@ -160,10 +160,22 @@
     transform: translateY(12px) scale(0.6);
 }
 
-/* Lens 页面容器：宽度交给外层，这里只约束高度与最小可用空间 */
+/* Lens 页面容器：手机上按视口比例收紧，平板/桌面给足空间 */
 .lens-stage {
     position: relative;
     width: 100%;
-    height: clamp(440px, 70vh, 780px);
+    height: clamp(340px, 52vh, 520px);
     min-width: 280px;
+}
+
+@media (min-width: 768px) {
+    .lens-stage {
+        height: clamp(460px, 68vh, 720px);
+    }
+}
+
+@media (min-width: 1280px) {
+    .lens-stage {
+        height: clamp(520px, 72vh, 780px);
+    }
 }

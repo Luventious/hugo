@@ -2,10 +2,10 @@
 <link rel="stylesheet" href="{{ "css/infinite-menu.css" | relURL }}">
 <div class="w-full mx-auto px-2 sm:px-4 md:px-6 lg:px-8 py-12">
 
-    <div class="w-full md:w-3/4 lg:w-1/2 mx-auto">
-        <h1 class="text-4xl font-bold mb-2 text-text-primary-light dark:text-text-primary-dark">{{ .Title }}</h1>
+    <div class="w-full md:w-3/4 lg:w-1/2 mx-auto px-2 sm:px-0">
+        <h1 class="text-3xl sm:text-4xl font-bold mb-2 text-text-primary-light dark:text-text-primary-dark">{{ .Title }}</h1>
         <p class="text-text-secondary-light dark:text-text-secondary-dark text-sm mb-6">
-            拖动或滑动旋转，点击照片选中，方向键切换。
+            拖动或滑动旋转，点击照片查看原图。
         </p>
     </div>
 
@@ -13,7 +13,8 @@
     {{ $photos := readDir $photosPath }}
     {{ $photoBase := "/images/photography/" }}
 
-    {{/* 组装 items：[{image, title, link}]，供 InfiniteMenu 使用 */}}
+    {{/* 组装 items：[{image, title, link}]，供 InfiniteMenu 使用。
+         标题留空：文件名当作标题显示既难看也没意义，只在无标题时保留图片本身。 */}}
     {{ $items := slice }}
     {{ $exts := slice ".jpg" ".jpeg" ".png" ".webp" ".avif" }}
     {{ range $photos }}
@@ -22,7 +23,7 @@
             {{ if in $exts (path.Ext $name) }}
                 {{ $items = $items | append (dict
                     "image" (printf "%s%s" $photoBase .Name)
-                    "title" (strings.TrimSuffix (path.Ext .Name) .Name)
+                    "title" ""
                     "link" (printf "%s%s" $photoBase .Name)
                 ) }}
             {{ end }}

@@ -2,10 +2,40 @@
     position: relative;
     isolation: isolate;
     overflow: hidden;
-    padding: 2rem;
+    padding: 1.5rem;
     border-radius: 1.5rem;
     background-color: var(--spotlight-card-surface);
     box-shadow: var(--spotlight-card-shadow);
+}
+
+/* 桌面端给足呼吸感，手机上收紧避免内容被挤成窄条 */
+@media (min-width: 768px) {
+    .spotlight-card {
+        padding: 2rem;
+        border-radius: 1.75rem;
+    }
+}
+
+/* 卡片内的 Markdown 简介：去掉默认外边距，保持行距紧凑 */
+.spotlight-card .spotlight-content > div:not(:last-child) > p,
+.spotlight-card .spotlight-content p {
+    margin: 0;
+}
+
+.spotlight-card .spotlight-content ul,
+.spotlight-card .spotlight-content ol {
+    margin: 0;
+    padding-left: 1.1rem;
+    list-style: disc;
+}
+
+.spotlight-card .spotlight-content li {
+    margin: 0.35rem 0;
+}
+
+/* 简短段落之间留一点空隙，避免多段文字糊在一起 */
+.spotlight-card .spotlight-content > div > div > p + p {
+    margin-top: 0.75rem;
 }
 
 .spotlight-card__light,
@@ -69,8 +99,10 @@
 .contact-cta {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 0.5rem;
-    padding: 0.625rem 1.125rem;
+    min-height: 44px;
+    padding: 0.625rem 1.25rem;
     border-radius: 999px;
     font-size: 0.875rem;
     font-weight: 500;
@@ -82,6 +114,12 @@
     transition: background-color 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
     position: relative;
     z-index: 2;
+}
+
+@media (min-width: 768px) {
+    .contact-cta {
+        min-height: 40px;
+    }
 }
 
 .contact-cta:hover {
