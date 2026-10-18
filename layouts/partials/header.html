@@ -84,7 +84,7 @@
                         text-text-secondary-light dark:text-text-secondary-dark hover:text-text-primary-light dark:hover:text-text-primary-dark
                     {{ end }}">{{ .Name }}
                     {{ if $isActive }}
-                    <span aria-hidden="true" class="absolute inset-x-3 -bottom-0.5 h-[2px] rounded-full bg-accent-light dark:bg-accent-dark"></span>
+                    <span aria-hidden="true" class="absolute inset-x-3 -bottom-0.5 h-[2px] rounded-full bg-neutral-900 dark:bg-white"></span>
                     {{ end }}
                 </a>
                 {{ end }}
@@ -176,16 +176,9 @@
                     </button>
                 </div>
             </div>
-            <nav class="flex flex-col p-6 gap-1">
-                {{ $mpage := . }}
+            <nav class="flex flex-col p-6 space-y-4">
                 {{ range .Site.Menus.main }}
-                {{ $isActive := or (eq .URL $mpage.RelPermalink) (and (ne .URL "/") (hasPrefix $mpage.RelPermalink .URL)) }}
-                <a href="{{ .URL | absURL }}" class="rounded-lg px-3 py-3 text-xl transition-colors duration-300
-                    {{ if $isActive }}
-                        bg-accent-light/10 text-text-primary-light dark:bg-accent-dark/15 dark:text-text-primary-dark font-semibold
-                    {{ else }}
-                        text-text-secondary-light dark:text-text-secondary-dark hover:text-text-primary-light dark:hover:text-text-primary-dark
-                    {{ end }}" data-menu-link>{{ .Name }}</a>
+                <a href="{{ .URL | absURL }}" class="text-xl text-text-secondary-light dark:text-text-secondary-dark hover:text-text-primary-light dark:hover:text-text-primary-dark transition-colors duration-300 {{ if eq .URL $.RelPermalink }}text-accent-light dark:text-accent-dark font-semibold{{ end }}" data-menu-link>{{ .Name }}</a>
                 {{ end }}
             </nav>
             <div class="mt-auto p-6">
