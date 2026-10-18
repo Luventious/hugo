@@ -111,7 +111,7 @@
     border: 1px solid var(--spotlight-card-border);
     background: transparent;
     color: inherit;
-    transition: background-color 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+    transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
     position: relative;
     z-index: 2;
 }
@@ -122,22 +122,27 @@
     }
 }
 
+/* hover：用黑白反色填充强调，浅色下变黑底白字，深色下变白底黑字 */
 .contact-cta:hover {
     transform: translateY(-1px);
-    border-color: rgba(2, 132, 199, 0.55);
-}
-
-.contact-cta:focus-visible {
-    outline: 2px solid #0284c7;
-    outline-offset: 3px;
+    background-color: #131313;
+    border-color: #131313;
+    color: #ffffff;
 }
 
 html.dark .contact-cta:hover {
-    border-color: rgba(14, 165, 233, 0.55);
+    background-color: #f5f5f5;
+    border-color: #f5f5f5;
+    color: #121212;
 }
 
-html.dark .contact-cta:focus-visible {
-    outline-color: #0ea5e9;
+.contact-cta:active {
+    transform: translateY(0);
+}
+
+.contact-cta:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 3px;
 }
 
 .contact-cta__arrow {

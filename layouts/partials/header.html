@@ -73,9 +73,20 @@
                 </button>
             </div>            
             <!-- Desktop Navigation -->
-            <nav class="hidden md:flex flex-wrap justify-center items-center gap-4 md:gap-6">
+            <nav class="hidden md:flex flex-wrap justify-center items-center gap-1 md:gap-2">
+                {{ $page := . }}
                 {{ range .Site.Menus.main }}
-                <a href="{{ .URL | absURL }}" class="inline-block text-lg text-text-secondary-light dark:text-text-secondary-dark hover:text-text-primary-light dark:hover:text-text-primary-dark transition-colors duration-300 {{ if eq .URL $.RelPermalink }}text-accent-light dark:text-accent-dark font-semibold{{ end }}">{{ .Name }}</a>
+                {{ $isActive := or (eq .URL $page.RelPermalink) (and (ne .URL "/") (hasPrefix $page.RelPermalink .URL)) }}
+                <a href="{{ .URL | absURL }}" class="relative inline-block rounded-md px-3 py-1.5 text-lg transition-colors duration-300
+                    {{ if $isActive }}
+                        text-text-primary-light dark:text-text-primary-dark font-semibold
+                    {{ else }}
+                        text-text-secondary-light dark:text-text-secondary-dark hover:text-text-primary-light dark:hover:text-text-primary-dark
+                    {{ end }}">{{ .Name }}
+                    {{ if $isActive }}
+                    <span aria-hidden="true" class="absolute inset-x-3 -bottom-0.5 h-[2px] rounded-full bg-accent-light dark:bg-accent-dark"></span>
+                    {{ end }}
+                </a>
                 {{ end }}
             </nav>
             <div class="hidden md:flex justify-end items-center">
@@ -165,9 +176,16 @@
                     </button>
                 </div>
             </div>
-            <nav class="flex flex-col p-6 space-y-4">
+            <nav class="flex flex-col p-6 gap-1">
+                {{ $mpage := . }}
                 {{ range .Site.Menus.main }}
-                <a href="{{ .URL | absURL }}" class="text-xl text-text-secondary-light dark:text-text-secondary-dark hover:text-text-primary-light dark:hover:text-text-primary-dark transition-colors duration-300 {{ if eq .URL $.RelPermalink }}text-accent-light dark:text-accent-dark font-semibold{{ end }}" data-menu-link>{{ .Name }}</a>
+                {{ $isActive := or (eq .URL $mpage.RelPermalink) (and (ne .URL "/") (hasPrefix $mpage.RelPermalink .URL)) }}
+                <a href="{{ .URL | absURL }}" class="rounded-lg px-3 py-3 text-xl transition-colors duration-300
+                    {{ if $isActive }}
+                        bg-accent-light/10 text-text-primary-light dark:bg-accent-dark/15 dark:text-text-primary-dark font-semibold
+                    {{ else }}
+                        text-text-secondary-light dark:text-text-secondary-dark hover:text-text-primary-light dark:hover:text-text-primary-dark
+                    {{ end }}" data-menu-link>{{ .Name }}</a>
                 {{ end }}
             </nav>
             <div class="mt-auto p-6">
