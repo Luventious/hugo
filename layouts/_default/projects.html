@@ -1,7 +1,5 @@
 {{ define "main" }}
 <div class="w-full md:w-3/4 lg:w-1/2 mx-auto px-4 py-12">
-    <h1 class="text-3xl md:text-5xl font-bold mb-8 md:mb-12 text-text-primary-light dark:text-text-primary-dark">{{ .Title }}</h1>
-    
     <div class="grid grid-cols-1 gap-6 md:gap-8 max-w-3xl mx-auto">
         {{ $projectsData := index site.Data .Language.Lang "projects" }}
         {{ range $projectsData.projects }}

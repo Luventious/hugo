@@ -1,6 +1,6 @@
 baseURL = "/"
 languageCode = 'zh-CN'
-title = 'Deng Shangqing'
+title = '3hangq1ng'
 theme = 'hugo-noir'
 
 defaultContentLanguage = "zh"
@@ -8,7 +8,7 @@ defaultContentLanguageInSubdir = true
 [languages]
   [languages.zh]
     languageName = "Chinese"
-    title = "Deng Shangqing"
+    title = "3hangq1ng"
     weight = 1
     contentDir = "content/zh"
 
@@ -24,7 +24,7 @@ canonifyURLs = false
 
 [params]
   showLocalTime = false
-  name = "Deng Shangqing"
+  name = "3hangq1ng"
   location = ""
   description = "hugotoml-description."
   profile_image = "/images/profile.jpg"

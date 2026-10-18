@@ -5,11 +5,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} - {{ .Site.Title }}{{ end }}</title>
 
-        <!-- Favicon here-->
-        <link rel="apple-touch-icon" sizes="180x180" href="{{ .Site.BaseURL }}favicon_io/apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="{{ .Site.BaseURL }}favicon_io/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="{{ .Site.BaseURL }}favicon_io/favicon-16x16.png">
-        <link rel="manifest" href="{{ .Site.BaseURL }}favicon_io/site.webmanifest">
+        <!-- Favicon: SVG 优先（现代浏览器，最清晰），PNG/ICO 兜底 -->
+        <link rel="icon" href="{{ "favicon_io/favicon.svg" | relURL }}" type="image/svg+xml">
+        <link rel="icon" type="image/png" sizes="32x32" href="{{ "favicon_io/favicon-32x32.png" | relURL }}">
+        <link rel="icon" type="image/png" sizes="16x16" href="{{ "favicon_io/favicon-16x16.png" | relURL }}">
+        <link rel="shortcut icon" href="{{ "favicon_io/favicon.ico" | relURL }}">
+        <link rel="apple-touch-icon" sizes="180x180" href="{{ "favicon_io/apple-touch-icon.png" | relURL }}">
+        <link rel="manifest" href="{{ "favicon_io/site.webmanifest" | relURL }}">
+        <meta name="theme-color" content="#121212">
         <link rel="preload" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" as="style">
 
         <style>

@@ -1,5 +1,6 @@
 {{ $currentPage := . }}
 <head>
+    {{ partial "kiddo-font.html" . }}
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-C0RTF18BT4"></script>
     <script>
@@ -61,7 +62,7 @@
     <div class="max-w-6xl mx-auto px-4">
         <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
             <div class="flex justify-between items-center">
-                <a href="{{ .Site.BaseURL }}" class="text-xl font-bold text-text-primary-light dark:text-text-primary-dark hover:text-accent-light dark:hover:text-accent-dark transition-colors duration-300">
+                <a href="{{ .Site.BaseURL }}" class="site-title-font text-2xl font-bold text-text-primary-light dark:text-text-primary-dark hover:text-accent-light dark:hover:text-accent-dark transition-colors duration-300">
                     {{ site.Params.name }}
                 </a>
                 <!-- Hamburger menu button for mobile -->

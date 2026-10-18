@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <style>
+      @font-face {
+        font-family: 'Kiddo';
+        src: url(data:font/woff2;base64,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) format('woff2');
+        font-weight: 400;
+      }
+      .t {
+        font-family: 'Kiddo', sans-serif;
+        font-size: 46px;
+        font-weight: 400;
+        fill: #ffffff;
+      }
+    </style>
+  </defs>
+  <rect width="64" height="64" rx="13" fill="#121212"/>
+  <text x="32" y="32" class="t" text-anchor="middle" dominant-baseline="central">3h</text>
+</svg>
