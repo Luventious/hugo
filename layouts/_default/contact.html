@@ -5,6 +5,33 @@
 {{ $tel := replace .Site.Params.Tel " " "" }}
 
 {{/*
+    防闪屏：把「初始不可见」的样式提前到元素之前。
+    .card-arrow 默认 opacity:0，但原来的规则写在页面末尾的 <style> 里，
+    浏览器解析到卡片时还没有这条规则，箭头会先画出来、样式到位后再消失，
+    移动端上就是一次明显的闪屏。这里用内联样式先行声明。
+*/}}
+<style>
+    .card-arrow {
+        opacity: 0;
+    }
+
+    /* 工卡在 three.js 首帧绘制前保持不可见，避免空白画布或尺寸跳变 */
+    .lanyard-host {
+        opacity: 0;
+        transition: opacity 0.35s ease;
+    }
+    .lanyard-host:has([data-ready]) {
+        opacity: 1;
+    }
+    /* 不支持 :has() 的浏览器直接显示，不会永久隐藏 */
+    @supports not selector(:has(*)) {
+        .lanyard-host {
+            opacity: 1;
+        }
+    }
+</style>
+
+{{/*
     Contact 页：只保留四张联系方式卡片，右侧放 3D 工卡。
     左右两列在桌面并排，窄屏上下堆叠。
 */}}

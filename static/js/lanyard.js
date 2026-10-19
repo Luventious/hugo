@@ -745,6 +745,12 @@
                 cardGroup.quaternion.copy(sim.body.quaternion);
                 updateBand();
                 renderer.render(scene, camera);
+                /*
+                 * 首帧画完才显示宿主。
+                 * CSS 里 .lanyard-host:not([data-ready]) 是 hidden，
+                 * 防止 three.js 初始化期间出现空白画布或尺寸跳变的闪屏。
+                 */
+                if (!root.hasAttribute('data-ready')) root.setAttribute('data-ready', '');
             }
 
             function tick(now) {
