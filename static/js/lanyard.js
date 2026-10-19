@@ -118,6 +118,7 @@
         var settings = {
             frontImage: opts.frontImage || null,
             backImage: opts.backImage || null,
+            strapLogo: opts.strapLogo || null,
             imageFit: opts.imageFit === 'contain' ? 'contain' : 'cover',
             cardColor: opts.cardColor || '#ffffff',
             orientation: opts.orientation === 'landscape' ? 'landscape' : 'portrait',
@@ -255,20 +256,51 @@
                 ctx.stroke();
             }
 
-            function paintAll() {
-                colors = resolveThemeColors();
-                paintCard(frontCanvas, settings.frontText, settings.frontSub, colors.card, colors.ink, colors.sub, '#3f3f46');
-                paintCard(backCanvas, settings.backText || settings.frontText, settings.backSub, colors.card, colors.ink, colors.sub, '#3f3f46');
+            // 正面照片 / 挂绳 logo 异步加载，加载完成后重绘对应纹理
+            var frontImg = new Image();
+            var strapImg = new Image();
+
+            function coverDraw(ctx, img, w, h) {
+                var scale = Math.max(w / img.naturalWidth, h / img.naturalHeight);
+                var dw = img.naturalWidth * scale, dh = img.naturalHeight * scale;
+                ctx.drawImage(img, (w - dw) / 2, (h - dh) / 2, dw, dh);
+            }
+
+            function paintFront() {
+                var w = FACE_WIDTH;
+                var h = Math.round((FACE_WIDTH * layout.height) / layout.width);
+                var ctx = frontCanvas.getContext('2d');
+                if (!ctx) return;
+                if (frontImg.complete && frontImg.naturalWidth) {
+                    frontCanvas.width = w;
+                    frontCanvas.height = h;
+                    ctx.fillStyle = colors.card;
+                    ctx.fillRect(0, 0, w, h);
+                    coverDraw(ctx, frontImg, w, h);
+                } else {
+                    paintCard(frontCanvas, settings.frontText, settings.frontSub, colors.card, colors.ink, colors.sub, '#3f3f46');
+                }
                 frontTexture.needsUpdate = true;
-                backTexture.needsUpdate = true;
-                // 挂绳：纯色 + 编织纹理感（用横条模拟）
+            }
+
+            function paintStrap() {
                 var sw = 192, sh = 384;
                 strapCanvas.width = sw;
                 strapCanvas.height = sh;
                 var sctx = strapCanvas.getContext('2d');
-                if (sctx) {
-                    sctx.fillStyle = settings.strapColor;
-                    sctx.fillRect(0, 0, sw, sh);
+                if (!sctx) return;
+                sctx.fillStyle = settings.strapColor;
+                sctx.fillRect(0, 0, sw, sh);
+                if (strapImg.complete && strapImg.naturalWidth) {
+                    var iw = sw * 0.52;
+                    var ih = iw * strapImg.naturalHeight / strapImg.naturalWidth;
+                    var gap = Math.round(ih * 2.4);
+                    for (var y = 0; y < sh; y += gap) {
+                        sctx.globalAlpha = 0.92;
+                        sctx.drawImage(strapImg, (sw - iw) / 2, y, iw, ih);
+                    }
+                    sctx.globalAlpha = 1;
+                } else {
                     sctx.fillStyle = 'rgba(255,255,255,0.05)';
                     for (var y = 0; y < sh; y += 4) sctx.fillRect(0, y, sw, 1);
                     sctx.fillStyle = 'rgba(255,255,255,0.18)';
@@ -279,7 +311,24 @@
                 }
                 strapTexture.needsUpdate = true;
             }
+
+            function paintAll() {
+                colors = resolveThemeColors();
+                paintFront();
+                paintCard(backCanvas, settings.backText || settings.frontText, settings.backSub, colors.card, colors.ink, colors.sub, '#3f3f46');
+                backTexture.needsUpdate = true;
+                paintStrap();
+            }
             paintAll();
+
+            if (settings.frontImage) {
+                frontImg.onload = paintFront;
+                frontImg.src = settings.frontImage;
+            }
+            if (settings.strapLogo) {
+                strapImg.onload = paintStrap;
+                strapImg.src = settings.strapLogo;
+            }
 
             /* ---- 材质 ---- */
             var finish = FINISHES[settings.finish] || FINISHES.glossy;
@@ -935,6 +984,7 @@
             node.__lanyard = new Lanyard(node, {
                 frontImage: d.frontImage || null,
                 backImage: d.backImage || null,
+                strapLogo: d.strapLogo || null,
                 imageFit: d.imageFit || 'cover',
                 cardColor: d.cardColor || null,
                 orientation: d.orientation || 'portrait',
