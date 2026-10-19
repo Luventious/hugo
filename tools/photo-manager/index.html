@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lens 照片管理</title>
+<style>
+  :root {
+    --bg: #fafafa;
+    --panel: #ffffff;
+    --line: #e5e5e5;
+    --text: #18181b;
+    --muted: #71717a;
+    --danger: #dc2626;
+    --danger-bg: #fef2f2;
+    --accent: #18181b;
+    --radius: 10px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    line-height: 1.5;
+    padding: 24px;
+  }
+  .wrap { max-width: 1100px; margin: 0 auto; display: flex; flex-direction: column; gap: 18px; }
+
+  header { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+  .title h1 { font-size: 20px; font-weight: 700; letter-spacing: -0.01em; }
+  .title .dir { margin-top: 4px; font-size: 12.5px; color: var(--muted); word-break: break-all; }
+  .actions { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+
+  button {
+    font: inherit; cursor: pointer; border: 1px solid var(--line); background: var(--panel);
+    color: var(--text); border-radius: 8px; padding: 8px 14px; display: inline-flex; align-items: center; gap: 6px;
+    transition: background .15s, border-color .15s;
+  }
+  button:hover { background: #f0f0f0; }
+  button.primary { background: var(--accent); color: #fff; border-color: var(--accent); }
+  button.primary:hover { background: #000; }
+  button:disabled { opacity: .5; cursor: not-allowed; }
+  button svg { width: 15px; height: 15px; }
+
+  .dropzone {
+    border: 1.5px dashed #d4d4d8; border-radius: var(--radius); background: var(--panel);
+    padding: 28px; text-align: center; color: var(--muted); cursor: pointer; transition: border-color .15s, background .15s;
+  }
+  .dropzone.dragover { border-color: var(--accent); background: #f4f4f5; color: var(--text); }
+  .dropzone.disabled { opacity: .5; cursor: not-allowed; }
+  .dropzone strong { color: var(--text); }
+  .dropzone .hint { font-size: 12.5px; margin-top: 6px; }
+
+  .bar { display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--muted); gap: 12px; flex-wrap: wrap; }
+  #status { min-height: 20px; font-size: 13px; }
+  #status.ok { color: #16794a; }
+  #status.err { color: var(--danger); }
+
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 14px; }
+  .card { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; display: flex; flex-direction: column; }
+  .thumb { position: relative; aspect-ratio: 1 / 1; background: #f0f0f0; cursor: zoom-in; overflow: hidden; }
+  .thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .card .meta { padding: 10px 12px 12px; display: flex; flex-direction: column; gap: 6px; }
+  .card .name { font-size: 12.5px; word-break: break-all; }
+  .card .size { font-size: 11.5px; color: var(--muted); }
+  .card .del { align-self: flex-start; font-size: 12px; color: var(--danger); background: var(--danger-bg); border-color: transparent; padding: 5px 10px; border-radius: 7px; }
+  .card .del:hover { background: #fee2e2; }
+
+  .empty { text-align: center; color: var(--muted); padding: 48px 0; font-size: 14px; }
+  .panel { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 14px 16px; display: flex; flex-direction: column; gap: 10px; }
+  .panel .row { display: flex; align-items: center; gap: 10px; font-size: 13.5px; }
+  .panel .label { color: var(--muted); min-width: 64px; }
+  .panel input[type="range"] { flex: 1; accent-color: var(--accent); }
+  .panel select { font: inherit; border: 1px solid var(--line); border-radius: 7px; padding: 5px 8px; background: #fff; color: var(--text); }
+  .panel input[type="checkbox"] { accent-color: var(--accent); width: 16px; height: 16px; }
+
+  .card .cmp { align-self: flex-start; font-size: 12px; color: #16794a; background: #ecfdf3; border-color: transparent; padding: 5px 10px; border-radius: 7px; }
+  .card .cmp:hover { background: #d1fadf; }
+  .card .save { font-size: 11.5px; color: #16794a; }
+
+  .note { font-size: 12.5px; color: var(--muted); background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 12px 14px; }
+  .note code { background: #f0f0f0; padding: 1px 5px; border-radius: 4px; }
+  .unsupported { border: 1px solid #f0c0c0; background: #fef2f2; color: var(--danger); border-radius: var(--radius); padding: 14px 16px; font-size: 13.5px; }
+
+  .lightbox { position: fixed; inset: 0; background: rgba(0,0,0,.82); display: none; align-items: center; justify-content: center; z-index: 50; padding: 32px; }
+  .lightbox.open { display: flex; }
+  .lightbox img { max-width: 100%; max-height: 100%; border-radius: 6px; }
+  .lightbox .close { position: absolute; top: 18px; right: 22px; color: #fff; background: transparent; border: none; font-size: 28px; padding: 4px 10px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="title">
+      <h1>Lens 照片管理</h1>
+      <div class="dir" id="dir">尚未选择目录</div>
+    </div>
+    <div class="actions">
+      <button id="pickDir" type="button" class="primary">选择照片目录</button>
+      <button id="refresh" type="button" disabled>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-2.64-6.36"/><path d="M21 3v6h-6"/></svg>
+        刷新
+      </button>
+    </div>
+  </header>
+
+  <div class="unsupported" id="unsupported" style="display:none">
+    当前浏览器不支持直接读写本地文件夹。请用 Microsoft Edge 或 Google Chrome 打开本页面。
+  </div>
+
+  <div class="dropzone disabled" id="dropzone">
+    <div>先点上方「选择照片目录」，选择 <strong>static/images/photography</strong> 文件夹；之后可拖拽图片到这里或点击选择（可多选）</div>
+    <div class="hint">支持 JPG / JPEG / PNG / WebP / AVIF</div>
+  </div>
+  <input type="file" id="fileInput" accept=".jpg,.jpeg,.png,.webp,.avif" multiple hidden>
+
+  <div class="panel" id="cmpPanel">
+    <label class="row">
+      <input type="checkbox" id="cmpEnable">
+      <span>上传时自动压缩（不改变分辨率，高质量档，视觉几乎无差）</span>
+    </label>
+    <div class="row">
+      <span class="label">压缩质量</span>
+      <input type="range" id="cmpQuality" min="0.70" max="0.95" step="0.01" value="0.85">
+      <span id="cmpQualityVal" class="label">0.85</span>
+    </div>
+    <div class="row">
+      <span class="label">输出格式</span>
+      <select id="cmpFormat">
+        <option value="keep">保持原格式（JPEG/PNG/WebP）</option>
+        <option value="webp">统一转 WebP（体积更小，推荐）</option>
+      </select>
+    </div>
+    <div class="row" style="font-size:12px;color:var(--muted)">提示：PNG 是无损格式，保持原格式时压缩有限；想明显减小体积请选「转 WebP」。压缩不改变图片分辨率。</div>
+  </div>
+
+  <div class="bar">
+    <div id="count"></div>
+    <div id="status"></div>
+  </div>
+
+  <div class="grid" id="grid"></div>
+  <div class="empty" id="empty" style="display:none">目录里还没有照片，上传后会显示在这里。</div>
+
+  <div class="note">
+    选择目录时请定位到 Hugo 站点的 <code>static/images/photography</code>。增删完成后，在站点根目录重新运行 <code>hugo</code> 构建，Lens 页面才会更新。浏览器仅在本次授权期间可读写该目录。
+  </div>
+</div>
+
+<div class="lightbox" id="lightbox">
+  <button class="close" id="lightboxClose" type="button">&times;</button>
+  <img id="lightboxImg" alt="预览">
+</div>
+
+<script>
+const ALLOWED = ['.jpg', '.jpeg', '.png', '.webp', '.avif'];
+const grid = document.getElementById('grid');
+const empty = document.getElementById('empty');
+const statusEl = document.getElementById('status');
+const countEl = document.getElementById('count');
+const dropzone = document.getElementById('dropzone');
+const fileInput = document.getElementById('fileInput');
+const pickBtn = document.getElementById('pickDir');
+const refreshBtn = document.getElementById('refresh');
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightboxImg');
+const dirLabel = document.getElementById('dir');
+const cmpEnable = document.getElementById('cmpEnable');
+const cmpQuality = document.getElementById('cmpQuality');
+const cmpQualityVal = document.getElementById('cmpQualityVal');
+const cmpFormat = document.getElementById('cmpFormat');
+
+cmpQuality.addEventListener('input', () => {
+  cmpQualityVal.textContent = Number(cmpQuality.value).toFixed(2);
+});
+
+let dirHandle = null;
+let items = [];
+let objectUrls = [];
+
+function fmtSize(bytes) {
+  if (bytes < 1024) return bytes + ' B';
+  if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + ' KB';
+  return (bytes / 1024 / 1024).toFixed(2) + ' MB';
+}
+function setStatus(msg, kind) {
+  statusEl.textContent = msg || '';
+  statusEl.className = kind || '';
+}
+function extOf(name) {
+  const i = name.lastIndexOf('.');
+  return i >= 0 ? name.slice(i).toLowerCase() : '';
+}
+function isImage(name) {
+  return ALLOWED.includes(extOf(name));
+}
+
+function releaseUrls() {
+  objectUrls.forEach(u => URL.revokeObjectURL(u));
+  objectUrls = [];
+}
+
+function loadImage(file) {
+  return new Promise((resolve, reject) => {
+    const url = URL.createObjectURL(file);
+    const img = new Image();
+    img.onload = () => { URL.revokeObjectURL(url); resolve(img); };
+    img.onerror = () => { URL.revokeObjectURL(url); reject(new Error('图片解码失败')); };
+    img.src = url;
+  });
+}
+
+// 不缩放分辨率，仅以指定质量重编码；mode: keep | webp
+async function compressBlob(file, quality, mode) {
+  const img = await loadImage(file);
+  const canvas = document.createElement('canvas');
+  canvas.width = img.naturalWidth;
+  canvas.height = img.naturalHeight;
+  const ctx = canvas.getContext('2d');
+
+  let mime, ext;
+  if (mode === 'webp') {
+    mime = 'image/webp'; ext = '.webp';
+  } else {
+    const t = (file.type || '').toLowerCase();
+    if (t.includes('jpeg')) { mime = 'image/jpeg'; ext = '.jpg'; }
+    else if (t.includes('png')) { mime = 'image/png'; ext = '.png'; }
+    else if (t.includes('webp')) { mime = 'image/webp'; ext = '.webp'; }
+    else { mime = 'image/webp'; ext = '.webp'; } // avif 等浏览器无法编码，回退 webp
+  }
+  if (mime === 'image/jpeg') {
+    ctx.fillStyle = '#ffffff';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+  }
+  ctx.drawImage(img, 0, 0);
+  const blob = await new Promise(res => canvas.toBlob(res, mime, quality));
+  if (!blob) throw new Error('图片编码失败');
+  return { blob, ext, mime };
+}
+
+async function pickDirectory() {
+  if (!window.showDirectoryPicker) {
+    document.getElementById('unsupported').style.display = 'block';
+    return;
+  }
+  try {
+    const handle = await window.showDirectoryPicker({ mode: 'readwrite' });
+    const perm = await handle.requestPermission({ mode: 'readwrite' });
+    if (perm !== 'granted') {
+      setStatus('未获得目录读写权限', 'err');
+      return;
+    }
+    dirHandle = handle;
+    dirLabel.textContent = '已选目录：' + handle.name;
+    dropzone.classList.remove('disabled');
+    refreshBtn.disabled = false;
+    await loadList();
+  } catch (e) {
+    if (e.name !== 'AbortError') setStatus('选择目录失败：' + e.message, 'err');
+  }
+}
+
+async function loadList() {
+  if (!dirHandle) return;
+  setStatus('加载中…');
+  releaseUrls();
+  items = [];
+  try {
+    for await (const [name, handle] of dirHandle.entries()) {
+      if (handle.kind === 'file' && isImage(name)) {
+        const file = await handle.getFile();
+        items.push({ name, handle, file, size: file.size });
+      }
+    }
+  } catch (e) {
+    setStatus('读取目录失败：' + e.message, 'err');
+    return;
+  }
+  items.sort((a, b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase()));
+  render();
+  setStatus('');
+}
+
+function render() {
+  grid.innerHTML = '';
+  countEl.textContent = '共 ' + items.length + ' 张';
+  empty.style.display = items.length ? 'none' : 'block';
+
+  items.forEach(item => {
+    const url = URL.createObjectURL(item.file);
+    objectUrls.push(url);
+
+    const card = document.createElement('div');
+    card.className = 'card';
+    const thumb = document.createElement('div');
+    thumb.className = 'thumb';
+    const img = document.createElement('img');
+    img.src = url;
+    img.alt = item.name;
+    img.loading = 'lazy';
+    thumb.appendChild(img);
+    thumb.addEventListener('click', () => { lightboxImg.src = url; lightbox.classList.add('open'); });
+
+    const meta = document.createElement('div');
+    meta.className = 'meta';
+    const name = document.createElement('div');
+    name.className = 'name';
+    name.textContent = item.name;
+    const size = document.createElement('div');
+    size.className = 'size';
+    size.textContent = fmtSize(item.size);
+    const del = document.createElement('button');
+    del.className = 'del';
+    del.type = 'button';
+    del.textContent = '删除';
+    del.addEventListener('click', () => removePhoto(item.name, del));
+
+    const cmp = document.createElement('button');
+    cmp.className = 'cmp';
+    cmp.type = 'button';
+    cmp.textContent = '压缩';
+    cmp.addEventListener('click', () => compressExisting(item, cmp));
+
+    meta.appendChild(name);
+    meta.appendChild(size);
+    meta.appendChild(cmp);
+    meta.appendChild(del);
+    card.appendChild(thumb);
+    card.appendChild(meta);
+    grid.appendChild(card);
+  });
+}
+
+function uniqueName(baseName, existing) {
+  if (!existing.has(baseName)) return baseName;
+  const stem = baseName.slice(0, baseName.lastIndexOf('.'));
+  const ext = baseName.slice(baseName.lastIndexOf('.'));
+  let i = 1;
+  while (existing.has(`${stem} (${i})${ext}`)) i++;
+  return `${stem} (${i})${ext}`;
+}
+
+async function uploadFiles(fileList) {
+  if (!dirHandle) { setStatus('请先选择照片目录', 'err'); return; }
+  const files = Array.from(fileList).filter(f => isImage(f.name));
+  if (!files.length) { setStatus('没有可上传的图片（仅支持 JPG/PNG/WebP/AVIF）', 'err'); return; }
+
+  const existing = new Set(items.map(i => i.name));
+  const doCompress = cmpEnable.checked;
+  const quality = Number(cmpQuality.value);
+  const mode = cmpFormat.value;
+  let done = 0, failed = 0;
+  for (const file of files) {
+    setStatus('处理中 ' + (done + 1) + '/' + files.length + '：' + file.name);
+    try {
+      let writeName = file.name;
+      let payload = file;
+      if (doCompress) {
+        const { blob, ext } = await compressBlob(file, quality, mode);
+        const stem = file.name.slice(0, file.name.lastIndexOf('.'));
+        writeName = stem + ext;
+        payload = blob;
+      }
+      const finalName = uniqueName(writeName, existing);
+      existing.add(finalName);
+      const handle = await dirHandle.getFileHandle(finalName, { create: true });
+      const writable = await handle.createWritable();
+      await writable.write(payload);
+      await writable.close();
+      done++;
+    } catch (e) {
+      failed++;
+      setStatus('「' + file.name + '」写入失败：' + e.message, 'err');
+    }
+  }
+  if (failed === 0) setStatus('成功上传 ' + done + ' 张', 'ok');
+  else setStatus(`完成：成功 ${done}，失败 ${failed}`, failed === files.length ? 'err' : '');
+  await loadList();
+}
+
+async function removePhoto(name, btn) {
+  if (!confirm('确定删除「' + name + '」？此操作不可恢复。')) return;
+  btn.disabled = true;
+  setStatus('删除中…');
+  try {
+    await dirHandle.removeEntry(name);
+    setStatus('已删除 ' + name, 'ok');
+    await loadList();
+  } catch (e) {
+    setStatus('删除失败：' + e.message, 'err');
+    btn.disabled = false;
+  }
+}
+
+async function compressExisting(item, btn) {
+  btn.disabled = true;
+  setStatus('压缩中：' + item.name);
+  try {
+    const quality = Number(cmpQuality.value);
+    const mode = cmpFormat.value;
+    const { blob, ext } = await compressBlob(item.file, quality, mode);
+    if (blob.size >= item.size) {
+      setStatus('「' + item.name + '」压缩后没有变小，已保留原图', '');
+      btn.disabled = false;
+      return;
+    }
+    const savings = Math.round((1 - blob.size / item.size) * 100);
+    const ok = confirm(
+      '「' + item.name + '」\n' +
+      fmtSize(item.size) + ' → ' + fmtSize(blob.size) + '（减小 ' + savings + '%）\n\n' +
+      (ext !== extOf(item.name) ? '格式将改为 ' + ext + '，原文件会被替换。\n' : '') +
+      '确定替换原图？'
+    );
+    if (!ok) { btn.disabled = false; return; }
+
+    const stem = item.name.slice(0, item.name.lastIndexOf('.'));
+    const existing = new Set(items.map(i => i.name));
+    let newName = stem + ext;
+    if (newName !== item.name && existing.has(newName)) newName = uniqueName(newName, existing);
+
+    if (newName !== item.name) await dirHandle.removeEntry(item.name);
+    const handle = await dirHandle.getFileHandle(newName, { create: true });
+    const writable = await handle.createWritable();
+    await writable.write(blob);
+    await writable.close();
+    setStatus('已压缩 ' + item.name + '（减小 ' + savings + '%）', 'ok');
+    await loadList();
+  } catch (e) {
+    setStatus('压缩失败：' + e.message, 'err');
+    btn.disabled = false;
+  }
+}
+
+lightbox.addEventListener('click', (e) => {
+  if (e.target === lightbox || e.target.id === 'lightboxClose') {
+    lightbox.classList.remove('open');
+    lightboxImg.src = '';
+  }
+});
+
+if (!window.showDirectoryPicker) {
+  document.getElementById('unsupported').style.display = 'block';
+}
+
+pickBtn.addEventListener('click', pickDirectory);
+refreshBtn.addEventListener('click', loadList);
+dropzone.addEventListener('click', () => { if (dirHandle) fileInput.click(); });
+fileInput.addEventListener('change', () => { uploadFiles(fileInput.files); fileInput.value = ''; });
+['dragenter', 'dragover'].forEach(ev => dropzone.addEventListener(ev, e => { e.preventDefault(); dropzone.classList.add('dragover'); }));
+['dragleave', 'drop'].forEach(ev => dropzone.addEventListener(ev, e => { e.preventDefault(); dropzone.classList.remove('dragover'); }));
+dropzone.addEventListener('drop', e => uploadFiles(e.dataTransfer.files));
+</script>
+</body>
+</html>
