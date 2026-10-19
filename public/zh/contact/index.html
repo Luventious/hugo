@@ -605,7 +605,7 @@
             <div data-lanyard
                  data-theme="auto"
                  data-orientation="portrait"
-                 data-size="0.42"
+                 data-size="0.25"
                  data-anchor="right"
                  data-strap-length="1"
                  data-strap-color="#000000"
@@ -786,6 +786,10 @@
         .contact-lanyard {
             justify-self: center;
             height: auto;
+        }
+         
+        .contact-lanyard .lanyard-host {
+            margin-top: calc(clamp(360px, 50vh, 460px) / -2 - 1rem);
         }
     }
 

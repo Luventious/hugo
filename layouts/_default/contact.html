@@ -112,13 +112,13 @@
         </a>
     </div>
 
-    {{/* 右列：3D 工卡（Anchor=Right / Size=0.42 / Band Length=1 / Band Width=0.55）；桌面端舞台全屏铺开 */}}
+    {{/* 右列：3D 工卡（Anchor=Right / Size=0.25 / Band Length=1 / Band Width=0.55）；桌面端舞台全屏铺开 */}}
     <div class="contact-lanyard">
         <div class="lanyard-host">
             <div data-lanyard
                  data-theme="auto"
                  data-orientation="portrait"
-                 data-size="0.42"
+                 data-size="0.25"
                  data-anchor="right"
                  data-strap-length="1"
                  data-strap-color="#000000"
@@ -306,6 +306,14 @@
         .contact-lanyard {
             justify-self: center;
             height: auto;
+        }
+        /*
+         * 悬挂锚点在 canvas 垂直中心（lanyard.js anchorY = viewHeight/2）。
+         * 窄屏单列时，把宿主上移半个自身高度并抵消 grid 间距，
+         * 让锚点（挂绳起点）贴住最后一张联系卡片的下边缘，卡片在其下垂下。
+         */
+        .contact-lanyard .lanyard-host {
+            margin-top: calc(clamp(360px, 50vh, 460px) / -2 - 1rem);
         }
     }
 
