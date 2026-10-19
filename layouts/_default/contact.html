@@ -112,7 +112,7 @@
         </a>
     </div>
 
-    {{/* 右列：3D 工卡（参数按设计稿：Anchor=Right / Size=0.26 / Band Length=1 / Band Width=0.55） */}}
+    {{/* 右列：3D 工卡（Anchor=Right / Size=0.42 / Band Length=1 / Band Width=0.55）；桌面端舞台全屏铺开 */}}
     <div class="contact-lanyard">
         <div class="lanyard-host">
             <div data-lanyard
@@ -255,6 +255,40 @@
         justify-self: start;
         width: 100%;
         height: 100%;
+    }
+
+    /*
+     * 桌面端：工卡舞台铺满整个视口，作为背景层。
+     * 只有 canvas 接收指针（保留拖拽），其余区域 pointer-events: none；
+     * 联系方式卡片用更高的 z-index 覆盖在舞台上，点击区域不受影响。
+     */
+    @media (min-width: 901px) {
+        .contact-lanyard {
+            position: fixed;
+            inset: 0;
+            width: 100%;
+            height: 100vh;
+            height: 100dvh;
+            z-index: 0;
+            pointer-events: none;
+        }
+        .contact-lanyard .lanyard-host {
+            width: 100%;
+            height: 100%;
+            margin-top: 0;
+        }
+        .contact-lanyard canvas {
+            pointer-events: auto;
+        }
+        /* 卡片浮在舞台之上，保证链接 / 复制按钮的可点击区域 */
+        .contact-cards {
+            position: relative;
+            z-index: 2;
+        }
+        body.contact-viewport > footer {
+            position: relative;
+            z-index: 1;
+        }
     }
 
     /* 窄屏：上下堆叠，工卡在卡片下方 */

@@ -1,62 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=&amp;path=livereload" data-no-instant defer></script>
+    <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title> - Deng Shangqing</title>
+        <title>联系我 - 3hangq1ng</title>
+
         
-        
-        <link rel="apple-touch-icon" sizes="180x180" href="../../favicon_io/apple-touch-icon.png">
+        <link rel="icon" href="../../favicon_io/favicon.svg" type="image/svg+xml">
         <link rel="icon" type="image/png" sizes="32x32" href="../../favicon_io/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="16x16" href="../../favicon_io/favicon-16x16.png">
-        <link rel="manifest" href="../../favicon_io/site.webmanifest">        
-        <link rel="preload" href="https://cdn.tailwindcss.com" as="script">
-        <link rel="preload" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" as="style">            
+        <link rel="shortcut icon" href="../../favicon_io/favicon.ico">
+        <link rel="apple-touch-icon" sizes="180x180" href="../../favicon_io/apple-touch-icon.png">
+        <link rel="manifest" href="../../favicon_io/site.webmanifest">
+        <meta name="theme-color" content="#121212">
+        <link rel="preload" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" as="style">
+
         <style>
+            html {
+                 
+                scrollbar-gutter: stable;
+            }
             html, body {
-                background-color: #FFFFFF; 
-                color: #1f2937; 
+                background-color: #FFFFFF;
+                color: #1f2937;
             }
             html.dark, html.dark body {
-                background-color: #121212; 
-                color: #f3f4f6; 
-            }
-            .border { 
-                border-color: #d4d4d8; 
-            }
-            html.dark .border {
-                border-color: #374151; 
-            }
-            .carousel-item {
-                display: inline-block;
-                margin: 0 1rem;
-            }            
-            .flex {
-                display: flex;
-            }
-            .flex-col {
-                flex-direction: column;
-            }
-            
-            @media (min-width: 768px) {
-                .md\:flex-row {
-                    flex-direction: row;
-                }
-            }
-            
-            .tech-carousel {
-                overflow: hidden;
-                width: 100%;
-                padding: 1rem 0;
-            }
-            
-            .carousel-track {
-                white-space: nowrap;
+                background-color: #121212;
+                color: #f3f4f6;
             }
         </style>
-        
-        <script src="https://cdn.tailwindcss.com"></script>
-        <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+
         <script>
             if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
                 document.documentElement.classList.add('dark');
@@ -64,50 +37,98 @@
                 document.documentElement.classList.remove('dark');
             }
         </script>
-        <style>
-            :root {
-                color-scheme: light dark;
-            }
+
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script>
             
-            .tech-icon {
-                filter: grayscale(100%) brightness(200%);
-                transition: all 0.3s ease;
-            }
-            .tech-icon:hover {
-                filter: none;
-            }
             
-            @keyframes scroll {
-                0% {
-                    transform: translateX(0);
-                }
-                100% {
-                    transform: translateX(-100%);
-                }
-            }
             
-            .tech-carousel {
-                width: 100%;
-                padding: 1rem 0;
-            }
-            
-            .tech-track {
-                width: fit-content;
-                animation: scroll 20s linear infinite;
-            }
-            
-            .tech-track:hover {
-                animation-play-state: paused;
-            }
-            
-            .tech-slide {
-                float: left;
-            }
-        </style>
+            tailwind.config = {
+                darkMode: 'class',
+                theme: {
+                    extend: {
+                        fontFamily: {
+                            sans: ['Space Grotesk', 'sans-serif'],
+                        },
+                        colors: {
+                            'bg-primary-light': '#ffffff',
+                            'bg-secondary-light': '#ffffff',
+                            'bg-tertiary-light': '#f5f5f5',
+                            'text-primary-light': '#262626',
+                            'text-secondary-light': '#525252',
+                            'text-tertiary-light': '#737373',
+                            'border-primary-light': '#d4d4d4',
+                            'border-secondary-light': '#e5e5e5',
+                            'accent-light': '#0284c7',
+
+                            'bg-primary-dark': '#121212',
+                            'bg-secondary-dark': '#1a1a1a',
+                            'bg-tertiary-dark': '#1a1a1a',
+                            'text-primary-dark': '#f5f5f5',
+                            'text-secondary-dark': '#a3a3a3',
+                            'text-tertiary-dark': '#737373',
+                            'border-primary-dark': '#404040',
+                            'border-secondary-dark': '#333333',
+                            'accent-dark': '#0ea5e9',
+                        },
+                    },
+                },
+            };
+        </script>
+        <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
     </head>
     <body class="min-h-screen bg-bg-primary-light dark:bg-bg-primary-dark text-text-primary-light dark:text-text-primary-dark">
+        <link rel="stylesheet" href="../../css/flux-lines.css">
+
+
+
+  
+  
+
+<div class="flux-bg"
+     data-flux-lines
+     data-theme="auto"
+     data-colors="#ffffff,#ffffff,#ffffff"
+     data-speed="0.5"
+     data-scale="1.6"
+     data-turbulence="1"
+     data-fluidity="0.1"
+     data-rim-width="0.2"
+     data-sharpness="2.5"
+     data-shimmer="1.5"
+     data-glow="2"
+     data-line-width="1"
+     data-flow-direction="down"
+     data-opacity="0.55"
+     data-mouse-interaction="true"
+     data-click-swirl="true"
+     data-intro="true"
+     data-dpr="1.5"
+     data-min-width="0"
+     data-continuity="true"
+     aria-hidden="true"></div>
+
+
+<div class="flux-scrim" style="--scrim: 0.82" aria-hidden="true"></div>
+
+<script src="../../js/flux-lines.js" defer></script>
         
 <head>
+    <style>
+@font-face {
+    font-family: 'Kiddo';
+    src: url(data:font/woff2;base64,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) format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: block;
+}
+
+ 
+.site-title-font {
+    font-family: 'Kiddo', 'Space Grotesk', sans-serif;
+    letter-spacing: 0.01em;
+}
+</style>
     
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-C0RTF18BT4"></script>
     <script>
@@ -163,36 +184,82 @@
         .language-active {
             font-weight: 600;
         }
+         
+        #mobile-menu {
+            --mobile-menu-solid: rgba(255, 255, 255, 0.97);
+        }
+        html.dark #mobile-menu {
+            --mobile-menu-solid: rgba(18, 18, 18, 0.97);
+        }
     </style>
 </head>
 <header class="py-6 relative">
     <div class="max-w-6xl mx-auto px-4">
         <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
             <div class="flex justify-between items-center">
-                <a href="../../" class="text-xl font-bold text-text-primary-light dark:text-text-primary-dark hover:text-accent-light dark:hover:text-accent-dark transition-colors duration-300">
-                    Deng Shangqing
+                <a href="../../" class="site-title-font text-2xl font-bold text-text-primary-light dark:text-text-primary-dark hover:text-accent-light dark:hover:text-accent-dark transition-colors duration-300">
+                    3hangq1ng
                 </a>
                 
-                <button id="mobile-menu-button" class="md:hidden text-text-secondary-light dark:text-text-secondary-dark hover:text-text-primary-light dark:hover:text-text-primary-dark focus:outline-none">
+                <button id="mobile-menu-button" aria-label="打开菜单" class="-mr-2 flex h-11 w-11 items-center justify-center rounded-md md:hidden text-text-secondary-light dark:text-text-secondary-dark hover:text-text-primary-light dark:hover:text-text-primary-dark focus:outline-none">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                     </svg>
                 </button>
             </div>            
             
-            <nav class="hidden md:flex flex-wrap justify-center items-center gap-4 md:gap-6">
+            <nav class="hidden md:flex flex-wrap justify-center items-center gap-1 md:gap-2">
                 
-                <a href="../../" class="inline-block text-lg text-text-secondary-light dark:text-text-secondary-dark hover:text-text-primary-light dark:hover:text-text-primary-dark transition-colors duration-300 ">Home</a>
                 
-                <a href="../../zh/experience/" class="inline-block text-lg text-text-secondary-light dark:text-text-secondary-dark hover:text-text-primary-light dark:hover:text-text-primary-dark transition-colors duration-300 ">Experience</a>
                 
-                <a href="../../zh/projects/" class="inline-block text-lg text-text-secondary-light dark:text-text-secondary-dark hover:text-text-primary-light dark:hover:text-text-primary-dark transition-colors duration-300 ">Projects</a>
+                <a href="../../" class="relative inline-block rounded-md px-3 py-1.5 text-lg transition-colors duration-300
+                    
+                        text-text-secondary-light dark:text-text-secondary-dark hover:text-text-primary-light dark:hover:text-text-primary-dark
+                    ">Home
+                    
+                </a>
                 
-                <a href="../../zh/blogs/" class="inline-block text-lg text-text-secondary-light dark:text-text-secondary-dark hover:text-text-primary-light dark:hover:text-text-primary-dark transition-colors duration-300 ">Blogs</a>
                 
-                <a href="../../zh/contact/" class="inline-block text-lg text-text-secondary-light dark:text-text-secondary-dark hover:text-text-primary-light dark:hover:text-text-primary-dark transition-colors duration-300 text-accent-light dark:text-accent-dark font-semibold">Contact</a>
+                <a href="../../zh/blogs/" class="relative inline-block rounded-md px-3 py-1.5 text-lg transition-colors duration-300
+                    
+                        text-text-secondary-light dark:text-text-secondary-dark hover:text-text-primary-light dark:hover:text-text-primary-dark
+                    ">Blogs
+                    
+                </a>
                 
-                <a href="../../zh/photography/" class="inline-block text-lg text-text-secondary-light dark:text-text-secondary-dark hover:text-text-primary-light dark:hover:text-text-primary-dark transition-colors duration-300 ">Photography</a>
+                
+                <a href="../../zh/experience/" class="relative inline-block rounded-md px-3 py-1.5 text-lg transition-colors duration-300
+                    
+                        text-text-secondary-light dark:text-text-secondary-dark hover:text-text-primary-light dark:hover:text-text-primary-dark
+                    ">Experience
+                    
+                </a>
+                
+                
+                <a href="../../zh/projects/" class="relative inline-block rounded-md px-3 py-1.5 text-lg transition-colors duration-300
+                    
+                        text-text-secondary-light dark:text-text-secondary-dark hover:text-text-primary-light dark:hover:text-text-primary-dark
+                    ">Projects
+                    
+                </a>
+                
+                
+                <a href="../../zh/contact/" class="relative inline-block rounded-md px-3 py-1.5 text-lg transition-colors duration-300
+                    
+                        text-text-primary-light dark:text-text-primary-dark font-semibold
+                    ">Contact
+                    
+                    <span aria-hidden="true" class="absolute inset-x-3 -bottom-0.5 h-[2px] rounded-full bg-neutral-900 dark:bg-white"></span>
+                    
+                </a>
+                
+                
+                <a href="../../zh/photography/" class="relative inline-block rounded-md px-3 py-1.5 text-lg transition-colors duration-300
+                    
+                        text-text-secondary-light dark:text-text-secondary-dark hover:text-text-primary-light dark:hover:text-text-primary-dark
+                    ">Lens
+                    
+                </a>
                 
             </nav>
             <div class="hidden md:flex justify-end items-center">
@@ -232,7 +299,7 @@
     </div>
 
     
-    <div id="mobile-menu" class="fixed inset-0 bg-bg-secondary-light dark:bg-bg-secondary-dark z-50 hidden transition-all duration-300 backdrop-blur-2xl">
+    <div id="mobile-menu" class="fixed inset-0 bg-bg-secondary-light dark:bg-bg-secondary-dark z-50 hidden transition-all duration-300 backdrop-blur-2xl" style="background-color: var(--mobile-menu-solid, rgba(255,255,255,0.96)); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);">
         <div class="flex flex-col h-full">
             <div class="flex justify-between items-center p-6">
                 <span class="text-xl font-bold text-text-primary-light dark:text-text-primary-dark">Menu</span>
@@ -277,15 +344,15 @@
                 
                 <a href="../../" class="text-xl text-text-secondary-light dark:text-text-secondary-dark hover:text-text-primary-light dark:hover:text-text-primary-dark transition-colors duration-300 " data-menu-link>Home</a>
                 
+                <a href="../../zh/blogs/" class="text-xl text-text-secondary-light dark:text-text-secondary-dark hover:text-text-primary-light dark:hover:text-text-primary-dark transition-colors duration-300 " data-menu-link>Blogs</a>
+                
                 <a href="../../zh/experience/" class="text-xl text-text-secondary-light dark:text-text-secondary-dark hover:text-text-primary-light dark:hover:text-text-primary-dark transition-colors duration-300 " data-menu-link>Experience</a>
                 
                 <a href="../../zh/projects/" class="text-xl text-text-secondary-light dark:text-text-secondary-dark hover:text-text-primary-light dark:hover:text-text-primary-dark transition-colors duration-300 " data-menu-link>Projects</a>
                 
-                <a href="../../zh/blogs/" class="text-xl text-text-secondary-light dark:text-text-secondary-dark hover:text-text-primary-light dark:hover:text-text-primary-dark transition-colors duration-300 " data-menu-link>Blogs</a>
-                
                 <a href="../../zh/contact/" class="text-xl text-text-secondary-light dark:text-text-secondary-dark hover:text-text-primary-light dark:hover:text-text-primary-dark transition-colors duration-300 text-accent-light dark:text-accent-dark font-semibold" data-menu-link>Contact</a>
                 
-                <a href="../../zh/photography/" class="text-xl text-text-secondary-light dark:text-text-secondary-dark hover:text-text-primary-light dark:hover:text-text-primary-dark transition-colors duration-300 " data-menu-link>Photography</a>
+                <a href="../../zh/photography/" class="text-xl text-text-secondary-light dark:text-text-secondary-dark hover:text-text-primary-light dark:hover:text-text-primary-dark transition-colors duration-300 " data-menu-link>Lens</a>
                 
             </nav>
             <div class="mt-auto p-6">
@@ -427,169 +494,407 @@
 </script> 
         <main>
             
-<div class="max-w-4xl mx-auto px-4 py-12">
-    <h1 class="text-5xl font-bold mb-6 text-text-primary-light dark:text-text-primary-dark"></h1>
-    
-    <div class="prose prose-invert prose-lg max-w-none">
-        <div class="text-text-secondary-light dark:text-text-secondary-dark text-lg mb-8">
-            <p>我是 <strong>邓 尚青</strong>，正在成为一个追随美的创作者的路上。</p>
-<p>我用过去用户体验领域积累的经验，去拆解问题、讲故事、制造那些让人<strong>心跳加速的时刻</strong>。</p>
-<p>我喜欢在混沌中找到秩序，也喜欢在秩序里故意制造一点美妙的<strong>失控</strong>。</p>
-<p>我写策略、写方案甚至写代码，也写情绪、写梦、写对这个世界的又爱又恨。</p>
-<p>过去很多年，我埋头苦干。现在，我想把镜头转回自己——记录那些纯粹因为**‘我觉得美’**而想做的事，那些不为了 KPI、不为了绩效的瞬间。</p>
-<p>——</p>
-<p>无需讨好算法，无需担心审核，无需预设谁会读到这里。</p>
-<p>只写我想写的，只记录让我激动的，哪怕它显得任性、碎片、不够“专业”。</p>
-<p>因为我始终相信：</p>
-<p>所有<strong>最酷、最对</strong>的人，都会通过我写的东西找到我。</p>
-<p>欢迎你来到这里。</p>
-<p>如果某一天你读到某一段，突然觉得“对，就是这种感觉”，</p>
-<p>那欢迎和我取得联系，告诉我你喜欢这段文字的原因。</p>
+<link rel="stylesheet" href="../../css/lanyard.css">
 
-        </div>
-        
-        
-        
 
-        
-        <div class="mt-10 mb-12 border-t border-gray-200 dark:border-gray-700 pt-5 text-sm text-gray-600 dark:text-gray-400 text-left ml-0">
-            邓 尚青
-             · 广东省, 广州市
-            
-                <span class="block mt-1"> 用户体验设计师</span>
-            
-        </div>
-        
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                
-                <a href="mailto:1069263967@qq.com" class="contact-link flex items-center gap-4 p-4 rounded-lg bg-bg-primary-light dark:bg-bg-secondary-dark transition-all duration-300">
-                    <svg class="w-7 h-7 text-text-secondary-light dark:text-text-secondary-dark shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.75">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                    </svg>
-                    <div class="min-w-0">
-                        <div class="text-text-secondary-light dark:text-text-secondary-dark hover:text-text-primary-light dark:hover:text-text-primary-dark transition-colors duration-300 truncate">Email</div>
-                        <div class="text-sm text-text-tertiary-light dark:text-text-tertiary-dark truncate">1069263967@qq.com</div>
-                    </div>
-                </a>
 
-                
-                <div class="contact-link flex items-center gap-4 p-4 rounded-lg bg-bg-primary-light dark:bg-bg-secondary-dark transition-all duration-300">
-                
-                <i class="icon iconfont" style="font-size: 32px;">&#xe602;</i>
 
-                
-                <div class="min-w-0">
-                    <div class="text-text-secondary-light dark:text-text-secondary-dark hover:text-text-primary-light dark:hover:text-text-primary-dark transition-colors duration-300 truncate">Wechat</div>
-                    <div class="text-sm text-text-tertiary-light dark:text-text-tertiary-dark truncate">@shaunkyn</div>
-                </div>
-            </div>
-
-                
-                <a href="https://maimai.cn/contact/share/card?u=ffkc2wiqznao&amp;_share_channel=copy_link" target="_blank" class="contact-link flex items-center gap-4 p-4 rounded-lg bg-bg-primary-light dark:bg-bg-secondary-dark transition-all duration-300">
-                    <i class="icon iconfont" style="font-size: 24px;">&#xe601;</i>
-                    <div class="min-w-0">
-                        <div class="text-text-secondary-light dark:text-text-secondary-dark hover:text-text-primary-light dark:hover:text-text-primary-dark transition-colors duration-300 truncate">脉脉</div>
-                        <div class="text-sm text-text-tertiary-light dark:text-text-tertiary-dark truncate">@邓 尚青</div>
-                    </div>
-                </a>
-
-                
-                <div class="contact-link flex items-center gap-4 p-4 rounded-lg bg-bg-primary-light dark:bg-bg-secondary-dark transition-all duration-300">
-                
-                <i class="icon iconfont" style="font-size: 30px;">&#xe603;</i>
-
-                <div class="min-w-0">
-                    <div class="text-text-secondary-light dark:text-text-secondary-dark hover:text-text-primary-light dark:hover:text-text-primary-dark transition-colors duration-300 truncate">Tel</div>
-                    <div class="text-sm text-text-tertiary-light dark:text-text-tertiary-dark truncate">156****6991</div>
-                </div>
-            </div>
-
-                
-
-                
-            </div>
-    </div>
-    
-</div>
 
 <style>
-    .prose {
-        color: #4b5563;  
+    .card-arrow {
+        opacity: 0;
     }
-    html.dark .prose {
-        color: #9ca3af;  
+
+     
+    .lanyard-host {
+        opacity: 0;
+        transition: opacity 0.35s ease;
     }
-    .prose p {
-        color: #4b5563;  
-        margin-bottom: 1.5rem;  
-        line-height: 1.9;
+    .lanyard-host:has([data-ready]) {
+        opacity: 1;
     }
-    html.dark .prose p {
-        color: #9ca3af;  
-    }
-    
-    .contact-link {
-        position: relative;
-        overflow: hidden;
-        border: 1px solid #d1d5db;  
-    }
-    html.dark .contact-link {
-        border: 1px solid #4b5563;  
-    }
-    
-    .contact-link:hover {
-        border-color: #9ca3af;  
-        transform: translateY(-2px);
-    }
-    html.dark .contact-link:hover {
-        border-color: #6b7280;  
-    }
-    
-    @media (max-width: 768px) {
-        .contact-link {
-            width: 100%;
+     
+    @supports not selector(:has(*)) {
+        .lanyard-host {
+            opacity: 1;
         }
     }
 </style>
+
+
+<div class="contact-page">
+
+    
+    <div class="contact-cards">
+        
+        <a href="mailto:1069263967@qq.com"
+           class="contact-card group flex items-center gap-4 p-4 rounded-xl bg-bg-primary-light dark:bg-bg-secondary-dark border border-border-primary-light dark:border-border-primary-dark">
+            <span class="icon-box">
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <rect x="2.5" y="4.5" width="19" height="15" rx="2.5"/>
+                    <path d="m3.5 7.5 7.6 4.9a2 2 0 0 0 2.1 0l7.6-4.9"/>
+                </svg>
+            </span>
+            <span class="min-w-0 flex-1">
+                <span class="card-label">邮箱</span>
+                <span class="card-value break-all">1069263967@qq.com</span>
+            </span>
+            <svg class="card-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M7 17 17 7"/><path d="M9 7h8v8"/>
+            </svg>
+        </a>
+
+        
+        <button type="button" id="copy-wechat" data-wechat="shaunkyn"
+                class="contact-card group flex w-full items-center gap-4 p-4 rounded-xl bg-bg-primary-light dark:bg-bg-secondary-dark border border-border-primary-light dark:border-border-primary-dark text-left"
+                aria-label="复制微信号 shaunkyn">
+            <span class="icon-box">
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M14 9a2 2 0 0 1-2 2H6l-4 4V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2Z"/>
+                    <path d="M18 9h2a2 2 0 0 1 2 2v11l-4-4h-6a2 2 0 0 1-2-2v-1"/>
+                </svg>
+            </span>
+            <span class="min-w-0 flex-1">
+                <span class="card-label">微信</span>
+                <span class="card-value">@shaunkyn</span>
+            </span>
+            <span class="card-hint" data-copy-hint aria-live="polite">复制</span>
+        </button>
+
+        
+        <a href="https://maimai.cn/contact/share/card?u=ffkc2wiqznao&amp;_share_channel=copy_link" target="_blank" rel="noopener"
+           class="contact-card group flex items-center gap-4 p-4 rounded-xl bg-bg-primary-light dark:bg-bg-secondary-dark border border-border-primary-light dark:border-border-primary-dark">
+            <span class="icon-box">
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+                    <circle cx="9" cy="7" r="4"/>
+                    <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                </svg>
+            </span>
+            <span class="min-w-0 flex-1">
+                <span class="card-label">脉脉</span>
+                <span class="card-value">@邓尚青</span>
+            </span>
+            <svg class="card-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M7 17 17 7"/><path d="M9 7h8v8"/>
+            </svg>
+        </a>
+
+        
+        <a href="tel:15626226991"
+           class="contact-card group flex items-center gap-4 p-4 rounded-xl bg-bg-primary-light dark:bg-bg-secondary-dark border border-border-primary-light dark:border-border-primary-dark">
+            <span class="icon-box">
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M21 16.9v2.1a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 1.1 3.2 2 2 0 0 1 3.1 1h2.1a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L6.3 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.5 2.1Z"/>
+                </svg>
+            </span>
+            <span class="min-w-0 flex-1">
+                <span class="card-label">电话</span>
+                <span class="card-value">156****6991</span>
+            </span>
+            <svg class="card-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M7 17 17 7"/><path d="M9 7h8v8"/>
+            </svg>
+        </a>
+    </div>
+
+    
+    <div class="contact-lanyard">
+        <div class="lanyard-host">
+            <div data-lanyard
+                 data-theme="auto"
+                 data-orientation="portrait"
+                 data-size="0.42"
+                 data-anchor="right"
+                 data-strap-length="1"
+                 data-strap-color="#000000"
+                 data-strap-width="0.55"
+                 data-metal="silver"
+                 data-finish="glossy"
+                 data-corner-radius="0.2"
+                 data-gravity="1"
+                 data-damping="0.2"
+                 data-elasticity="0.2"
+                 data-breeze="0.65"
+                 data-interactive="true"
+                 data-intro="true"
+                 data-three-url="../../js/vendor/three.min.js"
+                 data-front-text="邓 尚青"
+                 data-front-sub="体验设计师"
+                 data-back-text="3hangq1ng"
+                 data-back-sub="shangqing.site"
+                 aria-label="我的工卡"></div>
+        </div>
+    </div>
+
+</div>
+
+<script src="../../js/lanyard.js" defer></script>
+
+<script>
+    (function () {
+        var button = document.getElementById('copy-wechat');
+        if (!button) return;
+        var hint = button.querySelector('[data-copy-hint]');
+        var restLabel = hint ? hint.textContent : '';
+        var timer = null;
+
+        function flash(message) {
+            if (!hint) return;
+            hint.textContent = message;
+            hint.classList.add('is-done');
+            window.clearTimeout(timer);
+            timer = window.setTimeout(function () {
+                hint.textContent = restLabel;
+                hint.classList.remove('is-done');
+            }, 1600);
+        }
+
+        function legacyCopy(value) {
+            var field = document.createElement('textarea');
+            field.value = value;
+            field.setAttribute('readonly', '');
+            field.style.position = 'fixed';
+            field.style.top = '-1000px';
+            document.body.appendChild(field);
+            field.select();
+            var ok = false;
+            try { ok = document.execCommand('copy'); } catch (e) { ok = false; }
+            document.body.removeChild(field);
+            flash(ok ? '已复制' : '复制失败');
+        }
+
+        button.addEventListener('click', function () {
+            var value = button.getAttribute('data-wechat') || '';
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(value).then(function () {
+                    flash('已复制');
+                }, function () {
+                    legacyCopy(value);
+                });
+            } else {
+                legacyCopy(value);
+            }
+        });
+    })();
+</script>
+
+<style>
+     
+    body.contact-viewport {
+        height: 100vh;
+        height: 100dvh;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+    }
+
+    body.contact-viewport > header,
+    body.contact-viewport > footer {
+        flex: none;
+    }
+
+    body.contact-viewport > main {
+        display: flex;
+        flex-direction: column;
+        flex: 1 1 auto;
+        min-height: 0;
+    }
+
+    body.contact-viewport > footer {
+        margin-top: 0;
+    }
+
+    .contact-page {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        align-items: center;
+        gap: clamp(1.5rem, 4vw, 4rem);
+        width: 100%;
+        max-width: 72rem;
+        margin: 0 auto;
+        padding: clamp(1rem, 3vh, 2.5rem) clamp(1rem, 3vw, 2.5rem);
+        flex: 1 1 auto;
+        min-height: 0;
+        overflow-y: auto;
+    }
+
+     
+    .contact-cards {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+         
+        max-width: 24rem;
+        width: 100%;
+        justify-self: end;
+    }
+
+    .contact-lanyard {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 0;
+        justify-self: start;
+        width: 100%;
+        height: 100%;
+    }
+
+     
+    @media (min-width: 901px) {
+        .contact-lanyard {
+            position: fixed;
+            inset: 0;
+            width: 100%;
+            height: 100vh;
+            height: 100dvh;
+            z-index: 0;
+            pointer-events: none;
+        }
+        .contact-lanyard .lanyard-host {
+            width: 100%;
+            height: 100%;
+            margin-top: 0;
+        }
+        .contact-lanyard canvas {
+            pointer-events: auto;
+        }
+         
+        .contact-cards {
+            position: relative;
+            z-index: 2;
+        }
+        body.contact-viewport > footer {
+            position: relative;
+            z-index: 1;
+        }
+    }
+
+     
+    @media (max-width: 900px) {
+        .contact-page {
+            grid-template-columns: minmax(0, 1fr);
+            align-content: start;
+            gap: 1rem;
+            padding-top: 1rem;
+        }
+        .contact-cards {
+            justify-self: center;
+            max-width: 26rem;
+        }
+        .contact-lanyard {
+            justify-self: center;
+            height: auto;
+        }
+    }
+
+    .contact-card {
+        transition: border-color 0.25s ease, transform 0.25s ease;
+    }
+    .contact-card:hover {
+        border-color: #a3a3a3;
+        transform: translateY(-2px);
+    }
+    html.dark .contact-card:hover {
+        border-color: #525252;
+    }
+    .contact-card:focus-visible {
+        outline: 2px solid #0284c7;
+        outline-offset: 3px;
+    }
+    html.dark .contact-card:focus-visible {
+        outline-color: #0ea5e9;
+    }
+
+    .icon-box {
+        display: grid;
+        place-items: center;
+        flex: none;
+        width: 2.5rem;
+        height: 2.5rem;
+        border-radius: 0.5rem;
+        color: #6b7280;
+        border: 1px solid #e5e5e5;
+    }
+    html.dark .icon-box {
+        color: #a3a3a3;
+        border-color: #333333;
+    }
+
+    .card-label {
+        display: block;
+        font-size: 0.75rem;
+        line-height: 1.25rem;
+        letter-spacing: 0.08em;
+        color: #6b7280;
+    }
+    html.dark .card-label {
+        color: #9ca3af;
+    }
+
+    .card-value {
+        display: block;
+        font-size: 0.9375rem;
+        line-height: 1.5rem;
+        font-weight: 500;
+        color: #1f2937;
+    }
+    html.dark .card-value {
+        color: #f5f5f5;
+    }
+
+    .card-arrow {
+        flex: none;
+        width: 1rem;
+        height: 1rem;
+        opacity: 0;
+        transition: opacity 0.25s ease;
+    }
+    .contact-card:hover .card-arrow,
+    .contact-card:focus-visible .card-arrow {
+        opacity: 0.6;
+    }
+
+    .card-hint {
+        flex: none;
+        font-size: 0.75rem;
+        letter-spacing: 0.05em;
+        color: #6b7280;
+        border: 1px solid #e5e5e5;
+        border-radius: 999px;
+        padding: 0.125rem 0.5rem;
+        transition: color 0.25s ease, border-color 0.25s ease;
+    }
+    html.dark .card-hint {
+        color: #9ca3af;
+        border-color: #333333;
+    }
+    .card-hint.is-done {
+        color: #0284c7;
+        border-color: #0284c7;
+    }
+</style>
+<script>
+    
+    if (document.querySelector('.contact-page')) {
+        document.body.classList.add('contact-viewport');
+    }
+</script>
 
         </main>
         
 <footer class="mt-32 text-center">
     <div class="max-w-3xl mx-auto">
-        <div class="border-t border-border-primary-light dark:border-border-primary-dark pt-5">
-            <div class="flex flex-col items-center justify-center gap-2">
-                                
-                <p class="text-text-secondary-light dark:text-text-secondary-dark text-xm ">© 2026 </p>
-                <p class="text-text-secondary-light dark:text-text-secondary-dark text-xm pb-12">部分图片来源于网络，版权归原作者所有。</p>
+        <div class="pt-2">
+            <div class="flex flex-col items-center justify-center gap-1">
+                
+                
+                <p class="text-text-secondary-light dark:text-text-secondary-dark text-sm">© 2026 邓 尚青</p>
+                <p class="text-text-secondary-light dark:text-text-secondary-dark text-sm pb-6">部分图片来源于网络，版权归原作者所有。</p>
             </div>
         </div>
     </div>
 </footer>
-
-<style>
-    .animated-link {
-        position: relative;
-        display: inline-flex;
-        align-items: center;
-    }
-    
-    .animated-link::after {
-        content: '';
-        position: absolute;
-        width: 0;
-        height: 1px;
-        bottom: -1px;
-        left: 0;
-        background-color: #0284c7;  
-        transition: width 0.3s ease-in-out;
-    }
-    
-    .animated-link:hover::after {
-        width: 100%;
-    }
-    html.dark .animated-link::after {
-        background-color: #0ea5e9;  
-    }
-</style> 
     </body>
-</html> 
+</html>

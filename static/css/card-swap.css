@@ -109,7 +109,7 @@
 
 .card-swap-title {
     overflow: hidden;
-    font-size: 15px;
+    font-size: 16px;
     font-weight: 600;
     line-height: 1.2;
     letter-spacing: -0.01em;
@@ -151,7 +151,7 @@
 .card-swap-note {
     flex: none;
     padding: 0 6px;
-    font-size: 12px;
+    font-size: 13px;
     line-height: 1.55;
     opacity: 0.72;
     display: -webkit-box;
@@ -170,7 +170,7 @@
     border-radius: 0.375rem;
     background: rgba(255, 255, 255, 0.92);
     color: #18181b;
-    font-size: 12px;
+    font-size: 13px;
     font-weight: 500;
     line-height: 1.2;
     text-decoration: none;
@@ -191,5 +191,6 @@
 .card-swap-host {
     position: relative;
     width: 100%;
-    height: clamp(360px, 52vh, 460px);
+    /* 卡片放大后，堆叠高度随之变高（3 张 + 纵深），需同步抬高峰值，否则会被 fit() 缩回去 */
+    height: clamp(390px, 58vh, 520px);
 }

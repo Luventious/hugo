@@ -1,62 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=&amp;path=livereload" data-no-instant defer></script>
+    <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>体验验收：以用户为中心的满意度评价体系 - Deng Shangqing</title>
+        <title>评价体系各级指标如何制定 - 3hangq1ng</title>
+
         
-        
-        <link rel="apple-touch-icon" sizes="180x180" href="../../../favicon_io/apple-touch-icon.png">
+        <link rel="icon" href="../../../favicon_io/favicon.svg" type="image/svg+xml">
         <link rel="icon" type="image/png" sizes="32x32" href="../../../favicon_io/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="16x16" href="../../../favicon_io/favicon-16x16.png">
-        <link rel="manifest" href="../../../favicon_io/site.webmanifest">        
-        <link rel="preload" href="https://cdn.tailwindcss.com" as="script">
-        <link rel="preload" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" as="style">            
+        <link rel="shortcut icon" href="../../../favicon_io/favicon.ico">
+        <link rel="apple-touch-icon" sizes="180x180" href="../../../favicon_io/apple-touch-icon.png">
+        <link rel="manifest" href="../../../favicon_io/site.webmanifest">
+        <meta name="theme-color" content="#121212">
+        <link rel="preload" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" as="style">
+
         <style>
+            html {
+                 
+                scrollbar-gutter: stable;
+            }
             html, body {
-                background-color: #FFFFFF; 
-                color: #1f2937; 
+                background-color: #FFFFFF;
+                color: #1f2937;
             }
             html.dark, html.dark body {
-                background-color: #121212; 
-                color: #f3f4f6; 
-            }
-            .border { 
-                border-color: #d4d4d8; 
-            }
-            html.dark .border {
-                border-color: #374151; 
-            }
-            .carousel-item {
-                display: inline-block;
-                margin: 0 1rem;
-            }            
-            .flex {
-                display: flex;
-            }
-            .flex-col {
-                flex-direction: column;
-            }
-            
-            @media (min-width: 768px) {
-                .md\:flex-row {
-                    flex-direction: row;
-                }
-            }
-            
-            .tech-carousel {
-                overflow: hidden;
-                width: 100%;
-                padding: 1rem 0;
-            }
-            
-            .carousel-track {
-                white-space: nowrap;
+                background-color: #121212;
+                color: #f3f4f6;
             }
         </style>
-        
-        <script src="https://cdn.tailwindcss.com"></script>
-        <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+
         <script>
             if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
                 document.documentElement.classList.add('dark');
@@ -64,50 +37,98 @@
                 document.documentElement.classList.remove('dark');
             }
         </script>
-        <style>
-            :root {
-                color-scheme: light dark;
-            }
+
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script>
             
-            .tech-icon {
-                filter: grayscale(100%) brightness(200%);
-                transition: all 0.3s ease;
-            }
-            .tech-icon:hover {
-                filter: none;
-            }
             
-            @keyframes scroll {
-                0% {
-                    transform: translateX(0);
-                }
-                100% {
-                    transform: translateX(-100%);
-                }
-            }
             
-            .tech-carousel {
-                width: 100%;
-                padding: 1rem 0;
-            }
-            
-            .tech-track {
-                width: fit-content;
-                animation: scroll 20s linear infinite;
-            }
-            
-            .tech-track:hover {
-                animation-play-state: paused;
-            }
-            
-            .tech-slide {
-                float: left;
-            }
-        </style>
+            tailwind.config = {
+                darkMode: 'class',
+                theme: {
+                    extend: {
+                        fontFamily: {
+                            sans: ['Space Grotesk', 'sans-serif'],
+                        },
+                        colors: {
+                            'bg-primary-light': '#ffffff',
+                            'bg-secondary-light': '#ffffff',
+                            'bg-tertiary-light': '#f5f5f5',
+                            'text-primary-light': '#262626',
+                            'text-secondary-light': '#525252',
+                            'text-tertiary-light': '#737373',
+                            'border-primary-light': '#d4d4d4',
+                            'border-secondary-light': '#e5e5e5',
+                            'accent-light': '#0284c7',
+
+                            'bg-primary-dark': '#121212',
+                            'bg-secondary-dark': '#1a1a1a',
+                            'bg-tertiary-dark': '#1a1a1a',
+                            'text-primary-dark': '#f5f5f5',
+                            'text-secondary-dark': '#a3a3a3',
+                            'text-tertiary-dark': '#737373',
+                            'border-primary-dark': '#404040',
+                            'border-secondary-dark': '#333333',
+                            'accent-dark': '#0ea5e9',
+                        },
+                    },
+                },
+            };
+        </script>
+        <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
     </head>
     <body class="min-h-screen bg-bg-primary-light dark:bg-bg-primary-dark text-text-primary-light dark:text-text-primary-dark">
+        <link rel="stylesheet" href="../../../css/flux-lines.css">
+
+
+
+  
+  
+
+<div class="flux-bg"
+     data-flux-lines
+     data-theme="auto"
+     data-colors="#ffffff,#ffffff,#ffffff"
+     data-speed="0.5"
+     data-scale="1.6"
+     data-turbulence="1"
+     data-fluidity="0.1"
+     data-rim-width="0.2"
+     data-sharpness="2.5"
+     data-shimmer="1.5"
+     data-glow="2"
+     data-line-width="1"
+     data-flow-direction="down"
+     data-opacity="0.55"
+     data-mouse-interaction="true"
+     data-click-swirl="true"
+     data-intro="true"
+     data-dpr="1.5"
+     data-min-width="0"
+     data-continuity="true"
+     aria-hidden="true"></div>
+
+
+<div class="flux-scrim" style="--scrim: 0.82" aria-hidden="true"></div>
+
+<script src="../../../js/flux-lines.js" defer></script>
         
 <head>
+    <style>
+@font-face {
+    font-family: 'Kiddo';
+    src: url(data:font/woff2;base64,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) format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: block;
+}
+
+ 
+.site-title-font {
+    font-family: 'Kiddo', 'Space Grotesk', sans-serif;
+    letter-spacing: 0.01em;
+}
+</style>
     
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-C0RTF18BT4"></script>
     <script>
@@ -163,36 +184,82 @@
         .language-active {
             font-weight: 600;
         }
+         
+        #mobile-menu {
+            --mobile-menu-solid: rgba(255, 255, 255, 0.97);
+        }
+        html.dark #mobile-menu {
+            --mobile-menu-solid: rgba(18, 18, 18, 0.97);
+        }
     </style>
 </head>
 <header class="py-6 relative">
     <div class="max-w-6xl mx-auto px-4">
         <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
             <div class="flex justify-between items-center">
-                <a href="../../../" class="text-xl font-bold text-text-primary-light dark:text-text-primary-dark hover:text-accent-light dark:hover:text-accent-dark transition-colors duration-300">
-                    Deng Shangqing
+                <a href="../../../" class="site-title-font text-2xl font-bold text-text-primary-light dark:text-text-primary-dark hover:text-accent-light dark:hover:text-accent-dark transition-colors duration-300">
+                    3hangq1ng
                 </a>
                 
-                <button id="mobile-menu-button" class="md:hidden text-text-secondary-light dark:text-text-secondary-dark hover:text-text-primary-light dark:hover:text-text-primary-dark focus:outline-none">
+                <button id="mobile-menu-button" aria-label="打开菜单" class="-mr-2 flex h-11 w-11 items-center justify-center rounded-md md:hidden text-text-secondary-light dark:text-text-secondary-dark hover:text-text-primary-light dark:hover:text-text-primary-dark focus:outline-none">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                     </svg>
                 </button>
             </div>            
             
-            <nav class="hidden md:flex flex-wrap justify-center items-center gap-4 md:gap-6">
+            <nav class="hidden md:flex flex-wrap justify-center items-center gap-1 md:gap-2">
                 
-                <a href="../../../" class="inline-block text-lg text-text-secondary-light dark:text-text-secondary-dark hover:text-text-primary-light dark:hover:text-text-primary-dark transition-colors duration-300 ">Home</a>
                 
-                <a href="../../../zh/experience/" class="inline-block text-lg text-text-secondary-light dark:text-text-secondary-dark hover:text-text-primary-light dark:hover:text-text-primary-dark transition-colors duration-300 ">Experience</a>
                 
-                <a href="../../../zh/projects/" class="inline-block text-lg text-text-secondary-light dark:text-text-secondary-dark hover:text-text-primary-light dark:hover:text-text-primary-dark transition-colors duration-300 ">Projects</a>
+                <a href="../../../" class="relative inline-block rounded-md px-3 py-1.5 text-lg transition-colors duration-300
+                    
+                        text-text-secondary-light dark:text-text-secondary-dark hover:text-text-primary-light dark:hover:text-text-primary-dark
+                    ">Home
+                    
+                </a>
                 
-                <a href="../../../zh/blogs/" class="inline-block text-lg text-text-secondary-light dark:text-text-secondary-dark hover:text-text-primary-light dark:hover:text-text-primary-dark transition-colors duration-300 ">Blogs</a>
                 
-                <a href="../../../zh/contact/" class="inline-block text-lg text-text-secondary-light dark:text-text-secondary-dark hover:text-text-primary-light dark:hover:text-text-primary-dark transition-colors duration-300 ">Contact</a>
+                <a href="../../../zh/blogs/" class="relative inline-block rounded-md px-3 py-1.5 text-lg transition-colors duration-300
+                    
+                        text-text-primary-light dark:text-text-primary-dark font-semibold
+                    ">Blogs
+                    
+                    <span aria-hidden="true" class="absolute inset-x-3 -bottom-0.5 h-[2px] rounded-full bg-neutral-900 dark:bg-white"></span>
+                    
+                </a>
                 
-                <a href="../../../zh/photography/" class="inline-block text-lg text-text-secondary-light dark:text-text-secondary-dark hover:text-text-primary-light dark:hover:text-text-primary-dark transition-colors duration-300 ">Photography</a>
+                
+                <a href="../../../zh/experience/" class="relative inline-block rounded-md px-3 py-1.5 text-lg transition-colors duration-300
+                    
+                        text-text-secondary-light dark:text-text-secondary-dark hover:text-text-primary-light dark:hover:text-text-primary-dark
+                    ">Experience
+                    
+                </a>
+                
+                
+                <a href="../../../zh/projects/" class="relative inline-block rounded-md px-3 py-1.5 text-lg transition-colors duration-300
+                    
+                        text-text-secondary-light dark:text-text-secondary-dark hover:text-text-primary-light dark:hover:text-text-primary-dark
+                    ">Projects
+                    
+                </a>
+                
+                
+                <a href="../../../zh/contact/" class="relative inline-block rounded-md px-3 py-1.5 text-lg transition-colors duration-300
+                    
+                        text-text-secondary-light dark:text-text-secondary-dark hover:text-text-primary-light dark:hover:text-text-primary-dark
+                    ">Contact
+                    
+                </a>
+                
+                
+                <a href="../../../zh/photography/" class="relative inline-block rounded-md px-3 py-1.5 text-lg transition-colors duration-300
+                    
+                        text-text-secondary-light dark:text-text-secondary-dark hover:text-text-primary-light dark:hover:text-text-primary-dark
+                    ">Lens
+                    
+                </a>
                 
             </nav>
             <div class="hidden md:flex justify-end items-center">
@@ -232,7 +299,7 @@
     </div>
 
     
-    <div id="mobile-menu" class="fixed inset-0 bg-bg-secondary-light dark:bg-bg-secondary-dark z-50 hidden transition-all duration-300 backdrop-blur-2xl">
+    <div id="mobile-menu" class="fixed inset-0 bg-bg-secondary-light dark:bg-bg-secondary-dark z-50 hidden transition-all duration-300 backdrop-blur-2xl" style="background-color: var(--mobile-menu-solid, rgba(255,255,255,0.96)); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);">
         <div class="flex flex-col h-full">
             <div class="flex justify-between items-center p-6">
                 <span class="text-xl font-bold text-text-primary-light dark:text-text-primary-dark">Menu</span>
@@ -277,15 +344,15 @@
                 
                 <a href="../../../" class="text-xl text-text-secondary-light dark:text-text-secondary-dark hover:text-text-primary-light dark:hover:text-text-primary-dark transition-colors duration-300 " data-menu-link>Home</a>
                 
+                <a href="../../../zh/blogs/" class="text-xl text-text-secondary-light dark:text-text-secondary-dark hover:text-text-primary-light dark:hover:text-text-primary-dark transition-colors duration-300 " data-menu-link>Blogs</a>
+                
                 <a href="../../../zh/experience/" class="text-xl text-text-secondary-light dark:text-text-secondary-dark hover:text-text-primary-light dark:hover:text-text-primary-dark transition-colors duration-300 " data-menu-link>Experience</a>
                 
                 <a href="../../../zh/projects/" class="text-xl text-text-secondary-light dark:text-text-secondary-dark hover:text-text-primary-light dark:hover:text-text-primary-dark transition-colors duration-300 " data-menu-link>Projects</a>
                 
-                <a href="../../../zh/blogs/" class="text-xl text-text-secondary-light dark:text-text-secondary-dark hover:text-text-primary-light dark:hover:text-text-primary-dark transition-colors duration-300 " data-menu-link>Blogs</a>
-                
                 <a href="../../../zh/contact/" class="text-xl text-text-secondary-light dark:text-text-secondary-dark hover:text-text-primary-light dark:hover:text-text-primary-dark transition-colors duration-300 " data-menu-link>Contact</a>
                 
-                <a href="../../../zh/photography/" class="text-xl text-text-secondary-light dark:text-text-secondary-dark hover:text-text-primary-light dark:hover:text-text-primary-dark transition-colors duration-300 " data-menu-link>Photography</a>
+                <a href="../../../zh/photography/" class="text-xl text-text-secondary-light dark:text-text-secondary-dark hover:text-text-primary-light dark:hover:text-text-primary-dark transition-colors duration-300 " data-menu-link>Lens</a>
                 
             </nav>
             <div class="mt-auto p-6">
@@ -434,7 +501,7 @@
         <h1 class="article-title text-3xl sm:text-4xl md:text-5xl lg:text-[clamp(2.5rem,5vw,3.5rem)] 
                    font-bold font-sans leading-tight
                    text-text-primary-light dark:text-text-primary-dark break-words">
-            体验验收：以用户为中心的满意度评价体系
+            评价体系各级指标如何制定
         </h1>
         <div class="article-title-line"></div>
     </div>
@@ -446,9 +513,9 @@
 
         
         
-        <time datetime="2025-01-03"
+        <time datetime="2025-11-03"
             class="text-sm tracking-widest uppercase font-medium">
-            2025.01.03
+            2025.11.03
         </time>
         
 
@@ -471,25 +538,34 @@
         <h2 id="概述">概述</h2>
 <p>传统合资车企在新能源浪潮下，很多流程和文化还是工程驱动，偏向“技术先行、研发导向”，用户体验体系还没真正落地。从油车时代到新能源时代，产品功能的复杂度发生了量级式的变化。面对功能量级的代际差距，必须建立以用户为中心的评价体系。只有打破工程导向的惯性思维，才能在新能源时代建立真正的用户体验竞争力。</p>
 <p>本项目旨在建立一套完整的用户体验测评体系，帮助传统车企从工程驱动转向用户驱动，实现产品开发理念的根本性转变。</p>
+<p><img src="../../../images/blogs/5/01-user-centered-fulcrum.png" alt="工程导向转向用户导向"></p>
+<p><em>把评价的支点，从工程参数挪到用户感受。</em></p>
 <h2 id="目标">目标</h2>
 <ul>
 <li>构建科学且系统的用户体验评价指标体系，为快速诊断和优化用户体验提供支撑。</li>
 </ul>
 <p>体验评价体系包含两个核心维度。首先是基础体验评估，针对已形成行业标准的功能模块，重点关注细节优化，确保达到行业基准水平。其次是差异化功能体验评估，针对产品定义阶段确立的独特卖点（USP），验证用户是否能够有效感知到预期传递的价值。</p>
+<p><img src="../../../images/blogs/5/02-two-layer-eyes.png" alt="基础体验与差异化体验的双层验收"></p>
+<p><em>基础体验对齐行业基准，差异化体验要真正被用户感知。</em></p>
 <p>在基础体验部分的评估工作中，最核心和关键的任务在于对产品功能进行科学合理的分类与系统化的拆解，通过建立完整的功能分类体系，从而确保测评工作能够覆盖所有重要的用户触点，保证整体评估的全面性和完整性。</p>
 <p>当前主流功能会按照域划分为“五大域”（或三大域）——动力域、底盘域、车身域、智能座舱域、自动驾驶域。</p>
 <p>因此体验指标的分类方法是也会参照功能域进行划分，例如智能座舱、智能驾驶、动力电池、底盘驾驶等等，这种分类方式往往也和公司的组织架构密切关联，因为完整的测评体系的落地需要内部各方的支持。</p>
-<p>![]<a href="http://cdn.jsdelivr.net/gh/Luventious/pic/20260115222439128.png">cdn.jsdelivr.net/gh/Luventious/pic/20260115222439128.png</a></p>
 <p>可以理解为</p>
 <p>一级指标：功能域</p>
 <p>二级指标：子场景或价值点</p>
 <p>三级指标：支撑二级指标的子功能</p>
+<p><img src="../../../images/blogs/5/03-three-level-lift.png" alt="功能域、子场景、子功能的三级指标拆解"></p>
+<p><em>用功能域、子场景、子功能三层，把测评对象拆到可验证的粒度。</em></p>
 <h3 id="评价维度">评价维度</h3>
 <p>评价三级指标（子功能）的维度可以以尼尔森十大可用性原则为基础进行发散，各个功能域可以按照不同的侧重点选取不同的评价原则，例如多屏交互需要重点关注”可控性“”状态可见性“等等</p>
 <h3 id="评分标准">评分标准</h3>
 <p>评分标准参考 CSAE 163.2-2023 汽车商品性主观评价方法</p>
+<p><img src="../../../images/blogs/5/04-nielsen-scoring-bench.png" alt="尼尔森原则与统一评分标准的评价台"></p>
+<p><em>以尼尔森原则选择评价维度，再用统一标准把判断落到分值。</em></p>
 <h3 id="落地关键持续迭代与全员协同"><strong>落地关键：持续迭代与全员协同</strong></h3>
 <p>一套完善的体验验收体系，绝非纸上谈兵的指标罗列，其核心生命力在于能否精准覆盖用户真实使用场景，而这离不开测评用例的持续补全与细节调整，这一过程必须扎根于实际测评场景中逐步推进。</p>
+<p><img src="../../../images/blogs/5/05-continuous-iteration-wheel.png" alt="真实场景、用例补全与全员协同的持续迭代闭环"></p>
+<p><em>真实场景、用例补全、全员协同，让验收变成持续旋转的闭环。</em></p>
 
     </div>
 </div>
@@ -563,40 +639,15 @@
         
 <footer class="mt-32 text-center">
     <div class="max-w-3xl mx-auto">
-        <div class="border-t border-border-primary-light dark:border-border-primary-dark pt-5">
-            <div class="flex flex-col items-center justify-center gap-2">
-                                
-                <p class="text-text-secondary-light dark:text-text-secondary-dark text-xm ">© 2026 </p>
-                <p class="text-text-secondary-light dark:text-text-secondary-dark text-xm pb-12">部分图片来源于网络，版权归原作者所有。</p>
+        <div class="pt-2">
+            <div class="flex flex-col items-center justify-center gap-1">
+                
+                
+                <p class="text-text-secondary-light dark:text-text-secondary-dark text-sm">© 2026 邓 尚青</p>
+                <p class="text-text-secondary-light dark:text-text-secondary-dark text-sm pb-6">部分图片来源于网络，版权归原作者所有。</p>
             </div>
         </div>
     </div>
 </footer>
-
-<style>
-    .animated-link {
-        position: relative;
-        display: inline-flex;
-        align-items: center;
-    }
-    
-    .animated-link::after {
-        content: '';
-        position: absolute;
-        width: 0;
-        height: 1px;
-        bottom: -1px;
-        left: 0;
-        background-color: #0284c7;  
-        transition: width 0.3s ease-in-out;
-    }
-    
-    .animated-link:hover::after {
-        width: 100%;
-    }
-    html.dark .animated-link::after {
-        background-color: #0ea5e9;  
-    }
-</style> 
     </body>
-</html> 
+</html>
