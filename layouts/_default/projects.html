@@ -3,7 +3,7 @@
     <div class="grid grid-cols-1 gap-6 md:gap-8 max-w-3xl mx-auto">
         {{ $projectsData := index site.Data .Language.Lang "projects" }}
         {{ range $projectsData.projects }}
-        <div class="project-card relative overflow-hidden rounded-lg bg-bg-primary-light dark:bg-bg-secondary-dark border border-border-primary-light dark:border-border-primary-dark transition-all duration-300 group">
+        <div class="project-card relative overflow-hidden bg-bg-primary-light dark:bg-bg-secondary-dark border border-border-primary-light dark:border-border-primary-dark transition-all duration-300 group">
             <div class="aspect-w-16 aspect-h-9 overflow-hidden relative">
                 <div class="absolute inset-0 bg-gradient-to-br from-accent-light/20 to-accent-light/20 dark:from-accent-dark/20 dark:to-accent-dark/20 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <img src="{{ .image }}" alt="{{ .title }}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
@@ -15,14 +15,14 @@
                     <div class="flex flex-wrap gap-1 md:gap-2 mb-1.5 md:mb-3">
                         {{ $techs := split .tech "," }}
                         {{ range $tech := $techs }}
-                        <span class="px-1.5 md:px-2 py-0.5 bg-neutral-700/30 backdrop-blur-sm rounded-md text-[10px] md:text-xs font-medium text-white">{{ $tech }}</span>
+                        <span class="project-badge px-1.5 md:px-2 py-0.5 bg-neutral-700/30 backdrop-blur-sm text-[10px] md:text-xs font-medium text-white">{{ $tech }}</span>
                         {{ end }}
                     </div>
                     <p class="hidden md:block text-sm text-white mb-3 line-clamp-3 md:line-clamp-4">{{ .description }}</p>
                     
                     <!-- Learn More button -->
-                    <a href="{{ .link }}" class="bg-white/90 dark:bg-white/90 backdrop-blur-sm hover:bg-white dark:hover:bg-white text-black dark:text-black text-xs md:text-sm font-medium py-2 md:py-1.5 px-3 md:px-3 rounded-md inline-flex items-center justify-center min-h-[40px] md:min-h-0 transition-all duration-300 transform opacity-100 md:opacity-0 group-hover:opacity-100 w-fit shadow-lg hover:shadow-xl">{{ T "learnMore" }}
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 ml-1 transform group-hover:translate-x-1 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <a href="{{ .link }}" class="project-cta bg-white/90 dark:bg-white/90 backdrop-blur-sm hover:bg-white dark:hover:bg-white text-black dark:text-black text-xs md:text-sm font-medium py-2 md:py-1.5 px-3 md:px-3 inline-flex items-center justify-center min-h-[40px] md:min-h-0 transition-all duration-300 transform opacity-100 md:opacity-0 group-hover:opacity-100 w-fit shadow-lg hover:shadow-xl">{{ T "learnMore" }}
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" class="h-3.5 w-3.5 ml-1 transform group-hover:translate-x-1 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                         </svg>
                     </a>

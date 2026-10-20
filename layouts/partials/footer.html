@@ -1,13 +1,9 @@
 <!-- Footer -->
-<footer class="mt-32 text-center">
-    <div class="max-w-3xl mx-auto">
-        <div class="pt-2">
-            <div class="flex flex-col items-center justify-center gap-1">
-                {{ $authorData := index site.Data .Language.Lang "author" }}
-                {{ $author := cond (and $authorData $authorData.author) $authorData.author site.Params }}
-                <p class="text-text-secondary-light dark:text-text-secondary-dark text-sm">© {{ now.Format "2006" }} {{ $author.name }}</p>
-                <p class="text-text-secondary-light dark:text-text-secondary-dark text-sm pb-6">部分图片来源于网络，版权归原作者所有。</p>
-            </div>
-        </div>
+<footer class="mt-16 text-center">
+    <div class="max-w-3xl mx-auto px-6 pb-10">
+        {{ $authorData := index site.Data .Language.Lang "author" }}
+        {{ $author := cond (and $authorData $authorData.author) $authorData.author site.Params }}
+        <p class="copyright mx-auto max-w-2xl text-xs leading-relaxed opacity-60
+                  text-text-tertiary-light dark:text-text-tertiary-dark">© {{ now.Format "2006" }} {{ $author.name }} 本站文字内容为原创，版权归作者所有；部分图片引自网络，版权归原作者所有，仅用于个人非商业展示。</p>
     </div>
 </footer>

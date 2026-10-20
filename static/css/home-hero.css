@@ -56,24 +56,30 @@ body > main {
 }
 
 /*
- * 全段统一字号（不分标题/正文），比原先加大一档。
- * 左对齐 + 稍宽行距，长文段落呼吸更足。
+ * 全段统一字号（不分标题/正文）。
+ * 文案短到四行，字号再抬一档让它撑住首屏；行距略收，避免四行之间过于松散。
  */
 .home-hero__text {
     margin: 0;
-    font-size: clamp(1.0625rem, 1.75vw, 1.375rem);
-    line-height: 2.05;
-    font-weight: 400;
+    font-size: clamp(1.125rem, 2vw, 1.625rem);
+    line-height: 1.85;
+    /* 半粗：比正文重一档，又不像 600 那么黑 */
+    font-weight: 500;
     letter-spacing: 0.012em;
     text-align: left;
     text-wrap: pretty;
 }
 
-/* 引子与论述之间换行，补一点空隙形成段落节奏 */
+/* 一句一行：换行本身即断句，只补一点空隙形成节奏 */
 .home-hero__text br {
     content: '';
     display: block;
-    margin-bottom: 0.4em;
+    margin-bottom: 0.28em;
+}
+
+/* 问候语与后面的自述之间再松一格，让第一句独立成引子 */
+.home-hero__text br:first-of-type {
+    margin-bottom: 0.7em;
 }
 
 /* 深色背景上文字需一点柔光保证可读性 */
@@ -108,8 +114,8 @@ html:not(.dark) .home-hero__text {
         padding-top: 8vh;
     }
     .home-hero__text {
-        font-size: clamp(0.9375rem, 1.55vw, 1.1875rem);
-        line-height: 1.92;
+        font-size: clamp(1rem, 1.7vw, 1.4375rem);
+        line-height: 1.75;
     }
 }
 
@@ -119,8 +125,8 @@ html:not(.dark) .home-hero__text {
         padding: 8vh 1.5rem 0 1.5rem;
     }
     .home-hero__text {
-        font-size: 1rem;
-        line-height: 1.95;
+        font-size: 1.0625rem;
+        line-height: 1.8;
         text-shadow: none;
     }
     html:not(.dark) .home-hero__text {

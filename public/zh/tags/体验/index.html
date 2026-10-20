@@ -28,6 +28,11 @@
                 background-color: #121212;
                 color: #f3f4f6;
             }
+             
+            #mobile-menu.hidden,
+            svg.hidden {
+                display: none;
+            }
         </style>
 
         <script>
@@ -76,6 +81,8 @@
             };
         </script>
         <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+        
+        <link rel="stylesheet" href="../../../css/radius.css">
     </head>
     <body class="min-h-screen bg-bg-primary-light dark:bg-bg-primary-dark text-text-primary-light dark:text-text-primary-dark">
         <link rel="stylesheet" href="../../../css/flux-lines.css">
@@ -202,7 +209,7 @@
                 </a>
                 
                 <button id="mobile-menu-button" aria-label="打开菜单" class="-mr-2 flex h-11 w-11 items-center justify-center rounded-md md:hidden text-text-secondary-light dark:text-text-secondary-dark hover:text-text-primary-light dark:hover:text-text-primary-dark focus:outline-none">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg class="w-6 h-6" width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                     </svg>
                 </button>
@@ -288,7 +295,7 @@
                   <svg id="theme-toggle-dark-icon-desktop" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5">
                     <path d="M21.7519 15.0021C20.597 15.484 19.3296 15.7501 18 15.7501C12.6152 15.7501 8.25 11.3849 8.25 6.00011C8.25 4.67052 8.51614 3.40308 8.99806 2.24817C5.47566 3.71798 3 7.19493 3 11.2501C3 16.6349 7.36522 21.0001 12.75 21.0001C16.8052 21.0001 20.2821 18.5245 21.7519 15.0021Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                   </svg>
-                  <svg id="theme-toggle-light-icon-desktop" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon" class="w-5 h-5 hidden">
+                  <svg id="theme-toggle-light-icon-desktop" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon" class="w-5 h-5 hidden">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"/>
                   </svg>
                 </button>
@@ -327,12 +334,12 @@
                       <svg id="theme-toggle-dark-icon-mobile" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5">
                         <path d="M21.7519 15.0021C20.597 15.484 19.3296 15.7501 18 15.7501C12.6152 15.7501 8.25 11.3849 8.25 6.00011C8.25 4.67052 8.51614 3.40308 8.99806 2.24817C5.47566 3.71798 3 7.19493 3 11.2501C3 16.6349 7.36522 21.0001 12.75 21.0001C16.8052 21.0001 20.2821 18.5245 21.7519 15.0021Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                       </svg>
-                      <svg id="theme-toggle-light-icon-mobile" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon" class="w-5 h-5 hidden">
+                      <svg id="theme-toggle-light-icon-mobile" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon" class="w-5 h-5 hidden">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"/>
                       </svg>
                     </button>
                     <button id="mobile-menu-close" class="text-text-secondary-light dark:text-text-secondary-dark hover:text-text-primary-light dark:hover:text-text-primary-dark transition-colors duration-300 focus:outline-none">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg class="w-6 h-6" width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                         </svg>
                     </button>
@@ -496,7 +503,7 @@
     <h1 class="text-4xl font-bold mb-8 text-text-primary-light dark:text-text-primary-dark">体验</h1>
     <div class="space-y-6">
         
-        <article class="rounded-lg p-6 bg-bg-primary-light dark:bg-bg-secondary-dark border border-border-primary-light dark:border-border-primary-dark">
+        <article class="index-card p-6 bg-bg-primary-light dark:bg-bg-secondary-dark border border-border-primary-light dark:border-border-primary-dark">
             <h2 class="text-2xl font-semibold mb-2 text-text-primary-light dark:text-text-primary-dark">
                 <a href="../../../zh/projects/%E6%95%B0%E5%AD%97%E5%8C%96%E5%B1%95%E8%BD%A6%E6%A8%A1%E5%BC%8F/" class="hover:text-accent-light dark:hover:text-accent-dark transition-colors">数字化展车模式体验设计</a>
             </h2>
@@ -510,17 +517,14 @@
 
         </main>
         
-<footer class="mt-32 text-center">
-    <div class="max-w-3xl mx-auto">
-        <div class="pt-2">
-            <div class="flex flex-col items-center justify-center gap-1">
-                
-                
-                <p class="text-text-secondary-light dark:text-text-secondary-dark text-sm">© 2026 邓 尚青</p>
-                <p class="text-text-secondary-light dark:text-text-secondary-dark text-sm pb-6">部分图片来源于网络，版权归原作者所有。</p>
-            </div>
-        </div>
+<footer class="mt-16 text-center">
+    <div class="max-w-3xl mx-auto px-6 pb-10">
+        
+        
+        <p class="copyright mx-auto max-w-2xl text-xs leading-relaxed opacity-60
+                  text-text-tertiary-light dark:text-text-tertiary-dark">© 2026 邓 尚青 本站文字内容为原创，版权归作者所有；部分图片引自网络，版权归原作者所有，仅用于个人非商业展示。</p>
     </div>
 </footer>
+
     </body>
 </html>

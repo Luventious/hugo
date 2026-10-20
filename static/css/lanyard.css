@@ -25,6 +25,8 @@
  */
 .lanyard-host {
     position: relative;
+    /* 首帧就位前不参与绘制，避免尺寸未定时闪出巨大贴图 */
+    visibility: hidden;
     width: 100%;
     /*
      * 高度贴合卡片：canvas 太高会让卡片显得又小又飘在上半部。

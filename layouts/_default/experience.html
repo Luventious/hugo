@@ -34,7 +34,7 @@
                                   text-text-secondary-light dark:text-text-secondary-dark
                                   hover:text-text-primary-light dark:hover:text-text-primary-dark
                                   bg-bg-tertiary-light dark:bg-bg-tertiary-dark
-                                  rounded-md
+                                  icon-button
                                   border border-border-secondary-light dark:border-border-secondary-dark
                                   hover:border-border-primary-light dark:hover:border-border-primary-dark
                                   transition-all">
@@ -52,7 +52,7 @@
                                   text-text-secondary-light dark:text-text-secondary-dark
                                   hover:text-text-primary-light dark:hover:text-text-primary-dark
                                   bg-bg-tertiary-light dark:bg-bg-tertiary-dark
-                                  rounded-md
+                                  icon-button
                                   border border-border-secondary-light dark:border-border-secondary-dark
                                   hover:border-border-primary-light dark:hover:border-border-primary-dark
                                   transition-all">
@@ -65,7 +65,7 @@
                                   text-text-secondary-light dark:text-text-secondary-dark
                                   hover:text-text-primary-light dark:hover:text-text-primary-dark
                                   bg-bg-tertiary-light dark:bg-bg-tertiary-dark
-                                  rounded-md
+                                  icon-button
                                   border border-border-secondary-light dark:border-border-secondary-dark
                                   hover:border-border-primary-light dark:hover:border-border-primary-dark
                                   transition-all">
@@ -111,7 +111,7 @@
         <h2 class="text-2xl font-semibold mb-6 text-text-primary-light dark:text-text-primary-dark">工作经历</h2>
         <div class="space-y-6">
             {{ range . }}
-            <div class="rounded-lg bg-bg-primary-light dark:bg-bg-secondary-dark border border-border-primary-light dark:border-border-primary-dark p-4 sm:p-6">
+            <div class="work-card bg-bg-primary-light dark:bg-bg-secondary-dark border border-border-primary-light dark:border-border-primary-dark p-4 sm:p-6">
                 {{ if .company }}
                 <div class="text-text-secondary-light dark:text-text-secondary-dark text-lg">
                     {{ if .company_link }}
@@ -176,15 +176,16 @@
                  data-theme="auto"
                  data-width="460"
                  data-height="340"
-                 data-card-distance="0"
-                 data-vertical-distance="54"
+                 data-card-distance="48"
+                 data-vertical-distance="0"
+                 data-exit-direction="right"
                  data-depth="120"
                  data-skew-amount="0"
                  data-visible-cards="3"
                  data-delay="4200"
                  data-bounce="0.3"
                  data-parallax="0.4"
-                 data-card-radius="14"
+                 data-card-radius="20"
                  data-aria-label="项目经历"></div>
         </div>
 

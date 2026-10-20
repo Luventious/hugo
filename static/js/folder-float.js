@@ -152,7 +152,8 @@
         if (physics) root.setAttribute('data-physics', '');
         root.style.setProperty('--ff-w', (opts.width == null ? 200 : opts.width) + 'px');
         root.style.setProperty('--ff-h', (opts.height == null ? 148 : opts.height) + 'px');
-        root.style.setProperty('--ff-r', (opts.radius == null ? 14 : opts.radius) + 'px');
+        /* 默认圆角取全站规范 md 档（短边 148 → 16px），可用 data-radius 覆盖 */
+        root.style.setProperty('--ff-r', (opts.radius == null ? 16 : opts.radius) + 'px');
         root.style.setProperty('--ff-back', colors.folder);
         root.style.setProperty('--ff-front', colors.front);
         root.style.setProperty('--ff-paper', colors.paper);

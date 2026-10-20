@@ -4,6 +4,8 @@
     position: relative;
     width: 100%;
     height: 100%;
+    /* 卡片向右退场时会越过舞台边界，裁掉以免撑出横向滚动条 */
+    overflow: hidden;
     outline: none;
     -webkit-tap-highlight-color: transparent;
 }
@@ -167,7 +169,7 @@
     align-self: flex-start;
     margin: 0 6px 2px;
     padding: 0.4rem 0.75rem;
-    border-radius: 0.375rem;
+    border-radius: var(--radius-xs);
     background: rgba(255, 255, 255, 0.92);
     color: #18181b;
     font-size: 13px;

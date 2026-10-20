@@ -1,0 +1,85 @@
+/*
+ * 全站圆角规范
+ * -------------
+ * 圆角随「卡片短边」递增，不做成同一个值：
+ * 小元素用小圆角，大块面用大圆角，视觉重量才平衡。
+ *
+ *   短边 ≤ 48px        →  8px   徽标、图标盒、卡内小按钮
+ *   48 – 110px         →  12px  联系卡、标签/分类卡、技术条目、内层媒体
+ *   110 – 220px        →  16px  博客卡、首页文件夹、About 条目
+ *   220 – 380px        →  20px  项目图卡、工作经历卡、CardSwap
+ *   短边 > 380 / 整块面板 → 24px  名片、About 分区面板
+ *   胶囊               →  999px 标签、chip
+ *
+ * 跨档时取最接近的一档；整块面板（与正文同宽的分区容器）
+ * 不按高度算，固定 24px —— 它们定义版块边界，不是可点击的卡片。
+ *
+ * 同心规则：卡片内再套图片/面板时，内层圆角要小于外层。
+ * 常规内层媒体取 sm（12px）；嵌得很深的小面（如文件夹里的纸）取 xs（8px）。
+ *
+ * 新组件请引用变量，不要再写字面量圆角。
+ */
+
+:root {
+    --radius-xs: 0.5rem;    /* 8px  */
+    --radius-sm: 0.75rem;   /* 12px */
+    --radius-md: 1rem;      /* 16px */
+    --radius-lg: 1.25rem;   /* 20px */
+    --radius-xl: 1.5rem;    /* 24px */
+    --radius-pill: 999px;
+}
+
+/* —— 列表卡（文章 / 标签 / 分类） —— */
+.blog-card {
+    border-radius: var(--radius-md);
+}
+
+.blog-card__cover {
+    border-radius: var(--radius-sm);
+}
+
+.blog-card__arrow {
+    border-radius: var(--radius-xs);
+}
+
+.index-card {
+    border-radius: var(--radius-md);
+}
+
+/* 标签/分类宫格：短边 78，同联系卡一档 */
+.term-card {
+    border-radius: var(--radius-sm);
+}
+
+/* —— 项目卡：16:9 大图，600×338 —— */
+.project-card {
+    border-radius: var(--radius-lg);
+}
+
+.project-card .project-badge,
+.project-card .project-cta {
+    border-radius: var(--radius-xs);
+}
+
+/* —— 联系卡：横向小卡 —— */
+.contact-card {
+    border-radius: var(--radius-sm);
+}
+
+/* —— 卡内图标按钮：40×40，落 xs 档 —— */
+.icon-button {
+    border-radius: var(--radius-xs);
+}
+
+/* —— 内容面板与条目 —— */
+.about-panel {
+    border-radius: var(--radius-xl);
+}
+
+.about-item {
+    border-radius: var(--radius-md);
+}
+
+.work-card {
+    border-radius: var(--radius-lg);
+}

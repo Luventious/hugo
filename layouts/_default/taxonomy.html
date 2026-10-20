@@ -3,7 +3,7 @@
     <h1 class="text-4xl font-bold mb-8 text-text-primary-light dark:text-text-primary-dark">{{ .Title }}</h1>
     <div class="space-y-6">
         {{ range .Pages }}
-        <article class="rounded-lg p-6 bg-bg-primary-light dark:bg-bg-secondary-dark border border-border-primary-light dark:border-border-primary-dark">
+        <article class="index-card p-6 bg-bg-primary-light dark:bg-bg-secondary-dark border border-border-primary-light dark:border-border-primary-dark">
             <h2 class="text-2xl font-semibold mb-2 text-text-primary-light dark:text-text-primary-dark">
                 <a href="{{ .RelPermalink }}" class="hover:text-accent-light dark:hover:text-accent-dark transition-colors">{{ .Title }}</a>
             </h2>

@@ -102,6 +102,8 @@
             bounce: clamp(opts.bounce == null ? 0.35 : opts.bounce, 0, 1),
             parallax: clamp(opts.parallax == null ? 0.5 : opts.parallax, 0, 1),
             hoverSpread: Math.max(0, opts.hoverSpread == null ? 0.12 : opts.hoverSpread),
+            /* 退场方向：默认向下（原版行为），可切成向右侧滑出 */
+            exitDirection: opts.exitDirection === 'right' ? { x: 1, y: 0 } : DOWN,
             dim: clamp(opts.dim == null ? 0.5 : opts.dim, 0, 1),
             radius: opts.cardRadius == null ? 18 : opts.cardRadius,
             intro: opts.intro !== false,
@@ -266,7 +268,9 @@
             }
             if (card.phase === 'enter') {
                 var b2 = slotOf(0);
-                return { x: b2.x, y: b2.y + clearance(DOWN) * 1.3, z: b2.z, r: 0, p: card.p };
+                var ex = settings.exitDirection;
+                var exReach = clearance(ex) * 1.3;
+                return { x: b2.x + ex.x * exReach, y: b2.y + ex.y * exReach, z: b2.z, r: 0, p: card.p };
             }
             var position = (time < card.hold ? card.from : card.pos) + card.nudge;
             return slotOf(Math.max(0, position));
@@ -437,7 +441,7 @@
                 state.order = state.order.slice(1).concat([front.index]);
                 settleOrder(time, stagger * 1000);
                 front.phase = 'exit';
-                front.dir = o.dir || DOWN;
+                front.dir = o.dir || settings.exitDirection;
                 front.tilt = o.tilt || 0;
                 front.top = ++state.layers;
                 front.under = false;
@@ -708,6 +712,7 @@
                 bounce: num('bounce'),
                 parallax: num('parallax'),
                 hoverSpread: num('hoverSpread'),
+                exitDirection: d.exitDirection,
                 dim: num('dim'),
                 cardRadius: num('cardRadius'),
                 intro: d.intro !== 'false',

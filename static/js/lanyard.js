@@ -46,9 +46,9 @@
     var BAND_BEND = [-0.95, -0.28, 0.28, 0.95];
 
     var FINISHES = {
-        glossy: { roughness: 0.42, metalness: 0, clearcoat: 1, clearcoatRoughness: 0.06 },
+        glossy: { roughness: 0.55, metalness: 0, clearcoat: 0.4, clearcoatRoughness: 0.28 },
         matte: { roughness: 0.85, metalness: 0, clearcoat: 0, clearcoatRoughness: 0.6 },
-        holographic: { roughness: 0.32, metalness: 0.25, clearcoat: 1, clearcoatRoughness: 0.05 },
+        holographic: { roughness: 0.4, metalness: 0.2, clearcoat: 0.6, clearcoatRoughness: 0.18 },
         metallic: { roughness: 0.36, metalness: 0.75, clearcoat: 0.5, clearcoatRoughness: 0.18 }
     };
 
@@ -178,7 +178,7 @@
             renderer.outputColorSpace = THREE.SRGBColorSpace;
             // r160 UMD 没有 NeutralToneMapping，用 ACES 近似
             renderer.toneMapping = THREE.ACESFilmicToneMapping;
-            renderer.toneMappingExposure = 1.1;
+            renderer.toneMappingExposure = 1.0;
 
             var canvas = renderer.domElement;
             canvas.className = 'lanyard-canvas';
@@ -188,13 +188,20 @@
 
             var anisotropy = Math.min(8, renderer.capabilities.getMaxAnisotropy());
             var scene = new THREE.Scene();
-            var camera = new THREE.PerspectiveCamera(FOV, 1, 0.1, 200);
-            var keyLight = new THREE.DirectionalLight(0xffffff, 2.2);
+            /* 近裁面从 0.1 提到 1：物体距相机约 20 个单位，抬高近裁面能明显改善深度精度 */
+            var camera = new THREE.PerspectiveCamera(FOV, 1, 1, 200);
+            /*
+             * 三点光收得很稳：主光只负责卡片的明暗面，补光抬一点暗部，
+             * 半球光给上下不同的环境色温。之前的强度 + 强高光会在卡面上
+             * 扫出一片流动的白斑，看起来像脏点。
+             */
+            var keyLight = new THREE.DirectionalLight(0xffffff, 1.5);
             keyLight.position.set(-2.5, 4, 6);
-            var fillLight = new THREE.DirectionalLight(0xffffff, 0.5);
+            var fillLight = new THREE.DirectionalLight(0xffffff, 0.42);
             fillLight.position.set(3, -1, 4);
-            var ambient = new THREE.AmbientLight(0xffffff, 0.65);
-            scene.add(keyLight, fillLight, ambient);
+            var ambient = new THREE.AmbientLight(0xffffff, 0.5);
+            var hemi = new THREE.HemisphereLight(0xffffff, 0x444444, 0.3);
+            scene.add(keyLight, fillLight, ambient, hemi);
 
             /* ---- 卡面绘制 ---- */
             var frontCanvas = document.createElement('canvas');
@@ -332,17 +339,24 @@
 
             /* ---- 材质 ---- */
             var finish = FINISHES[settings.finish] || FINISHES.glossy;
-            var frontMaterial = new THREE.MeshPhysicalMaterial({
+            /*
+             * 卡面是贴在挤出体前面的平面，和本体前盖几乎共面。
+             * 之前只偏移 0.0006，在相机 20 多个单位外已经超出深度缓冲精度，
+             * 摆动时会出现黑白条纹（看起来像「光影很乱」）。
+             * 这里用 polygonOffset 把卡面明确往前拉，避免 z-fighting。
+             */
+            var faceOffset = { polygonOffset: true, polygonOffsetFactor: -2, polygonOffsetUnits: -2 };
+            var frontMaterial = new THREE.MeshPhysicalMaterial(Object.assign({
                 map: frontTexture, roughness: finish.roughness, metalness: finish.metalness,
                 clearcoat: finish.clearcoat, clearcoatRoughness: finish.clearcoatRoughness
-            });
-            var backMaterial = new THREE.MeshPhysicalMaterial({
+            }, faceOffset));
+            var backMaterial = new THREE.MeshPhysicalMaterial(Object.assign({
                 map: backTexture, roughness: finish.roughness, metalness: finish.metalness,
                 clearcoat: finish.clearcoat, clearcoatRoughness: finish.clearcoatRoughness
-            });
+            }, faceOffset));
             var edgeMaterial = new THREE.MeshPhysicalMaterial({
-                color: new THREE.Color(colors.card), roughness: Math.min(finish.roughness, 0.35),
-                metalness: finish.metalness, clearcoat: 1, clearcoatRoughness: 0.08
+                color: new THREE.Color(colors.card), roughness: Math.min(finish.roughness, 0.5),
+                metalness: finish.metalness, clearcoat: 0.55, clearcoatRoughness: 0.22
             });
             var metalLook = METALS[settings.metal] || METALS.silver;
             var metalMaterial = new THREE.MeshStandardMaterial({
@@ -413,9 +427,9 @@
             var bodyMesh = new THREE.Mesh(geo.body, edgeMaterial);
             var frontMesh = new THREE.Mesh(geo.face, frontMaterial);
             var backMesh = new THREE.Mesh(geo.face.clone(), backMaterial);
-            frontMesh.position.z = THICKNESS / 2 + BEVEL + 0.0006;
+            frontMesh.position.z = THICKNESS / 2 + BEVEL + 0.002;
             backMesh.rotation.y = Math.PI;
-            backMesh.position.z = -(THICKNESS / 2 + BEVEL + 0.0006);
+            backMesh.position.z = -(THICKNESS / 2 + BEVEL + 0.002);
             var ring = new THREE.Mesh(new THREE.TorusGeometry(RING_RADIUS, RING_TUBE, 18, 72), metalMaterial);
             ring.position.set(0, layout.ringY, 0);
             ring.rotation.y = Math.PI / 2 - 0.7;
@@ -799,7 +813,13 @@
                  * CSS 里 .lanyard-host:not([data-ready]) 是 hidden，
                  * 防止 three.js 初始化期间出现空白画布或尺寸跳变的闪屏。
                  */
-                if (!root.hasAttribute('data-ready')) root.setAttribute('data-ready', '');
+                /*
+                 * 视图尺寸还没算出来时（首帧可能拿到 1×1）先不揭幕，
+                 * 否则整张卡会被按极小视口放大，出现「图标铺满全屏」的一帧。
+                 */
+                if (!root.hasAttribute('data-ready') && view.width > 40 && view.height > 40) {
+                    root.setAttribute('data-ready', '');
+                }
             }
 
             function tick(now) {

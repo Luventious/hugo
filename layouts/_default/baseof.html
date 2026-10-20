@@ -28,6 +28,15 @@
                 background-color: #121212;
                 color: #f3f4f6;
             }
+            /*
+             * Tailwind 由 CDN 在运行时生成样式，首帧可能早于它的样式表。
+             * 这里用原生 CSS 先把「靠 .hidden 藏起来」的节点钉死，避免刚进页面时
+             * 移动菜单 / 主题图标以未定尺寸展开闪一下。
+             */
+            #mobile-menu.hidden,
+            svg.hidden {
+                display: none;
+            }
         </style>
 
         <script>
@@ -76,6 +85,8 @@
             };
         </script>
         <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+        {{/* 全站圆角规范（按卡片短边分档） */}}
+        <link rel="stylesheet" href="{{ "css/radius.css" | relURL }}">
     </head>
     <body class="min-h-screen bg-bg-primary-light dark:bg-bg-primary-dark text-text-primary-light dark:text-text-primary-dark">
         {{ partial "flux-background.html" . }}

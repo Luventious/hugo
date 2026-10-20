@@ -3,7 +3,7 @@
 .folder-float {
     --ff-w: 200px;
     --ff-h: 148px;
-    --ff-r: 14px;
+    --ff-r: var(--radius-md);   /* 圆角规范：短边 148 → 16px */
     --ff-tab: 14px;
     --ff-back: #3f3f46;
     --ff-front: #52525b;
@@ -66,7 +66,7 @@
     right: 8%;
     left: 8%;
     height: 50%;
-    border-radius: 6px;
+    border-radius: var(--radius-xs);
     background: var(--ff-paper);
     opacity: 0;
     transform: translateY(10px);
@@ -162,7 +162,7 @@
     padding: 0 14px;
     height: 34px;
     border: 0;
-    border-radius: 17px;
+    border-radius: var(--radius-pill);
     background: var(--ff-item);
     color: var(--ff-item-ink);
     font: inherit;
