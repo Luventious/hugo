@@ -45,6 +45,18 @@
     var BAND_COLUMNS = [0, 0.07, 0.93, 1];
     var BAND_BEND = [-0.95, -0.28, 0.28, 0.95];
 
+    /*
+     * 窄屏断点，与 contact.html 里「单列 + 工卡在卡片下方」的媒体查询保持一致。
+     * 命中时允许用 data-*-mobile 覆盖尺寸 / 吊绳长度 / 悬挂位置，
+     * 桌面端完全不受影响。
+     */
+    var MOBILE_QUERY = '(max-width: 900px)';
+
+    function isNarrow() {
+        if (global.matchMedia) return global.matchMedia(MOBILE_QUERY).matches;
+        return global.innerWidth <= 900;
+    }
+
     var FINISHES = {
         glossy: { roughness: 0.55, metalness: 0, clearcoat: 0.4, clearcoatRoughness: 0.28 },
         matte: { roughness: 0.85, metalness: 0, clearcoat: 0, clearcoatRoughness: 0.6 },
@@ -127,6 +139,10 @@
             size: opts.size == null ? 0.6 : opts.size,
             anchor: opts.anchor || 'center',
             strapLength: opts.strapLength == null ? 0.5 : opts.strapLength,
+            // 窄屏可选覆盖：不填则沿用上面的桌面值
+            sizeMobile: opts.sizeMobile == null ? null : opts.sizeMobile,
+            anchorMobile: opts.anchorMobile || null,
+            strapLengthMobile: opts.strapLengthMobile == null ? null : opts.strapLengthMobile,
             strapColor: opts.strapColor || '#111111',
             strapWidth: opts.strapWidth == null ? 0.65 : opts.strapWidth,
             metal: opts.metal || 'silver',
@@ -783,8 +799,12 @@
             var visible = true;
 
             function frameView() {
+                var narrow = isNarrow();
+                var size = narrow && settings.sizeMobile != null ? settings.sizeMobile : settings.size;
+                var strap = narrow && settings.strapLengthMobile != null ? settings.strapLengthMobile : settings.strapLength;
+                var anchorKey = narrow && settings.anchorMobile ? settings.anchorMobile : settings.anchor;
                 var aspect = view.width / view.height;
-                var viewHeight = layout.height / clamp(settings.size, 0.15, 0.9);
+                var viewHeight = layout.height / clamp(size, 0.15, 0.9);
                 var minimumWidth = layout.width / 0.72;
                 if (viewHeight * aspect < minimumWidth) viewHeight = minimumWidth / aspect;
                 var viewWidth = viewHeight * aspect;
@@ -793,9 +813,9 @@
                 camera.lookAt(0, 0, 0);
                 camera.updateProjectionMatrix();
                 camera.updateMatrixWorld();
-                var anchorX = ((ANCHORS[settings.anchor] || 0.5) - 0.5) * viewWidth;
+                var anchorX = ((ANCHORS[anchorKey] || 0.5) - 0.5) * viewWidth;
                 var anchorY = viewHeight / 2 + 0.2;
-                var cardTop = viewHeight / 2 - viewHeight * mix(0.12, 0.42, clamp(settings.strapLength, 0, 1));
+                var cardTop = viewHeight / 2 - viewHeight * mix(0.12, 0.42, clamp(strap, 0, 1));
                 var hangTop = cardTop + (layout.hangY - layout.height / 2);
                 sim.anchor.set(anchorX, anchorY, 0);
                 configureSimulation(anchorY - hangTop);
@@ -1011,8 +1031,11 @@
                 finish: d.finish || 'glossy',
                 cornerRadius: num('cornerRadius'),
                 size: num('size'),
+                sizeMobile: num('sizeMobile'),
                 anchor: d.anchor || 'right',
+                anchorMobile: d.anchorMobile || null,
                 strapLength: num('strapLength'),
+                strapLengthMobile: num('strapLengthMobile'),
                 strapColor: d.strapColor || null,
                 strapWidth: num('strapWidth'),
                 metal: d.metal || 'silver',

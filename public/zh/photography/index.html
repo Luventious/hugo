@@ -24,6 +24,23 @@
                 background-color: #FFFFFF;
                 color: #1f2937;
             }
+             
+            body {
+                display: flex;
+                flex-direction: column;
+                min-height: 100vh;
+                min-height: 100dvh;
+            }
+            body > header {
+                flex: none;
+            }
+            body > main {
+                flex: 1 0 auto;
+                width: 100%;
+            }
+            body > footer {
+                flex: none;
+            }
             html.dark, html.dark body {
                 background-color: #121212;
                 color: #f3f4f6;
@@ -545,7 +562,7 @@
         
         
         <p class="copyright mx-auto max-w-2xl text-xs leading-relaxed opacity-60
-                  text-text-tertiary-light dark:text-text-tertiary-dark">© 2026 邓 尚青 本站文字内容为原创，版权归作者所有；部分图片引自网络，版权归原作者所有，仅用于个人非商业展示。</p>
+                  text-text-tertiary-light dark:text-text-tertiary-dark">© 2026 邓尚青 本站文字内容为原创，版权归作者所有；部分图片引自网络，版权归原作者所有，仅用于个人非商业展示</p>
     </div>
 </footer>
 

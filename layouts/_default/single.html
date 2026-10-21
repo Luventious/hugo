@@ -2,67 +2,126 @@
 <div class="min-h-screen w-full px-6 sm:px-6 md:px-8 lg:px-10 py-16 md:w-[85%] lg:w-[70%] xl:w-[65%] mx-auto">
 
     <!-- 标题 -->
-    <div class="max-w-[980px] mx-auto mb-10">
-        <h1 class="article-title text-3xl sm:text-4xl md:text-5xl lg:text-[clamp(2.5rem,5vw,3.5rem)] 
+    <div class="max-w-[980px] mx-auto mb-8">
+        <h1 class="article-title text-3xl sm:text-4xl md:text-5xl lg:text-[clamp(2.5rem,5vw,3.5rem)]
                    font-bold font-sans leading-tight
                    text-text-primary-light dark:text-text-primary-dark break-words">
             {{ .Title }}
         </h1>
-        <div class="article-title-line"></div>
     </div>
 
-    <!-- Meta -->
-    <div class="max-w-[980px] mx-auto mb-16
-                flex flex-col sm:flex-row sm:items-center sm:justify-between
+    <!-- Meta：日期 / 阅读时长 / 字数 / 标签 -->
+    <div class="max-w-[980px] mx-auto mb-10
+                flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between
                 text-text-secondary-light/80 dark:text-text-secondary-dark/80">
-
-        <!-- Date -->
-        {{ if .Date }}
-        <time datetime="{{ .Date.Format "2006-01-02" }}"
-            class="text-sm tracking-widest uppercase font-medium">
-            {{ .Date.Format "2006.01.02" }}
-        </time>
-        {{ end }}
-
-        <!-- Tags -->
-        <div class="flex flex-wrap gap-x-4 gap-y-2 mt-4 sm:mt-0
-                    text-sm font-light">
-            {{ range .Params.tags }}
-            <span class="opacity-70 hover:opacity-100 transition-opacity">
-                {{ . }}
-            </span>
+        <div class="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm tracking-wide">
+            {{ if .Date }}
+            {{ $charCount := len .Plain }}
+            {{ $mins := math.Max 1 (math.Div $charCount 300) }}
+            <time datetime="{{ .Date.Format "2006-01-02" }}" class="tracking-widest uppercase font-medium">
+                {{ .Date.Format "2006.01.02" }}
+            </time>
+            <span class="opacity-40">·</span>
+            <span>约 {{ $mins }} 分钟阅读</span>
+            <span class="opacity-40">·</span>
+            <span>{{ $charCount }} 字</span>
             {{ end }}
         </div>
+
+        {{ if .GetTerms "tags" }}
+        <div class="flex flex-wrap gap-2 sm:justify-end">
+            {{ range .GetTerms "tags" }}
+            <a href="{{ .RelPermalink }}"
+               class="post-tag px-2.5 py-1 text-xs rounded-full transition-colors">
+                {{ .LinkTitle }}
+            </a>
+            {{ end }}
+        </div>
+        {{ end }}
     </div>
 
+    <!-- 目录（有小标题时才显示） -->
+    {{ if gt (len .Fragments.Headings) 0 }}
+    <nav class="post-toc max-w-[980px] mx-auto mb-12 p-5 rounded-2xl border border-border-secondary-light dark:border-border-secondary-dark">
+        <p class="text-xs uppercase tracking-widest text-text-tertiary-light dark:text-text-tertiary-dark mb-3">目录</p>
+        {{ .TableOfContents }}
+    </nav>
+    {{ end }}
 
     <!-- 正文 -->
-    <div id="article-content" class="prose prose-slate prose-lg md:prose-xl 
-                max-w-[980px] mx-auto
+    <div id="article-content" class="max-w-[980px] mx-auto
                 text-text-primary-light/90 dark:text-text-primary-dark/90">
         {{ .Content }}
+    </div>
+
+    <!-- 分页导航：较新 / 较旧 -->
+    <nav class="max-w-[980px] mx-auto mt-20 pt-8 border-t border-border-secondary-light dark:border-border-secondary-dark
+                grid grid-cols-1 sm:grid-cols-2 gap-4">
+        {{ with .NextInSection }}
+        <a href="{{ .RelPermalink }}" class="post-nav-card group p-5 rounded-2xl border border-border-secondary-light dark:border-border-secondary-dark transition hover:-translate-y-0.5 hover:shadow-lg">
+            <span class="block text-xs uppercase tracking-widest text-text-tertiary-light dark:text-text-tertiary-dark mb-1">较新一篇</span>
+            <span class="font-semibold text-text-primary-light dark:text-text-primary-dark group-hover:text-accent-light dark:group-hover:text-accent-dark transition-colors line-clamp-1">{{ .Title }}</span>
+        </a>
+        {{ else }}
+        <span></span>
+        {{ end }}
+
+        {{ with .PrevInSection }}
+        <a href="{{ .RelPermalink }}" class="post-nav-card group p-5 rounded-2xl border border-border-secondary-light dark:border-border-secondary-dark transition hover:-translate-y-0.5 hover:shadow-lg sm:text-right">
+            <span class="block text-xs uppercase tracking-widest text-text-tertiary-light dark:text-text-tertiary-dark mb-1">较旧一篇</span>
+            <span class="font-semibold text-text-primary-light dark:text-text-primary-dark group-hover:text-accent-light dark:group-hover:text-accent-dark transition-colors line-clamp-1">{{ .Title }}</span>
+        </a>
+        {{ end }}
+    </nav>
+
+    <div class="max-w-[980px] mx-auto mt-6 text-center">
+        <a href="{{ "zh/blogs/" | relURL }}" class="text-sm text-text-secondary-light dark:text-text-secondary-dark hover:text-accent-light dark:hover:text-accent-dark transition-colors">← 返回博客列表</a>
     </div>
 </div>
 
 <style>
-/* ===== ISUX Title ===== */
+/* ===== 标题（纯留白，无装饰线） ===== */
 .article-title {
-    margin-bottom: 2.2rem !important;
-}
-.article-title-line {
-    width: 64px;
-    height: 3px;
-    background: currentColor;
-    opacity: .4;
+    margin-bottom: 0 !important;
 }
 
-/* ===== ISUX Paragraph Rhythm ===== */
+/* ===== Meta 标签胶囊 ===== */
+.post-tag {
+    background: var(--bg-tertiary, #f5f5f5);
+    color: #525252;
+    border: 1px solid #e5e5e5;
+}
+html.dark .post-tag {
+    background: #1a1a1a;
+    color: #a3a3a3;
+    border-color: #333;
+}
+.post-tag:hover {
+    color: #0284c7 !important;
+    border-color: #0284c7;
+}
+html.dark .post-tag:hover {
+    color: #0ea5e9 !important;
+    border-color: #0ea5e9;
+}
+
+/* ===== 目录 ===== */
+.post-toc ul { list-style: none; padding-left: 1rem; margin: 0; }
+.post-toc li { margin: .4rem 0; font-size: .9rem; }
+.post-toc a { color: #525252; text-decoration: none; }
+html.dark .post-toc a { color: #a3a3a3; }
+.post-toc a:hover { color: #0284c7; }
+html.dark .post-toc a:hover { color: #0ea5e9; }
+.post-toc ul ul { padding-left: 1.2rem; }
+
+/* ===== 正文段落节奏 ===== */
 #article-content p {
     margin: 1.6rem 0 !important;
     line-height: 1.85 !important;
 }
 
-/* ===== ISUX Chapter Title ===== */
+/* ===== 标题层级（h1 为正文误用兜底，h2/h3/h4 分级） ===== */
+#article-content h1,
 #article-content h2 {
     font-size: 2rem !important;
     font-weight: 600 !important;
@@ -70,42 +129,143 @@
     margin-bottom: 1.2rem !important;
     padding-bottom: .6rem;
     border-bottom: 1px solid rgba(0,0,0,.08);
+    line-height: 1.35;
 }
-.dark #article-content h2 {
+html.dark #article-content h1,
+html.dark #article-content h2 {
     border-bottom-color: rgba(255,255,255,.15);
 }
-
-/* ===== ISUX Sub Section ===== */
 #article-content h3 {
     font-size: 1.4rem !important;
     font-weight: 600 !important;
     margin-top: 3rem !important;
     margin-bottom: .8rem !important;
+    line-height: 1.4;
+}
+#article-content h4 {
+    font-size: 1.15rem !important;
+    font-weight: 600 !important;
+    margin-top: 2.2rem !important;
+    margin-bottom: .6rem !important;
 }
 
-/* ===== Images ===== */
+/* ===== 列表 ===== */
+#article-content ol,
+#article-content ul {
+    margin: 1.6rem 0 !important;
+    padding-left: 1.8rem !important;
+    line-height: 1.85;
+}
+#article-content ol { list-style: decimal; }
+#article-content ul { list-style: disc; }
+#article-content li { margin: .55rem 0; }
+#article-content ol ol,
+#article-content ul ul,
+#article-content ol ul,
+#article-content ul ol { margin: .4rem 0 !important; }
+#article-content ol ol { list-style: lower-alpha; }
+#article-content ul ul { list-style: circle; }
+
+/* ===== 链接 ===== */
+#article-content a {
+    color: #0284c7;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-color: rgba(2,132,199,.35);
+    transition: color .2s, text-decoration-color .2s;
+    word-break: break-word;
+}
+html.dark #article-content a {
+    color: #0ea5e9;
+    text-decoration-color: rgba(14,165,233,.35);
+}
+#article-content a:hover { text-decoration-color: currentColor; }
+
+/* ===== 行内代码 / 代码块 ===== */
+#article-content code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: .875em;
+    background: rgba(127,127,127,.12);
+    padding: .15em .4em;
+    border-radius: 6px;
+}
+html.dark #article-content code { background: rgba(255,255,255,.1); }
+#article-content pre {
+    margin: 2rem 0 !important;
+    padding: 1.2rem 1.4rem;
+    background: #1f2937;
+    color: #e5e7eb;
+    border-radius: 16px;
+    overflow-x: auto;
+    line-height: 1.7;
+}
+#article-content pre code {
+    background: transparent;
+    padding: 0;
+    font-size: .85rem;
+    color: inherit;
+    border-radius: 0;
+}
+
+/* ===== 图片 ===== */
 #article-content img {
-    margin: 3.5rem auto !important;
+    margin: 3rem auto !important;
+    display: block;
+    max-width: 100%;
+    border-radius: 16px;
+    border: 1px solid rgba(127,127,127,.18);
 }
+/* 图片后的斜体图注居中小字 */
+#article-content p:has(> em:only-child) {
+    text-align: center;
+    font-size: .85rem;
+    color: #737373;
+}
+html.dark #article-content p:has(> em:only-child) { color: #737373; }
 
-/* ===== Blockquote ===== */
+/* ===== 引用 ===== */
 #article-content blockquote {
-    margin: 3.5rem 0 !important;
-    padding-left: 1.2rem;
+    margin: 3rem 0 !important;
+    padding: 1rem 1.4rem;
     border-left: 3px solid rgba(0,0,0,.15);
+    background: rgba(127,127,127,.06);
+    border-radius: 0 12px 12px 0;
+    color: #525252;
 }
-.dark #article-content blockquote {
+html.dark #article-content blockquote {
     border-left-color: rgba(255,255,255,.25);
+    background: rgba(255,255,255,.04);
+    color: #a3a3a3;
 }
 
-/* ===== Mobile ===== */
+/* ===== 表格 ===== */
+#article-content table {
+    width: 100%;
+    margin: 2rem 0;
+    border-collapse: collapse;
+    font-size: .92rem;
+    display: block;
+    overflow-x: auto;
+}
+#article-content th,
+#article-content td {
+    border: 1px solid #e5e5e5;
+    padding: .7rem 1rem;
+    text-align: left;
+}
+html.dark #article-content th,
+html.dark #article-content td { border-color: #333; }
+#article-content th { font-weight: 600; background: rgba(127,127,127,.08); }
+
+/* ===== 移动端 ===== */
 @media (max-width: 768px) {
     .max-w-\[980px\] {
         max-width: 100% !important;
         margin-left: 0 !important;
         margin-right: 0 !important;
     }
+    #article-content h1,
+    #article-content h2 { font-size: 1.6rem !important; margin-top: 3rem !important; }
 }
-
 </style>
 {{ end }}

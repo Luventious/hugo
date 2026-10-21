@@ -24,6 +24,27 @@
                 background-color: #FFFFFF;
                 color: #1f2937;
             }
+            /*
+             * 页脚贴底：内容不足一屏时（如项目页只有两张卡），
+             * 让 main 撑满剩余高度，版权信息始终落在页面最下方，
+             * 而不是紧随内容、下方留一片空白。
+             */
+            body {
+                display: flex;
+                flex-direction: column;
+                min-height: 100vh;
+                min-height: 100dvh;
+            }
+            body > header {
+                flex: none;
+            }
+            body > main {
+                flex: 1 0 auto;
+                width: 100%;
+            }
+            body > footer {
+                flex: none;
+            }
             html.dark, html.dark body {
                 background-color: #121212;
                 color: #f3f4f6;
