@@ -1,8 +1,10 @@
-{{ define "main" }}
-<link rel="stylesheet" href="{{ "css/scrambled-text.css" | relURL }}">
-<link rel="stylesheet" href="{{ "css/home-hero.css" | relURL }}">
-<link rel="stylesheet" href="{{ "css/folder-float.css" | relURL }}">
+{{ define "head" }}
+{{ partial "stylesheets.html" (dict "name" "home" "files" (slice "scrambled-text" "home-hero" "folder-float")) }}
+<script src="{{ "js/scrambled-text.js" | relURL }}" defer></script>
+<script src="{{ "js/folder-float.js" | relURL }}" defer></script>
+{{ end }}
 
+{{ define "main" }}
 {{/*
     首页主视觉文案（用户提供的原文，一整段统一字号）
     四行一句一行，用 <br> 断行；打散效果仍作用在每个字上。
@@ -40,7 +42,4 @@
          data-height="148"
          data-drift="0.5"></div>
 </div>
-
-<script src="{{ "js/scrambled-text.js" | relURL }}" defer></script>
-<script src="{{ "js/folder-float.js" | relURL }}" defer></script>
 {{ end }}

@@ -1,3 +1,7 @@
+{{ define "head" }}
+{{ partial "stylesheets.html" (dict "name" "projects" "files" (slice "projects")) }}
+{{ end }}
+
 {{ define "main" }}
 <div class="w-full md:w-3/4 lg:w-1/2 mx-auto px-4 py-12">
     <div class="grid grid-cols-1 gap-6 md:gap-8 max-w-3xl mx-auto">
@@ -6,7 +10,7 @@
         <div class="project-card relative overflow-hidden bg-bg-primary-light dark:bg-bg-secondary-dark border border-border-primary-light dark:border-border-primary-dark transition-all duration-300 group">
             <div class="aspect-w-16 aspect-h-9 overflow-hidden relative">
                 <div class="absolute inset-0 bg-gradient-to-br from-accent-light/20 to-accent-light/20 dark:from-accent-dark/20 dark:to-accent-dark/20 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <img src="{{ .image }}" alt="{{ .title }}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                <img src="{{ .image }}" alt="{{ .title }}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy" decoding="async">
                 <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent opacity-60 z-20"></div>
                 
                 <!-- Content that moves up on hover -->
@@ -32,53 +36,4 @@
         {{ end }}
     </div>
 </div>
-
-<style>
-.project-card {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    /* Use Tailwind theme variables for more modular approach */
-    @apply bg-bg-primary-light dark:bg-bg-secondary-dark;
-    backdrop-filter: blur(10px);
-}
-
-.project-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
-    border-color: rgba(2, 132, 199, 0.5); /* accent-light with alpha */
-}
-html.dark .project-card:hover {
-    border-color: rgba(14, 165, 233, 0.5); /* accent-dark with alpha */
-}
-
-.aspect-w-16 {
-    position: relative;
-    padding-bottom: 56.25%;
-}
-
-.aspect-w-16 > img {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    object-fit: cover;
-    filter: saturate(1.1) contrast(1.1);
-}
-
-@media (max-width: 768px) {
-    .project-card:hover {
-        transform: none;
-    }
-    
-    .project-card .group-hover\:translate-y-\[-20px\] {
-        transform: translateY(-10px);
-    }
-}
-</style>
-{{ end }} 
+{{ end }}

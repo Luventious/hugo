@@ -994,10 +994,6 @@
     }
 
     InfiniteMenu.autoInit = function () {
-        // Lens 页需要把窗口锁一屏（不滚动），只在该页生效
-        if (document.querySelector('.lens-page')) {
-            document.body.classList.add('lens-viewport');
-        }
         var nodes = document.querySelectorAll('[data-infinite-menu]');
         Array.prototype.forEach.call(nodes, function (node) {
             if (node.__infiniteMenu) return;

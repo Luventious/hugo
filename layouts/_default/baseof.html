@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ site.Language.LanguageCode | default "zh-CN" }}">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} - {{ .Site.Title }}{{ end }}</title>
+        <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }} - {{ site.Title }}{{ end }}</title>
+        {{ with (.Description | default site.Params.description) }}
+        <meta name="description" content="{{ . }}">
+        {{ end }}
 
-        <!-- Favicon: SVG 优先（现代浏览器，最清晰），PNG/ICO 兜底 -->
         <link rel="icon" href="{{ "favicon_io/favicon.svg" | relURL }}" type="image/svg+xml">
         <link rel="icon" type="image/png" sizes="32x32" href="{{ "favicon_io/favicon-32x32.png" | relURL }}">
         <link rel="icon" type="image/png" sizes="16x16" href="{{ "favicon_io/favicon-16x16.png" | relURL }}">
@@ -13,52 +15,8 @@
         <link rel="apple-touch-icon" sizes="180x180" href="{{ "favicon_io/apple-touch-icon.png" | relURL }}">
         <link rel="manifest" href="{{ "favicon_io/site.webmanifest" | relURL }}">
         <meta name="theme-color" content="#121212">
-        <link rel="preload" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" as="style">
 
-        <style>
-            html {
-                /* 固定滚动条占位，避免切换页面时内容左右跳动 */
-                scrollbar-gutter: stable;
-            }
-            html, body {
-                background-color: #FFFFFF;
-                color: #1f2937;
-            }
-            /*
-             * 页脚贴底：内容不足一屏时（如项目页只有两张卡），
-             * 让 main 撑满剩余高度，版权信息始终落在页面最下方，
-             * 而不是紧随内容、下方留一片空白。
-             */
-            body {
-                display: flex;
-                flex-direction: column;
-                min-height: 100vh;
-                min-height: 100dvh;
-            }
-            body > header {
-                flex: none;
-            }
-            body > main {
-                flex: 1 0 auto;
-                width: 100%;
-            }
-            body > footer {
-                flex: none;
-            }
-            html.dark, html.dark body {
-                background-color: #121212;
-                color: #f3f4f6;
-            }
-            /*
-             * Tailwind 由 CDN 在运行时生成样式，首帧可能早于它的样式表。
-             * 这里用原生 CSS 先把「靠 .hidden 藏起来」的节点钉死，避免刚进页面时
-             * 移动菜单 / 主题图标以未定尺寸展开闪一下。
-             */
-            #mobile-menu.hidden,
-            svg.hidden {
-                display: none;
-            }
-        </style>
+        {{ partial "stylesheets.html" (dict "name" "base" "files" (slice "base")) }}
 
         <script>
             if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
@@ -68,11 +26,22 @@
             }
         </script>
 
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://at.alicdn.com/t/c/font_5100679_haewyos83fu.css">
+        <link href="https://cdn.jsdelivr.net/npm/remixicon@4.8.0/fonts/remixicon.css" rel="stylesheet">
+
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-C0RTF18BT4"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() { dataLayer.push(arguments); }
+            gtag('js', new Date());
+            gtag('config', 'G-C0RTF18BT4');
+        </script>
+
         <script src="https://cdn.tailwindcss.com"></script>
         <script>
-            // 与 themes/hugo-noir/tailwind.config.js 保持一致。
-            // 缺了这段配置，bg-bg-secondary-*、text-text-secondary-*、border-border-primary-*
-            // 等自定义色板不会被生成，dark: 变体也只会跟随系统而不是站内开关。
             tailwind.config = {
                 darkMode: 'class',
                 theme: {
@@ -105,11 +74,13 @@
                 },
             };
         </script>
-        <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
-        {{/* 全站圆角规范（按卡片短边分档） */}}
-        <link rel="stylesheet" href="{{ "css/radius.css" | relURL }}">
+
+        {{ partial "stylesheets.html" (dict "name" "global" "files" (slice "radius" "flux-lines" "header")) }}
+        {{ partial "kiddo-font.html" . }}
+        {{ block "head" . }}{{ end }}
+        <script src="{{ "js/site.js" | relURL }}" defer></script>
     </head>
-    <body class="min-h-screen bg-bg-primary-light dark:bg-bg-primary-dark text-text-primary-light dark:text-text-primary-dark">
+    <body class="min-h-screen bg-bg-primary-light text-text-primary-light dark:bg-bg-primary-dark dark:text-text-primary-dark{{ if eq .Params.layout "contact" }} contact-viewport{{ else if eq .Params.layout "photography" }} lens-viewport{{ end }}">
         {{ partial "flux-background.html" . }}
         {{ partial "header" . }}
         <main>

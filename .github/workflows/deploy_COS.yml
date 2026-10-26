@@ -3,94 +3,27 @@ name: Deploy Hugo to Tencent COS
 on:
   push:
     branches:
-      - main  # 只在此分支推送时触发
+      - main
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    
+
     steps:
-      # 1. 拉取代码
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          submodules: false  # 如果主题是 submodule 引入，必须开启
           fetch-depth: 0
-          
-      # 2. 安装 Python（用于日期格式标准化）
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.11'
-      
-      # 3. 批量修复 Hugo front matter 中的 date 字段格式
-      - name: Fix Hugo Date Formats to RFC3339
-        run: |
-          python3 <<'EOF'
-          import os
-          import re
 
-          folder = "content"
-          for root, dirs, files in os.walk(folder):
-              for file in files:
-                  if not file.endswith(".md"):
-                      continue
-                  path = os.path.join(root, file)
-                  with open(path, "r", encoding="utf-8") as f:
-                      content = f.read()
-
-                  def fix_date(match):
-                      prefix = match.group(1)  # "date: "
-                      y = int(match.group(2))
-                      m = int(match.group(3))
-                      d = int(match.group(4))
-                      H = int(match.group(5))
-                      M = int(match.group(6))
-                      S = int(match.group(7))
-                      
-                      # 时区原始字符串，如 "+08:00", "+8:00", "08:00", "+0800"
-                      tz_raw = match.group(8).strip()
-                      
-                      # 提取时区符号
-                      if tz_raw.startswith('+') or tz_raw.startswith('-'):
-                          tz_sign = tz_raw[0]
-                          tz_body = tz_raw[1:]
-                      else:
-                          # 无符号默认设为 +（适用于中国时区）
-                          tz_sign = '+'
-                          tz_body = tz_raw
-                      
-                      # 标准化时区：移除冒号 → 补零为4位 → 格式化为 +HH:MM
-                      tz_digits = tz_body.replace(':', '').zfill(4)
-                      tz_h = int(tz_digits[:2])
-                      tz_m = int(tz_digits[2:])
-                      
-                      # 返回标准 RFC3339 格式（25 字符固定长度）
-                      return f"{prefix}{y:04d}-{m:02d}-{d:02d}T{H:02d}:{M:02d}:{S:02d}{tz_sign}{tz_h:02d}:{tz_m:02d}"
-
-                  # 正则匹配多种错误格式变体：
-                  # ① 2025-1-3T8:0:0+8:00   ② 2025-01-03 08:00:00 08:00  
-                  # ③ 2025-01-03T08:00:00+8:00  ④ 2025-01-03T8:00:00+08:00
-                  pattern = r"(date:\s*)(\d{4})-(\d{1,2})-(\d{1,2})[ T](\d{1,2}):(\d{1,2}):(\d{1,2})\s*([+-]?\d{1,2}:?\d{2})"
-                  
-                  content_new = re.sub(pattern, fix_date, content)
-
-                  with open(path, "w", encoding="utf-8") as f:
-                      f.write(content_new)
-          EOF
-
-      # 4. 安装 Hugo
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3
         with:
-          hugo-version: 'latest'
-          extended: true  # 大多数新主题需要 extended 版本
+          hugo-version: "0.154.2"
+          extended: true
 
-      # 5. 编译静态文件
       - name: Build
         run: hugo --minify --baseURL https://shangqing.site/
 
-      # 6. 部署到腾讯云 COS
       - name: Deploy to COS
         uses: zkqiang/tencent-cos-action@v0.1.0
         with:

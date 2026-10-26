@@ -1,38 +1,13 @@
+{{ define "head" }}
+{{ partial "stylesheets.html" (dict "name" "contact" "files" (slice "lanyard" "contact")) }}
+<script src="{{ "js/lanyard.js" | relURL }}" defer></script>
+<script src="{{ "js/contact.js" | relURL }}" defer></script>
+{{ end }}
+
 {{ define "main" }}
-<link rel="stylesheet" href="{{ "css/lanyard.css" | relURL }}">
 {{ $authorData := index site.Data .Language.Lang "author" }}
 {{ $author := cond (and $authorData $authorData.author) $authorData.author site.Params }}
-{{ $tel := replace .Site.Params.Tel " " "" }}
-
-{{/*
-    防闪屏：把「初始不可见」的样式提前到元素之前。
-    .card-arrow 默认 opacity:0，但原来的规则写在页面末尾的 <style> 里，
-    浏览器解析到卡片时还没有这条规则，箭头会先画出来、样式到位后再消失，
-    移动端上就是一次明显的闪屏。这里用内联样式先行声明。
-*/}}
-<style>
-    .card-arrow {
-        opacity: 0;
-    }
-
-    /* 工卡在 three.js 首帧绘制前保持不可见，避免空白画布或尺寸跳变 */
-    .lanyard-host {
-        opacity: 0;
-        visibility: hidden;
-        transition: opacity 0.35s ease;
-    }
-    .lanyard-host:has([data-ready]) {
-        opacity: 1;
-        visibility: visible;
-    }
-    /* 不支持 :has() 的浏览器直接显示，不会永久隐藏 */
-    @supports not selector(:has(*)) {
-        .lanyard-host {
-            opacity: 1;
-            visibility: visible;
-        }
-    }
-</style>
+{{ $tel := replace ($author.phone | default "") " " "" }}
 
 {{/*
     Contact 页：只保留四张联系方式卡片，右侧放 3D 工卡。
@@ -43,7 +18,7 @@
     {{/* 左列：联系方式 */}}
     <div class="contact-cards">
         <!-- 邮箱 -->
-        <a href="mailto:{{ .Site.Params.email }}"
+        <a href="mailto:{{ $author.email }}"
            class="contact-card group flex items-center gap-4 p-4 bg-bg-primary-light dark:bg-bg-secondary-dark border border-border-primary-light dark:border-border-primary-dark">
             <span class="icon-box">
                 <svg class="w-5 h-5" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -53,7 +28,7 @@
             </span>
             <span class="min-w-0 flex-1">
                 <span class="card-label">邮箱</span>
-                <span class="card-value break-all">{{ .Site.Params.email }}</span>
+                <span class="card-value break-all">{{ $author.email }}</span>
             </span>
             <svg class="card-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="M7 17 17 7"/><path d="M9 7h8v8"/>
@@ -61,9 +36,9 @@
         </a>
 
         <!-- 微信：点击复制微信号 -->
-        <button type="button" id="copy-wechat" data-wechat="{{ .Site.Params.Wechat }}"
+        <button type="button" id="copy-wechat" data-wechat="{{ $author.wechat }}"
                 class="contact-card group flex w-full items-center gap-4 p-4 bg-bg-primary-light dark:bg-bg-secondary-dark border border-border-primary-light dark:border-border-primary-dark text-left"
-                aria-label="复制微信号 {{ .Site.Params.Wechat }}">
+                 aria-label="复制微信号 {{ $author.wechat }}">
             <span class="icon-box">
                 <svg class="w-5 h-5" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                     <path d="M14 9a2 2 0 0 1-2 2H6l-4 4V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2Z"/>
@@ -72,13 +47,13 @@
             </span>
             <span class="min-w-0 flex-1">
                 <span class="card-label">微信</span>
-                <span class="card-value">@{{ .Site.Params.Wechat }}</span>
+                <span class="card-value">@{{ $author.wechat }}</span>
             </span>
             <span class="card-hint" data-copy-hint aria-live="polite">复制</span>
         </button>
 
         <!-- 脉脉 -->
-        <a href="{{ .Site.Params.maimai }}" target="_blank" rel="noopener"
+        <a href="{{ $author.maimai }}" target="_blank" rel="noopener noreferrer"
            class="contact-card group flex items-center gap-4 p-4 bg-bg-primary-light dark:bg-bg-secondary-dark border border-border-primary-light dark:border-border-primary-dark">
             <span class="icon-box">
                 <svg class="w-5 h-5" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -90,7 +65,7 @@
             </span>
             <span class="min-w-0 flex-1">
                 <span class="card-label">脉脉</span>
-                <span class="card-value">@{{ .Site.Params.linkedin_username }}</span>
+                <span class="card-value">@{{ $author.maimai_username }}</span>
             </span>
             <svg class="card-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="M7 17 17 7"/><path d="M9 7h8v8"/>
@@ -151,316 +126,4 @@
     </div>
 
 </div>
-
-<script src="{{ "js/lanyard.js" | relURL }}" defer></script>
-
-<script>
-    (function () {
-        var button = document.getElementById('copy-wechat');
-        if (!button) return;
-        var hint = button.querySelector('[data-copy-hint]');
-        var restLabel = hint ? hint.textContent : '';
-        var timer = null;
-
-        function flash(message) {
-            if (!hint) return;
-            hint.textContent = message;
-            hint.classList.add('is-done');
-            window.clearTimeout(timer);
-            timer = window.setTimeout(function () {
-                hint.textContent = restLabel;
-                hint.classList.remove('is-done');
-            }, 1600);
-        }
-
-        function legacyCopy(value) {
-            var field = document.createElement('textarea');
-            field.value = value;
-            field.setAttribute('readonly', '');
-            field.style.position = 'fixed';
-            field.style.top = '-1000px';
-            document.body.appendChild(field);
-            field.select();
-            var ok = false;
-            try { ok = document.execCommand('copy'); } catch (e) { ok = false; }
-            document.body.removeChild(field);
-            flash(ok ? '已复制' : '复制失败');
-        }
-
-        button.addEventListener('click', function () {
-            var value = button.getAttribute('data-wechat') || '';
-            if (navigator.clipboard && window.isSecureContext) {
-                navigator.clipboard.writeText(value).then(function () {
-                    flash('已复制');
-                }, function () {
-                    legacyCopy(value);
-                });
-            } else {
-                legacyCopy(value);
-            }
-        });
-    })();
-</script>
-
-<style>
-    /*
-     * 左右两列：左侧四张卡片（收窄），右侧 3D 工卡。
-     * 整页锁一屏，不出现纵向滚动。
-     */
-    body.contact-viewport {
-        height: 100vh;
-        height: 100dvh;
-        overflow: hidden;
-        display: flex;
-        flex-direction: column;
-    }
-
-    body.contact-viewport > header,
-    body.contact-viewport > footer {
-        flex: none;
-    }
-
-    body.contact-viewport > main {
-        display: flex;
-        flex-direction: column;
-        flex: 1 1 auto;
-        min-height: 0;
-    }
-
-    body.contact-viewport > footer {
-        margin-top: 0;
-    }
-
-    .contact-page {
-        display: grid;
-        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-        align-items: center;
-        gap: clamp(1.5rem, 4vw, 4rem);
-        width: 100%;
-        max-width: 72rem;
-        margin: 0 auto;
-        padding: clamp(1rem, 3vh, 2.5rem) clamp(1rem, 3vw, 2.5rem);
-        flex: 1 1 auto;
-        min-height: 0;
-        overflow-y: auto;
-    }
-
-    /* 左列：卡片收窄，不等宽铺满 */
-    .contact-cards {
-        display: flex;
-        flex-direction: column;
-        gap: 0.75rem;
-        /* 卡片最大宽度限制，避免左侧过宽 */
-        max-width: 24rem;
-        width: 100%;
-        justify-self: end;
-    }
-
-    .contact-lanyard {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        min-width: 0;
-        justify-self: start;
-        width: 100%;
-        height: 100%;
-    }
-
-    /*
-     * 桌面端：工卡舞台铺满整个视口，作为背景层。
-     * 只有 canvas 接收指针（保留拖拽），其余区域 pointer-events: none；
-     * 联系方式卡片用更高的 z-index 覆盖在舞台上，点击区域不受影响。
-     */
-    @media (min-width: 901px) {
-        .contact-lanyard {
-            position: fixed;
-            inset: 0;
-            width: 100%;
-            height: 100vh;
-            height: 100dvh;
-            z-index: 0;
-            pointer-events: none;
-        }
-        .contact-lanyard .lanyard-host {
-            width: 100%;
-            height: 100%;
-            margin-top: 0;
-        }
-        .contact-lanyard canvas {
-            pointer-events: auto;
-        }
-        /* 卡片浮在舞台之上，保证链接 / 复制按钮的可点击区域 */
-        .contact-cards {
-            position: relative;
-            z-index: 2;
-        }
-        body.contact-viewport > footer {
-            position: relative;
-            z-index: 1;
-        }
-    }
-
-    /*
-     * 窄屏：卡片单列，工卡挂在最后一张「电话」卡片下方。
-     * 换成 flex 列，工卡区吃掉卡片下方的剩余高度，整页仍锁一屏、不产生滚动。
-     */
-    @media (max-width: 900px) {
-        .contact-page {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1rem;
-            padding-top: 1rem;
-        }
-        .contact-cards {
-            flex: none;
-            width: 100%;
-            max-width: 26rem;
-            /* 抬到工卡之上，遮住挂绳起点，视觉上就是「从电话卡片下面垂下来」 */
-            position: relative;
-            z-index: 2;
-        }
-        .contact-lanyard {
-            position: relative;
-            z-index: 0;
-            flex: 1 1 auto;
-            width: 100%;
-            min-height: 0;
-            height: auto;
-        }
-        /*
-         * 3D 宿主绝对定位，不参与撑高（否则 canvas 的高度会顶出滚动条）。
-         * 向上溢出 1rem（= 卡片与工卡区之间的间距），让挂绳起点藏在电话卡片背后；
-         * 卡片大小 / 吊绳长度由 data-*-mobile 控制。
-         */
-        .contact-lanyard .lanyard-host {
-            position: absolute;
-            top: -1rem;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            width: auto;
-            height: auto;
-            /* 平板竖屏时工卡区很高，限制一下，免得工卡被放大得比桌面还大 */
-            max-height: 560px;
-            margin-top: 0;
-        }
-    }
-
-    /*
-     * 短屏（如 iPhone SE 667px）：卡片本身已占满大半屏，
-     * 收紧卡片内距与页脚留白，把高度让给工卡区，避免卡片被压成缩略图。
-     */
-    @media (max-width: 900px) and (max-height: 760px) {
-        .contact-page {
-            gap: 0.5rem;
-            padding-top: 0.5rem;
-            padding-bottom: 0.5rem;
-        }
-        .contact-cards {
-            gap: 0.5rem;
-        }
-        .contact-card {
-            padding: 0.75rem 0.875rem;
-        }
-        .contact-lanyard .lanyard-host {
-            top: -0.5rem;
-        }
-        body.contact-viewport > footer > div {
-            padding-bottom: 1rem;
-        }
-    }
-
-    .contact-card {
-        transition: border-color 0.25s ease, transform 0.25s ease;
-    }
-    .contact-card:hover {
-        border-color: #a3a3a3;
-        transform: translateY(-2px);
-    }
-    html.dark .contact-card:hover {
-        border-color: #525252;
-    }
-    .contact-card:focus-visible {
-        outline: 2px solid #0284c7;
-        outline-offset: 3px;
-    }
-    html.dark .contact-card:focus-visible {
-        outline-color: #0ea5e9;
-    }
-
-    .icon-box {
-        display: grid;
-        place-items: center;
-        flex: none;
-        width: 2.5rem;
-        height: 2.5rem;
-        border-radius: var(--radius-xs);
-        color: #6b7280;
-        border: 1px solid #e5e5e5;
-    }
-    html.dark .icon-box {
-        color: #a3a3a3;
-        border-color: #333333;
-    }
-
-    .card-label {
-        display: block;
-        font-size: 0.75rem;
-        line-height: 1.25rem;
-        letter-spacing: 0.08em;
-        color: #6b7280;
-    }
-    html.dark .card-label {
-        color: #9ca3af;
-    }
-
-    .card-value {
-        display: block;
-        font-size: 0.9375rem;
-        line-height: 1.5rem;
-        font-weight: 500;
-        color: #1f2937;
-    }
-    html.dark .card-value {
-        color: #f5f5f5;
-    }
-
-    .card-arrow {
-        flex: none;
-        width: 1rem;
-        height: 1rem;
-        opacity: 0;
-        transition: opacity 0.25s ease;
-    }
-    .contact-card:hover .card-arrow,
-    .contact-card:focus-visible .card-arrow {
-        opacity: 0.6;
-    }
-
-    .card-hint {
-        flex: none;
-        font-size: 0.75rem;
-        letter-spacing: 0.05em;
-        color: #6b7280;
-        border: 1px solid #e5e5e5;
-        border-radius: var(--radius-pill);
-        padding: 0.125rem 0.5rem;
-        transition: color 0.25s ease, border-color 0.25s ease;
-    }
-    html.dark .card-hint {
-        color: #9ca3af;
-        border-color: #333333;
-    }
-    .card-hint.is-done {
-        color: #0284c7;
-        border-color: #0284c7;
-    }
-</style>
-<script>
-    // 只在 Contact 页给 body 加锁一屏的类
-    if (document.querySelector('.contact-page')) {
-        document.body.classList.add('contact-viewport');
-    }
-</script>
 {{ end }}

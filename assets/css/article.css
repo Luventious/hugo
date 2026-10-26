@@ -1,0 +1,251 @@
+.article-shell {
+    width: 100%;
+    max-width: 980px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.article-title {
+    margin-bottom: 0;
+}
+
+.post-tag {
+    border: 1px solid #e5e5e5;
+    background: var(--bg-tertiary, #f5f5f5);
+    color: #525252;
+}
+
+html.dark .post-tag {
+    border-color: #333333;
+    background: #1a1a1a;
+    color: #a3a3a3;
+}
+
+.post-tag:hover {
+    border-color: #0284c7;
+    color: #0284c7;
+}
+
+html.dark .post-tag:hover {
+    border-color: #0ea5e9;
+    color: #0ea5e9;
+}
+
+.post-toc ul {
+    margin: 0;
+    padding-left: 1rem;
+    list-style: none;
+}
+
+.post-toc li {
+    margin: 0.4rem 0;
+    font-size: 0.9rem;
+}
+
+.post-toc a {
+    color: #525252;
+    text-decoration: none;
+}
+
+html.dark .post-toc a {
+    color: #a3a3a3;
+}
+
+.post-toc a:hover {
+    color: #0284c7;
+}
+
+html.dark .post-toc a:hover {
+    color: #0ea5e9;
+}
+
+.post-toc ul ul {
+    padding-left: 1.2rem;
+}
+
+#article-content p {
+    margin: 1.6rem 0;
+    line-height: 1.85;
+}
+
+#article-content h1,
+#article-content h2 {
+    margin-top: 4.5rem;
+    margin-bottom: 1.2rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 1px solid rgb(0 0 0 / 8%);
+    font-size: 2rem;
+    font-weight: 600;
+    line-height: 1.35;
+}
+
+html.dark #article-content h1,
+html.dark #article-content h2 {
+    border-bottom-color: rgb(255 255 255 / 15%);
+}
+
+#article-content h3 {
+    margin-top: 3rem;
+    margin-bottom: 0.8rem;
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+#article-content h4 {
+    margin-top: 2.2rem;
+    margin-bottom: 0.6rem;
+    font-size: 1.15rem;
+    font-weight: 600;
+}
+
+#article-content ol,
+#article-content ul {
+    margin: 1.6rem 0;
+    padding-left: 1.8rem;
+    line-height: 1.85;
+}
+
+#article-content ol {
+    list-style: decimal;
+}
+
+#article-content ul {
+    list-style: disc;
+}
+
+#article-content li {
+    margin: 0.55rem 0;
+}
+
+#article-content ol ol,
+#article-content ul ul,
+#article-content ol ul,
+#article-content ul ol {
+    margin: 0.4rem 0;
+}
+
+#article-content ol ol {
+    list-style: lower-alpha;
+}
+
+#article-content ul ul {
+    list-style: circle;
+}
+
+#article-content a {
+    color: #0284c7;
+    text-decoration: underline;
+    text-decoration-color: rgb(2 132 199 / 35%);
+    text-underline-offset: 3px;
+    overflow-wrap: break-word;
+    transition: color 0.2s, text-decoration-color 0.2s;
+}
+
+html.dark #article-content a {
+    color: #0ea5e9;
+    text-decoration-color: rgb(14 165 233 / 35%);
+}
+
+#article-content a:hover {
+    text-decoration-color: currentColor;
+}
+
+#article-content code {
+    padding: 0.15em 0.4em;
+    border-radius: 6px;
+    background: rgb(127 127 127 / 12%);
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.875em;
+}
+
+html.dark #article-content code {
+    background: rgb(255 255 255 / 10%);
+}
+
+#article-content pre {
+    margin: 2rem 0;
+    padding: 1.2rem 1.4rem;
+    overflow-x: auto;
+    border-radius: var(--radius-md);
+    background: #1f2937;
+    color: #e5e7eb;
+    line-height: 1.7;
+}
+
+#article-content pre code {
+    padding: 0;
+    border-radius: 0;
+    background: transparent;
+    color: inherit;
+    font-size: 0.85rem;
+}
+
+#article-content img {
+    display: block;
+    max-width: 100%;
+    margin: 3rem auto;
+    border: 1px solid rgb(127 127 127 / 18%);
+    border-radius: var(--radius-md);
+}
+
+#article-content p:has(> em:only-child) {
+    color: #737373;
+    font-size: 0.85rem;
+    text-align: center;
+}
+
+#article-content blockquote {
+    margin: 3rem 0;
+    padding: 1rem 1.4rem;
+    border-left: 3px solid rgb(0 0 0 / 15%);
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    background: rgb(127 127 127 / 6%);
+    color: #525252;
+}
+
+html.dark #article-content blockquote {
+    border-left-color: rgb(255 255 255 / 25%);
+    background: rgb(255 255 255 / 4%);
+    color: #a3a3a3;
+}
+
+#article-content table {
+    display: block;
+    width: 100%;
+    margin: 2rem 0;
+    overflow-x: auto;
+    border-collapse: collapse;
+    font-size: 0.92rem;
+}
+
+#article-content th,
+#article-content td {
+    padding: 0.7rem 1rem;
+    border: 1px solid #e5e5e5;
+    text-align: left;
+}
+
+html.dark #article-content th,
+html.dark #article-content td {
+    border-color: #333333;
+}
+
+#article-content th {
+    background: rgb(127 127 127 / 8%);
+    font-weight: 600;
+}
+
+@media (max-width: 767px) {
+    .article-shell {
+        max-width: 100%;
+        margin-right: 0;
+        margin-left: 0;
+    }
+
+    #article-content h1,
+    #article-content h2 {
+        margin-top: 3rem;
+        font-size: 1.6rem;
+    }
+}

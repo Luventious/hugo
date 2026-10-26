@@ -1,0 +1,47 @@
+.prose {
+    color: #4b5563;
+    font-size: 1.125rem;
+}
+
+html.dark .prose {
+    color: #9ca3af;
+}
+
+.prose p {
+    margin-bottom: 1.5rem;
+    color: #4b5563;
+    line-height: 1.9;
+}
+
+html.dark .prose p {
+    color: #9ca3af;
+}
+
+.prose p + p {
+    margin-top: 2rem;
+}
+
+.animated-link {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+}
+
+.animated-link::after {
+    content: "";
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: #0284c7;
+    transition: width 0.3s ease-in-out;
+}
+
+.animated-link:hover::after {
+    width: 100%;
+}
+
+html.dark .animated-link::after {
+    background-color: #0ea5e9;
+}

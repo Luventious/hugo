@@ -1,0 +1,76 @@
+body {
+    font-family: "Space Grotesk", sans-serif;
+}
+
+.language-switcher {
+    position: relative;
+    display: inline-block;
+}
+
+.language-switcher-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    cursor: pointer;
+}
+
+.language-dropdown {
+    display: none;
+    position: absolute;
+    min-width: 120px;
+    overflow: hidden;
+    border: 1px solid #e5e5e5;
+    border-radius: var(--radius-xs);
+    background-color: #ffffff;
+    box-shadow: 0 8px 16px rgb(0 0 0 / 10%);
+    z-index: 1;
+}
+
+html.dark .language-dropdown {
+    border-color: #333333;
+    background-color: #1a1a1a;
+}
+
+.language-switcher:hover .language-dropdown,
+.language-switcher:focus-within .language-dropdown {
+    display: block;
+}
+
+.language-dropdown a {
+    display: block;
+    padding: 0.75rem 1rem;
+    text-decoration: none;
+    transition: background-color 0.2s;
+}
+
+.language-dropdown a:hover {
+    background-color: rgb(0 0 0 / 5%);
+}
+
+html.dark .language-dropdown a:hover {
+    background-color: rgb(255 255 255 / 5%);
+}
+
+.language-active {
+    font-weight: 600;
+}
+
+#mobile-menu {
+    --mobile-menu-solid: rgb(255 255 255 / 97%);
+}
+
+html.dark #mobile-menu {
+    --mobile-menu-solid: rgb(18 18 18 / 97%);
+}
+
+.theme-icon-to-light {
+    display: none;
+}
+
+html.dark .theme-icon-to-dark {
+    display: none;
+}
+
+html.dark .theme-icon-to-light {
+    display: block;
+}

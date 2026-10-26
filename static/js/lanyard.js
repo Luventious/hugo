@@ -153,7 +153,7 @@
             interactive: opts.interactive !== false,
             intro: opts.intro !== false,
             theme: opts.theme || 'auto',
-            matterUrl: opts.threeUrl || null,
+            threeUrl: opts.threeUrl || null,
             // 卡面文字（未提供图片时直接用文字绘制工卡）
             frontText: opts.frontText || '',
             frontSub: opts.frontSub || '',
@@ -165,7 +165,7 @@
         var raf = 0;
         var api = { destroy: function () {} };
 
-        loadThree(settings.matterUrl).then(function (THREE) {
+        loadThree(settings.threeUrl).then(function (THREE) {
             if (!alive) return;
             init(THREE);
         }).catch(function (err) {

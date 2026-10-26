@@ -3,7 +3,8 @@
     <div class="max-w-3xl mx-auto px-6 pb-10">
         {{ $authorData := index site.Data .Language.Lang "author" }}
         {{ $author := cond (and $authorData $authorData.author) $authorData.author site.Params }}
+        {{ $copyrightName := replace ($author.name | default "邓尚青") " " "" }}
         <p class="copyright mx-auto max-w-2xl text-xs leading-relaxed opacity-60
-                  text-text-tertiary-light dark:text-text-tertiary-dark">© {{ now.Format "2006" }} 邓尚青 本站文字内容为原创，版权归作者所有；部分图片引自网络，版权归原作者所有，仅用于个人非商业展示</p>
+                  text-text-tertiary-light dark:text-text-tertiary-dark">© {{ now.Format "2006" }} {{ $copyrightName }} 本站文字内容为原创，版权归作者所有；部分图片引自网络，版权归原作者所有，仅用于个人非商业展示</p>
     </div>
 </footer>

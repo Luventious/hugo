@@ -1,4 +1,5 @@
 ---
+title: "关于我"
 layout: "about" # Or specific layout if defined
 ---
 

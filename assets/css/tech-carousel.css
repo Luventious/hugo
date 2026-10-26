@@ -1,0 +1,103 @@
+.tech-carousel {
+    width: 100%;
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.carousel-container {
+    width: 100%;
+    margin-bottom: 0.5rem;
+    overflow: hidden;
+}
+
+.carousel-track,
+.carousel-track-reverse {
+    display: flex;
+    width: fit-content;
+}
+
+.carousel-track-left-to-right {
+    animation: carousel-scroll-left-to-right 60s linear infinite;
+}
+
+.carousel-track-reverse {
+    animation: carousel-scroll-reverse 45s linear infinite;
+}
+
+.carousel-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    width: auto;
+    margin: 0 0.1rem;
+    padding: 0.75rem 0.5rem;
+    border-radius: var(--radius-sm);
+    color: currentColor;
+    white-space: nowrap;
+}
+
+.carousel-item i {
+    font-size: 2.25rem;
+}
+
+.carousel-item i.brand-icon {
+    display: inline-block;
+    width: 2.25rem;
+    height: 2.25rem;
+    background-color: currentColor;
+    -webkit-mask-image: var(--brand-icon);
+    mask-image: var(--brand-icon);
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+}
+
+.brand-codex {
+    --brand-icon: url("/icons/codex.svg");
+}
+
+.brand-deepseek {
+    --brand-icon: url("/icons/deepseek.svg");
+}
+
+.carousel-item span {
+    font-size: 1.25rem;
+    font-weight: 500;
+}
+
+.carousel-container:hover .carousel-track,
+.carousel-container:hover .carousel-track-reverse,
+.carousel-container:hover .carousel-track-left-to-right {
+    animation-play-state: paused;
+}
+
+@keyframes carousel-scroll-left-to-right {
+    0% {
+        transform: translateX(calc(-100% / 2));
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes carousel-scroll-reverse {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(calc(-100% / 2));
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .carousel-track,
+    .carousel-track-reverse {
+        animation: none;
+    }
+}

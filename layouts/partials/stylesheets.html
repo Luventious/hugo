@@ -1,0 +1,10 @@
+{{- $files := slice -}}
+{{- range .files -}}
+    {{- with resources.Get (printf "css/%s.css" .) -}}
+        {{- $files = $files | append . -}}
+    {{- end -}}
+{{- end -}}
+{{- with $files -}}
+    {{- $bundle := . | resources.Concat (printf "css/%s.css" $.name) | minify | fingerprint -}}
+    <link rel="stylesheet" href="{{ $bundle.RelPermalink }}" integrity="{{ $bundle.Data.Integrity }}">
+{{- end -}}

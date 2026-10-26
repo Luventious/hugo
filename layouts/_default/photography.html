@@ -1,5 +1,9 @@
+{{ define "head" }}
+{{ partial "stylesheets.html" (dict "name" "photography" "files" (slice "infinite-menu")) }}
+<script src="{{ "js/infinite-menu.js" | relURL }}" defer></script>
+{{ end }}
+
 {{ define "main" }}
-<link rel="stylesheet" href="{{ "css/infinite-menu.css" | relURL }}">
 {{/*
     Lens：整页就是画布，不设页面标题。
     高度锁一屏（扣掉页头页脚），让图片动效占满全部有效面积。
@@ -27,36 +31,40 @@
         {{ end }}
     {{ end }}
 
-    <div class="lens-stage"
-         data-infinite-menu
-         data-count="160"
-         data-tile-size="0.63"
-         data-roundness="0.2"
-         data-zoom="1.65"
-         data-autoplay="3"
-         data-grayscale="true"
-         data-dim="0.5"
-         data-theme="auto"
-         data-items='{{ $items | jsonify }}'
-         aria-label="Lens 照片墙"></div>
+    {{ if $items }}
+        <div class="lens-stage"
+             data-infinite-menu
+             data-count="160"
+             data-tile-size="0.63"
+             data-roundness="0.2"
+             data-zoom="1.65"
+             data-autoplay="3"
+             data-grayscale="true"
+             data-dim="0.5"
+             data-theme="auto"
+             data-items='{{ $items | jsonify }}'
+             aria-label="Lens 照片墙"></div>
 
-    <!-- 无障碍兜底：无 WebGL / JS 时仍可浏览全部照片 -->
-    <noscript>
-        <div class="photo-grid lens-fallback">
-            {{ range $photos }}
-                {{ if not .IsDir }}
-                    {{ $name := lower .Name }}
-                    {{ if in $exts (path.Ext $name) }}
-                    <div class="photo-grid-item">
-                        <img src="{{ printf "/images/photography/%s" .Name }}" alt="{{ .Name }}" loading="lazy">
-                    </div>
+        <!-- 无障碍兜底：无 WebGL / JS 时仍可浏览全部照片 -->
+        <noscript>
+            <div class="photo-grid lens-fallback">
+                {{ range $photos }}
+                    {{ if not .IsDir }}
+                        {{ $name := lower .Name }}
+                        {{ if in $exts (path.Ext $name) }}
+                        <div class="photo-grid-item">
+                            <img src="{{ printf "/images/photography/%s" .Name }}" alt="{{ .Name }}" loading="lazy">
+                        </div>
+                        {{ end }}
                     {{ end }}
                 {{ end }}
-            {{ end }}
+            </div>
+        </noscript>
+    {{ else }}
+        <div class="lens-empty" role="status">
+            <p>照片正在整理中</p>
         </div>
-    </noscript>
+    {{ end }}
 
 </div>
-
-<script src="{{ "js/infinite-menu.js" | relURL }}" defer></script>
 {{ end }}
