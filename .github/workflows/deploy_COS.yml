@@ -1,4 +1,4 @@
-name: Deploy Hugo to Tencent COS
+﻿name: Deploy Hugo to Tencent COS
 
 on:
   push:
@@ -14,6 +14,46 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+
+      - name: Fix Hugo Date Formats to RFC3339
+        run: |
+          python3 <<'PYEOF'
+          import os, re
+
+          folder = "content"
+          pattern = r"(date:\s*)(\d{4})-(\d{1,2})-(\d{1,2})[ T](\d{1,2}):(\d{1,2}):(\d{1,2})\s*([+-]?\d{1,2}:?\d{2})"
+
+          def fix_date(match):
+              prefix = match.group(1)
+              y, m, d = int(match.group(2)), int(match.group(3)), int(match.group(4))
+              H, M, S = int(match.group(5)), int(match.group(6)), int(match.group(7))
+              tz_raw = match.group(8).strip()
+              if tz_raw.startswith('+') or tz_raw.startswith('-'):
+                  tz_sign, tz_body = tz_raw[0], tz_raw[1:]
+              else:
+                  tz_sign, tz_body = '+', tz_raw
+              tz_digits = tz_body.replace(':', '').zfill(4)
+              tz_h, tz_m = int(tz_digits[:2]), int(tz_digits[2:])
+              return f"{prefix}{y:04d}-{m:02d}-{d:02d}T{H:02d}:{M:02d}:{S:02d}{tz_sign}{tz_h:02d}:{tz_m:02d}"
+
+          for root, dirs, files in os.walk(folder):
+              for file in files:
+                  if not file.endswith(".md"):
+                      continue
+                  path = os.path.join(root, file)
+                  with open(path, "r", encoding="utf-8") as f:
+                      content = f.read()
+                  content_new = re.sub(pattern, fix_date, content)
+                  with open(path, "w", encoding="utf-8") as f:
+                      f.write(content_new)
+          PYEOF
+
+      - name: Append imageMogr2 params to site images
+        run: |
+          PARAM='?imageMogr2/format/webp/quality/85/thumbnail/1600x'
+          find content/zh -name '*.md' -print0 | xargs -0 -r sed -i -E \
+            -e "s#(!\[[^]]*\]\()(https?://[^\"'?]+/images/[^\"'?]*\.(png|jpe?g))(\))#\1\2$PARAM\4#g" \
+            -e "s#(!\[[^]]*\]\()(/images/[^\"'?]*\.(png|jpe?g))(\))#\1\2$PARAM\4#g"
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3
