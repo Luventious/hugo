@@ -25,8 +25,8 @@ jobs:
         run: |
           PARAM='?imageMogr2/format/webp/quality/85/thumbnail/1600x'
           find content/zh -name '*.md' -print0 | xargs -0 -r sed -i -E \
-            -e "s|(!\[[^]]*\]\()(https?://[^\"'?]+/images/[^\"'?]*\.(png|jpe?g))(\))|\1\2$PARAM\4|g" \
-            -e "s|(!\[[^]]*\]\()(/images/[^\"'?]*\.(png|jpe?g))(\))|\1\2$PARAM\4|g"
+            -e "s#(!\[[^]]*\]\()(https?://[^\"'?]+/images/[^\"'?]*\.(png|jpe?g))(\))#\1\2$PARAM\4#g" \
+            -e "s#(!\[[^]]*\]\()(/images/[^\"'?]*\.(png|jpe?g))(\))#\1\2$PARAM\4#g"
 
       - name: Build
         run: hugo --minify --baseURL https://shangqing.site/
