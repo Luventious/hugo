@@ -11,7 +11,10 @@
 <div class="lens-page">
 
     {{ $photosPath := "static/images/photography" }}
-    {{ $photos := readDir $photosPath }}
+    {{ $photos := slice }}
+    {{ if fileExists $photosPath }}
+        {{ $photos = readDir $photosPath }}
+    {{ end }}
     {{ $photoBase := "/images/photography/" }}
 
     {{/* 组装 items：[{image, title, link}]，供 InfiniteMenu 使用。
