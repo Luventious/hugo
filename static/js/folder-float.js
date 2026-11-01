@@ -101,10 +101,12 @@
         var opts = options || {};
 
         var items = (opts.items || []).map(function (item) {
-            return typeof item === 'string' ? { label: item, value: item, link: null } : {
+            return typeof item === 'string' ? { label: item, value: item, link: null, external: false } : {
                 label: item.label,
                 value: item.value === undefined ? item.label : item.value,
-                link: item.link || (typeof item.value === 'string' && /^[#/]|^https?:/.test(item.value) ? item.value : null)
+                link: item.link || (typeof item.value === 'string' && /^[#/]|^https?:/.test(item.value) ? item.value : null),
+                // external: true 时链接在新标签页打开
+                external: !!item.external
             };
         });
         var n = items.length;
@@ -178,6 +180,11 @@
             var a = document.createElement('a');
             a.className = 'folder-float__item';
             a.href = item.link || '#';
+            // 外部链接：键盘 Enter 走原生锚点跳转时也要新开标签页
+            if (item.external && item.link) {
+                a.target = '_blank';
+                a.rel = 'noopener noreferrer';
+            }
             a.setAttribute('tabindex', '-1');
             a.setAttribute('aria-hidden', 'true');
             a.style.setProperty('--i', String(i));
@@ -398,7 +405,11 @@
             pillEls[i].setAttribute('data-pop', '');
             poppedTimer = global.setTimeout(function () { pillEls[i].removeAttribute('data-pop'); }, 320);
             if (opts.onSelect) opts.onSelect(item.value, i, item);
-            else if (item.link) global.location.href = item.link;
+            else if (item.link) {
+                // 外部链接新标签页打开；站内链接保持当前页跳转
+                if (item.external) global.open(item.link, '_blank', 'noopener');
+                else global.location.href = item.link;
+            }
             if (closeOnSelect) setOpen(false);
         }
 

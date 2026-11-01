@@ -24,16 +24,16 @@
 {{/* 导航文件夹：悬停/点击展开，选项浮动可拖拽 */}}
 {{ $menu := slice
     (dict "label" "我做过的项目" "link" ("projects/" | absLangURL))
-    (dict "label" "我是何方神圣" "link" ("experience/" | absLangURL))
+    (dict "label" "用户场景地图" "link" "https://shangqing.site/scenarios" "external" true)
     (dict "label" "试试联系我"   "link" ("contact/" | absLangURL))
     (dict "label" "我的闲言碎语" "link" ("blogs/" | absLangURL))
-    (dict "label" "镜头下的世界" "link" ("photography/" | absLangURL))
+    (dict "label" "趋势雷达"     "link" "https://shangqing.site/radar" "external" true)
 }}
 <div class="home-folder">
     <div data-folder-float
          data-items='{{ $menu | jsonify }}'
          data-matter-url="{{ "js/vendor/matter.min.js" | relURL }}"
-         data-label="继续逛逛"
+         data-label="我做的小玩意"
          data-sublabel="5 个去处"
          data-theme="auto"
          data-spread="200"
