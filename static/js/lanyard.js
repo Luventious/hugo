@@ -102,8 +102,39 @@
         };
     }
 
-    function traceRoundedRect(path, x, y, width, height, radius) {
+    function traceRoundedRect(path, x, y, width, height, radius, shape) {
         var r = Math.max(0, Math.min(radius, width / 2, height / 2));
+        if (shape === 'squircle' && r > 0) {
+            /*
+             * 苹果式连续曲率：逐角采样超椭圆 |dx/r|^4 + |dy/r|^4 = 1
+             * （n=4，与全站 CSS 的 corner-shape: squircle = superellipse(2) 同族），
+             * 按 dx 均匀取点，切点附近不会跳步。
+             */
+            var seg = 12;
+            // [中心偏移基准, ex(出射单位向量), ey(入射单位向量)]，顺时针：右上→右下→左下→左上
+            var corners = [
+                [x + width - r, y + r, [1, 0], [0, -1]],
+                [x + width - r, y + height - r, [0, 1], [1, 0]],
+                [x + r, y + height - r, [-1, 0], [0, 1]],
+                [x + r, y + r, [0, -1], [-1, 0]]
+            ];
+            path.moveTo(x + r, y);
+            path.lineTo(x + width - r, y);
+            for (var c = 0; c < 4; c++) {
+                var cc = corners[c], ax = cc[2], ay = cc[3];
+                for (var i = 1; i < seg; i++) {
+                    var u = i / seg;
+                    var v = Math.pow(1 - Math.pow(u, 4), 0.25);
+                    path.lineTo(cc[0] + r * (ax[0] * u + ay[0] * v), cc[1] + r * (ax[1] * u + ay[1] * v));
+                }
+                // 角的末端（u=1 落在下一条直边的起点），再走直线到下一个角
+                if (c === 0) path.lineTo(x + width, y + height - r);
+                else if (c === 1) path.lineTo(x + r, y + height);
+                else if (c === 2) path.lineTo(x, y + r);
+            }
+            path.lineTo(x + r, y);
+            return;
+        }
         var k = r * 0.4477;
         path.moveTo(x + r, y);
         path.lineTo(x + width - r, y);
@@ -387,7 +418,7 @@
             function buildCardGeometry() {
                 var outline = new THREE.Shape();
                 traceRoundedRect(outline, -layout.width / 2 + BEVEL, -layout.height / 2 + BEVEL,
-                    layout.width - BEVEL * 2, layout.height - BEVEL * 2, Math.max(layout.radius - BEVEL, 0.005));
+                    layout.width - BEVEL * 2, layout.height - BEVEL * 2, Math.max(layout.radius - BEVEL, 0.005), 'squircle');
                 var hole = new THREE.Path();
                 var slot = layout.slot;
                 traceRoundedRect(hole, -slot.width / 2 - BEVEL, slot.y - slot.height / 2 - BEVEL,

@@ -18,6 +18,14 @@
  * 常规内层媒体取 sm（12px）；嵌得很深的小面（如文件夹里的纸）取 xs（8px）。
  *
  * 新组件请引用变量，不要再写字面量圆角。
+ *
+ * ——— 连续曲率（苹果式 squircle）———
+ * 卡片类元素在上面的半径之上，统一叠加 corner-shape，把「圆弧 + 直线」
+ * 的普通圆角换成曲率连续过渡的超椭圆（iOS/macOS 图标、卡片同款）。
+ * 见文件末尾的 @supports 区块：只改角的形状，不改半径档位，
+ * 所以档位表依旧有效，新组件照旧引用变量即可自动获得连续曲率。
+ * 支持情况：Chromium 139+ / Firefox 162+；Safari 尚未实现，
+ * 走 @supports 回落到普通圆角（视觉上只是角稍微"圆"一点，不破版）。
  */
 
 :root {
@@ -27,6 +35,12 @@
     --radius-lg: 1.25rem;   /* 20px */
     --radius-xl: 1.5rem;    /* 24px */
     --radius-pill: 999px;
+
+    /*
+     * 角形状：squircle = superellipse(2)，小尺寸卡片上已经很接近苹果观感。
+     * 想更"方"更接近 App 图标可改 superellipse(3)；1 就是普通圆角。
+     */
+    --radius-corner-shape: squircle;
 }
 
 /* —— 列表卡（文章 / 标签 / 分类） —— */
@@ -82,4 +96,31 @@
 
 .work-card {
     border-radius: var(--radius-lg);
+}
+
+/*
+ * ——— 连续曲率（苹果式 squircle）———
+ * corner-shape 不可继承，所以用通配选择器统一给所有角声明形状，
+ * 那些靠 `border-radius: inherit` 贴合外层的内层（遮罩、描边、媒体框）
+ * 才能和外壳同形，不会出现"外层 squircle、内层圆弧"的错角。
+ * 只改形状不改半径 —— 上面那张档位表照旧生效。
+ *
+ * 不支持的浏览器（Safari 全系、旧 Chromium）整块 @supports 被跳过，
+ * 自动回落成普通圆弧，不需要 JS 兜底。
+ */
+@supports (corner-shape: squircle) {
+    *,
+    *::before,
+    *::after {
+        corner-shape: var(--radius-corner-shape);
+    }
+
+    /*
+     * 胶囊与正圆保持普通圆弧：半径等于半边长时连续曲率会把胶囊
+     * 压成"方糖"、把圆压成圆角方形，反而失真。
+     */
+    .rounded-full,
+    :is(.card-hint, .contact-cta, .folder-float__item, .infinite-menu__action, .infinite-menu__viewer-close) {
+        corner-shape: round;
+    }
 }
