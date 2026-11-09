@@ -11,3 +11,10 @@ description = "如何通过展车体验优化，提升客户对新能源汽车�
 tech = "利益相关者, 用户旅程, 用户画像, 同理心地图"
 image = "/images/projects/zcp0423.jpg"
 link = "/zh/projects/1"
+
+[[projects]]
+title = "新能源旗舰级SUV体验定义流程"
+description = "一辆车从0到1的体验定义过程"
+tech = "体验定义, 竞品分析, 场景设计"
+image = "https://shangqing.site/images/blogs/2/35233980-5347-8096-a719-ca32e779ab75.webp"
+link = "/zh/projects/2"

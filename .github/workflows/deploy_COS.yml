@@ -48,6 +48,9 @@ jobs:
                       f.write(content_new)
           PYEOF
 
+      - name: Fix CJK bold flanking for goldmark
+        run: python3 tools/fix-bold.py
+
       - name: Append imageMogr2 params to site images
         run: |
           PARAM='?imageMogr2/format/webp/quality/85/thumbnail/1600x'
