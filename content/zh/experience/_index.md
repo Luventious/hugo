@@ -1,4 +1,3 @@
 ---
 title: "Experience"
-layout: "experience"
 ---

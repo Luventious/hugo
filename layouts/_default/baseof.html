@@ -80,7 +80,7 @@
         {{ block "head" . }}{{ end }}
         <script src="{{ "js/site.js" | relURL }}" defer></script>
     </head>
-    <body class="min-h-screen bg-bg-primary-light text-text-primary-light dark:bg-bg-primary-dark dark:text-text-primary-dark{{ if eq .Params.layout "contact" }} contact-viewport{{ else if eq .Params.layout "photography" }} lens-viewport{{ end }}">
+    <body class="min-h-screen bg-bg-primary-light text-text-primary-light dark:bg-bg-primary-dark dark:text-text-primary-dark{{ if eq .Params.layout "photography" }} lens-viewport{{ end }}">
         {{ partial "flux-background.html" . }}
         {{ partial "header" . }}
         <main>

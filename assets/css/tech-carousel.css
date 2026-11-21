@@ -60,8 +60,8 @@
     --brand-icon: url("/icons/codex.svg");
 }
 
-.brand-deepseek {
-    --brand-icon: url("/icons/deepseek.svg");
+.brand-workbuddy {
+    --brand-icon: url("/icons/workbuddy.svg");
 }
 
 .carousel-item span {
