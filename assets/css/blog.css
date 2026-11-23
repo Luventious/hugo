@@ -1,0 +1,313 @@
+/* ============================================================
+ * blog.css —— 博客文章页（腾讯 ISUX 阅读风格）
+ *
+ * 作用域：全部样式限定在 .blog-view 内，不影响 project / single。
+ * 特征：黑白灰克制、大留白、chapter-N 章节编号、800px 阅读宽度。
+ * 配色跟随站点明暗主题，与 header/footer 保持一致。
+ * ============================================================ */
+
+.blog-view {
+    --bv-fg: rgba(0, 0, 0, .82);
+    --bv-strong: #000;
+    --bv-muted: #777;
+    --bv-faint: #999;
+    --bv-border: #ccc;
+    --bv-soft-border: #e5e5e5;
+    --bv-surface: #f2f2f2;
+    --bv-sans: "Space Grotesk", -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+
+    width: 100%;
+    padding: 4rem 1.5rem 6rem;
+    font-family: var(--bv-sans);
+}
+
+html.dark .blog-view {
+    --bv-fg: #d6d6d6;
+    --bv-strong: #f5f5f5;
+    --bv-muted: #a3a3a3;
+    --bv-faint: #737373;
+    --bv-border: #404040;
+    --bv-soft-border: #333333;
+    --bv-surface: #1a1a1a;
+}
+
+.blog-inner {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* —— 题头 —— */
+.blog-title {
+    margin: 0 0 1.5rem;
+    font-size: 2.25rem;
+    font-weight: 500;
+    line-height: 1.4;
+    letter-spacing: 2px;
+    color: var(--bv-strong);
+    word-break: break-word;
+}
+
+.blog-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: .875rem;
+    padding-bottom: 1.375rem;
+    margin-bottom: 2.75rem;
+    border-bottom: 1px solid var(--bv-border);
+}
+
+.blog-date {
+    font-size: .8125rem;
+    letter-spacing: .08em;
+    color: var(--bv-muted);
+}
+
+.blog-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+}
+
+.blog-tag {
+    padding: .25rem .75rem;
+    border: 1px solid var(--bv-soft-border);
+    border-radius: 999px;
+    font-size: .75rem;
+    color: var(--bv-muted);
+    text-decoration: none;
+    transition: border-color .2s, color .2s;
+}
+
+.blog-tag:hover {
+    border-color: var(--bv-muted);
+    color: var(--bv-strong);
+}
+
+/* —— 正文 —— */
+#blog-content {
+    color: var(--bv-fg);
+    counter-reset: blog-chapter;
+}
+
+/* 导语：前两段稍大；无章节时第一段改为浅灰填充块兜底 */
+#blog-content > p:first-child,
+#blog-content > p:nth-child(2) {
+    font-size: 1.0625rem;
+    line-height: 2;
+}
+
+.blog-nochapters #blog-content > p:first-child {
+    padding: 1.625rem 1.875rem;
+    margin-bottom: 2.25rem;
+    background: var(--bv-surface);
+}
+
+.blog-nochapters #blog-content > p:nth-child(2) {
+    font-size: 1rem;
+}
+
+#blog-content p {
+    margin: 0 0 1.5rem;
+    font-size: 1rem;
+    line-height: 2;
+}
+
+#blog-content strong {
+    font-weight: 600;
+    color: var(--bv-strong);
+}
+
+/* Notion 导出的标题常带 **，导致 h 内嵌 strong 字重被抬高，统一继承 */
+#blog-content h1 strong,
+#blog-content h2 strong,
+#blog-content h3 strong,
+#blog-content h4 strong {
+    font-weight: inherit;
+}
+
+/* 章节编号：由 CSS counter 自动生成，无需改文章正文 */
+#blog-content h2 {
+    counter-increment: blog-chapter;
+    margin: 4.5rem 0 1.75rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.5;
+    color: var(--bv-strong);
+}
+
+#blog-content h2::before {
+    display: block;
+    margin-bottom: .625rem;
+    content: "chapter-" counter(blog-chapter);
+    font-size: .75rem;
+    font-weight: 400;
+    letter-spacing: .2em;
+    color: var(--bv-faint);
+}
+
+#blog-content h3 {
+    margin: 2.5rem 0 1.125rem;
+    font-size: 1.125rem;
+    font-weight: 500;
+    line-height: 1.6;
+    color: var(--bv-strong);
+}
+
+#blog-content h4 {
+    margin: 2rem 0 1rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--bv-strong);
+}
+
+#blog-content ol,
+#blog-content ul {
+    margin: 0 0 1.75rem;
+    padding-left: 1.4em;
+}
+
+#blog-content li {
+    margin: 0 0 .75rem;
+    font-size: 1rem;
+    line-height: 1.95;
+}
+
+#blog-content li ul,
+#blog-content li ol {
+    margin: .5rem 0 .75rem;
+}
+
+#blog-content a {
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-color: var(--bv-border);
+    text-underline-offset: 4px;
+    overflow-wrap: break-word;
+    transition: text-decoration-color .2s;
+}
+
+#blog-content a:hover {
+    text-decoration-color: var(--bv-strong);
+}
+
+#blog-content img {
+    display: block;
+    max-width: 100%;
+    margin: 2.5rem auto;
+}
+
+/* 图注：图片下方的纯斜体段落 */
+#blog-content p:has(> em:only-child) {
+    margin-top: -1.5rem;
+    font-size: .8125rem;
+    color: var(--bv-muted);
+    text-align: center;
+}
+
+#blog-content blockquote {
+    margin: 2.5rem 0;
+    padding-left: 1.25rem;
+    border-left: 2px solid var(--bv-border);
+    color: var(--bv-muted);
+}
+
+#blog-content code {
+    padding: .15em .4em;
+    border-radius: 4px;
+    background: var(--bv-surface);
+    font-size: .875em;
+}
+
+#blog-content pre {
+    margin: 2rem 0;
+    padding: 1.2rem 1.4rem;
+    overflow-x: auto;
+    background: var(--bv-surface);
+    line-height: 1.7;
+}
+
+#blog-content pre code {
+    padding: 0;
+    border-radius: 0;
+    background: transparent;
+}
+
+/* 表格：去掉竖线，只保留横线，ISUX 的极简处理 */
+#blog-content table {
+    display: block;
+    width: 100%;
+    margin: 2.25rem 0;
+    overflow-x: auto;
+    border-collapse: collapse;
+    font-size: .8125rem;
+}
+
+#blog-content th,
+#blog-content td {
+    padding: .875rem .75rem;
+    border-bottom: 1px solid var(--bv-soft-border);
+    text-align: left;
+    vertical-align: top;
+}
+
+#blog-content th {
+    border-bottom-color: var(--bv-muted);
+    font-weight: 500;
+    color: var(--bv-strong);
+}
+
+/* —— 文末导航：极简文字链接 —— */
+.blog-pager {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    margin-top: 5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--bv-border);
+    font-size: .875rem;
+    color: var(--bv-muted);
+}
+
+/* 较旧一篇恒靠右：单侧存在时也保持与箭头方向一致 */
+.blog-pager-older {
+    margin-left: auto;
+    text-align: right;
+}
+
+.blog-pager a {
+    color: var(--bv-fg);
+    text-decoration: none;
+}
+
+.blog-pager a:hover {
+    color: var(--bv-strong);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+@media (max-width: 720px) {
+    .blog-view {
+        padding: 2.75rem 1.25rem 5rem;
+    }
+
+    .blog-title {
+        font-size: 1.75rem;
+        letter-spacing: 1px;
+    }
+
+    #blog-content h2 {
+        margin-top: 3.5rem;
+        font-size: 1.25rem;
+    }
+
+    #blog-content > p:first-child,
+    #blog-content > p:nth-child(2) {
+        font-size: 1rem;
+    }
+
+    .blog-nochapters #blog-content > p:first-child {
+        padding: 1.25rem;
+    }
+}

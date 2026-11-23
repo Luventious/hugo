@@ -1,0 +1,45 @@
+{{/*
+ * Blog 文章页 —— 腾讯 ISUX 阅读风格
+ * 仅用于 layout: blog 的页面（博客类文章）。
+ * header / footer 由 baseof.html 统一注入，与全站保持一致。
+ * 章节编号由 CSS counter 自动生成，无需改动文章正文。
+ */}}
+{{ define "head" }}
+{{ partial "stylesheets.html" (dict "name" "blog" "files" (slice "blog")) }}
+{{ end }}
+
+{{ define "main" }}
+{{ $tags := .GetTerms "tags" }}
+{{ $hasChapters := findRE "<h2" .Content }}
+<div class="blog-view{{ if not $hasChapters }} blog-nochapters{{ end }}">
+    <div class="blog-inner">
+
+        <!-- 题头：标题 / 日期 / 标签 -->
+        <h1 class="blog-title">{{ .Title }}</h1>
+        <div class="blog-meta">
+            {{ if .Date }}
+            <span class="blog-date">{{ .Date.Format "JANUARY 02, 2006" }}{{ if gt (len .Plain) 0 }}　·　约 {{ math.Max 1 (math.Div (len .Plain) 300) }} 分钟阅读{{ end }}</span>
+            {{ end }}
+            {{ if $tags }}
+            <div class="blog-tags">
+                {{ range $tags }}<a href="{{ .RelPermalink }}" class="blog-tag">{{ .LinkTitle }}</a>{{ end }}
+            </div>
+            {{ end }}
+        </div>
+
+        <!-- 正文 -->
+        <div id="blog-content">{{ .Content }}</div>
+
+        <!-- 文末导航：较新恒左、较旧恒右，缺失一侧不影响另一侧对齐 -->
+        {{ $newer := .NextInSection }}
+        {{ $older := .PrevInSection }}
+        {{ if or $newer $older }}
+        <nav class="blog-pager" aria-label="文章导航">
+            {{ with $newer }}<a class="blog-pager-newer" href="{{ .RelPermalink }}">← 较新一篇 · {{ .Title }}</a>{{ end }}
+            {{ with $older }}<a class="blog-pager-older" href="{{ .RelPermalink }}">较旧一篇 · {{ .Title }} →</a>{{ end }}
+        </nav>
+        {{ end }}
+
+    </div>
+</div>
+{{ end }}

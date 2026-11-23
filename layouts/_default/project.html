@@ -1,0 +1,110 @@
+{{/*
+ * Project 文章页 —— Medium 阅读风格
+ * 仅用于 layout: project 的页面（project 类文章）。
+ * header / footer 由 baseof.html 统一注入，与全站保持一致。
+ * 无关注、评论、分享等社交模块。
+ */}}
+{{ define "head" }}
+{{ partial "stylesheets.html" (dict "name" "project" "files" (slice "project")) }}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;700;900&family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+{{ end }}
+
+{{ define "main" }}
+<div class="project-progress" id="project-progress" aria-hidden="true"></div>
+<div class="project-view">
+
+    <!-- 右侧固定目录：不随页面滚动，点击跳转，滚动时高亮当前章节 -->
+    {{ with .TableOfContents }}
+    <aside class="project-toc" aria-label="本文目录">
+        <div class="project-toc-inner">
+            <p class="project-toc-title">本文目录</p>
+            {{ . }}
+        </div>
+    </aside>
+    {{ end }}
+
+    <!-- 文章头：署名 / 日期 / 阅读时长 / 标签 -->
+    <div class="project-head">
+        <div class="project-byline">
+            <span class="project-avatar" aria-hidden="true"></span>
+            <span class="project-who">{{ site.Params.name }}</span>
+            {{ if .Date }}
+            <span class="project-dot">·</span>
+            <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006.01.02" }}</time>
+            <span class="project-dot">·</span>
+            <span>约 {{ math.Max 1 (math.Div (len .Plain) 300) }} 分钟阅读</span>
+            {{ end }}
+        </div>
+
+        <h1 class="project-title">{{ .Title }}</h1>
+
+        {{ with .Description }}<p class="project-subtitle">{{ . }}</p>{{ end }}
+
+        <div class="project-meta">
+            {{ with .GetTerms "tags" }}
+                {{ range $i, $term := . }}
+                    {{ if $i }}<span class="project-dot">·</span>{{ end }}
+                    <span class="project-tag-inline">{{ $term.LinkTitle }}</span>
+                {{ end }}
+            {{ end }}
+        </div>
+    </div>
+
+    <!-- 封面：有 cover 才渲染宽幅题图，无则不渲染 -->
+    {{ with .Params.cover }}
+    <figure class="project-cover">
+        <img src="{{ . | relURL }}" alt="{{ $.Title }}">
+        {{ with $.Description }}<figcaption>{{ . }}</figcaption>{{ end }}
+    </figure>
+    {{ end }}
+
+    <!-- 正文 -->
+    <div id="project-content">{{ .Content }}</div>
+
+    <!-- 文末标签 -->
+    {{ with .GetTerms "tags" }}
+    <div class="project-end">
+        <div class="project-tags">
+            {{ range . }}<a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>{{ end }}
+        </div>
+    </div>
+    {{ end }}
+
+    <!-- 文末导航：较新恒左、较旧恒右，返回列表独立成行 -->
+    <nav class="project-pager" aria-label="文章导航">
+        {{ with .NextInSection }}<a class="project-pager-newer" href="{{ .RelPermalink }}">← 较新一篇 · {{ .Title }}</a>{{ end }}
+        {{ with .PrevInSection }}<a class="project-pager-older" href="{{ .RelPermalink }}">较旧一篇 · {{ .Title }} →</a>{{ end }}
+        <a class="project-pager-back" href="{{ .CurrentSection.RelPermalink }}">返回{{ .CurrentSection.Title }}列表 →</a>
+    </nav>
+</div>
+
+<script>
+(function () {
+    var bar = document.getElementById('project-progress');
+    var links = [].slice.call(document.querySelectorAll('#TableOfContents a'));
+    var targets = links.map(function (a) {
+        return document.getElementById(decodeURIComponent(a.getAttribute('href').slice(1)));
+    });
+
+    function update() {
+        // 阅读进度
+        if (bar) {
+            var max = document.documentElement.scrollHeight - window.innerHeight;
+            bar.style.width = (max > 0 ? Math.min(100, window.scrollY / max * 100) : 0) + '%';
+        }
+        // 目录高亮：视口顶部以上最近的标题
+        var active = -1;
+        for (var i = 0; i < targets.length; i++) {
+            if (targets[i] && targets[i].getBoundingClientRect().top <= 140) active = i;
+        }
+        links.forEach(function (a, i) { a.classList.toggle('active', i === active); });
+    }
+
+    window.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
+    update();
+})();
+</script>
+{{ end }}
